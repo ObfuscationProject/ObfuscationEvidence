@@ -1,0 +1,1513 @@
+{
+  "date": "2026-10-19",
+  "all_complete_milestone_gates": "open",
+  "product_source_changes": false,
+  "scope": "Current-source tests, explicit installed SDK admission, fresh x86_64 SDK integration, selected actual single-CPU QEMU guests. No physical or manual desktop acceptance.",
+  "kernel_debug_boot_profiles": 10,
+  "kernel_debug_boot_passed": 10,
+  "os_python": {
+    "methods": 1268,
+    "passed": 1266,
+    "failures": 1,
+    "errors": 1,
+    "skipped": 0
+  },
+  "kernel_hosted": {
+    "official_entrypoints": 39,
+    "first_attempt_passed": 34,
+    "actual_regressed_entrypoints": 4,
+    "invocation_error_corrected": 1,
+    "unique_python_unittest_cases": 221,
+    "duplicate_python_unittest_cases": 20,
+    "pty_binaries_passed": 8,
+    "pty_runtime_cases": 52,
+    "pty_runtime_checks": 41699,
+    "total_suite_entries_including_pty": 47,
+    "passed_after_invocation_correction": 43,
+    "failed_official_entries": 4,
+    "diagnostic_harnesses_passed": 2
+  },
+  "milestones": [
+    {
+      "id": "M0",
+      "name": "Contracts and evidence ledger",
+      "fresh_evidence": "Schema, SDK admission and 97 related controls pass; full gate-m0 fails.",
+      "remaining": "Seed inventory, four reviewed normative indexes, source/requirement/test mappings and complete evidence closure are missing.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M1",
+      "name": "Allocation, VM, waits and time",
+      "fresh_evidence": "Hosted allocator/mapping/wait controls pass; actual x86_64 native time/poll/private VM and paged VM markers pass before a later quota-test failure.",
+      "remaining": "General allocation/reclaim/OOM/VM and sustained pressure qualification are incomplete. POSIX pressure fixture and ABI55 object-pressure admission are broken.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M2",
+      "name": "Paths, files, credentials and IPC",
+      "fresh_evidence": "Hosted VFS/UNIX/PTY/console ownership controls pass; actual shell pipes, namespace operations and links pass.",
+      "remaining": "Complete path/mount/race semantics, independent PTY session/foreground authority, termios and broad IPC failure handling remain open.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M3",
+      "name": "Native ABI and libc substrate",
+      "fresh_evidence": "ABI, signal, futex, thread and wrapper controls pass apart from stale harnesses; native applications execute fork/exec/wait paths.",
+      "remaining": "No complete libc/pthread/cancellation or all-profile native musl acceptance; no new claim of full POSIX conformance.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M4",
+      "name": "Durable root filesystem",
+      "fresh_evidence": "Fresh ext4 consumers build; bounded native save/sync/host-retire/restart and offline fsck are tested; hosted ext4/JBD2 paths pass.",
+      "remaining": "Default general journalled root, metadata/cache/request ownership and crash/volatile-cache-loss/FLUSH qualification remain open.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M5",
+      "name": "User environment",
+      "fresh_evidence": "Actual release shell pipelines, Notes and basic utilities are tested; hosted shell/shared-loader controls pass.",
+      "remaining": "General shell scripts/expansion/jobs, shared mappings/cache, shared loader/TLS/dlopen/cancellation and ports breadth remain open. Full SimpleFS staging fails.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M6",
+      "name": "Networking",
+      "fresh_evidence": "Actual x86_64 PCI and aarch64 MMIO Virtio static ARP/IPv4/UDP campaigns pass exchange/hostile/absent/legacy scenarios.",
+      "remaining": "Reliable general TCP/IPv6, IRQ networking, configuration/DNS/HTTP/TLS and loss/reordering/pressure acceptance remain open.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M7",
+      "name": "PID1, accounts and services",
+      "fresh_evidence": "Hosted account, authenticated-control, service lifecycle, logging, time, resolver, mount and shutdown policy controls pass. Basic native PID1 launches tested maintenance shells.",
+      "remaining": "Authenticated account login and orderly reboot/poweroff campaigns were not rerun here; general session authority, graphical login and full system services remain open.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M8",
+      "name": "Isolated graphics",
+      "fresh_evidence": "Files/Notes/handoff hosted ASan+UBSan checks pass; privileged GUI boot is present.",
+      "remaining": "Separate user compositor and clients, protected display buffers, input ownership, toolkit/fonts/Wayland and isolated PTY terminal execution remain open.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M9",
+      "name": "Daily desktop",
+      "fresh_evidence": "Notes actual-source host file/fault controls and real native command-line save/read workflows pass where listed below.",
+      "remaining": "Unprivileged GUI applications and complete login/network/package/installer/recovery/accessibility/UTF-8-CJK/lock workflows remain open.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M10",
+      "name": "Ext4 feature breadth",
+      "fresh_evidence": "Bounded supported ext4 operations, block sizes, format refusal and offline interoperability are tested.",
+      "remaining": "Every advertised feature/combination and read/write/replay profile is not qualified; stat hardlink-oracle construction currently fails.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M11",
+      "name": "Architecture, SMP and device breadth",
+      "fresh_evidence": "All ten current-source standalone Debug kernels build and boot in QEMU; all twenty installed SDKs pass admission.",
+      "remaining": "Single-CPU boot/model records do not establish concurrent SMP/TLB/IRQ/DMA/hotplug or actual module relocation/execution/unload. Physical machines were not tested.",
+      "complete_gate": "open"
+    },
+    {
+      "id": "M12",
+      "name": "Complete workstation/release target",
+      "fresh_evidence": "Fresh x86_64 Debug/Release SDK export and selected consumer builds are verified with preserved failures and artifacts.",
+      "remaining": "Mandatory ledger closure, complete release/recovery and manual desktop acceptance remain open.",
+      "complete_gate": "open"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "kind": "default packaging target failure",
+      "summary": "Full rootfs staging contains 36 files but SimpleFS accepts at most 32. Fresh x86_64 Debug/Release and three other Debug consumers reproduce failure. Existing archive unit tests deliberately expect full-staging rejection.",
+      "source": "ObfuscationOS/tools/mksimplefs.py:62",
+      "evidence": "runtime/fresh-x64/x86_64/debug/rootfs-simplefs.log",
+      "milestones": [
+        "M5",
+        "M12"
+      ]
+    },
+    {
+      "id": "F2",
+      "kind": "executed native acceptance fixture mismatch",
+      "summary": "POSIX second_pressure allocation fails with ENOMEM on fresh x86_64 Debug/Release and installed-SDK aarch64 Debug. Current user quota is 661 pages; two requested 384-page mappings alone require 768, before existing user pages. Earlier native private-VM/time/poll checks pass. This does not establish allocator corruption.",
+      "source": "ObfuscationOS/apps/posix-check/main.c:554",
+      "evidence": "runtime/fresh-x64-guests/debug-native-ext4.log",
+      "milestones": [
+        "M1",
+        "M5",
+        "M12"
+      ]
+    },
+    {
+      "id": "F3",
+      "kind": "qualification admission contradiction",
+      "summary": "Object pressure calls the shared ABI74 SDK validator and then requires ABI55. Its 27-method module has one failure and one error; the current qualifier cannot admit a current SDK.",
+      "source": "ObfuscationOS/tools/object_pressure_evidence.py:91",
+      "evidence": "os/isolated-test_object_pressure.log",
+      "milestones": [
+        "M1",
+        "M12"
+      ]
+    },
+    {
+      "id": "F4",
+      "kind": "test discovery failure",
+      "summary": "Documented whole-suite unittest discovery aborts because tools/test_native_users.py shadows tests/tools/test_native_users.py. Per-module processes recover coverage.",
+      "source": "ObfuscationOS/tests/tools/test_native_users.py",
+      "evidence": "os/python-tools.log",
+      "milestones": [
+        "M7",
+        "M12"
+      ]
+    },
+    {
+      "id": "F5",
+      "kind": "oracle fixture policy mismatch",
+      "summary": "Standalone Linux-stat oracle intentionally stages hard links, but the current composed-root policy rejects aliased inodes; failure occurs before guest stat execution.",
+      "source": "ObfuscationOS/tools/rootfs_policy.py:141",
+      "evidence": "os/linux-stat-oracle/post2038-mkext4.log",
+      "milestones": [
+        "M2",
+        "M4",
+        "M10"
+      ]
+    },
+    {
+      "id": "F6",
+      "kind": "hosted test compile failure",
+      "summary": "Static dispatch tests copy BasicScheduler after ownership members made it noncopyable; the first i386 hosted profile does not compile.",
+      "source": "ObfuscationKernel/tests/host/static_dispatch_tests.cpp:182",
+      "evidence": "kernel/hosted/static_dispatch.log",
+      "milestones": [
+        "M1",
+        "M11"
+      ]
+    },
+    {
+      "id": "F7",
+      "kind": "two stale hosted runner input sets",
+      "summary": "scheduler_waits and thread_lifecycle snapshots omit scheduler .inc files and current memory/UDP/VFS link dependencies. Official entrypoints fail. Separate diagnostic harnesses using unchanged current dependencies pass 9487 and 3206 x86_64 checks; canonical runners remain unfixed.",
+      "source": "ObfuscationKernel/scripts/test_scheduler_waits.py:13",
+      "evidence": "kernel/scheduler_waits-output/i386-build.log",
+      "milestones": [
+        "M1",
+        "M3"
+      ]
+    },
+    {
+      "id": "F8",
+      "kind": "hosted service runner link failure",
+      "summary": "kernel_services runner omits terminal_power.cpp and its execution stub lacks enter_owned. Normal standalone kernels build, but this regression entrypoint cannot link.",
+      "source": "ObfuscationKernel/scripts/test_kernel_services.py:23",
+      "evidence": "kernel/hosted/kernel_services.log",
+      "milestones": [
+        "M7",
+        "M8"
+      ]
+    }
+  ],
+  "fresh_x64_build_commands": [
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-c",
+        "-a",
+        "x86_64",
+        "-m",
+        "debug",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/x86_64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/kernel/source/build/sdk/x86_64/debug",
+        "--native_console_login=n",
+        "--native_init_acceptance=y"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 14.9,
+      "log": "fresh-x64/x86_64/debug/configure.log",
+      "log_sha256": "5f692317c0374a21c4b818a4076d8a3af4e81a7b0e19d96475b3c734be465516"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "step": "kernel-sdk-check",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "kernel-sdk-check"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 11.65,
+      "log": "fresh-x64/x86_64/debug/kernel-sdk-check.log",
+      "log_sha256": "191da3368f06a93b1565280ecdc39308156d5ba1763781185d736daed5b8bd83"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 77.31,
+      "log": "fresh-x64/x86_64/debug/distro_image.log",
+      "log_sha256": "60092e60aea71548e15bd3d01b4ecd28f80a230489bd098d2c0f8659d98b64b3"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "step": "rootfs-simplefs",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-simplefs"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 255,
+      "seconds": 12.79,
+      "log": "fresh-x64/x86_64/debug/rootfs-simplefs.log",
+      "log_sha256": "24ab62e981df9721e6edadac64b3fc9becf25a9dc8eed3566dda173c8c5cb6ea"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 12.99,
+      "log": "fresh-x64/x86_64/debug/rootfs-ext4.log",
+      "log_sha256": "8d1d4077d18f23839e8b11b2e05a93e542b7fbe9b72d94433d5a8398631f7534"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "step": "uapi-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "uapi-test"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 13.05,
+      "log": "fresh-x64/x86_64/debug/uapi-test.log",
+      "log_sha256": "a1527ce2e2786261702130f2a010ab2eeec9ad7ac008c8f931b1675b3218b2d2"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "step": "libc-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "libc-test"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 13.3,
+      "log": "fresh-x64/x86_64/debug/libc-test.log",
+      "log_sha256": "a0966a3935f0df6fc255698b4b2d34a3d1f9fa0aff03fe50dfe05d4e29237f9d"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-c",
+        "-a",
+        "x86_64",
+        "-m",
+        "release",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/x86_64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/kernel/source/build/sdk/x86_64/release",
+        "--native_console_login=n",
+        "--native_init_acceptance=n"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 14.1,
+      "log": "fresh-x64/x86_64/release/configure.log",
+      "log_sha256": "48fefb77f867a91d1e8e8858cb9f5f8d747136bbae196e5f69f0b4159a7803f9"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "step": "kernel-sdk-check",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "kernel-sdk-check"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 10.24,
+      "log": "fresh-x64/x86_64/release/kernel-sdk-check.log",
+      "log_sha256": "1726eb00ed0bf6151894fc209c4f6749a1828abd9c0c55c25cef922fbaf5e00e"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 65.09,
+      "log": "fresh-x64/x86_64/release/distro_image.log",
+      "log_sha256": "c51ec5fdecf18882d33144cef2c732bdfc4553139c53257993658e7daa0840fb"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "step": "rootfs-simplefs",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-simplefs"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 255,
+      "seconds": 12.35,
+      "log": "fresh-x64/x86_64/release/rootfs-simplefs.log",
+      "log_sha256": "2e60e8668cb10d69218c55da5938676f85bf37a904914dd0931fd0e76ce6e217"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 12.3,
+      "log": "fresh-x64/x86_64/release/rootfs-ext4.log",
+      "log_sha256": "56ff5afd612e76a6da01f3a840c69043102c4ec6b5ed15b3128782d7671fff5b"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "step": "uapi-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "uapi-test"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 12.25,
+      "log": "fresh-x64/x86_64/release/uapi-test.log",
+      "log_sha256": "54e892d868318290d3e9bf35ea23d1dcaccb9a469914f44fcf5b8199e48c5a31"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "step": "libc-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "libc-test"
+      ],
+      "cwd": "/tmp/obfuscation-milestone-review-20261019-x64",
+      "exit_code": 0,
+      "seconds": 12.1,
+      "log": "fresh-x64/x86_64/release/libc-test.log",
+      "log_sha256": "84101e8ad8142628d92ec02702992b98c52efc4fc1a05c478ebc8776db884842"
+    }
+  ],
+  "selected_installed_debug_build_commands": [
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-c",
+        "-a",
+        "aarch64",
+        "-m",
+        "debug",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/aarch64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/build/sdk/aarch64/debug",
+        "--native_console_login=n",
+        "--native_init_acceptance=y"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 19.77,
+      "log": "installed-sdk-matrix/aarch64/debug/configure.log",
+      "log_sha256": "db56615bb4602904b0e50ff796dee813f2924f099c7c5d5bf291f238fa48f709"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "step": "kernel-sdk-check",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "kernel-sdk-check"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 12.44,
+      "log": "installed-sdk-matrix/aarch64/debug/kernel-sdk-check.log",
+      "log_sha256": "35224ad27a024ce16a24fea1fbcd4ae6eebe36fa7a4888da9d9b82f1b91d98bf"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 125.37,
+      "log": "installed-sdk-matrix/aarch64/debug/distro_image.log",
+      "log_sha256": "13a7906253a5a65e11477ae0a4b1aee18e288dbd8836e445e3b8c669ec60d7f3"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "step": "rootfs-simplefs",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-simplefs"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 255,
+      "seconds": 14.5,
+      "log": "installed-sdk-matrix/aarch64/debug/rootfs-simplefs.log",
+      "log_sha256": "83dd4220aefe97cf587d820359d63ae3e6ad1eaddf10cefb70b58e7119d0c50e"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 17.86,
+      "log": "installed-sdk-matrix/aarch64/debug/rootfs-ext4.log",
+      "log_sha256": "3d2aef258553e691cf6cf7b8de9464e1fd6bd5103672ecd54fef3adc24b9197b"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "step": "uapi-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "uapi-test"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 16.51,
+      "log": "installed-sdk-matrix/aarch64/debug/uapi-test.log",
+      "log_sha256": "fb6ea1a0c2debc0a263cc60a50c933edaf10e4c337c0ef73b88562bbde81b298"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "step": "libc-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "libc-test"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 14.35,
+      "log": "installed-sdk-matrix/aarch64/debug/libc-test.log",
+      "log_sha256": "7332e93d86075619379eb851d57d5cd1bb0da46cfdc3bded1680eb410cf53946"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-c",
+        "-a",
+        "rv64",
+        "-m",
+        "debug",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/riscv64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/build/sdk/rv64/debug",
+        "--native_console_login=n",
+        "--native_init_acceptance=y"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 17.21,
+      "log": "installed-sdk-matrix/rv64/debug/configure.log",
+      "log_sha256": "e399f2d01d280e4f61e566c220d5d00bdb45b230d2644ee13c1a07620db28a77"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "step": "kernel-sdk-check",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "kernel-sdk-check"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 13.19,
+      "log": "installed-sdk-matrix/rv64/debug/kernel-sdk-check.log",
+      "log_sha256": "4a4a161fe6db7b8827b18fb8527abfba457a825a8208cf0ba8b76b3339e0b2a0"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 131.76,
+      "log": "installed-sdk-matrix/rv64/debug/distro_image.log",
+      "log_sha256": "af9bde891ab8b47c498a19931ba5a03c8b4ebdaa373aea685095c94574166705"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "step": "rootfs-simplefs",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-simplefs"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 255,
+      "seconds": 14.75,
+      "log": "installed-sdk-matrix/rv64/debug/rootfs-simplefs.log",
+      "log_sha256": "b3e0155d88b1937645852497871a7edb881f62949331673edc4013fad15d19df"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 16.31,
+      "log": "installed-sdk-matrix/rv64/debug/rootfs-ext4.log",
+      "log_sha256": "f143e270056eead7502e309ae560bfbd169563b89ce497a39649f44a2b2529ce"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "step": "uapi-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "uapi-test"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 18.11,
+      "log": "installed-sdk-matrix/rv64/debug/uapi-test.log",
+      "log_sha256": "30bdbb9cd379bae71901b69b30e182613756b042790c1c0986ba02313bd15ac1"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "step": "libc-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "libc-test"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 14.65,
+      "log": "installed-sdk-matrix/rv64/debug/libc-test.log",
+      "log_sha256": "754efc0c8f453570048ad0c7bb2c0cd337f91d6978843c46fc23d651853671cc"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-c",
+        "-a",
+        "loongarch64",
+        "-m",
+        "debug",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/loongarch64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/build/sdk/loongarch64/debug",
+        "--native_console_login=n",
+        "--native_init_acceptance=y"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 18.11,
+      "log": "installed-sdk-matrix/loongarch64/debug/configure.log",
+      "log_sha256": "de33b994cafbcb3b3b099877edc64fec23bebd4016773ccf6cee3f2538fd2d92"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "step": "kernel-sdk-check",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "kernel-sdk-check"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 13.65,
+      "log": "installed-sdk-matrix/loongarch64/debug/kernel-sdk-check.log",
+      "log_sha256": "54698d52fde770c5271a15ee4dd0e140e31acede6a58274106c20071cebf57b5"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 148.02,
+      "log": "installed-sdk-matrix/loongarch64/debug/distro_image.log",
+      "log_sha256": "826252954acff0c96ee5d0f35c3f79855746c3b40880efe401d90b6bdcd9e63e"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "step": "rootfs-simplefs",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-simplefs"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 255,
+      "seconds": 16.56,
+      "log": "installed-sdk-matrix/loongarch64/debug/rootfs-simplefs.log",
+      "log_sha256": "f8376f163e1e82e73af17d99ff273f528742403951bc712d6196c2bf7b87917b"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 17.41,
+      "log": "installed-sdk-matrix/loongarch64/debug/rootfs-ext4.log",
+      "log_sha256": "d55bdeb1b87c262a16d83afc3e65a5ffed0ca5a76d34a6bf3f693ce705858518"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "step": "uapi-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "uapi-test"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 16.56,
+      "log": "installed-sdk-matrix/loongarch64/debug/uapi-test.log",
+      "log_sha256": "7abd8324975cc693f083eafe0a2a332b6c0efdddda9668fd9a4df17b8eaf30b2"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "step": "libc-test",
+      "argv": [
+        "xmake",
+        "-P",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+        "-y",
+        "-b",
+        "-j4",
+        "libc-test"
+      ],
+      "cwd": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/ObfuscationOS",
+      "exit_code": 0,
+      "seconds": 15.15,
+      "log": "installed-sdk-matrix/loongarch64/debug/libc-test.log",
+      "log_sha256": "635e21c877a63d2f07c2b69f1e29f52b55acbead6e5873e1dfafb47471ad6f88"
+    }
+  ],
+  "fresh_x64_guest_commands": [
+    {
+      "name": "debug-native-ext4",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/qemu_distro.py",
+        "--arch",
+        "x86_64",
+        "--qemu",
+        "/usr/bin/qemu-system-x86_64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/debug/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/debug/rootfs.ext4.img",
+        "--timeout",
+        "45",
+        "--fs",
+        "ext4",
+        "--require-native",
+        "--failure-dir",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/debug-failure"
+      ],
+      "exit_code": 1,
+      "seconds": 7.98,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/debug-native-ext4.log",
+      "log_sha256": "7e177a8adffdebf071c989aead909649903db7f37e10e044bde31cebdb72b278"
+    },
+    {
+      "name": "release-native-ext4-posix",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_interactive_userland.py",
+        "--arch",
+        "x86_64",
+        "--qemu",
+        "/usr/bin/qemu-system-x86_64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/release/rootfs.ext4.img",
+        "--timeout",
+        "45",
+        "--posix-check",
+        "--log",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/release-posix-serial.log"
+      ],
+      "exit_code": 1,
+      "seconds": 3.72,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/release-native-ext4-posix.log",
+      "log_sha256": "69f3eb11a8d537b4e94d9716d7169a8e07c363e26267bb1daf5f42f2c1f92888"
+    },
+    {
+      "name": "release-native-ext4-shell",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_interactive_userland.py",
+        "--arch",
+        "x86_64",
+        "--qemu",
+        "/usr/bin/qemu-system-x86_64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/release/rootfs.ext4.img",
+        "--timeout",
+        "45",
+        "--log",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/release-shell-serial.log"
+      ],
+      "exit_code": 0,
+      "seconds": 2.32,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/release-native-ext4-shell.log",
+      "log_sha256": "dfb1db1a40ec2c25ca49dea39b4cf78e783b036050f1fe255f8aae8a9b63a0c2"
+    },
+    {
+      "name": "release-ext4-persistence",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_persistent_ext4.py",
+        "--arch",
+        "x86_64",
+        "--qemu",
+        "/usr/bin/qemu-system-x86_64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/x86_64/release/rootfs.ext4.img",
+        "--timeout",
+        "45",
+        "--out",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/release-persistence"
+      ],
+      "exit_code": 0,
+      "seconds": 5.03,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/fresh-x64-guests/release-ext4-persistence.log",
+      "log_sha256": "e5a6d0cb701e34eff4a2cc450971ada00f626a92ee37763d2ce63a24abf9aacb"
+    }
+  ],
+  "other_release_guest_commands": [
+    {
+      "arch": "aarch64",
+      "mode": "release",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-c",
+        "-a",
+        "aarch64",
+        "-m",
+        "release",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/aarch64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/build/sdk/aarch64/release",
+        "--native_console_login=n",
+        "--native_init_acceptance=n"
+      ],
+      "exit_code": 0,
+      "seconds": 13.3,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/aarch64/configure.log",
+      "log_sha256": "2b83db35e79df5ec70d8c14b9fd49b324c39101d391654ee5722169dccc5c8c5"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "release",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "exit_code": 0,
+      "seconds": 71.82,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/aarch64/distro_image.log",
+      "log_sha256": "5696618a51cebd12b6acb8f1a9af3dbfd4449c91525d1ea5206b4d0f42e00f5b"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "release",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "exit_code": 0,
+      "seconds": 13.85,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/aarch64/rootfs-ext4.log",
+      "log_sha256": "146d0e094ead359bab9076542e0016802ae71c0710a6b545ff7fe43f69a7a5a1"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "release",
+      "step": "native-ext4-shell",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_interactive_userland.py",
+        "--arch",
+        "aarch64",
+        "--qemu",
+        "/usr/bin/qemu-system-aarch64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/aarch64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/aarch64/release/rootfs.ext4.img",
+        "--timeout",
+        "60",
+        "--log",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/aarch64/shell-serial.log"
+      ],
+      "exit_code": 0,
+      "seconds": 0.77,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/aarch64/native-ext4-shell.log",
+      "log_sha256": "dfb1db1a40ec2c25ca49dea39b4cf78e783b036050f1fe255f8aae8a9b63a0c2"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "release",
+      "step": "ext4-persistence",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_persistent_ext4.py",
+        "--arch",
+        "aarch64",
+        "--qemu",
+        "/usr/bin/qemu-system-aarch64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/aarch64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/aarch64/release/rootfs.ext4.img",
+        "--timeout",
+        "60",
+        "--out",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/aarch64/persistence"
+      ],
+      "exit_code": 0,
+      "seconds": 1.62,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/aarch64/ext4-persistence.log",
+      "log_sha256": "10f1f7ccbf82a1791aade26260f2f4d67fe10e083f9320da15ad9c182a7b179f"
+    },
+    {
+      "arch": "rv64",
+      "mode": "release",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-c",
+        "-a",
+        "rv64",
+        "-m",
+        "release",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/riscv64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/build/sdk/rv64/release",
+        "--native_console_login=n",
+        "--native_init_acceptance=n"
+      ],
+      "exit_code": 0,
+      "seconds": 14.65,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/rv64/configure.log",
+      "log_sha256": "4365c582f22c372b4ef0ca4509c5ce909b15e3bf849703b39f21966c283615a4"
+    },
+    {
+      "arch": "rv64",
+      "mode": "release",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "exit_code": 0,
+      "seconds": 71.26,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/rv64/distro_image.log",
+      "log_sha256": "7de3521800a19abd59e329e77160f4d6dc65c81f2ac8d436c4109fe23390a41a"
+    },
+    {
+      "arch": "rv64",
+      "mode": "release",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "exit_code": 0,
+      "seconds": 13.05,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/rv64/rootfs-ext4.log",
+      "log_sha256": "038e4801ff7bd12efe872c9f848d10bc2d64094b8a3f70cae9046616c0f4123d"
+    },
+    {
+      "arch": "rv64",
+      "mode": "release",
+      "step": "native-ext4-shell",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_interactive_userland.py",
+        "--arch",
+        "rv64",
+        "--qemu",
+        "/usr/bin/qemu-system-riscv64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/rv64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/rv64/release/rootfs.ext4.img",
+        "--timeout",
+        "60",
+        "--log",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/rv64/shell-serial.log"
+      ],
+      "exit_code": 0,
+      "seconds": 0.67,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/rv64/native-ext4-shell.log",
+      "log_sha256": "dfb1db1a40ec2c25ca49dea39b4cf78e783b036050f1fe255f8aae8a9b63a0c2"
+    },
+    {
+      "arch": "rv64",
+      "mode": "release",
+      "step": "ext4-persistence",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_persistent_ext4.py",
+        "--arch",
+        "rv64",
+        "--qemu",
+        "/usr/bin/qemu-system-riscv64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/rv64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/rv64/release/rootfs.ext4.img",
+        "--timeout",
+        "60",
+        "--out",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/rv64/persistence"
+      ],
+      "exit_code": 0,
+      "seconds": 2.47,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/rv64/ext4-persistence.log",
+      "log_sha256": "aa63b568533f68ddf67f13c520b58b6f2a8653d6569a1bad89c0c718c3b9828b"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "release",
+      "step": "configure",
+      "argv": [
+        "xmake",
+        "f",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-c",
+        "-a",
+        "loongarch64",
+        "-m",
+        "release",
+        "--ccache=n",
+        "--systoolchain_dir=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/toolchains/loongarch64-elf",
+        "--kernel_sdk=/media/data1/Project/System/ObfuscationProject/ObfuscationKernel/build/sdk/loongarch64/release",
+        "--native_console_login=n",
+        "--native_init_acceptance=n"
+      ],
+      "exit_code": 0,
+      "seconds": 14.91,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/loongarch64/configure.log",
+      "log_sha256": "a4ef4155ff45d53e4d15548022515ae57e1dd1e5df1f791657818a1d65422b27"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "release",
+      "step": "distro_image",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "distro_image"
+      ],
+      "exit_code": 0,
+      "seconds": 66.44,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/loongarch64/distro_image.log",
+      "log_sha256": "1c20ccbfca898a3db346f076de45422fbba0f8c81cd98157b105b23c77f774ea"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "release",
+      "step": "rootfs-ext4",
+      "argv": [
+        "xmake",
+        "-P",
+        "/tmp/obfuscation-milestone-review-20261019-x64",
+        "-y",
+        "-b",
+        "-j4",
+        "rootfs-ext4"
+      ],
+      "exit_code": 0,
+      "seconds": 13.35,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/loongarch64/rootfs-ext4.log",
+      "log_sha256": "7f42dd23e408ad8890bb69f72698e362ffd2f8b46ee406a9c00068bea7446178"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "release",
+      "step": "native-ext4-shell",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_interactive_userland.py",
+        "--arch",
+        "loongarch64",
+        "--qemu",
+        "/usr/bin/qemu-system-loongarch64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/loongarch64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/loongarch64/release/rootfs.ext4.img",
+        "--timeout",
+        "60",
+        "--log",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/loongarch64/shell-serial.log"
+      ],
+      "exit_code": 0,
+      "seconds": 0.67,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/loongarch64/native-ext4-shell.log",
+      "log_sha256": "dfb1db1a40ec2c25ca49dea39b4cf78e783b036050f1fe255f8aae8a9b63a0c2"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "release",
+      "step": "ext4-persistence",
+      "argv": [
+        "python3",
+        "-B",
+        "/tmp/obfuscation-milestone-review-20261019-x64/scripts/test_persistent_ext4.py",
+        "--arch",
+        "loongarch64",
+        "--qemu",
+        "/usr/bin/qemu-system-loongarch64",
+        "--kernel",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/loongarch64/release/distro/kernel.bin",
+        "--rootfs",
+        "/tmp/obfuscation-milestone-review-20261019-x64/build/loongarch64/release/rootfs.ext4.img",
+        "--timeout",
+        "60",
+        "--out",
+        "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/loongarch64/persistence"
+      ],
+      "exit_code": 0,
+      "seconds": 1.37,
+      "log": "/media/data1/Project/System/ObfuscationProject/build/milestone-review-20261019/runtime/release-userland-matrix/loongarch64/ext4-persistence.log",
+      "log_sha256": "c8d5f2e8974544ca1be563b2bed1a20aa0def83dfc06d264e4f78bdd47cab098"
+    }
+  ],
+  "installed_sdk_matrix": [
+    {
+      "arch": "i386",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 6.57,
+      "output": "[kernel-sdk] i386/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/i386/debug\n"
+    },
+    {
+      "arch": "i386",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 6.17,
+      "output": "[kernel-sdk] i386/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/i386/release\n"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 0.3,
+      "output": "[kernel-sdk] x86_64/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/x86_64/debug\n"
+    },
+    {
+      "arch": "x86_64",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 6.49,
+      "output": "[kernel-sdk] x86_64/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/x86_64/release\n"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 9.39,
+      "output": "[kernel-sdk] aarch64/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/aarch64/debug\n"
+    },
+    {
+      "arch": "aarch64",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 6.03,
+      "output": "[kernel-sdk] aarch64/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/aarch64/release\n"
+    },
+    {
+      "arch": "arm32",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 5.89,
+      "output": "[kernel-sdk] arm32/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/arm32/debug\n"
+    },
+    {
+      "arch": "arm32",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 4.84,
+      "output": "[kernel-sdk] arm32/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/arm32/release\n"
+    },
+    {
+      "arch": "rv64",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 6.03,
+      "output": "[kernel-sdk] rv64/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/rv64/debug\n"
+    },
+    {
+      "arch": "rv64",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 4.33,
+      "output": "[kernel-sdk] rv64/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/rv64/release\n"
+    },
+    {
+      "arch": "rv32",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 4.67,
+      "output": "[kernel-sdk] rv32/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/rv32/debug\n"
+    },
+    {
+      "arch": "rv32",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 8.82,
+      "output": "[kernel-sdk] rv32/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/rv32/release\n"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 8.3,
+      "output": "[kernel-sdk] loongarch64/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/loongarch64/debug\n"
+    },
+    {
+      "arch": "loongarch64",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 8.24,
+      "output": "[kernel-sdk] loongarch64/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/loongarch64/release\n"
+    },
+    {
+      "arch": "mips",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 6.01,
+      "output": "[kernel-sdk] mips/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/mips/debug\n"
+    },
+    {
+      "arch": "mips",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 8.29,
+      "output": "[kernel-sdk] mips/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/mips/release\n"
+    },
+    {
+      "arch": "mips64",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 13.14,
+      "output": "[kernel-sdk] mips64/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/mips64/debug\n"
+    },
+    {
+      "arch": "mips64",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 9.78,
+      "output": "[kernel-sdk] mips64/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/mips64/release\n"
+    },
+    {
+      "arch": "ppc",
+      "mode": "debug",
+      "status": 0,
+      "elapsed_seconds": 11.36,
+      "output": "[kernel-sdk] ppc/debug version=0.1.0 verified: ../ObfuscationKernel/build/sdk/ppc/debug\n"
+    },
+    {
+      "arch": "ppc",
+      "mode": "release",
+      "status": 0,
+      "elapsed_seconds": 9.59,
+      "output": "[kernel-sdk] ppc/release version=0.1.0 verified: ../ObfuscationKernel/build/sdk/ppc/release\n"
+    }
+  ],
+  "source_integrity": "source-integrity.json"
+}

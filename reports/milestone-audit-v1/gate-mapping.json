@@ -1,0 +1,1367 @@
+{
+  "schema_version": 1,
+  "audit_type": "bounded-read-only-source-and-top-level-evidence-audit",
+  "created_at": "2026-09-23T09:26:54.384673+00:00",
+  "workspace": "/media/data1/Project/System/ObfuscationProject",
+  "constraints": "No shared source/docs edits, no QEMU/build, no candidate or ledger promotions. Preserve all ten Kernel profiles and existing OS userland profiles.",
+  "architecture_profiles": [
+    "i386",
+    "x86_64",
+    "aarch64",
+    "arm32",
+    "rv64",
+    "rv32",
+    "loongarch64",
+    "mips",
+    "mips64",
+    "ppc"
+  ],
+  "ledger_snapshot": {
+    "revision": "2026-09-21.23",
+    "scope": "seed-inventory",
+    "requirements": 90,
+    "tests": 163,
+    "execution_receipts": 0,
+    "state_counts": {
+      "planned": 33,
+      "native-partial": 50,
+      "implemented": 1,
+      "model-only": 6
+    },
+    "inventories": [
+      {
+        "id": "posix-clauses-options",
+        "state": "partial",
+        "source_ids": [
+          "posix-issue8"
+        ],
+        "gaps": [
+          "Map every Issue 8 interface, utility and normative behavior; classify all mandatory/selected/unsupported options and runtime/header declarations."
+        ]
+      },
+      {
+        "id": "linux-abi-layouts",
+        "state": "partial",
+        "source_ids": [
+          "linux-uapi-ext4",
+          "musl"
+        ],
+        "gaps": [
+          "Archive authenticated sources; enumerate syscall/error/flag/ELF/TLS/signal/structure layouts and golden fixtures per retained tuple."
+        ]
+      },
+      {
+        "id": "ext4-feature-combinations",
+        "state": "partial",
+        "source_ids": [
+          "linux-uapi-ext4",
+          "e2fsprogs-primary",
+          "e2fsprogs-secondary"
+        ],
+        "gaps": [
+          "Expand feature-family seeds to exact bits, revisions, read/write/replay/tool support and permitted/rejected combinations."
+        ]
+      },
+      {
+        "id": "internet-rfc-clauses",
+        "state": "partial",
+        "source_ids": [
+          "internet-rfcs"
+        ],
+        "gaps": [
+          "Pin RFC revisions/updates/errata and map each selected MUST/SHOULD to implementation/test ownership."
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "sdk20-native": {
+      "path": "ObfuscationOS/build/workstation-abi20-maintained-ext4-v1/native-six-layouts-v1/result.json",
+      "sha256": "fa69c24bc6b0f14ef22b8809d8d75903f6f97dff1eeeb4c00b2a3ad69a20e2f9",
+      "size": 659234,
+      "scope": "SDK20 privileged x86_64 six-layout provider guest; no user execution",
+      "status": "passed",
+      "records": null,
+      "audit_depth": "top-level status and bytes inspected; nested artifacts not rehashed by this audit"
+    },
+    "sdk20-linux": {
+      "path": "ObfuscationOS/build/workstation-abi20-maintained-ext4-v1/linux-final-v1/result.json",
+      "sha256": "824647f1f759d1813060734a7dc8fb7982c434c1c948338b1857eebc9b8a85de",
+      "size": 123656,
+      "scope": "Two x86_64 Linux readonly reference boots; no physical/SMP",
+      "status": "passed",
+      "records": null,
+      "audit_depth": "top-level status and bytes inspected; nested artifacts not rehashed by this audit"
+    },
+    "sdk21-candidate": {
+      "path": "ObfuscationOS/build/workstation-abi21-linux-stat-v1/native-matrix-v2/result.json",
+      "sha256": "ce226546a6fdeec25968aa2f1337f698f18ba93f735b0ba9acf818e7a6c35175",
+      "size": 2120,
+      "scope": "Incomplete SDK21 frozen candidate qualification",
+      "status": "failed",
+      "records": null,
+      "audit_depth": "top-level status and bytes inspected; nested artifacts not rehashed by this audit"
+    },
+    "sdk21-commands": {
+      "path": "ObfuscationOS/build/workstation-abi21-linux-stat-v1/native-matrix-v2/output/results.json",
+      "sha256": "613bf36efce327a5298d97a4472a082c10f331179f6dde24434a685446236fb7",
+      "size": 443098,
+      "scope": "Retained SDK21 candidate commands; not a completed matrix",
+      "status": "command-log",
+      "records": 351,
+      "audit_depth": "top-level status and bytes inspected; nested artifacts not rehashed by this audit"
+    }
+  },
+  "source_references": {
+    "ObfuscationOS/docs/plans/README.md:192": {
+      "path": "ObfuscationOS/docs/plans/README.md",
+      "line": 192,
+      "sha256": "cc66ef8fac9129f35f2cdfd99214fa1d7b8a8ea946493432f14455e80b3143c0",
+      "needle": "## 6. Milestones"
+    },
+    "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7": {
+      "path": "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md",
+      "line": 7,
+      "sha256": "1627e9476057732d684bbbc4cc043be2b59a06dc5fb842d062cabe7d0ddfb7e7",
+      "needle": "## ABI 20"
+    },
+    "ObfuscationOS/docs/plans/contracts/ledger.json:1": {
+      "path": "ObfuscationOS/docs/plans/contracts/ledger.json",
+      "line": 1,
+      "sha256": "9f6a27463c0dcc86ba10db64df4ca846e4487f8f816dcd7ecc6ce7161666bb6b",
+      "needle": null
+    },
+    "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56": {
+      "path": "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md",
+      "line": 56,
+      "sha256": "ff0dfe6519819a53955f8a8c96577f73e0abbbc65c1b373e4dafd6632bf48dda",
+      "needle": "## A03."
+    },
+    "ObfuscationOS/docs/plans/POSIX_MUSL.md:829": {
+      "path": "ObfuscationOS/docs/plans/POSIX_MUSL.md",
+      "line": 829,
+      "sha256": "209b212789e4a8f21cfd20765a82be5016d8a7b2e338ad5eacce7b2abec6126f",
+      "needle": "## 7."
+    },
+    "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560": {
+      "path": "ObfuscationOS/docs/plans/STORAGE_EXT4.md",
+      "line": 560,
+      "sha256": "7839040881c4bd27b403913e48bc5d48309c6297fc8b8b31bdc6e01f7d1a5adf",
+      "needle": "## 10."
+    },
+    "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587": {
+      "path": "ObfuscationOS/docs/plans/NETWORK_SERVICES.md",
+      "line": 587,
+      "sha256": "891265a9312dc7dba5596ad4485fc02ef6cf230a0e09dbe5d527f08b71b96c9f",
+      "needle": "## 10."
+    },
+    "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289": {
+      "path": "ObfuscationOS/docs/plans/DESKTOP_APPS.md",
+      "line": 289,
+      "sha256": "843a898de86c452be1ba5428bfa2211b11f284068ef8e3f1ea5acccc8f228406",
+      "needle": "## G08."
+    },
+    "ObfuscationKernel/include/ok/user/native_page_pool.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/user/native_page_pool.hpp",
+      "line": 1,
+      "sha256": "4a7d3dd4004fabc23873927972b818949b963c08a1c48b2928d215fe262a55f2",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/boot/qemu_process_memory.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/boot/qemu_process_memory.hpp",
+      "line": 1,
+      "sha256": "354f528178e89a81c9f88ed1dfbad2bd66d2cd6ab2d6530ecc0d360c97673713",
+      "needle": null
+    },
+    "ObfuscationKernel/src/user/runtime.cpp:1669": {
+      "path": "ObfuscationKernel/src/user/runtime.cpp",
+      "line": 1669,
+      "sha256": "a8f735154971b68b69e33c0439a1e6054a68e85fa349b19d9ce04145b9d6aa95",
+      "needle": "bool step(Kernel &kernel)"
+    },
+    "ObfuscationKernel/include/ok/sched/deadline.hpp:9": {
+      "path": "ObfuscationKernel/include/ok/sched/deadline.hpp",
+      "line": 9,
+      "sha256": "748fa297c1048b53b80a8910a508e2301e66d0a851c36495b9fbed06381df4bb",
+      "needle": "class DeadlineWait"
+    },
+    "ObfuscationKernel/src/user/runtime.cpp:70": {
+      "path": "ObfuscationKernel/src/user/runtime.cpp",
+      "line": 70,
+      "sha256": "a8f735154971b68b69e33c0439a1e6054a68e85fa349b19d9ce04145b9d6aa95",
+      "needle": "struct PollWait"
+    },
+    "ObfuscationKernel/src/sched/scheduler.cpp:1091": {
+      "path": "ObfuscationKernel/src/sched/scheduler.cpp",
+      "line": 1091,
+      "sha256": "4c0272b30176a6196ea1a884a26825384de39f81d12af1849e2261455b195447",
+      "needle": "Status SchedulerState::block_current"
+    },
+    "ObfuscationKernel/docs/NATIVE_WAITS.md:23": {
+      "path": "ObfuscationKernel/docs/NATIVE_WAITS.md",
+      "line": 23,
+      "sha256": "17375670add389b74ecdcd638fcf399eda9a655d93ed04e9479a6362b83b1da1",
+      "needle": "Readiness is rescanned"
+    },
+    "ObfuscationKernel/docs/NATIVE_VM.md:39": {
+      "path": "ObfuscationKernel/docs/NATIVE_VM.md",
+      "line": 39,
+      "sha256": "4d3804a3794ece3eec76ab02b799be28a9ae7931e54bd1fb16ac5609c1239209",
+      "needle": "Backing remains"
+    },
+    "ObfuscationKernel/src/fs/vfs.cpp:1": {
+      "path": "ObfuscationKernel/src/fs/vfs.cpp",
+      "line": 1,
+      "sha256": "01a057dba364645713c73973b22babf178a01d76d8a24939588f212423c0737e",
+      "needle": null
+    },
+    "ObfuscationKernel/src/posix/fd.cpp:1": {
+      "path": "ObfuscationKernel/src/posix/fd.cpp",
+      "line": 1,
+      "sha256": "60f68cd5a22bcd606720e260828629b71e40f8f12bda78a6a62951ca5941f5ae",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/sched/resources.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/sched/resources.hpp",
+      "line": 1,
+      "sha256": "12cc792919d84d5215620e9acae1d15321a5756586e465cd8cfae6f6e2a769d6",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/sched/scheduler.hpp:68": {
+      "path": "ObfuscationKernel/include/ok/sched/scheduler.hpp",
+      "line": 68,
+      "sha256": "f99855111e202886fc6b0224db150d5279defe77060a2ceacbdad6cae80699c4",
+      "needle": "struct ThreadControlBlock"
+    },
+    "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp",
+      "line": 1,
+      "sha256": "25343c2355fb9d1b192bbe90e22dafd5506165ddd32495798f0c469a83a402db",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/abi/linux_profile_data.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/abi/linux_profile_data.hpp",
+      "line": 1,
+      "sha256": "1483a423f9375dba5329c717d745b844a1bcf36d01e4be46e9b5ddb6262e606a",
+      "needle": null
+    },
+    "ObfuscationOS/apps/posix-check/main.c:1": {
+      "path": "ObfuscationOS/apps/posix-check/main.c",
+      "line": 1,
+      "sha256": "c6ab42d6cf9dfe2b762fda2935528e03d13996e7ea6d13f3ad8bfd1451daf8a1",
+      "needle": null
+    },
+    "ObfuscationOS/scripts/test_musl_userland.py:1": {
+      "path": "ObfuscationOS/scripts/test_musl_userland.py",
+      "line": 1,
+      "sha256": "e801af61857e2ac6e61eb333a458c7ab04bc71c9bd3f8f94da4e4e56c8b166d0",
+      "needle": null
+    },
+    "ObfuscationOS/tools/kernel_sdk.py:1": {
+      "path": "ObfuscationOS/tools/kernel_sdk.py",
+      "line": 1,
+      "sha256": "4bdba442ffc781efb20070e02b711d03de5fa4d2442babb0cfbd780ea791512a",
+      "needle": null
+    },
+    "ObfuscationKernel/src/fs/ext4_fs.cpp:1": {
+      "path": "ObfuscationKernel/src/fs/ext4_fs.cpp",
+      "line": 1,
+      "sha256": "9c369cbc32ed184a8c0abe8d9cc37b9def0b4fd4c5b7de3a818cfba7765f28a4",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp",
+      "line": 1,
+      "sha256": "217e134a74a7d1a63464073d3030c94ae9c458bc81d95bd3b12edb3e103e79e7",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/fs/ext4_completion.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/fs/ext4_completion.hpp",
+      "line": 1,
+      "sha256": "1af33d8437bac6ccc3c40b324b713f1e0f2196456ba472a167027bff551ad9cd",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/fs/metadata_buffers.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/fs/metadata_buffers.hpp",
+      "line": 1,
+      "sha256": "ae515fb58c11730e3323a26ce8ef43aa6b424abd6871ca2d6987589f0ca0d5dc",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp",
+      "line": 1,
+      "sha256": "a680fe7756a1f43f508565742c4f8a6e1147a9e007d0f6fa3f9a91c1dfdec4e7",
+      "needle": null
+    },
+    "ObfuscationOS/drivers/virtio/block.cpp:1": {
+      "path": "ObfuscationOS/drivers/virtio/block.cpp",
+      "line": 1,
+      "sha256": "1712e0780c7d107ca4ac535814674f9954dbbd1856bf6d1a047bfc051f9ba195",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/net/net.hpp:85": {
+      "path": "ObfuscationKernel/include/ok/net/net.hpp",
+      "line": 85,
+      "sha256": "ffe26798d89c78eefd4e22a496672632b989b63cadf438d2e5734ae5ff276696",
+      "needle": "class VirtioNetDevice"
+    },
+    "ObfuscationOS/apps/init/main.c:24": {
+      "path": "ObfuscationOS/apps/init/main.c",
+      "line": 24,
+      "sha256": "53e17d71bd2a43a9bc29b9d32e8a16617bbf871e7a7e3e5bb5946fb44f4f9203",
+      "needle": "int main"
+    },
+    "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1": {
+      "path": "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp",
+      "line": 1,
+      "sha256": "3d67495282bb72955a50768ba10eef500eb8530a9f9875fab5382b7485a01936",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/gui/desktop.hpp:1": {
+      "path": "ObfuscationKernel/include/ok/gui/desktop.hpp",
+      "line": 1,
+      "sha256": "ec09b8be3e3965be08c4a2898986b99f7341154eda22240c3360b0ad5ff1f9be",
+      "needle": null
+    },
+    "ObfuscationKernel/src/core/module.cpp:1": {
+      "path": "ObfuscationKernel/src/core/module.cpp",
+      "line": 1,
+      "sha256": "d1b6ab1a89ea877b1ee942e9109a904969a983127bb9ab0d96fe8ff58728abb0",
+      "needle": null
+    },
+    "ObfuscationKernel/include/ok/smp/smp.hpp:90": {
+      "path": "ObfuscationKernel/include/ok/smp/smp.hpp",
+      "line": 90,
+      "sha256": "75ab9a63309ced6180e975cedf0183c88e212de373e213be7d2e8c79e60d8300",
+      "needle": "class SpinLock"
+    },
+    "ObfuscationKernel/include/ok/arch/arch.hpp:18": {
+      "path": "ObfuscationKernel/include/ok/arch/arch.hpp",
+      "line": 18,
+      "sha256": "ceb81e5061fcfd0a4140986b3dc4b80400fa48236b86948efb95e9fb04775e3e",
+      "needle": "enable_interrupts"
+    },
+    "build/prototypes/linux-chmod-v1/VALIDATION.md:1": {
+      "path": "build/prototypes/linux-chmod-v1/VALIDATION.md",
+      "line": 1,
+      "sha256": "4fb59d9ab2f2027c4874cbed23c903edd9a4aa9f467cdb7903bfd779cceada0b",
+      "needle": null
+    },
+    "ObfuscationOS/tools/plan_ledger.py:305": {
+      "path": "ObfuscationOS/tools/plan_ledger.py",
+      "line": 305,
+      "sha256": "5f351f2715cc489f2af84ac4b548e918736c2d55192835232cf5e496fc244bd3",
+      "needle": "if args.command == \"gate-m0\":"
+    }
+  },
+  "milestones": [
+    {
+      "id": "M0",
+      "name": "Specification baseline",
+      "state": "incomplete",
+      "deliverable_verbatim": "Standards/format/RFC inventories, syscall/ELF ABI matrix, SDK generations, feature ledger, dependency pins",
+      "exit_gate_verbatim": "Every requirement has owner, semantics source, dependencies and a planned test; ten ABI profiles have explicit qualification gaps",
+      "dependencies": [],
+      "ledger_requirement_ids": [
+        "M0.inventory",
+        "P01.linux-abi",
+        "A06.sdk"
+      ],
+      "current_concrete_scope": "Versioned seed ledger, validation tooling, ten ABI tuples and explicit SDK identity validation exist. Four normative inventories are partial; the source ledger attaches zero execution receipts.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/README.md:192",
+        "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+        "ObfuscationOS/tools/plan_ledger.py:305",
+        "ObfuscationOS/tools/kernel_sdk.py:1"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M0.exit.1",
+          "expectation": "Every requirement has an owner and semantics source",
+          "status": "partial",
+          "missing_mandatory_work": "Expand seed requirements to every Issue 8 clause/interface/utility/option, selected RFC MUST/SHOULD, exact ext4 format feature and permitted combination; preserve authoritative versions and ownership.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/README.md:192",
+            "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+            "ObfuscationOS/tools/plan_ledger.py:305",
+            "ObfuscationOS/tools/kernel_sdk.py:1"
+          ]
+        },
+        {
+          "id": "M0.exit.2",
+          "expectation": "Every requirement has dependencies and a planned acceptance test",
+          "status": "partial",
+          "missing_mandatory_work": "Create the missing normative rows and tests; mapping a subsystem summary to one test does not cover its constituent requirements.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/README.md:192",
+            "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+            "ObfuscationOS/tools/plan_ledger.py:305",
+            "ObfuscationOS/tools/kernel_sdk.py:1"
+          ]
+        },
+        {
+          "id": "M0.exit.3",
+          "expectation": "Ten ABI profiles have explicit qualification gaps",
+          "status": "partial",
+          "missing_mandatory_work": "Complete per-profile syscall/errno/flag/ELF/TLS/signal/struct inventories and authenticated source pin provenance. Existing bootstrap tuple tables remain valid subsets.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/README.md:192",
+            "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+            "ObfuscationOS/tools/plan_ledger.py:305",
+            "ObfuscationOS/tools/kernel_sdk.py:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M1",
+      "name": "Resource foundation",
+      "state": "incomplete",
+      "deliverable_verbatim": "Kernel-owned allocators, general native VM, safe user copies, wait queues, timers, locking/atomics, FPU context",
+      "exit_gate_verbatim": "Ten native guests run allocation/map/unmap/protection/pressure/timer tests without corrupting kernel or peers; document real hardware restrictions",
+      "dependencies": [
+        "M0"
+      ],
+      "ledger_requirement_ids": [
+        "P02.allocation",
+        "P02.process-frames",
+        "P02.arm32-firmware-process-frames",
+        "P03.vm",
+        "P04.wait-time"
+      ],
+      "current_concrete_scope": "Actual bounded anonymous VM, eager fork, guarded copies, native process-frame ownership, calibrated clock/sleep/poll/select subsets execute. Bounded firmware-qualified pools and explicit fallbacks remain; object allocation and synchronized general waits are absent.",
+      "source_refs": [
+        "ObfuscationKernel/include/ok/user/native_page_pool.hpp:1",
+        "ObfuscationKernel/include/ok/boot/qemu_process_memory.hpp:1",
+        "ObfuscationKernel/src/user/runtime.cpp:1669",
+        "ObfuscationKernel/include/ok/sched/deadline.hpp:9",
+        "ObfuscationKernel/src/user/runtime.cpp:70",
+        "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+        "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+        "ObfuscationOS/apps/posix-check/main.c:1"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M1.exit.1",
+          "expectation": "Ten native guests execute allocation/map/unmap/protection/pressure tests",
+          "status": "partial",
+          "missing_mandatory_work": "Replace fixed per-process/global metadata limits with policy-backed object/frame allocation; qualify quotas/reclaim, pin/reference ownership and rollback using real physical frames on retained platforms.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/native_page_pool.hpp:1",
+            "ObfuscationKernel/include/ok/boot/qemu_process_memory.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationKernel/include/ok/sched/deadline.hpp:9",
+            "ObfuscationKernel/src/user/runtime.cpp:70",
+            "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+            "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+            "ObfuscationOS/apps/posix-check/main.c:1"
+          ]
+        },
+        {
+          "id": "M1.exit.2",
+          "expectation": "Timer/wait tests cannot corrupt kernel or peers",
+          "status": "partial",
+          "missing_mandatory_work": "Unify typed generation-safe completion, predicate registration and cancellation; add IRQ-safe save/restore locking, timer queue lifecycle, real thread waits and no lost wakeups. Current boot-CPU scanning is a narrower contract.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/native_page_pool.hpp:1",
+            "ObfuscationKernel/include/ok/boot/qemu_process_memory.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationKernel/include/ok/sched/deadline.hpp:9",
+            "ObfuscationKernel/src/user/runtime.cpp:70",
+            "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+            "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+            "ObfuscationOS/apps/posix-check/main.c:1"
+          ]
+        },
+        {
+          "id": "M1.exit.3",
+          "expectation": "Locking/atomics/FPU context and hardware restrictions are qualified",
+          "status": "partial",
+          "missing_mandatory_work": "Per-profile nested IRQ state, atomic widths/orders, FPU/SIMD isolation and save/restore need dedicated native evidence; document unavailable instruction/protection/platform features without dropping profiles.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/native_page_pool.hpp:1",
+            "ObfuscationKernel/include/ok/boot/qemu_process_memory.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationKernel/include/ok/sched/deadline.hpp:9",
+            "ObfuscationKernel/src/user/runtime.cpp:70",
+            "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+            "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+            "ObfuscationOS/apps/posix-check/main.c:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M2",
+      "name": "Common OS objects",
+      "state": "incomplete",
+      "deliverable_verbatim": "Unified path resolution, symlinks, inode/dentry/mount references, file descriptions, credentials, AF_UNIX/descriptor passing, TTY",
+      "exit_gate_verbatim": "Relative exec works from a renamed cwd; open/unlink/rename races preserve identity; PTY child and IPC peers terminate/wake correctly",
+      "dependencies": [
+        "M1"
+      ],
+      "ledger_requirement_ids": [
+        "P08.paths",
+        "P08.checked-callers",
+        "P01.paths-bootstrap",
+        "P01.descriptor-bootstrap",
+        "P01.pipes-bootstrap",
+        "P08.qualified-file-attributes"
+      ],
+      "current_concrete_scope": "Shared object-based resolver, retained cwd/dirfd, symlinks, open descriptions, dup/fork sharing, pipes and partial credentials are implemented and have native subset tests. Native AF_UNIX rights and TTY/PTY lifecycle are not present.",
+      "source_refs": [
+        "ObfuscationKernel/src/fs/vfs.cpp:1",
+        "ObfuscationKernel/src/posix/fd.cpp:1",
+        "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+        "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+        "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+        "ObfuscationOS/apps/posix-check/main.c:1"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M2.exit.1",
+          "expectation": "Relative exec works from a renamed cwd",
+          "status": "subset-evidenced",
+          "missing_mandatory_work": "Retain this passing behavior while replacing fixed lifetimes; extend through mount cover/unmount and permission changes. This clause does not qualify all of M2.",
+          "source_refs": [
+            "ObfuscationKernel/src/fs/vfs.cpp:1",
+            "ObfuscationKernel/src/posix/fd.cpp:1",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+            "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+            "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+            "ObfuscationOS/apps/posix-check/main.c:1"
+          ]
+        },
+        {
+          "id": "M2.exit.2",
+          "expectation": "Open/unlink/rename races preserve identity",
+          "status": "partial",
+          "missing_mandatory_work": "Add synchronized mount/inode/dentry lifetime and concurrent namespace semantics; existing serialized identity checks do not establish races.",
+          "source_refs": [
+            "ObfuscationKernel/src/fs/vfs.cpp:1",
+            "ObfuscationKernel/src/posix/fd.cpp:1",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+            "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+            "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+            "ObfuscationOS/apps/posix-check/main.c:1"
+          ]
+        },
+        {
+          "id": "M2.exit.3",
+          "expectation": "PTY child and IPC peers terminate and wake correctly",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement TTY/PTY/termios plus signal-dependent lifecycle, AF_UNIX/socketpair, SCM_RIGHTS, peer credentials, close/exit wakeup and descriptor-reference ownership.",
+          "source_refs": [
+            "ObfuscationKernel/src/fs/vfs.cpp:1",
+            "ObfuscationKernel/src/posix/fd.cpp:1",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+            "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+            "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+            "ObfuscationOS/apps/posix-check/main.c:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M3",
+      "name": "Libc substrate",
+      "state": "incomplete",
+      "deliverable_verbatim": "Per-arch Linux ABI adapter, threads/TLS/futex/signals, auxv and static musl",
+      "exit_gate_verbatim": "Each architecture executes musl-linked file/process/thread/signal/clock tests; 32-bit time64/off64 and endian layouts pass golden vectors",
+      "dependencies": [
+        "M1",
+        "M2"
+      ],
+      "ledger_requirement_ids": [
+        "P01.linux-abi",
+        "P05.threads-tls",
+        "P06.signals",
+        "P07.futex",
+        "L01.musl-static"
+      ],
+      "current_concrete_scope": "Static musl startup/single-thread TLS, files/processes/clock subsets execute on all ten historical qualified SDK20 profiles. Actual runtime selects threads()[0]; no general native clone threads, signals or futex substrate.",
+      "source_refs": [
+        "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+        "ObfuscationKernel/include/ok/abi/linux_profile_data.hpp:1",
+        "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+        "ObfuscationKernel/src/user/runtime.cpp:1669",
+        "ObfuscationOS/scripts/test_musl_userland.py:1",
+        "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M3.exit.1",
+          "expectation": "Each architecture executes musl-linked file/process/thread/signal/clock tests",
+          "status": "partial",
+          "missing_mandatory_work": "Implement real thread selection/stacks/TLS/sharing, clone flag ordering, thread-group exec/exit, futex wait/wake/robust exit, signals/sigreturn/restart/cancellation, then execute actual pthread/signal workloads.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+            "ObfuscationKernel/include/ok/abi/linux_profile_data.hpp:1",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/scripts/test_musl_userland.py:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+          ]
+        },
+        {
+          "id": "M3.exit.2",
+          "expectation": "32-bit time64/off64 and endian layouts pass golden vectors and execution",
+          "status": "partial",
+          "missing_mandatory_work": "Existing bounded time/ABI codecs do not cover complete stat/TTY/signal/IPC structures; wide offsets remain restricted on 32-bit paths. Complete all required layouts and native negative cases.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+            "ObfuscationKernel/include/ok/abi/linux_profile_data.hpp:1",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/scripts/test_musl_userland.py:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+          ]
+        },
+        {
+          "id": "M3.exit.3",
+          "expectation": "Auxv/static musl semantics include qualified startup entropy",
+          "status": "partial",
+          "missing_mandatory_work": "Implement source-qualified CSPRNG/readiness and startup entropy; exercise allocator/stdio/math/headers under defined FPU ABI and resource pressure, retaining native personality regressions.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+            "ObfuscationKernel/include/ok/abi/linux_profile_data.hpp:1",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/scripts/test_musl_userland.py:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M4",
+      "name": "Durable default root",
+      "state": "incomplete",
+      "deliverable_verbatim": "Canonical metadata buffers, block request/completion ownership, synchronous JBD2 replay/writer and modern ext4 core",
+      "exit_gate_verbatim": "Linux-created image boots, mutates, power-fails, replays, and passes Linux/e2fsck checks; fsync claims tested through actual FLUSH ordering",
+      "dependencies": [
+        "M1",
+        "M2"
+      ],
+      "ledger_requirement_ids": [
+        "S0.ext4-subset",
+        "S3.jbd2-replay",
+        "S3.recovery-completion",
+        "S4.bounded-metadata-transaction",
+        "S2.canonical-metadata-buffers",
+        "S2.owned-ext4-transaction",
+        "S2.mounted-metadata",
+        "S4.transactions"
+      ],
+      "current_concrete_scope": "Real Virtio nonjournalled ext4 subset, narrow JBD2 recovery/metadata transactions, canonical bounded buffers and opt-in maintained timestamps exist. Readonly mounted namespace with internal metadata maintenance is not a general journalled root writer.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+        "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+        "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+        "ObfuscationKernel/include/ok/fs/ext4_completion.hpp:1",
+        "ObfuscationKernel/include/ok/fs/metadata_buffers.hpp:1",
+        "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1",
+        "ObfuscationOS/drivers/virtio/block.cpp:1",
+        "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+      ],
+      "evidence_refs": [
+        "sdk20-native",
+        "sdk20-linux"
+      ],
+      "gates": [
+        {
+          "id": "M4.exit.1",
+          "expectation": "Linux-created modern ext4 image boots and mutates",
+          "status": "partial",
+          "missing_mandatory_work": "Complete S1/S2 reader/group/checksum/64-bit/htree/extent and lifetime foundations; route ordinary namespace, allocation, extent, xattr/ACL and orphan mutations through one mounted transaction owner.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+            "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_completion.hpp:1",
+            "ObfuscationKernel/include/ok/fs/metadata_buffers.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1",
+            "ObfuscationOS/drivers/virtio/block.cpp:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+          ]
+        },
+        {
+          "id": "M4.exit.2",
+          "expectation": "Power-fail image replays and passes Linux/e2fsck",
+          "status": "partial",
+          "missing_mandatory_work": "Expand bounded whole-operation metadata fixtures to real mounted file/create/rename/unlink/truncate workloads, journal wrap/revoke/orphans and every commit/checkpoint interruption; maintain genuine failure-media captures.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+            "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_completion.hpp:1",
+            "ObfuscationKernel/include/ok/fs/metadata_buffers.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1",
+            "ObfuscationOS/drivers/virtio/block.cpp:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+          ]
+        },
+        {
+          "id": "M4.exit.3",
+          "expectation": "fsync ordering is verified through actual FLUSH",
+          "status": "partial",
+          "missing_mandatory_work": "Trace ordered data/journal commit/home checkpoint/clean publication and device flush under failures for the default writer; existing synchronous subset flush evidence cannot establish general crash consistency.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+            "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_completion.hpp:1",
+            "ObfuscationKernel/include/ok/fs/metadata_buffers.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1",
+            "ObfuscationOS/drivers/virtio/block.cpp:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M5",
+      "name": "Useful POSIX userland",
+      "state": "incomplete",
+      "deliverable_verbatim": "Shared musl/loader, coherent file mappings/page cache, shell/job control/utilities, remaining file/time/IPC/locale semantics and ports framework",
+      "exit_gate_verbatim": "Shared applications, dlopen/TLS, pthread cancellation, shell pipelines/redirection/jobs and designated POSIX suites execute in guests",
+      "dependencies": [
+        "M3",
+        "M4"
+      ],
+      "ledger_requirement_ids": [
+        "L02.musl-shared",
+        "L05.shell-utilities",
+        "S6.cache"
+      ],
+      "current_concrete_scope": "Small native shell/pipelines and static musl subset exist. Dynamic ELF admission is restricted and file/shared mappings, general pthread/signal semantics and conforming shell/job control remain open.",
+      "source_refs": [
+        "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+        "ObfuscationKernel/src/user/runtime.cpp:1669",
+        "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+        "ObfuscationOS/apps/init/main.c:24",
+        "ObfuscationOS/scripts/test_musl_userland.py:1"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M5.exit.1",
+          "expectation": "Shared applications and dlopen/TLS execute",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement PT_INTERP/ET_DYN, file/private/shared mapping and coherent cache, architecture relocations, loader paths, TLS DSOs, constructors, RELRO and safe unload.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/scripts/test_musl_userland.py:1"
+          ]
+        },
+        {
+          "id": "M5.exit.2",
+          "expectation": "pthread cancellation executes correctly",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Complete M3 signals/futex/thread lifecycle then public cancellation points, cleanup, robust/process-shared synchronization and loader/thread interaction.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/scripts/test_musl_userland.py:1"
+          ]
+        },
+        {
+          "id": "M5.exit.3",
+          "expectation": "Shell pipelines/redirection/jobs execute with required utilities",
+          "status": "partial",
+          "missing_mandatory_work": "Port pinned shell and utility set after sessions/process groups/TTY/signals; implement required utilities, locale/text behavior and designated shell clauses.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/scripts/test_musl_userland.py:1"
+          ]
+        },
+        {
+          "id": "M5.exit.4",
+          "expectation": "Designated POSIX suites execute in guests",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Select versioned suites and clause mapping, report unsupported options truthfully through headers/sysconf/pathconf/getconf; close mandatory deviations instead of passing stubs.",
+          "source_refs": [
+            "ObfuscationKernel/include/ok/user/linux_bootstrap.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/docs/plans/POSIX_MUSL.md:829",
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/scripts/test_musl_userland.py:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M6",
+      "name": "Connected host",
+      "state": "incomplete",
+      "deliverable_verbatim": "IRQ-driven Virtio NICs, sockets/events, IPv4/IPv6 UDP/TCP and route configuration",
+      "exit_gate_verbatim": "Guest-to-host and guest-to-guest applications run over actual NICs under loss/reordering; DNS and HTTP/TLS clients work without debug transport",
+      "dependencies": [
+        "M3",
+        "M2",
+        "M1"
+      ],
+      "ledger_requirement_ids": [
+        "N.nic-sockets",
+        "N.internet-host"
+      ],
+      "current_concrete_scope": "Loopback/debug network and device/service records are models. No observed real user socket to OS-owned NIC Internet host path qualifies this gate.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+        "ObfuscationKernel/include/ok/net/net.hpp:85",
+        "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+        "ObfuscationKernel/src/user/runtime.cpp:70"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M6.exit.1",
+          "expectation": "Guest-host and guest-guest apps exchange actual NIC traffic",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement OS Virtio NIC transport with IRQ/DMA/completion ownership on all ten, canonical socket descriptors/events, Ethernet/ARP/IP/UDP/TCP and route control; verify independent capture/peer bytes.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+            "ObfuscationKernel/include/ok/net/net.hpp:85",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:70"
+          ]
+        },
+        {
+          "id": "M6.exit.2",
+          "expectation": "Loss/reordering and host protocol requirements pass",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement full TCP lifecycle/congestion/RTO/flow control, IPv6/ND/RA/DAD/PMTU/multicast/fragment behavior and hostile packet/pressure suites with real socket calls.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+            "ObfuscationKernel/include/ok/net/net.hpp:85",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:70"
+          ]
+        },
+        {
+          "id": "M6.exit.3",
+          "expectation": "DNS and HTTP/TLS clients work without debug transport",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Provide resolver configuration/DNS UDP+TCP, time and CSPRNG trust prerequisites, DHCP/IPv6 configuration and pinned client ports; debug channel or synthetic receive does not count.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+            "ObfuscationKernel/include/ok/net/net.hpp:85",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:70"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M7",
+      "name": "Managed system",
+      "state": "incomplete",
+      "deliverable_verbatim": "User PID 1, accounts, login/session, device, network, resolver, logging, time, mount and scheduler services",
+      "exit_gate_verbatim": "Boot without test mode, crash/restart services, recover dependency failure, reap orphans, rotate logs and shut down/reboot with disk consistency",
+      "dependencies": [
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "ledger_requirement_ids": [
+        "N.services"
+      ],
+      "current_concrete_scope": "/init launches acceptance or one shell and returns when it ends. Parent-zero kernel reaping/service models are not persistent user PID1 supervision.",
+      "source_refs": [
+        "ObfuscationOS/apps/init/main.c:24",
+        "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+        "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+        "ObfuscationKernel/include/ok/sched/resources.hpp:1"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M7.exit.1",
+          "expectation": "Normal boot runs persistent PID1 with dependency/readiness management",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Designate user PID1/reparenting/init-death semantics; implement foreground service manifests, authenticated per-launch readiness, generation-safe process control, privileges and resource limits.",
+          "source_refs": [
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1"
+          ]
+        },
+        {
+          "id": "M7.exit.2",
+          "expectation": "Crash/restart/dependency failures and orphan reaping recover",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement real signals/process control/wait-any/SIGCHLD, service restart bounds/backoff, orphan and zombie policy; execute failures on all ten.",
+          "source_refs": [
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1"
+          ]
+        },
+        {
+          "id": "M7.exit.3",
+          "expectation": "Required services/accounts/sessions and log rotation work",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement listed log/dev/network/resolver/time/storage/account/login/session/seat/job/update services with versioned credential-checked IPC and durable configs.",
+          "source_refs": [
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1"
+          ]
+        },
+        {
+          "id": "M7.exit.4",
+          "expectation": "Shutdown/reboot preserves consistency",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Stop sessions/units in reverse dependency order, TERM/KILL with deadlines, drain logs/I/O, sync/unmount and device quiesce; record sync failure honestly and retain rescue.",
+          "source_refs": [
+            "ObfuscationOS/apps/init/main.c:24",
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/include/ok/sched/resources.hpp:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M8",
+      "name": "Isolated graphics",
+      "state": "incomplete",
+      "deliverable_verbatim": "Display/input descriptors, seat leases, Wayland, shared buffers, fonts, toolkit and PTY terminal",
+      "exit_gate_verbatim": "Separate user compositor and two clients draw concurrently; killing one client cannot read peer buffers or stop input; kernel rescue survives",
+      "dependencies": [
+        "M5",
+        "M2"
+      ],
+      "ledger_requirement_ids": [
+        "G.compositor"
+      ],
+      "current_concrete_scope": "Prelinked OS kernel extension draws desktop views; kernel buffer slots are not isolated shared mappings. Existing visual/model tests remain useful regression fixtures.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+        "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+        "ObfuscationKernel/include/ok/gui/desktop.hpp:1",
+        "ObfuscationKernel/src/user/runtime.cpp:1669",
+        "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M8.exit.1",
+          "expectation": "Separate user compositor and two clients draw concurrently",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Provide display/input FDs, revocable seat leases and owned buffers; implement AF_UNIX rights/shared file mappings then pinned Wayland software compositor and two real client processes.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+            "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+            "ObfuscationKernel/include/ok/gui/desktop.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587"
+          ]
+        },
+        {
+          "id": "M8.exit.2",
+          "expectation": "Client kill cannot expose peer buffers or stop input",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Enforce page/FD/lease generations, buffer/presentation lifetimes, guarded truncated SHM access, protocol bounds and distinct credentials/address spaces; execute malicious client/death tests.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+            "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+            "ObfuscationKernel/include/ok/gui/desktop.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587"
+          ]
+        },
+        {
+          "id": "M8.exit.3",
+          "expectation": "Kernel rescue survives and text/PTY foundations work",
+          "status": "partial",
+          "missing_mandatory_work": "Keep boot/rescue diagnostics; add exclusive display owner transitions, scalable fonts/shaping/toolkit/input, PTY terminal, CJK/RTL and keyboard focus tests.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+            "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+            "ObfuscationKernel/include/ok/gui/desktop.hpp:1",
+            "ObfuscationKernel/src/user/runtime.cpp:1669",
+            "ObfuscationOS/docs/plans/NETWORK_SERVICES.md:587"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M9",
+      "name": "Daily desktop",
+      "state": "incomplete",
+      "deliverable_verbatim": "Files, editor, settings, tasks, logs, network, packages, installer/recovery and accessibility",
+      "exit_gate_verbatim": "Scripted and human novice workflows pass: login, network, file copy/save/reopen, package install/rollback, lock and clean shutdown",
+      "dependencies": [
+        "M7",
+        "M8"
+      ],
+      "ledger_requirement_ids": [
+        "G.apps"
+      ],
+      "current_concrete_scope": "Existing attractive app views are in-kernel extension views. They do not qualify user login, durable documents, networking, installation or accessibility workflows.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+        "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+        "ObfuscationOS/apps/init/main.c:24"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M9.exit.1",
+          "expectation": "Novice login/network/file-copy/save/reopen workflows pass",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement independent Files/Editor/Settings/Tasks/Logs/Network/Terminal applications atop actual IPC, permissions, coherent files and durable root; supply error/loading/offline/full-disk states.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+            "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+            "ObfuscationOS/apps/init/main.c:24"
+          ]
+        },
+        {
+          "id": "M9.exit.2",
+          "expectation": "Package install/rollback, lock and clean shutdown work",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Add trusted package metadata/verification, durable staged install/update/rollback and installer/recovery media; qualified accounts/seat lock/revoke and shutdown required.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+            "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+            "ObfuscationOS/apps/init/main.c:24"
+          ]
+        },
+        {
+          "id": "M9.exit.3",
+          "expectation": "Accessibility/persistent preferences and human workflows qualify",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement keyboard-only navigation, UTF-8/CJK input, scaling and accessibility interfaces; execute scripted acceptance and record real human novice/screen-reader workflows.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/DESKTOP_APPS.md:289",
+            "ObfuscationOS/modules/system-gui/system_gui_runtime.cpp:1",
+            "ObfuscationOS/apps/init/main.c:24"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M10",
+      "name": "Ext4 breadth",
+      "state": "incomplete",
+      "deliverable_verbatim": "Advanced features and qualified combinations from the ext4 matrix",
+      "exit_gate_verbatim": "Every advertised read/write/replay profile round-trips with pinned Linux/e2fsprogs; unsupported combinations are explicitly rejected",
+      "dependencies": [
+        "M4"
+      ],
+      "ledger_requirement_ids": [
+        "S7.external-journal",
+        "S7.quota-project",
+        "S7.encryption",
+        "S7.verity",
+        "S7.casefold",
+        "S7.bigalloc",
+        "S7.mmp",
+        "S7.fast-commit",
+        "S7.legacy-mapping",
+        "S7.large-block",
+        "S7.inline-data",
+        "S7.online-grow"
+      ],
+      "current_concrete_scope": "Explicit subset/modern metadata profiles reject unsupported combinations. Advanced feature requirements remain planned in the ledger.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+        "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+        "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+        "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M10.exit.1",
+          "expectation": "Every advertised read/write/replay profile round-trips with pinned references",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement and qualify S7 legacy mappings, larger blocks/inline/ea_inode/large directories, quota/project, external journals, fscrypt, verity, casefold, bigalloc, MMP, fast commit and online growth as selected by full feature matrix.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+            "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1"
+          ]
+        },
+        {
+          "id": "M10.exit.2",
+          "expectation": "Unsupported combinations are explicitly rejected",
+          "status": "partial",
+          "missing_mandatory_work": "Expand exact per-bit/version/read/write/replay/tool combination table and corruption tests; do not describe safe current rejection as implemented advanced functionality.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+            "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1"
+          ]
+        },
+        {
+          "id": "M10.exit.3",
+          "expectation": "Mixed profiles preserve recovery/resource/security semantics",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Exercise two-device failure, crypto/key/cache lifetime, Unicode policy, cluster allocation, simultaneous-mount fencing and fast/full commit crossover after their specific dependencies.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/STORAGE_EXT4.md:560",
+            "ObfuscationKernel/src/fs/ext4_fs.cpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_owned_transaction.hpp:1",
+            "ObfuscationKernel/include/ok/fs/ext4_mounted_metadata.hpp:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M11",
+      "name": "Execution breadth",
+      "state": "incomplete",
+      "deliverable_verbatim": "Real SMP and TLB shootdowns, loaded native modules, IRQ/DMA/hotplug, physical reference machines",
+      "exit_gate_verbatim": "Module code truly relocates/executes; no use-after-unload; concurrent filesystem/socket/GUI stress passes; hardware evidence is separate from QEMU",
+      "dependencies": [
+        "M1",
+        "M3"
+      ],
+      "ledger_requirement_ids": [
+        "A04.smp",
+        "A05.runtime-modules"
+      ],
+      "current_concrete_scope": "SMP topology/lock records and prelinked module metadata are foundations/models. Current qualified runtime and maintained metadata are serialized on boot CPU.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+        "ObfuscationKernel/include/ok/smp/smp.hpp:90",
+        "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+        "ObfuscationKernel/src/core/module.cpp:1",
+        "ObfuscationOS/drivers/virtio/block.cpp:1"
+      ],
+      "evidence_refs": [],
+      "gates": [
+        {
+          "id": "M11.exit.1",
+          "expectation": "Native module relocates and executes new code",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement bounded immutable ET_REL capture, exact SDK/compiler validation, per-arch relocation, W^X/cache finalization, initialization/unwind and real exported service call.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+            "ObfuscationKernel/include/ok/smp/smp.hpp:90",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/src/core/module.cpp:1",
+            "ObfuscationOS/drivers/virtio/block.cpp:1"
+          ]
+        },
+        {
+          "id": "M11.exit.2",
+          "expectation": "No use-after-unload with callbacks/IRQ/DMA/work",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Reference/pin module dependencies and active resources; stop publication, drain timers/work/IRQs/DMA and workers, reject EBUSY if not quiescent, then unmap; exercise repeated load/unload.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+            "ObfuscationKernel/include/ok/smp/smp.hpp:90",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/src/core/module.cpp:1",
+            "ObfuscationOS/drivers/virtio/block.cpp:1"
+          ]
+        },
+        {
+          "id": "M11.exit.3",
+          "expectation": "Real SMP/TLB and concurrent filesystem/socket/GUI stress passes",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Implement secondary startup/IPI/per-CPU execution, complete thread scheduling, atomics/lock ranks, remote TLB retirement and concurrent ownership; hosted spinlocks/topology do not prove it.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+            "ObfuscationKernel/include/ok/smp/smp.hpp:90",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/src/core/module.cpp:1",
+            "ObfuscationOS/drivers/virtio/block.cpp:1"
+          ]
+        },
+        {
+          "id": "M11.exit.4",
+          "expectation": "Physical reference machines have separate evidence",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Select explicit platform matrix and record actual boot/storage/NIC/display/input/IRQ/DMA/reset/hotplug behavior; QEMU evidence never substitutes for named machines.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/ARCHITECTURE_SDK.md:56",
+            "ObfuscationKernel/include/ok/smp/smp.hpp:90",
+            "ObfuscationKernel/include/ok/sched/scheduler.hpp:68",
+            "ObfuscationKernel/src/core/module.cpp:1",
+            "ObfuscationOS/drivers/virtio/block.cpp:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    },
+    {
+      "id": "M12",
+      "name": "Full target",
+      "state": "incomplete",
+      "deliverable_verbatim": "Closed requirements ledger, release/debug qualification, reproducible artifacts, documentation and recovery media",
+      "exit_gate_verbatim": "No mandatory or selected-profile gaps; ten architectures pass the applicable user ABI/product gates; scope and remaining outside-profile limitations are published",
+      "dependencies": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11"
+      ],
+      "ledger_requirement_ids": [
+        "M0.inventory",
+        "A06.sdk"
+      ],
+      "current_concrete_scope": "Strict SDK producer/consumer pipeline and many preserved subset receipts exist. No complete normative ledger, ten-profile workstation qualification or recoverable product release exists.",
+      "source_refs": [
+        "ObfuscationOS/docs/plans/README.md:192",
+        "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+        "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7",
+        "ObfuscationOS/tools/kernel_sdk.py:1"
+      ],
+      "evidence_refs": [
+        "sdk21-candidate"
+      ],
+      "gates": [
+        {
+          "id": "M12.exit.1",
+          "expectation": "No mandatory/selected-profile gaps",
+          "status": "unimplemented",
+          "missing_mandatory_work": "Close all exact inventories, code semantics and acceptance gates; preview waivers cannot mark M12 complete.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/README.md:192",
+            "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7",
+            "ObfuscationOS/tools/kernel_sdk.py:1"
+          ]
+        },
+        {
+          "id": "M12.exit.2",
+          "expectation": "Ten architectures pass applicable user ABI and product gates in Debug/Release",
+          "status": "partial",
+          "missing_mandatory_work": "Preserve ten profiles and existing qualified subsets while qualifying final exact sources/artifacts; physical platform selection is separate, and failed candidate matrices remain failed.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/README.md:192",
+            "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7",
+            "ObfuscationOS/tools/kernel_sdk.py:1"
+          ]
+        },
+        {
+          "id": "M12.exit.3",
+          "expectation": "Reproducible artifacts/documentation/recovery and published scope",
+          "status": "partial",
+          "missing_mandatory_work": "Produce matched reproducible SDK/sysroot/packages/install/recovery sets, update interruption evidence, release diagnostics and accurate capability/limitation table; repair stale docs and bind evidence to final source.",
+          "source_refs": [
+            "ObfuscationOS/docs/plans/README.md:192",
+            "ObfuscationOS/docs/plans/contracts/ledger.json:1",
+            "ObfuscationOS/docs/plans/IMPLEMENTATION_PROGRESS.md:7",
+            "ObfuscationOS/tools/kernel_sdk.py:1"
+          ]
+        }
+      ],
+      "completion_claim": false
+    }
+  ],
+  "next_feature": {
+    "id": "P04.wait-registration-v1",
+    "milestones_unblocked": [
+      "M1",
+      "M2",
+      "M3",
+      "M6",
+      "M7",
+      "M8",
+      "M11"
+    ],
+    "owner": "ObfuscationKernel",
+    "status": "proposed-not-implemented",
+    "scope": "One generation-safe completion owner for existing boot-CPU pipe/sleep/readiness waits, with static-dispatch synchronization and native regression integration.",
+    "dependencies": [
+      "Keep existing bounded page and descriptor pins; preallocate stable wait slots before blocking",
+      "Define one synchronization domain and lock order before registering callbacks",
+      "Preserve existing native/Linux pending-call copies and deadline semantics",
+      "New exported C++ layouts require next exact SDK generation and producer/consumer qualification"
+    ],
+    "source_anchors": [
+      "ObfuscationKernel/src/sched/scheduler.cpp:1091",
+      "ObfuscationKernel/src/user/runtime.cpp:70",
+      "ObfuscationKernel/include/ok/sched/deadline.hpp:9",
+      "ObfuscationKernel/src/user/runtime.cpp:1669",
+      "ObfuscationKernel/include/ok/smp/smp.hpp:90",
+      "ObfuscationKernel/include/ok/arch/arch.hpp:18"
+    ],
+    "interfaces": [
+      "WaitToken { slot, generation, pid, tid }",
+      "WaitSourceId { kind, object_id, generation }",
+      "WaitOutcome { ready, timeout, interrupted, canceled, source_closed }",
+      "prepare(thread, frozen_request, retained_sources, deadline) -> Result<WaitToken>",
+      "subscribe_and_recheck(token, source, predicate) -> Status",
+      "park(token) -> { parked, completed }",
+      "try_complete(token, outcome) -> bool",
+      "take_completion(token) -> Result<Completion>",
+      "cancel_and_drain(token) -> Status"
+    ],
+    "states": [
+      "free",
+      "prepared",
+      "registered",
+      "parked",
+      "completed",
+      "consumed"
+    ],
+    "invariants": [
+      "No raw TCB/FD-slot pointer survives scheduler compaction or blocking",
+      "All resources admitted before registration publication",
+      "Condition mutation and subscription use the same synchronization domain",
+      "First valid completion owns the terminal outcome; stale generation cannot claim",
+      "No user copy, allocation, I/O, sleep or destructor callback while holding wait/source locks",
+      "Completion copyout revalidates current address space; exit cancellation never copies out",
+      "Pins released once after every source membership and timer reference is removed",
+      "Generation exhaustion rejects new admission rather than wrapping"
+    ],
+    "acceptance": [
+      "Deterministic hosted interleaving tests at predicate/registration/park/wake/timeout/cancel boundaries",
+      "ASan/UBSan and all-ten freestanding xmake compile",
+      "Actual native and musl pipe/sleep/poll/select guests preserving copied request and realtime-independent deadlines",
+      "Close/reuse/dup/fork/exit registration lifetime and exactly-once counters via independent receipts",
+      "Standalone Kernel plus SDK-only OS producer/consumer Debug/Release all-ten regression"
+    ],
+    "explicit_nonclaims": [
+      "No general pthread/signals/futex completion",
+      "No SMP/physical/IRQ-worker qualification from boot-CPU integration",
+      "No unlimited dynamic wait allocation",
+      "No complete M1 or M3 claim"
+    ]
+  },
+  "all_milestones_complete": false
+}

@@ -1,0 +1,1076 @@
+--- a/ObfuscationOS/apps/posix-check/main.c
++++ b/ObfuscationOS/apps/posix-check/main.c
+@@ -16,6 +16,7 @@
+ _Static_assert(offsetof(struct dirent, d_name) == 19, "getdents64 name offset");
+ static volatile int private_value = 7;
+ static const char readonly_value[] = "read only";
++int check_fat_media(const char *phase);
+ #define CHECK(condition)                                                                                               \
+     do                                                                                                                 \
+     {                                                                                                                  \
+@@ -551,21 +552,44 @@
+         _Exit(127);
+     }
+     CHECK(child_status(child) == 0 && shared[2 * page] == 51);
+-    volatile unsigned char *pressure = mmap(0, 384 * page, PROT_READ | PROT_WRITE,
+-                                             MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+-    CHECK((void *)pressure != MAP_FAILED);
+-    pressure[0] = 61;
+-    pressure[383 * page] = 62;
+-    volatile unsigned char *second_pressure = mmap(0, 384 * page, PROT_READ | PROT_WRITE,
+-                                                   MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+-    CHECK((void *)second_pressure != MAP_FAILED);
+-    second_pressure[0] = 63;
+-    CHECK(mmap(0, 192 * page, PROT_READ | PROT_WRITE,
+-               MAP_SHARED | MAP_ANONYMOUS, -1, 0) == MAP_FAILED && errno == ENOMEM);
+-    CHECK(pressure[0] == 61 && pressure[383 * page] == 62 && second_pressure[0] == 63 &&
+-          shared[2 * page] == 51);
+-    CHECK(munmap((void *)second_pressure, 384 * page) == 0);
+-    CHECK(munmap((void *)pressure, 384 * page) == 0);
++    // Respect the current user-page reserve instead of assuming two fixed
++    // allocations fit. Stop at a bounded resource refusal and test recovery.
++    enum { pressure_pages = 64, pressure_slots = 32 };
++    volatile unsigned char *pressure[pressure_slots];
++    size_t pressure_count = 0;
++    for (; pressure_count < pressure_slots; ++pressure_count)
++    {
++        pressure[pressure_count] = mmap(0, pressure_pages * page, PROT_READ | PROT_WRITE,
++                                       MAP_SHARED | MAP_ANONYMOUS, -1, 0);
++        if ((void *)pressure[pressure_count] == MAP_FAILED)
++        {
++            CHECK(errno == ENOMEM);
++            break;
++        }
++        for (size_t i = 0; i < pressure_pages; ++i)
++        {
++            CHECK(pressure[pressure_count][i * page] == 0 &&
++                  pressure[pressure_count][(i + 1) * page - 1] == 0);
++            pressure[pressure_count][i * page] = (unsigned char)(pressure_count + 1);
++            pressure[pressure_count][(i + 1) * page - 1] = (unsigned char)(i + 65);
++        }
++    }
++    CHECK(pressure_count > 0 && pressure_count < pressure_slots);
++    for (size_t allocation = 0; allocation < pressure_count; ++allocation)
++        for (size_t i = 0; i < pressure_pages; ++i)
++            CHECK(pressure[allocation][i * page] == (unsigned char)(allocation + 1) &&
++                  pressure[allocation][(i + 1) * page - 1] == (unsigned char)(i + 65));
++    CHECK(shared[2 * page] == 51);
++    CHECK(munmap((void *)pressure[pressure_count - 1], pressure_pages * page) == 0);
++    pressure[pressure_count - 1] = mmap(0, pressure_pages * page, PROT_READ | PROT_WRITE,
++                                       MAP_SHARED | MAP_ANONYMOUS, -1, 0);
++    CHECK((void *)pressure[pressure_count - 1] != MAP_FAILED);
++    for (size_t i = 0; i < pressure_pages * page; ++i)
++        CHECK(pressure[pressure_count - 1][i] == 0);
++    pressure[pressure_count - 1][0] = 63;
++    CHECK(pressure[pressure_count - 1][0] == 63 && shared[2 * page] == 51);
++    for (size_t allocation = 0; allocation < pressure_count; ++allocation)
++        CHECK(munmap((void *)pressure[allocation], pressure_pages * page) == 0);
+     CHECK(munmap((void *)shared, 3 * page) == 0 && munmap((void *)private_pages, page) == 0);
+     puts("OK_VM_SHARED scope=hardware fork=pass private_isolation=pass protect=pass none=pass "
+          "partial_unmap=pass fixed=pass exec_exit=pass pressure=pass cleanup=pass");
+@@ -640,6 +664,9 @@
+ 
+ int main(int argc, char **argv)
+ {
++    if (argc == 2 && argv && (!strcmp(argv[1], "--fat-write") ||
++                             !strcmp(argv[1], "--fat-read") || !strcmp(argv[1], "--fat-delete")))
++        return check_fat_media(argv[1]);
+     CHECK(argc == 1 && argv && strcmp(argv[0], "posix-check") == 0);
+     CHECK(check_native_time() == 0);
+     CHECK(check_native_poll() == 0);
+@@ -736,7 +763,8 @@
+         CHECK(WIFEXITED(status) && WEXITSTATUS(status) == expected_codes[i]);
+     }
+ 
+-    // Exceed the kernel process-table capacity without retaining orphan slots.
++    // PID 1 adopts and reaps live orphans. Exercise more than one table's worth
++    // while allowing its reaper to run, and bound failures instead of spinning.
+     for (unsigned i = 0; i < 65; ++i)
+     {
+         int done[2];
+@@ -751,8 +779,11 @@
+                 _Exit(1);
+             if (orphan > 0)
+                 _Exit(0);
+-            while (ok_syscall0(OK_SYS_GETPPID) != 0)
+-            {
++            int64_t deadline = monotonic_ns() + 2000000000LL;
++            while (ok_syscall0(OK_SYS_GETPPID) != 1) {
++                struct timespec pause = {0, 1000000};
++                if (monotonic_ns() >= deadline || nanosleep(&pause, 0) != 0)
++                    _Exit(2);
+             }
+             if (write(done[1], "x", 1) != 1)
+                 _Exit(1);
+--- /dev/null
++++ b/ObfuscationOS/apps/posix-check/fat.c
+@@ -0,0 +1,96 @@
++#include <errno.h>
++#include <fcntl.h>
++#include <ok/dirent.h>
++#include <stdio.h>
++#include <string.h>
++#include <sys/stat.h>
++#include <unistd.h>
++
++/* Separate native disk acceptance; these are not POSIX ownership assertions. */
++#define CHECK(c) do { if (!(c)) { printf("FAT_CHECK failed: " #c " errno=%d\n", errno); return 1; } } while (0)
++static const char directory[] = "/media/Guest Folder";
++static const char filename[] = "/media/Guest Folder/Long File Name.txt";
++
++static unsigned char pattern(size_t offset)
++{
++    return (unsigned char)((offset * 37u + 11u) % 251u);
++}
++
++static int sync_directory(const char *path)
++{
++    int fd = open(path, O_RDONLY | O_DIRECTORY);
++    if (fd < 0) return -1;
++    int result = fsync(fd);
++    if (close(fd)) return -1;
++    return result;
++}
++
++int check_fat_media(const char *phase)
++{
++    unsigned char buffer[1024];
++    struct stat st;
++    if (!strcmp(phase, "--fat-write")) {
++        CHECK(mkdir(directory, 0755) == 0);
++        int fd = open(filename, O_CREAT | O_EXCL | O_RDWR, 0644);
++        CHECK(fd >= 0);
++        for (size_t position = 0; position < 12288; position += sizeof(buffer)) {
++            for (size_t i = 0; i < sizeof(buffer); ++i) buffer[i] = pattern(position + i);
++            CHECK(write(fd, buffer, sizeof(buffer)) == (ssize_t)sizeof(buffer));
++        }
++        CHECK(pwrite(fd, "PATCH", 5, 509) == 5);
++        CHECK(ftruncate(fd, 8197) == 0);
++        CHECK(ftruncate(fd, 10001) == 0);
++        CHECK(pwrite(fd, "END", 3, 9998) == 3);
++        CHECK(fsync(fd) == 0 && close(fd) == 0);
++        fd = open("/media/delete-me", O_CREAT | O_EXCL | O_WRONLY, 0644);
++        CHECK(fd >= 0 && write(fd, "temporary", 9) == 9 && close(fd) == 0);
++        CHECK(unlink("/media/delete-me") == 0);
++        CHECK(stat("/media/delete-me", &st) == -1 && errno == ENOENT);
++        CHECK(mkdir("/media/empty-dir", 0755) == 0 && rmdir("/media/empty-dir") == 0);
++        CHECK(sync_directory(directory) == 0 && sync_directory("/media") == 0);
++    } else if (!strcmp(phase, "--fat-delete")) {
++        CHECK(unlink(filename) == 0);
++        CHECK(rmdir(directory) == 0);
++        CHECK(stat(filename, &st) == -1 && errno == ENOENT);
++        CHECK(sync_directory("/media") == 0);
++        puts("OK_FAT_NATIVE scope=hardware phase=delete remove=pass flush=pass");
++        return 0;
++    }
++    int fd = open("/media/guest folder/long file name.TXT", O_RDONLY);
++    CHECK(fd >= 0 && fstat(fd, &st) == 0 && st.st_size == 10001);
++    size_t position = 0;
++    for (;;) {
++        ssize_t count = read(fd, buffer, sizeof(buffer));
++        CHECK(count >= 0);
++        if (!count) break;
++        for (ssize_t i = 0; i < count; ++i) {
++            size_t offset = position + (size_t)i;
++            unsigned char expected = offset < 8197 ? pattern(offset) : 0;
++            if (offset >= 509 && offset < 514) expected = (unsigned char)"PATCH"[offset - 509];
++            if (offset >= 9998 && offset < 10001) expected = (unsigned char)"END"[offset - 9998];
++            CHECK(buffer[i] == expected);
++        }
++        position += (size_t)count;
++    }
++    CHECK(position == 10001 && close(fd) == 0);
++    fd = open(directory, O_RDONLY | O_DIRECTORY);
++    CHECK(fd >= 0);
++    _Alignas(8) unsigned char entries[512];
++    int found = 0;
++    for (;;) {
++        ssize_t bytes = getdents64(fd, entries, sizeof(entries));
++        CHECK(bytes >= 0);
++        if (!bytes) break;
++        for (size_t i = 0; i < (size_t)bytes;) {
++            struct dirent *entry = (struct dirent *)(entries + i);
++            CHECK(entry->d_reclen >= 24 && entry->d_reclen <= (size_t)bytes - i);
++            if (!strcmp(entry->d_name, "Long File Name.txt")) found = 1;
++            i += entry->d_reclen;
++        }
++    }
++    CHECK(found && close(fd) == 0);
++    puts(!strcmp(phase, "--fat-write") ?
++         "OK_FAT_NATIVE scope=hardware phase=write create=pass read=pass write=pass truncate=pass zero=pass list=pass remove=pass flush=pass" :
++         "OK_FAT_NATIVE scope=hardware phase=read restart=pass content=pass casefold=pass list=pass");
++    return 0;
++}
+--- a/ObfuscationOS/apps/init/main.c
++++ b/ObfuscationOS/apps/init/main.c
+@@ -1,4 +1,5 @@
+ #include <stdio.h>
++#include <errno.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/wait.h>
+@@ -25,8 +26,14 @@
+         _Exit(127);
+     }
+     int status = 0;
+-    if (waitpid(pid, &status, 0) != pid)
+-        return -1;
++    // Acceptance may deliberately orphan grandchildren. PID 1 must reap those
++    // children while waiting for the requested program, just as the supervisor
++    // does after acceptance; otherwise the process table fills during the test.
++    for (;;) {
++        pid_t completed = waitpid(-1, &status, 0);
++        if (completed == pid) break;
++        if (completed < 0 && errno != EINTR) return -1;
++    }
+     return WIFEXITED(status) ? WEXITSTATUS(status) : 128;
+ }
+ #endif
+--- a/ObfuscationOS/modules/boot/storage.cpp
++++ b/ObfuscationOS/modules/boot/storage.cpp
+@@ -4,6 +4,7 @@
+ #include <ok/arch/terminal_power.hpp>
+ #include <ok/core/shutdown_storage.hpp>
+ #include <ok/fs/ext4_fs.hpp>
++#include <ok/fs/fat_fs.hpp>
+ #include <ok/fs/ext4_mounted_common_profile.hpp>
+ #include <new>
+ 
+@@ -15,6 +16,7 @@
+     while (*text) ok_platform_console_write_char(*text++);
+ }
+ ok::fs::Ext4FileSystem root_filesystem;
++ok::fs::FatFileSystem media_filesystem;
+ using JournalRoot = ok::fs::Ext4MountedMetadata<1>;
+ JournalRoot::Registry journal_registry;
+ alignas(JournalRoot::CommonStorage)
+@@ -180,9 +182,8 @@
+ }
+ }
+ 
+-// Distribution policy: a clean supported ext4 disk replaces the archive root.
+-// Missing disks and non-ext4 media keep the embedded rescue root. An ext4 disk
+-// that fails validation never gets formatted or silently mounted read/write.
++// Ext4 supplies the system root; FAT media is mounted beneath the archive root
++// at /media with fixed mount permissions. Validation failures never format media.
+ extern "C" ok::Status ok_boot_filesystem(ok::fs::VirtualFileSystem &vfs)
+ {
+     auto disk = os::drivers::probe_virtio_block();
+@@ -197,7 +198,39 @@
+     if (auto status = disk.value()->read_blocks(2, super); !status.ok()) return status;
+     if (super[56] != std::byte{0x53} || super[57] != std::byte{0xef})
+     {
+-        report("OK_STORAGE source=archive reason=non-ext4-media\n");
++        std::array<std::byte, 512> boot{};
++        if (auto status = disk.value()->read_blocks(0, boot); !status) return status;
++        const auto signature = [&](ok::usize offset, std::string_view value) {
++            for (ok::usize i = 0; i < value.size(); ++i)
++                if (boot[offset + i] != static_cast<std::byte>(value[i])) return false;
++            return true;
++        };
++        // The FAT32 type string is informational; admit valid unlabelled BPBs
++        // through the checked kernel parser, then validate the entire provider.
++        ok::fs::FatVolume candidate;
++        const auto fat_probe = candidate.mount(*disk.value());
++        if (!fat_probe && fat_probe.code() == ok::StatusCode::io_error) return fat_probe;
++        if (fat_probe || signature(3, "EXFAT   ") || signature(82, "FAT32   "))
++        {
++            if (auto status = media_filesystem.mount(*disk.value(), true); !status) return status;
++            auto existing = vfs.try_stat_absolute("/media", {.uid = 0, .gid = 0},
++                                                  ok::fs::FinalComponent::no_follow);
++            if (!existing.result)
++            {
++                if (existing.result.status().code() != ok::StatusCode::not_found)
++                    return existing.result.status();
++                if (auto status = vfs.create({}, "/media", ok::fs::NodeType::directory, 0755, 0, 0); !status)
++                    return status;
++            }
++            else if (existing.result.value().type != ok::fs::NodeType::directory)
++                return ok::Status::not_directory("FAT mount point must be a directory");
++            if (auto status = vfs.mount("/media", *media_filesystem.root()); !status) return status;
++            report(media_filesystem.info().variant == ok::fs::FatVariant::fat32 ?
++                "OK_STORAGE scope=hardware source=virtio filesystem=fat32 mode=rw mount=/media\n" :
++                "OK_STORAGE scope=hardware source=virtio filesystem=exfat mode=rw mount=/media\n");
++        }
++        else
++            report("OK_STORAGE source=archive reason=unrecognized-media\n");
+         return mount_runtime_directory(vfs);
+     }
+     // The journal bit selects an independently validated mount. Never pass a
+--- a/ObfuscationOS/scripts/test_interactive_userland.py
++++ b/ObfuscationOS/scripts/test_interactive_userland.py
+@@ -57,7 +57,8 @@
+                 markers = [b"OK_POSIX scope=hardware fork=pass", b"OK_PATH scope=hardware relative_exec=pass symlink=pass",
+                                b"OK_TIME_NATIVE scope=hardware monotonic=pass sleep=pass absolute=pass sibling=pass validation=pass",
+                                b"OK_POLL_NATIVE scope=hardware nonblock=pass readiness=pass timeout=pass wake=pass peer_close=pass",
+-                               b"OK_VM_NATIVE scope=hardware map=pass zero=pass protect=pass unmap=pass fork=pass pressure=pass"]
++                               b"OK_VM_NATIVE scope=hardware map=pass zero=pass protect=pass unmap=pass fork=pass pressure=pass",
++                               b"OK_VM_SHARED scope=hardware fork=pass private_isolation=pass protect=pass none=pass partial_unmap=pass fixed=pass exec_exit=pass pressure=pass cleanup=pass"]
+                 if b"OK_STORAGE scope=hardware source=virtio filesystem=ext4 mode=rw" in serial:
+                     markers.append(b"OK_VM_FILE_PRIVATE scope=hardware ext4=pass offset=pass short_length=pass tail_zero=pass errno=pass unlink=pass private_write=pass fork=pass")
+                 for marker in markers:
+--- a/ObfuscationOS/scripts/qemu_distro.py
++++ b/ObfuscationOS/scripts/qemu_distro.py
+@@ -203,9 +203,11 @@
+             observed.add("vm")
+         if line.startswith("OK_VM_PAGED scope=hardware pages=192 fork=pass none=pass remap=pass rollback=pass cleanup=pass"):
+             observed.add("paged-vm")
++        if line.startswith("OK_VM_SHARED scope=hardware fork=pass private_isolation=pass protect=pass none=pass partial_unmap=pass fixed=pass exec_exit=pass pressure=pass cleanup=pass"):
++            observed.add("shared-vm")
+         if line.startswith("OK_VM_FILE_PRIVATE scope=hardware ext4=pass offset=pass short_length=pass tail_zero=pass errno=pass unlink=pass private_write=pass fork=pass"):
+             observed.add("file-private-vm")
+-        required = {"gui", "userland", "preemption", "paths", "vm", "paged-vm", "time", "sole-sleeper", "poll"} if require_native else {"gui"}
++        required = {"gui", "userland", "preemption", "paths", "vm", "paged-vm", "shared-vm", "time", "sole-sleeper", "poll"} if require_native else {"gui"}
+         if require_storage:
+             required.update(("storage", "file-private-vm"))
+         if require_journalled:
+--- a/ObfuscationOS/tools/kernel_sdk.py
++++ b/ObfuscationOS/tools/kernel_sdk.py
+@@ -1321,6 +1321,13 @@
+     output.write_bytes(boot_sector + payload + bytes(capacity - len(payload)))
+ 
+ 
++def require_fat_filesystem(manifest: dict) -> None:
++    """The distribution storage extension needs the optional mounted FAT API."""
++    required = {"include/ok/fs/fat.hpp", "include/ok/fs/fat_fs.hpp"}
++    if not required.issubset(manifest.get("files", {})):
++        raise ValueError("kernel SDK lacks mounted FAT32/exFAT artifacts; export a fresh matching SDK")
++
++
+ def main() -> None:
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("command", choices=("validate", "assemble"))
+@@ -1328,12 +1335,15 @@
+     parser.add_argument("--arch", required=True)
+     parser.add_argument("--mode", required=True)
+     parser.add_argument("--compiler", type=Path)
++    parser.add_argument("--require-fat-filesystem", action="store_true")
+     parser.add_argument("--elf", type=Path)
+     parser.add_argument("--out", type=Path)
+     parser.add_argument("--objcopy", type=Path)
+     args = parser.parse_args()
+     try:
+         manifest = validate_sdk(args.sdk, args.arch, args.mode, args.compiler)
++        if args.require_fat_filesystem:
++            require_fat_filesystem(manifest)
+         if args.command == "assemble":
+             if args.elf is None or args.out is None:
+                 parser.error("assemble requires --elf and --out")
+--- a/ObfuscationOS/tests/tools/test_kernel_sdk.py
++++ b/ObfuscationOS/tests/tools/test_kernel_sdk.py
+@@ -187,6 +187,22 @@
+     return sources
+ 
+ class KernelSdkTests(unittest.TestCase):
++    def test_fat_consumer_requires_explicit_hashed_sdk_headers(self):
++        from kernel_sdk import require_fat_filesystem
++        manifest = validate_sdk(self.sdk, "x86_64", "debug")
++        with self.assertRaisesRegex(ValueError, "mounted FAT32/exFAT"):
++            require_fat_filesystem(manifest)
++        for name in ("include/ok/fs/fat.hpp", "include/ok/fs/fat_fs.hpp"):
++            path = self.sdk / name
++            path.parent.mkdir(parents=True, exist_ok=True)
++            path.write_text("// FAT SDK test artifact\n")
++            self.manifest["files"][name] = hashlib.sha256(path.read_bytes()).hexdigest()
++        self.save()
++        require_fat_filesystem(validate_sdk(self.sdk, "x86_64", "debug"))
++        path.write_text("// Modified FAT SDK artifact\n")
++        with self.assertRaisesRegex(ValueError, "checksum mismatch"):
++            validate_sdk(self.sdk, "x86_64", "debug")
++
+     def test_abi74_rehashed_profiles_refuse_stale73_and_future75(self):
+         cases = (("include/ok/fs/ext4_mounted_common_profile.hpp", COMMON_HEADER),
+                  ("include/" + UDP_PROFILE_HEADER, UDP_HEADER),
+--- a/ObfuscationOS/tests/tools/test_qemu_distro.py
++++ b/ObfuscationOS/tests/tools/test_qemu_distro.py
+@@ -60,6 +60,7 @@
+         paths = "OK_PATH scope=hardware relative_exec=pass symlink=pass\n"
+         vm = "OK_VM_NATIVE scope=hardware map=pass zero=pass protect=pass unmap=pass fork=pass pressure=pass\n"
+         paged_vm = "OK_VM_PAGED scope=hardware pages=192 fork=pass none=pass remap=pass rollback=pass cleanup=pass\n"
++        shared_vm = "OK_VM_SHARED scope=hardware fork=pass private_isolation=pass protect=pass none=pass partial_unmap=pass fixed=pass exec_exit=pass pressure=pass cleanup=pass\n"
+         clock = "OK_TIME_NATIVE scope=hardware monotonic=pass sleep=pass absolute=pass sibling=pass validation=pass\n"
+         sleep = "OK_SLEEP_NATIVE scope=hardware sole_sleeper=pass\n"
+         poll = "OK_POLL_NATIVE scope=hardware nonblock=pass readiness=pass timeout=pass wake=pass peer_close=pass\n"
+@@ -71,7 +72,8 @@
+         self.assertEqual(self.run_guest_output([gui, paths, vm, timer, user, clock], native=True), 124)
+         self.assertEqual(self.run_guest_output([gui, paths, vm, timer, user, clock, sleep], native=True), 124)
+         self.assertEqual(self.run_guest_output([gui, paths, vm, timer, user, clock, sleep, poll], native=True), 124)
+-        self.assertEqual(self.run_guest_output([gui, paths, vm, paged_vm, timer, user, clock, sleep, poll], native=True), 0)
++        self.assertEqual(self.run_guest_output([gui, paths, vm, paged_vm, timer, user, clock, sleep, poll], native=True), 124)
++        self.assertEqual(self.run_guest_output([gui, paths, vm, paged_vm, shared_vm, timer, user, clock, sleep, poll], native=True), 0)
+         self.assertEqual(self.run_guest_output([gui, "POSIX_CHECK failed: fork\n"], native=True), 1)
+ 
+     def test_symlink_gap_is_rejected_on_every_filesystem(self):
+--- a/ObfuscationOS/tests/tools/test_native_shutdown_storage.py
++++ b/ObfuscationOS/tests/tools/test_native_shutdown_storage.py
+@@ -22,7 +22,7 @@
+             include = temporary / 'include/ok/fs'
+             include.mkdir(parents=True)
+             seam = ROOT / 'tests/hosted/native_shutdown_storage_seams.hpp'
+-            for header in ('ext4_fs.hpp', 'ext4_mounted_common_profile.hpp'):
++            for header in ('ext4_fs.hpp', 'ext4_mounted_common_profile.hpp', 'fat_fs.hpp'):
+                 (include / header).write_text(f'#include "{seam}"\n')
+             driver = temporary / 'include/ok/driver'
+             driver.mkdir()
+--- a/ObfuscationOS/tests/hosted/native_shutdown_storage_seams.hpp
++++ b/ObfuscationOS/tests/hosted/native_shutdown_storage_seams.hpp
+@@ -74,6 +74,21 @@
+   private:
+     int root_{};
+ };
++enum class FatVariant { fat32, exfat };
++struct FatMountInfo { FatVariant variant{FatVariant::fat32}; };
++class FatVolume {
++  public:
++    Status mount(driver::BlockDevice &) { return Status::unsupported("not FAT in this storage seam"); }
++};
++class FatFileSystem {
++  public:
++    Status mount(driver::BlockDevice &, bool) { return {}; }
++    int *root() { return &root_; }
++    const FatMountInfo &info() const { return info_; }
++  private:
++    int root_{};
++    FatMountInfo info_{};
++};
+ enum class Ext4MountedPolicy { ordered_data_dirty_noatime, other };
+ enum class Ext4MountPhase { readable, clean_sealed, failed };
+ enum class MetadataOwnerState { ready, failed };
+--- a/ObfuscationOS/xmake/targets.lua
++++ b/ObfuscationOS/xmake/targets.lua
+@@ -82,6 +82,9 @@
+         end
+         if name == "notes" then
+             add_files(path.join(project, "apps", "notes", "save.c"))
++        end
++        if name == "posix-check" then
++            add_files(path.join(project, "apps", "posix-check", "fat.c"))
+         end
+         if name == "init" then
+             add_defines("OK_NATIVE_CONSOLE_LEASE=1")
+@@ -551,7 +554,8 @@
+     end)
+     before_build(function (target)
+         os.execv("python3", {path.join(project, "tools", "kernel_sdk.py"), "validate",
+-            "--sdk", sdk, "--arch", arch, "--mode", mode, "--compiler", (target:tool("cxx"))})
++            "--sdk", sdk, "--arch", arch, "--mode", mode, "--compiler", (target:tool("cxx")),
++            "--require-fat-filesystem"})
+     end)
+     after_build(function (target)
+         os.execv("python3", {path.join(project, "tools", "kernel_sdk.py"), "assemble",
+--- /dev/null
++++ b/ObfuscationOS/docs/FAT_MEDIA.md
+@@ -0,0 +1,53 @@
++# FAT32 and exFAT data media
++
++The boot storage extension mounts a supported FAT32 or exFAT whole-volume Virtio
++disk at `/media`. The embedded archive remains the system root. Supported ext4
++media continues to replace the system root. Unknown media keeps the archive;
++recognized but invalid FAT media fails boot storage admission without formatting.
++Partition discovery and mounting a second disk are not part of this profile.
++
++`distro_image` requires freshly exported architecture/mode-specific Kernel SDK
++artifacts containing `ok/fs/fat_fs.hpp` and `ok/fs/fat.hpp`. The SDK validator
++checks the manifest and artifact hashes before compiling the extension. The OS
++never compiles kernel filesystem sources. This is an additive provider API;
++existing module ABI 74 and UAPI 0.16 layouts are unchanged.
++
++The provider supports regular-file read/write, creation, truncation, directory
++creation/listing, unlink/rmdir, retained descriptors after unlink, and ordinary
++`fsync` device flushes. Disk names use case-insensitive ASCII (including FAT32
++long names) within the current 31-byte VFS component limit. FAT media has fixed
++root ownership with file mode 0644 and directory mode 0755. Requests for other
++ownership or permission attributes are rejected before publication. This data
++volume is not a POSIX root: hardlinks, symlinks and arbitrary chmod/chown are not
++available. Use ext4 for those operations. Notes' atomic rename workflow is not
++qualified for FAT.
++
++Both formats are nonjournalled. They use dirty indicators and fail closed after
++uncertain I/O completion; the implementation does not promise power-loss atomic
++transactions or the stronger `sync_persistent`/clean system-power contract.
++Use ordinary file/directory `fsync` or `sync /media` before host-controlled QEMU
++stop/start tests. With no path, `sync` retains its existing system-root behavior.
++See the Kernel FAT provider documentation for geometry and allocation limits.
++
++## Native integration test
++
++With a Release distribution image and an explicit exported Kernel SDK, run:
++
++```sh
++python3 -B scripts/test_fat_media.py --arch x86_64 \
++  --qemu /absolute/path/qemu-system-x86_64 \
++  --kernel /absolute/path/kernel.bin --filesystem fat32 \
++  --mkfs /absolute/path/mkfs.fat --fsck /absolute/path/fsck.fat \
++  --out /fresh/output/directory
++```
++
++Repeat with `--filesystem exfat`, `mkfs.exfat` and `fsck.exfat`. The runner creates
++a new scratch image, executes `posix-check --fat-write`, `--fat-read` and
++`--fat-delete` across separate guest boots, and runs independent read-only fsck
++at each boundary. It retains serial logs, exact commands, hashes, and a file-bearing
++image checkpoint. It tests QEMU execution, not a physical machine or power cuts.
++
++Use `scripts/test_interactive_userland.py --posix-check` and
++`scripts/test_persistent_ext4.py` for ext4/POSIX regression coverage. SimpleFS
++packaging retains its existing capacity constraint and is not part of FAT or
++ext4 acceptance.
+--- a/ObfuscationKernel/src/fs/storage.cpp
++++ b/ObfuscationKernel/src/fs/storage.cpp
+@@ -22,6 +22,8 @@
+ Status BlockCache::attach(driver::BlockDevice &device)
+ {
+     smp::ScopedSpinLock guard(lock_);
++    if (device.geometry().block_size != driver::block_sector_size)
++        return Status::unsupported("block cache requires 512-byte sectors");
+     device_ = &device;
+     entries_ = {};
+     stats_ = {};
+@@ -69,6 +71,8 @@
+     }
+     ++stats_.misses;
+     auto &victim = entries_[next_victim_++ % entries_.size()];
++    // A failed device read may already have overwritten part of the buffer.
++    victim.valid = false;
+     if (auto status = device_->read_blocks(block, victim.data); !status.ok())
+     {
+         ++stats_.errors;
+@@ -106,6 +110,9 @@
+     }
+     if (auto status = device_->write_blocks(block, in); !status.ok())
+     {
++        // Completion failure does not prove that the media stayed unchanged.
++        for (auto &entry : entries_)
++            if (entry.block == block) entry.valid = false;
+         ++stats_.errors;
+         return status;
+     }
+--- /dev/null
++++ b/ObfuscationKernel/tests/kernel/roadmap/block_cache_failure.hpp
+@@ -0,0 +1,46 @@
++#pragma once
++#include "ok/fs/storage.hpp"
++namespace ok::test {
++class PartialFailureDisk final : public driver::BlockDevice
++{
++  public:
++    bool fail_read{}, fail_write{};
++    std::byte first{};
++    driver::BlockGeometry geometry() const override { return {16, 512, true}; }
++    Status read_blocks(u64 sector, std::span<std::byte> out) override
++    {
++        if (out.size() != 512 || sector >= 16) return Status::invalid_argument();
++        for (auto &value : out) value = sector ? std::byte(sector) : first;
++        if (fail_read) { out[0] = std::byte{0xee}; return Status::io_error("partial cache test read"); }
++        return {};
++    }
++    Status write_blocks(u64 sector, std::span<const std::byte> in) override
++    {
++        if (sector || in.size() != 512) return Status::invalid_argument();
++        first = in[0];
++        return fail_write ? Status::io_error("partial cache test write") : Status{};
++    }
++};
++Status test_cache_failure()
++{
++    PartialFailureDisk disk;
++    fs::BlockCache cache;
++    if (auto status = cache.attach(disk); !status) return status;
++    std::array<std::byte, 512> bytes{};
++    for (u64 sector = 0; sector < fs::block_cache_entries; ++sector)
++        if (auto status = cache.read_block(sector, bytes); !status) return status;
++    disk.fail_read = true;
++    if (cache.read_block(8, bytes).code() != StatusCode::io_error)
++        return Status::fault("cache must preserve device read errors");
++    disk.fail_read = false;
++    if (auto status = cache.read_block(0, bytes); !status) return status;
++    if (bytes[0] != std::byte{}) return Status::fault("failed read poisoned old cache identity");
++    disk.fail_write = true;
++    bytes[0] = std::byte{0x37};
++    if (cache.write_block(0, bytes).code() != StatusCode::io_error)
++        return Status::fault("cache must preserve device write errors");
++    if (auto status = cache.read_block(0, bytes); !status) return status;
++    return bytes[0] == std::byte{0x37} ? Status{} : Status::fault("failed write retained stale cached bytes");
++}
++
++}
+--- /dev/null
++++ b/ObfuscationKernel/tests/host/block_cache_failure_tests.cpp
+@@ -0,0 +1,3 @@
++#include "../kernel/roadmap/block_cache_failure.hpp"
++#include <cassert>
++int main() { assert(ok::test::test_cache_failure()); }
+--- /dev/null
++++ b/ObfuscationKernel/scripts/test_block_cache.py
+@@ -0,0 +1,38 @@
++#!/usr/bin/env python3
++"""Hosted xmake regression for partial block-device completion failures."""
++from pathlib import Path
++import os
++import shutil
++import subprocess
++import tempfile
++
++
++def main():
++    root = Path(__file__).resolve().parents[1]
++    with tempfile.TemporaryDirectory(prefix="ok-block-cache-") as directory:
++        source = Path(directory)
++        shutil.copytree(root / "include", source / "include")
++        paths = ["tests/host/block_cache_failure_tests.cpp", "tests/kernel/roadmap/block_cache_failure.hpp",
++                 "src/fs/storage.cpp", "src/smp/smp.cpp", "src/arch/arch.cpp", "src/arch/x86_64/ops.cpp",
++                 "src/arch/ops_private.hpp"]
++        for name in paths:
++            destination = source / name
++            destination.parent.mkdir(parents=True, exist_ok=True)
++            shutil.copy2(root / name, destination)
++        files = ", ".join('"' + name + '"' for name in paths if name.endswith(".cpp"))
++        (source / "xmake.lua").write_text('set_languages("c++23")\n'
++            'target("block-cache")\nset_kind("binary")\nset_targetdir("artifacts")\n'
++            'add_defines("OK_ARCH_TARGET_X86_64")\nadd_includedirs("include")\n'
++            'add_files(' + files + ')\n'
++            'add_cxxflags("-O1", "-g", "-Wall", "-Wextra", "-Werror", "-fsanitize=address,undefined", '
++            '"-fno-omit-frame-pointer", "-fno-pie", "-ffunction-sections", "-fdata-sections", {force=true})\n'
++            'add_ldflags("-fsanitize=address,undefined", "-no-pie", "-Wl,--gc-sections", {force=true})\ntarget_end()\n')
++        environment = dict(os.environ, ASAN_OPTIONS="detect_leaks=0:halt_on_error=1", UBSAN_OPTIONS="halt_on_error=1")
++        for argv in (["xmake", "f", "-c", "-y", "--ccache=n"], ["xmake", "build", "-j2"],
++                     [str(source / "artifacts/block-cache")]):
++            subprocess.run(argv, cwd=source, env=environment, check=True)
++    print("PASS hosted block cache partial read/write failure controls")
++
++
++if __name__ == "__main__":
++    main()
+--- a/ObfuscationOS/README.md
++++ b/ObfuscationOS/README.md
+@@ -35,10 +35,11 @@
+ the compiler signature, so replacing an SDK invalidates consumer objects even
+ when copied headers retain old timestamps.
+ 
+-The private bounded UNIX descriptor-transfer successor consumes native module ABI58. Validation
+-requires manifest58 and matching hashed module, mounted ext4, UDP and TCP
+-contract markers, together with UAPI0.7.0 and manifest schema1. Stale57
+-artifacts require a rebuild; this candidate does not publish default SDKs.
++The current consumer requires native module ABI74, UAPI0.16.0, manifest schema1,
++and matching hashed feature contracts. Earlier ABI-pinned qualification records
++remain historical evidence. The distribution storage extension additionally
++requires the exported mounted FAT32/exFAT headers; rebuild the matching SDK
++before building this consumer.
+ 
+ The `distro_image` target compiles OS-owned System GUI extension sources and
+ links them to the SDK archives. It is a statically linked boot extension; it
+@@ -133,6 +134,11 @@
+ MIPS/MIPS64 PCI and ppce500 PPC PCI. The archive remains the rescue root when
+ no supported disk is present.
+ 
++Supported FAT32/exFAT whole-volume media mounts at `/media` beneath the archive
++root, with file read/write, create/delete and directory operations. See
++[FAT data media](docs/FAT_MEDIA.md) for fixed permissions, supported geometry,
++limits and the native QEMU/fsck test runner.
++
+ The initial ext4 writer supports linear directories and extent-backed regular
+ files, including create, read/write, truncate, unlink, rename, hard links,
+ mkdir/rmdir and FLUSH.
+--- a/ObfuscationOS/apps/sync/main.c
++++ b/ObfuscationOS/apps/sync/main.c
+@@ -1,16 +1,20 @@
+ #include <fcntl.h>
+ #include <stdio.h>
+ #include <unistd.h>
+-int main(void)
++int main(int argc, char **argv)
+ {
+-    int fd = open("/", O_RDONLY | O_DIRECTORY);
+-    if (fd < 0 || fsync(fd) != 0)
++    // An explicit file or directory also reaches non-root data filesystems.
++    for (int i = 1; i < (argc > 1 ? argc : 2); ++i)
+     {
+-        perror("sync");
+-        if (fd >= 0) close(fd);
+-        return 1;
++        int fd = open(argc > 1 ? argv[i] : "/", O_RDONLY);
++        if (fd < 0 || fsync(fd) != 0)
++        {
++            perror("sync");
++            if (fd >= 0) close(fd);
++            return 1;
++        }
++        if (close(fd) != 0) { perror("sync"); return 1; }
+     }
+-    close(fd);
+     puts("Filesystem synchronized");
+     return 0;
+ }
+--- /dev/null
++++ b/ObfuscationOS/scripts/test_fat_media.py
+@@ -0,0 +1,232 @@
++#!/usr/bin/env python3
++"""Execute native FAT media write/read/delete phases across three QEMU boots."""
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import os
++from pathlib import Path
++import select
++import signal
++import shutil
++import subprocess
++import time
++
++from qemu_distro import command_for
++
++
++MARKERS = {
++    'write': b'OK_FAT_NATIVE scope=hardware phase=write create=pass read=pass write=pass truncate=pass zero=pass list=pass remove=pass flush=pass',
++    'read': b'OK_FAT_NATIVE scope=hardware phase=read restart=pass content=pass casefold=pass list=pass',
++    'delete': b'OK_FAT_NATIVE scope=hardware phase=delete remove=pass flush=pass',
++}
++FAILURES = (b'FAT_CHECK failed', b'POSIX_CHECK failed:', b'OK_TEST_FAIL ',
++            b'boot=failed', b'boot=degraded')
++
++
++def sha(path):
++    digest = hashlib.sha256()
++    with Path(path).open('rb') as stream:
++        for chunk in iter(lambda: stream.read(1024 * 1024), b''):
++            digest.update(chunk)
++    return digest.hexdigest()
++
++
++def complete_lines(data):
++    return [line.rstrip(b'\r\n') for line in data.splitlines(keepends=True) if line.endswith(b'\n')]
++
++
++def check_failures(data):
++    if any(marker in data for marker in FAILURES):
++        raise ValueError('native FAT guest reported an assertion or boot failure')
++
++
++def validate_boot(data, filesystem):
++    check_failures(data)
++    expected = f'OK_STORAGE scope=hardware source=virtio filesystem={filesystem} mode=rw mount=/media'.encode()
++    lines = complete_lines(data)
++    if lines.count(expected) != 1 or lines.count(b'OK_SYSTEM_GUI boot=complete') != 1:
++        raise ValueError('missing unique actual FAT /media mount and distribution boot markers')
++    if not data.endswith(b'oksh> '):
++        raise ValueError('FAT boot did not reach a complete native shell prompt')
++
++
++def validate_phase(data, phase):
++    check_failures(data)
++    if phase not in MARKERS:
++        raise ValueError('unknown native FAT phase')
++    records = [line for line in complete_lines(data) if b'OK_FAT_NATIVE' in line]
++    if records != [MARKERS[phase]] or not data.endswith(b'oksh> '):
++        raise ValueError('missing unique complete FAT phase result and returning shell prompt')
++
++
++def format_command(program, filesystem, disk):
++    if filesystem == 'fat32':
++        return [str(program), '-F', '32', '-n', 'OBOSFAT', str(disk)]
++    if filesystem == 'exfat':
++        return [str(program), '-L', 'OBOSFAT', str(disk)]
++    raise ValueError('unsupported explicit FAT filesystem')
++
++
++def fsck_command(program, disk):
++    return [str(program), '-n', str(disk)]
++
++
++def guest(args, kernel, disk, phase, output):
++    serial = bytearray()
++    command = command_for(args.qemu, args.arch, kernel, disk, 'none', native_profile=True)
++    (output / (phase + '-command.json')).write_text(json.dumps(command, indent=2) + '\n')
++    process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
++                               stderr=subprocess.STDOUT)
++    assert process.stdin is not None and process.stdout is not None
++    row = dict(phase=phase, command=command, status='running')
++
++    def receive(start):
++        deadline = time.monotonic() + args.timeout
++        while not serial[start:].endswith(b'oksh> '):
++            if time.monotonic() >= deadline:
++                raise TimeoutError('native FAT ' + phase + ' guest timed out')
++            readable, _, _ = select.select([process.stdout], [], [], min(.1, max(0, deadline-time.monotonic())))
++            if not readable:
++                if process.poll() is not None:
++                    raise RuntimeError('FAT guest exited before acceptance')
++                continue
++            chunk = os.read(process.stdout.fileno(), 65536)
++            if not chunk:
++                raise RuntimeError('FAT guest closed serial before acceptance')
++            serial.extend(chunk)
++            check_failures(serial)
++
++    try:
++        receive(0)
++        validate_boot(bytes(serial), args.filesystem)
++        start = len(serial)
++        process.stdin.write(('posix-check --fat-' + phase + '\n').encode('ascii'))
++        process.stdin.flush()
++        receive(start)
++        validate_phase(bytes(serial[start:]), phase)
++        sync_start = len(serial)
++        process.stdin.write(b'sync /media\n')
++        process.stdin.flush()
++        receive(sync_start)
++        if complete_lines(bytes(serial[sync_start:])).count(b'Filesystem synchronized') != 1:
++            raise ValueError('explicit data-volume sync failed')
++        row.update(status='passed', command_begin=start, command_end=len(serial))
++        return row
++    except BaseException as error:
++        row.update(status='failed', error=str(error))
++        raise
++    finally:
++        process.terminate()
++        try:
++            tail, _ = process.communicate(timeout=3)
++        except subprocess.TimeoutExpired:
++            process.kill()
++            tail, _ = process.communicate(timeout=3)
++        serial.extend(tail)
++        log = output / (phase + '-serial.log')
++        log.write_bytes(serial)
++        row.update(qemu_returncode=process.returncode, serial_sha256=sha(log))
++        # A delayed guest failure must not be hidden by the preceding prompt.
++        try:
++            check_failures(serial)
++            if process.returncode not in (0, -signal.SIGTERM):
++                raise ValueError('unexpected QEMU exit status: ' + str(process.returncode))
++        except ValueError as error:
++            row.update(status='failed', error=str(error))
++            raise
++        finally:
++            (output / (phase + '-result.json')).write_text(json.dumps(row, indent=2) + '\n')
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--arch', required=True)
++    parser.add_argument('--qemu', required=True, type=Path)
++    parser.add_argument('--kernel', required=True, type=Path)
++    parser.add_argument('--filesystem', choices=('fat32', 'exfat'), required=True)
++    parser.add_argument('--mkfs', required=True, type=Path)
++    parser.add_argument('--fsck', required=True, type=Path)
++    parser.add_argument('--out', required=True, type=Path, help='Fresh directory; existing evidence is never replaced')
++    parser.add_argument('--timeout', type=float, default=120)
++    args = parser.parse_args()
++    if not 0 < args.timeout <= 3600:
++        parser.error('--timeout must be positive and at most 3600 seconds')
++    for name in ('qemu', 'kernel', 'mkfs', 'fsck'):
++        path = getattr(args, name).resolve(strict=True)
++        if not path.is_file() or (name != 'kernel' and not os.access(path, os.X_OK)):
++            parser.error(name + ' must be an explicit existing ' + ('file' if name == 'kernel' else 'executable'))
++        if ',' in str(path):
++            parser.error('commas are not supported in QEMU input paths')
++        setattr(args, name, path)
++    output = args.out.resolve()
++    if ',' in str(output):
++        parser.error('commas are not supported in QEMU output paths')
++    # Validate architecture before reserving output or formatting any image.
++    command_for(args.qemu, args.arch, args.kernel, output / 'media.img', 'none', native_profile=True)
++    output.mkdir(parents=True, exist_ok=False)
++    inputs = {name: dict(path=str(getattr(args, name)), sha256=sha(getattr(args, name)))
++              for name in ('qemu', 'kernel', 'mkfs', 'fsck')}
++    report = dict(status='running', scope='qemu-native-fat-media', physical=False,
++                  architecture=args.arch, filesystem=args.filesystem, bytes=64 * 1024 * 1024,
++                  native_execution=False, restart_kind='qemu-stop-start-after-fsync', power_failure=False,
++                  inputs=inputs, commands=[], phases=[])
++
++    def save():
++        (output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
++
++    def run_tool(label, command, readonly=False):
++        before = sha(disk) if readonly else None
++        row = dict(label=label, argv=command, status='running')
++        report['commands'].append(row)
++        save()
++        environment = dict(os.environ, LC_ALL='C', TZ='UTC')
++        for variable in ('LD_PRELOAD', 'LD_AUDIT', 'LD_LIBRARY_PATH'):
++            environment.pop(variable, None)
++        with (output / (label + '.log')).open('xb') as stream:
++            result = subprocess.run(command, stdout=stream, stderr=subprocess.STDOUT,
++                                    env=environment, timeout=args.timeout)
++        row.update(returncode=result.returncode, status='passed' if result.returncode == 0 else 'failed')
++        if readonly:
++            row['image_unchanged'] = sha(disk) == before
++            if not row['image_unchanged']:
++                raise RuntimeError('read-only FAT checker changed the image')
++        save()
++        if result.returncode:
++            raise RuntimeError(label + ' failed; original output retained')
++
++    save()
++    disk = output / 'media.img'
++    kernel = output / ('retained-kernel' + args.kernel.suffix)
++    try:
++        # BIOS QEMU recipes attach the boot image as a disk: use a private copy.
++        shutil.copy2(args.kernel, kernel)
++        with disk.open('xb') as stream:
++            stream.truncate(report['bytes'])
++        run_tool('format', format_command(args.mkfs, args.filesystem, disk))
++        run_tool('initial-fsck', fsck_command(args.fsck, disk), readonly=True)
++        for phase in ('write', 'read', 'delete'):
++            report['phases'].append(guest(args, kernel, disk, phase, output))
++            run_tool(phase + '-fsck', fsck_command(args.fsck, disk), readonly=True)
++            if phase == 'write':
++                checkpoint = output / 'with-file.img'
++                shutil.copy2(disk, checkpoint)
++                report['file_checkpoint_sha256'] = sha(checkpoint)
++            save()
++        for name, identity in inputs.items():
++            if sha(identity['path']) != identity['sha256']:
++                raise RuntimeError('explicit input changed during execution: ' + name)
++        if sha(kernel) != inputs['kernel']['sha256']:
++            raise RuntimeError('retained kernel changed during boot')
++        report.update(status='passed', native_execution=True, final_disk_sha256=sha(disk))
++    except BaseException as error:
++        report.update(status='failed', error=str(error))
++        raise
++    finally:
++        save()
++    print(f'PASS scope=qemu-native arch={args.arch} filesystem={args.filesystem} mount=/media phases=write-read-delete fsck=clean')
++
++
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ b/ObfuscationOS/tests/tools/test_fat_media_runner.py
+@@ -0,0 +1,136 @@
++"""Synthetic marker/command controls; this suite never starts a FAT guest."""
++import importlib.util
++from pathlib import Path
++import sys
++import tempfile
++from types import SimpleNamespace
++import unittest
++from unittest.mock import patch
++import json
++
++SCRIPTS = Path(__file__).resolve().parents[2] / 'scripts'
++sys.path.append(str(SCRIPTS))
++spec = importlib.util.spec_from_file_location('fat_media_runner', SCRIPTS / 'test_fat_media.py')
++runner = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(runner)
++
++
++class FatMediaRunnerTests(unittest.TestCase):
++    def test_mount_requires_exact_filesystem_and_mountpoint(self):
++        for filesystem in ('fat32', 'exfat'):
++            mount = f'OK_STORAGE scope=hardware source=virtio filesystem={filesystem} mode=rw mount=/media\n'.encode()
++            good = mount + b'OK_SYSTEM_GUI boot=complete\noksh> '
++            runner.validate_boot(good, filesystem)
++            for bad in (good.replace(b'/media', b'/'), good.replace(b'mode=rw', b'mode=ro'),
++                        good.replace(b'source=virtio', b'source=archive'), good + mount,
++                        good.replace(mount, b''), good.replace(b'OK_SYSTEM_GUI boot=complete\n', b'')):
++                with self.subTest(filesystem=filesystem, bad=bad), self.assertRaises(ValueError):
++                    runner.validate_boot(bad, filesystem)
++
++    def test_each_phase_requires_one_complete_result_and_prompt(self):
++        for phase, marker in runner.MARKERS.items():
++            runner.validate_phase(marker + b'\noksh> ', phase)
++            runner.validate_phase(marker + b'\r\noksh> ', phase)
++            for bad in (marker, marker + b'\n', marker + b'\noksh>', marker + b'\n' + marker + b'\noksh> ',
++                        b'echo ' + marker + b'\noksh> ', b'oksh> '):
++                with self.subTest(phase=phase, bad=bad), self.assertRaises(ValueError):
++                    runner.validate_phase(bad, phase)
++            wrong = runner.MARKERS['read' if phase != 'read' else 'write']
++            with self.assertRaises(ValueError):
++                runner.validate_phase(wrong + b'\noksh> ', phase)
++
++    def test_assertion_overrides_success_including_unterminated_failure(self):
++        for marker in runner.FAILURES:
++            with self.subTest(marker=marker), self.assertRaises(ValueError):
++                runner.validate_phase(runner.MARKERS['write'] + b'\n' + marker + b'\noksh> ', 'write')
++            with self.assertRaises(ValueError):
++                runner.check_failures(runner.MARKERS['write'] + b'\noksh> ' + marker)
++
++    def test_format_and_checker_use_explicit_image_and_readonly_check(self):
++        image = Path('/scratch/new-media.img')
++        self.assertEqual(runner.format_command('/bin/mkfs.fat', 'fat32', image),
++                         ['/bin/mkfs.fat', '-F', '32', '-n', 'OBOSFAT', str(image)])
++        self.assertEqual(runner.format_command('/bin/mkfs.exfat', 'exfat', image),
++                         ['/bin/mkfs.exfat', '-L', 'OBOSFAT', str(image)])
++        self.assertEqual(runner.fsck_command('/bin/fsck.fat', image), ['/bin/fsck.fat', '-n', str(image)])
++        with self.assertRaises(ValueError):
++            runner.format_command('/bin/mkfs', 'ext4', image)
++
++    def test_synthetic_guest_records_full_phase_and_private_command(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            output = Path(temporary)
++            script = output / 'fake_guest.py'
++            script.write_text(
++                'import sys\n'
++                'print("OK_STORAGE scope=hardware source=virtio filesystem=fat32 mode=rw mount=/media")\n'
++                'print("OK_SYSTEM_GUI boot=complete")\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'assert sys.stdin.readline() == "posix-check --fat-write\\n"\n'
++                f'print({runner.MARKERS["write"].decode()!r})\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'assert sys.stdin.readline() == "sync /media\\n"\n'
++                'print("Filesystem synchronized")\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'sys.stdin.read()\n')
++            args = SimpleNamespace(qemu=Path('/unused/qemu'), arch='x86_64', filesystem='fat32', timeout=5)
++            command = [sys.executable, '-B', str(script)]
++            with patch.object(runner, 'command_for', return_value=command) as factory:
++                row = runner.guest(args, output / 'kernel.bin', output / 'media.img', 'write', output)
++            factory.assert_called_once_with(args.qemu, args.arch, output / 'kernel.bin', output / 'media.img', 'none', native_profile=True)
++            self.assertEqual(row['status'], 'passed')
++            self.assertEqual(row, json.loads((output / 'write-result.json').read_text()))
++            self.assertEqual(row['serial_sha256'], runner.sha(output / 'write-serial.log'))
++            self.assertEqual(json.loads((output / 'write-command.json').read_text()), command)
++
++    def test_synthetic_late_guest_failure_is_retained_and_refused(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            output = Path(temporary)
++            script = output / 'fake_guest.py'
++            script.write_text(
++                'import signal, sys\n'
++                'def stop(signum, frame):\n'
++                '    print("FAT_CHECK failed: late synthetic assertion", flush=True)\n'
++                '    raise SystemExit(0)\n'
++                'signal.signal(signal.SIGTERM, stop)\n'
++                'print("OK_STORAGE scope=hardware source=virtio filesystem=exfat mode=rw mount=/media")\n'
++                'print("OK_SYSTEM_GUI boot=complete")\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'sys.stdin.readline()\n'
++                f'print({runner.MARKERS["read"].decode()!r})\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'assert sys.stdin.readline() == "sync /media\\n"\n'
++                'print("Filesystem synchronized")\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'signal.pause()\n')
++            args = SimpleNamespace(qemu=Path('/unused/qemu'), arch='x86_64', filesystem='exfat', timeout=5)
++            with patch.object(runner, 'command_for', return_value=[sys.executable, '-B', str(script)]):
++                with self.assertRaisesRegex(ValueError, 'native FAT guest reported'):
++                    runner.guest(args, output / 'kernel.bin', output / 'media.img', 'read', output)
++            row = json.loads((output / 'read-result.json').read_text())
++            self.assertEqual(row['status'], 'failed')
++            self.assertIn(b'FAT_CHECK failed: late synthetic assertion', (output / 'read-serial.log').read_bytes())
++
++    def test_synthetic_abnormal_exit_after_success_is_refused(self):
++        with tempfile.TemporaryDirectory() as temporary:
++            output = Path(temporary)
++            script = output / 'fake_guest.py'
++            script.write_text(
++                'import signal, sys\n'
++                'signal.signal(signal.SIGTERM, lambda *unused: sys.exit(7))\n'
++                'print("OK_STORAGE scope=hardware source=virtio filesystem=fat32 mode=rw mount=/media")\n'
++                'print("OK_SYSTEM_GUI boot=complete")\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'assert sys.stdin.readline() == "posix-check --fat-write\\n"\n'
++                f'print({runner.MARKERS["write"].decode()!r})\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'assert sys.stdin.readline() == "sync /media\\n"\n'
++                'print("Filesystem synchronized")\n'
++                'print("oksh> ", end="", flush=True)\n'
++                'signal.pause()\n')
++            args = SimpleNamespace(qemu=Path('/unused/qemu'), arch='x86_64', filesystem='fat32', timeout=5)
++            with patch.object(runner, 'command_for', return_value=[sys.executable, '-B', str(script)]):
++                with self.assertRaisesRegex(ValueError, 'unexpected QEMU exit status: 7'):
++                    runner.guest(args, output / 'kernel.bin', output / 'media.img', 'write', output)
++            row = json.loads((output / 'write-result.json').read_text())
++            self.assertEqual(row['status'], 'failed')
++            self.assertEqual(row['qemu_returncode'], 7)

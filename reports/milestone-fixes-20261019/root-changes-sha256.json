@@ -1,0 +1,23 @@
+{
+  "ObfuscationOS/apps/posix-check/main.c": "2ff09ac0b0d2626dc6bf50227c7a11a89002abee813c0c182cbc392b9980c72f",
+  "ObfuscationOS/apps/posix-check/fat.c": "ebd7b2647cefd5d07987b4c69f8f1ca62b8c15bbc01c01e84c186d1b30b774ec",
+  "ObfuscationOS/apps/init/main.c": "730e760e8d4680ea120c77036569e272271019d431818cce24608f53f3de2bbc",
+  "ObfuscationOS/modules/boot/storage.cpp": "9c7b6b389dba461afbdbdf8a68a35fb288995bd5bf2272a32d6bf4bcd2fdd778",
+  "ObfuscationOS/scripts/test_interactive_userland.py": "2ff9005923afa922026116ee1cea40c986936a02ec476e9991be32d96aecfab7",
+  "ObfuscationOS/scripts/qemu_distro.py": "fe35a1fe26ed9c1b02c2ca67e8f7c7b09cd67cad8ce4265c7b9a5a525b7a0110",
+  "ObfuscationOS/tools/kernel_sdk.py": "36c8e920ecb7f961c9dfcf447347aec5807422041b5af6342cc08860a18894c3",
+  "ObfuscationOS/tests/tools/test_kernel_sdk.py": "125d29b615caca23b8f0f05ca355b0cf5a7e4b8d74686cef7a36943473a7c5bd",
+  "ObfuscationOS/tests/tools/test_qemu_distro.py": "a1c95d46d07ecc36c8b1251dcc818735a79c9becf77f16d994eec4b395b7026e",
+  "ObfuscationOS/tests/tools/test_native_shutdown_storage.py": "48b7454bd7d0f2418d92cc4a44d5bac63c3aee67d21da4359bb92214a1b776a1",
+  "ObfuscationOS/tests/hosted/native_shutdown_storage_seams.hpp": "5efbc4559b990a46b9b277fc72b25695b04a1f7effd8dc4b169c2cec194a360d",
+  "ObfuscationOS/xmake/targets.lua": "e12acf10d28bf7cf3e5f41f63565fce42e04e0d87ac0be4a5c60be9ca2783774",
+  "ObfuscationOS/docs/FAT_MEDIA.md": "08725f23bd1263cc45019be0e743dc62d729ab46cb4a7363f59c5eb2c4f89fac",
+  "ObfuscationKernel/src/fs/storage.cpp": "5d9d00392b7c899a1e2f413bd6aedcefa190c1d37014127e4bfb0e99fac18a4c",
+  "ObfuscationKernel/tests/kernel/roadmap/block_cache_failure.hpp": "2b48fef7eec427080a766902ca752bbb6f30fa48ac1ac5aee444b4e1c136e4b8",
+  "ObfuscationKernel/tests/host/block_cache_failure_tests.cpp": "077a5d988fc82072611a7786bf7ae291c30d12f3365cd22d4299b92a1a8fbc74",
+  "ObfuscationKernel/scripts/test_block_cache.py": "8e0a292f9aaef93e9d8f4b29df752a1d332fdae0bed4e606c871d47d8a09e121",
+  "ObfuscationOS/README.md": "7343f00455710f3673609a97210dab6583a66422f34b6b8d3b98115a8a277796",
+  "ObfuscationOS/apps/sync/main.c": "50454943c21860f0606903c3b0972593891e4e58fa774e550e7afb57dcbe5db4",
+  "ObfuscationOS/scripts/test_fat_media.py": "641449a0ea401ac9b467d85df3724c744e66506a7682e8eabcc15d50313e13a2",
+  "ObfuscationOS/tests/tools/test_fat_media_runner.py": "21a8a43da8bbb4f0b9f9be41ea98276350e8754e332ca55ec15661c747caf934"
+}

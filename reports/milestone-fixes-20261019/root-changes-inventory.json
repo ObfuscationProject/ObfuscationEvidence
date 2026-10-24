@@ -1,0 +1,107 @@
+{
+  "ObfuscationOS/apps/posix-check/main.c": {
+    "before_sha256": "e4ac32ec6d07f4936aec3f7d6cf6a9b046353cecb48b8a70e3bd27f7325b899b",
+    "after_sha256": "2ff09ac0b0d2626dc6bf50227c7a11a89002abee813c0c182cbc392b9980c72f",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/apps/posix-check/main.c"
+  },
+  "ObfuscationOS/apps/posix-check/fat.c": {
+    "before_sha256": null,
+    "after_sha256": "ebd7b2647cefd5d07987b4c69f8f1ca62b8c15bbc01c01e84c186d1b30b774ec",
+    "baseline": null
+  },
+  "ObfuscationOS/apps/init/main.c": {
+    "before_sha256": "0b8dfb95a896acda3b199b0b2e537e1db52813f33b7acd8e1aa8fb4041017353",
+    "after_sha256": "730e760e8d4680ea120c77036569e272271019d431818cce24608f53f3de2bbc",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/apps/init/main.c"
+  },
+  "ObfuscationOS/modules/boot/storage.cpp": {
+    "before_sha256": "059a7fd51f374080968fbf0f16fcf3ee0a52de5db26204bbb8c343bd787b23ab",
+    "after_sha256": "9c7b6b389dba461afbdbdf8a68a35fb288995bd5bf2272a32d6bf4bcd2fdd778",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/modules/boot/storage.cpp"
+  },
+  "ObfuscationOS/scripts/test_interactive_userland.py": {
+    "before_sha256": "4e4161f012367b80e60bdef7f15760afd063c3a21f5188012f9f4d5bca5a81a8",
+    "after_sha256": "2ff9005923afa922026116ee1cea40c986936a02ec476e9991be32d96aecfab7",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/scripts/test_interactive_userland.py"
+  },
+  "ObfuscationOS/scripts/qemu_distro.py": {
+    "before_sha256": "375e7c278db90bc32d48c6b1e00bc8a6534761ff6614f241c6299f01954a2d6c",
+    "after_sha256": "fe35a1fe26ed9c1b02c2ca67e8f7c7b09cd67cad8ce4265c7b9a5a525b7a0110",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/scripts/qemu_distro.py"
+  },
+  "ObfuscationOS/tools/kernel_sdk.py": {
+    "before_sha256": "84c7f684857eaf5184dd2070b7f43d1e9e85148a5d11dd1c9b57584ab10a01c4",
+    "after_sha256": "36c8e920ecb7f961c9dfcf447347aec5807422041b5af6342cc08860a18894c3",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/tools/kernel_sdk.py"
+  },
+  "ObfuscationOS/tests/tools/test_kernel_sdk.py": {
+    "before_sha256": "93b1cc6b05b8a7226b0bf001e48a045165433d1ee6d69a3613a8bbaaea055a6e",
+    "after_sha256": "125d29b615caca23b8f0f05ca355b0cf5a7e4b8d74686cef7a36943473a7c5bd",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/tests/tools/test_kernel_sdk.py"
+  },
+  "ObfuscationOS/tests/tools/test_qemu_distro.py": {
+    "before_sha256": "449f40883f1d314a163e7c5e08a305334b3a5f48ea0882710365723f1ddad119",
+    "after_sha256": "a1c95d46d07ecc36c8b1251dcc818735a79c9becf77f16d994eec4b395b7026e",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/tests/tools/test_qemu_distro.py"
+  },
+  "ObfuscationOS/tests/tools/test_native_shutdown_storage.py": {
+    "before_sha256": "d833892a3ff6d42966ea179c1a946c4925515e793e6936b35a803120f064ee3b",
+    "after_sha256": "48b7454bd7d0f2418d92cc4a44d5bac63c3aee67d21da4359bb92214a1b776a1",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/tests/tools/test_native_shutdown_storage.py"
+  },
+  "ObfuscationOS/tests/hosted/native_shutdown_storage_seams.hpp": {
+    "before_sha256": "9c5e3541da02a04c17d414d56a0452e9140359eeae2b469c854ff30598397947",
+    "after_sha256": "5efbc4559b990a46b9b277fc72b25695b04a1f7effd8dc4b169c2cec194a360d",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/tests/hosted/native_shutdown_storage_seams.hpp"
+  },
+  "ObfuscationOS/xmake/targets.lua": {
+    "before_sha256": "3aaaf56d2e25c6754a047022b31b12e89812c6c313c3d0d9f705cdd6c14fad07",
+    "after_sha256": "e12acf10d28bf7cf3e5f41f63565fce42e04e0d87ac0be4a5c60be9ca2783774",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/xmake/targets.lua"
+  },
+  "ObfuscationOS/docs/FAT_MEDIA.md": {
+    "before_sha256": null,
+    "after_sha256": "08725f23bd1263cc45019be0e743dc62d729ab46cb4a7363f59c5eb2c4f89fac",
+    "baseline": null
+  },
+  "ObfuscationKernel/src/fs/storage.cpp": {
+    "before_sha256": "1a964daa58c4ba5401c8209c560f5a5d877ab5ee61735412c3e3f88fa4303e62",
+    "after_sha256": "5d9d00392b7c899a1e2f413bd6aedcefa190c1d37014127e4bfb0e99fac18a4c",
+    "baseline": "build/milestone-review-20261019/kernel/source/src/fs/storage.cpp"
+  },
+  "ObfuscationKernel/tests/kernel/roadmap/block_cache_failure.hpp": {
+    "before_sha256": null,
+    "after_sha256": "2b48fef7eec427080a766902ca752bbb6f30fa48ac1ac5aee444b4e1c136e4b8",
+    "baseline": null
+  },
+  "ObfuscationKernel/tests/host/block_cache_failure_tests.cpp": {
+    "before_sha256": null,
+    "after_sha256": "077a5d988fc82072611a7786bf7ae291c30d12f3365cd22d4299b92a1a8fbc74",
+    "baseline": null
+  },
+  "ObfuscationKernel/scripts/test_block_cache.py": {
+    "before_sha256": null,
+    "after_sha256": "8e0a292f9aaef93e9d8f4b29df752a1d332fdae0bed4e606c871d47d8a09e121",
+    "baseline": null
+  },
+  "ObfuscationOS/README.md": {
+    "before_sha256": "4d288cf32d9cb1ff783782e88cff265858a1711d57bec85ea3d66300eaf9b94b",
+    "after_sha256": "7343f00455710f3673609a97210dab6583a66422f34b6b8d3b98115a8a277796",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/README.md"
+  },
+  "ObfuscationOS/apps/sync/main.c": {
+    "before_sha256": "ae538d6457aa86d4e8c2d93273cc10b95d0b59f3d4e84fb79ccb1ead7dc67dcb",
+    "after_sha256": "50454943c21860f0606903c3b0972593891e4e58fa774e550e7afb57dcbe5db4",
+    "baseline": "build/milestone-review-20261019/runtime/ObfuscationOS/apps/sync/main.c"
+  },
+  "ObfuscationOS/scripts/test_fat_media.py": {
+    "before_sha256": null,
+    "after_sha256": "641449a0ea401ac9b467d85df3724c744e66506a7682e8eabcc15d50313e13a2",
+    "baseline": null
+  },
+  "ObfuscationOS/tests/tools/test_fat_media_runner.py": {
+    "before_sha256": null,
+    "after_sha256": "21a8a43da8bbb4f0b9f9be41ea98276350e8754e332ca55ec15661c747caf934",
+    "baseline": null
+  }
+}

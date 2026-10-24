@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    "13 unique milestones",
+    "42 unique explicit exit clauses",
+    "all completion claims false",
+    "all source references exist"
+  ],
+  "scope": "report structure only; no code/native evidence qualification",
+  "artifacts": {
+    "plan-README.md": "cc66ef8fac9129f35f2cdfd99214fa1d7b8a8ea946493432f14455e80b3143c0",
+    "WAIT_FOUNDATION_DESIGN.md": "ebebcf748a35733353c77b15f785fa1aa6fef16bacffe6478d8d703a9034f824",
+    "source-ledger.json": "9f6a27463c0dcc86ba10db64df4ca846e4487f8f816dcd7ecc6ce7161666bb6b",
+    "source-progress.md": "1627e9476057732d684bbbc4cc043be2b59a06dc5fb842d062cabe7d0ddfb7e7",
+    "REPORT.md": "e77ed3fecdaa3761483de9704c3906e9e62d0a455f0da373b25808298ef36e06",
+    "make_audit.py": "fdc0443f8b69327465f658f5a7d80087091d036d3f26aa8635e7ebeb1c8deb38",
+    "gate-mapping.json": "9abb920505cf36f7a7fff53d8dee9b8c94bfecf77ea774615defcc7a14c756cf",
+    "OBJECT_ALLOCATION_DESIGN.md": "8037392d9665ecb6b8192328c546c3ab372b1bc9f5e30bd84f5ba63c3d0afd40",
+    "object-allocation-source-pins.json": "7b0708f54ad89b9bc9f45985fa61c8368511d61ceb9aec426b3ae198cf014969"
+  }
+}

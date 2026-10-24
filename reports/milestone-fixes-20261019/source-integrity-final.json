@@ -1,0 +1,12 @@
+{
+  "ObfuscationKernel": {
+    "source_files": 1511,
+    "receipt": "native-final/source-sha256.json",
+    "mismatches": []
+  },
+  "ObfuscationOS": {
+    "source_files": 943,
+    "receipt": "runtime/x64-final-v3-results/source-sha256.json",
+    "mismatches": []
+  }
+}

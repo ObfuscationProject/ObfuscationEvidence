@@ -1,0 +1,83 @@
+{
+  "scope": "read-only shared SDK20 source inspection; no execution claim",
+  "references": [
+    {
+      "path": "ObfuscationKernel/docs/DEVELOPMENT.md",
+      "line": 28,
+      "needle": "## Kernel allocation contract",
+      "sha256": "30e7b9e032e9a66ac83294b0f8adeb63363cfeaaffa295263494c1e9d0de1d4d"
+    },
+    {
+      "path": "ObfuscationKernel/include/ok/driver/abi.hpp",
+      "line": 226,
+      "needle": "class OkSlabAllocator",
+      "sha256": "1c307795b621900695472f0442890abee38e6618f1eb3445da2204570dea3beb"
+    },
+    {
+      "path": "ObfuscationKernel/src/driver/abi.cpp",
+      "line": 284,
+      "needle": "Result<void *> OkSlabAllocator::allocate",
+      "sha256": "c832d5cca8616b974ce247b161cb0860a58654cb4bd14a0a8846d8a0501e7b75"
+    },
+    {
+      "path": "ObfuscationKernel/include/ok/memory/memory.hpp",
+      "line": 124,
+      "needle": "class FrameAllocator final",
+      "sha256": "f477074de1ec885f7c9b52265a55bb6068e18ad7ec6f70642d9973dbf0a2ede6"
+    },
+    {
+      "path": "ObfuscationKernel/src/memory/memory.cpp",
+      "line": 149,
+      "needle": "Result<PhysicalFrame> FrameAllocator::allocate()",
+      "sha256": "7f2b27d872a6f3089599837e7020d5ef637fa16c900769d71156f79782af77fc"
+    },
+    {
+      "path": "ObfuscationKernel/include/ok/user/native_page_pool.hpp",
+      "line": 10,
+      "needle": "class NativePagePool",
+      "sha256": "4a7d3dd4004fabc23873927972b818949b963c08a1c48b2928d215fe262a55f2"
+    },
+    {
+      "path": "ObfuscationKernel/include/ok/boot/qemu_process_memory.hpp",
+      "line": 6,
+      "needle": "template <arch::Architecture A> inline constexpr bool qemu_firmware_process_pool",
+      "sha256": "354f528178e89a81c9f88ed1dfbad2bd66d2cd6ab2d6530ecc0d360c97673713"
+    },
+    {
+      "path": "ObfuscationKernel/include/ok/boot/qemu_runtime_frames.hpp",
+      "line": 11,
+      "needle": "Status qemu_runtime_memory_plan",
+      "sha256": "2e87fe5a9ccbfa5aff94e041e47e642535cd12366a70d8cbffa1b24a023bfe3b"
+    },
+    {
+      "path": "ObfuscationKernel/src/user/runtime.cpp",
+      "line": 70,
+      "needle": "struct PollWait",
+      "sha256": "a8f735154971b68b69e33c0439a1e6054a68e85fa349b19d9ce04145b9d6aa95"
+    },
+    {
+      "path": "ObfuscationKernel/include/ok/sched/resources.hpp",
+      "line": 127,
+      "needle": "struct ProcessResources",
+      "sha256": "12cc792919d84d5215620e9acae1d15321a5756586e465cd8cfae6f6e2a769d6"
+    },
+    {
+      "path": "ObfuscationKernel/include/ok/core/fixed.hpp",
+      "line": 144,
+      "needle": "constexpr Status erase_at",
+      "sha256": "f53e9ca4f420756083ecd311a6855802adcb98c1af63b0f5fb5c7370f89fcc6b"
+    },
+    {
+      "path": "ObfuscationKernel/tests/host/native_poll_tests.cpp",
+      "line": 1,
+      "needle": "#include",
+      "sha256": "692a1c74aa2e6303cb986db7131c676bcee4ddf9af142d0158181e32cfd7eeac"
+    },
+    {
+      "path": "ObfuscationKernel/tests/host/native_vm_tests.cpp",
+      "line": 3,
+      "needle": "#include",
+      "sha256": "83f340eb9f70bb265b3b946474f83114f346b217d4dc18f865567cc66fb9a860"
+    }
+  ]
+}

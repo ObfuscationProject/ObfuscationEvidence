@@ -1,0 +1,153 @@
+M0-M12 follow-up repair and filesystem verification
+Date: 2026-10-19
+Status: VERIFIED — requested repairs and bounded FAT file operations passed the final campaigns.
+
+Outcome
+The reproduced POSIX acceptance, current SDK ABI admission, aggregate discovery,
+stat fixture, and four Kernel hosted-runner regressions are repaired. Ext4 remains
+the system-root filesystem. FAT32 and exFAT now provide mounted file and directory
+operations at /media. SimpleFS remains unchanged at the user's request.
+
+This is a repair report, not closure of the thirteen complete M0-M12 gates. The
+original implementation/gap review is ../milestone-review-20261019/REPORT.txt.
+Its F2-F8 reproduced failures are superseded by the passing evidence below. F1,
+the SimpleFS full-rootfs capacity failure, is intentionally deferred.
+
+Final verification
+- Ten fresh standalone Kernel Debug builds and QEMU boots passed, each reaching
+  80 Debug test points. Those model points retain their model scope in QEMU.
+- Four primary Release SDK exports passed in addition to the ten Debug exports:
+  x86_64, aarch64, rv64 and loongarch64. All SDK paths are explicit and mode-specific.
+- All ten OS Debug profiles built and passed real native-userland/ext4 acceptance:
+  i386, x86_64, aarch64, arm32, rv64, rv32, loongarch64, mips, mips64 and ppc.
+- The four primary OS Release profiles passed real shell/POSIX applications and
+  ext4 save, flush, host-controlled restart, content verification and offline checks.
+- FAT32 and exFAT each passed three real guest boots on all four primary Release
+  architectures: create/write/read/truncate/zero-growth/list/remove, restart and
+  read, then delete. Explicit sync /media succeeded; independent read-only fsck
+  passed initially and after every phase, with unchanged images during checking.
+- Independent mcopy reads extracted and byte-compared all four native FAT32
+  file checkpoints (10,001 bytes each, including cross-sector patch and zero gap).
+- The unlabelled FAT32 native regression reproduced the old OS failure without
+  altering the disk; the repaired OS mounted it and verified its file content.
+- Full OS tool discovery: 1,284 unittest methods passed, zero failures/errors/skips.
+- FAT hosted ASan/UBSan and independent format/fsck campaign: 41/41 commands passed.
+- All four repaired Kernel hosted entrypoints passed; three architecture-selected
+  suites covered all ten profiles, and all four passed x86_64 ASan/UBSan.
+- Ext4 security controls passed 95 parser assertions and 126 malformed directory
+  operations (seven paths, six malformed shapes, three block sizes). Existing
+  full ext4 mutation/reopen/fsck coverage passed for 1/2/4 KiB blocks.
+- The independent stat oracle passed 1,250 checks. Block-cache fault controls,
+  SDK header admission, storage shutdown seams and seven FAT-runner controls passed.
+- Final retained Kernel/OS snapshots match canonical sources. git diff --check
+  passed in both repositories. Existing user changes and installed SDKs remain intact.
+
+POSIX and ABI repairs
+The shared-anonymous pressure test incorrectly requested at least 768 pages
+against a 661-page reserve-constrained user quota. It now allocates bounded
+chunks until ENOMEM, verifies existing data, releases and reuses a chunk, checks
+zero initialization and cleans up. The native harness requires this phase's
+success marker. No quota or reserve was weakened to make the test pass.
+
+The orphan test now waits for the implemented PID1 adoption contract, with a
+monotonic deadline and a yielding sleep. Debug init reaps adopted children while
+waiting for each acceptance application; orphan records no longer exhaust the
+process table during subsequent checks.
+
+Current object-pressure admission no longer requires ABI55 after passing the
+shared ABI74 validator. It validates the complete current contract, exact compiler
+identity and artifact hashes. Historical ABI-specific qualification receipts were
+not relabelled. New FAT API headers must be explicitly hashed in the consumed SDK;
+module ABI74 and UAPI0.16 layouts are unchanged.
+
+Other reproduced test repairs
+- Registry test modules no longer shadow the tools/test_native_users.py CLI.
+- The stat fixture uses a narrowly validated linux-stat-fixture-v1 hardlink
+  policy; ordinary rootfs packaging continues to reject aliased inodes.
+- Scheduler tests keep independent owners rather than copying a noncopyable
+  scheduler. Snapshot/link lists include the current .inc files and dependencies.
+- Kernel service tests include terminal-power support. Unsupported execution
+  stubs return unsupported without changing caller state.
+- Test scratch space, source hashes, exact commands, serial records and failures
+  from earlier attempts are retained rather than overwritten or relabelled.
+
+Mounted FAT functionality
+The Kernel owns FatFileSystem/FatNode and all filesystem mechanisms. The OS boot
+extension mounts a supported whole-volume Virtio FAT disk below the archive root
+at /media. It uses the checked FAT boot parser, so the optional FAT32 type label
+is not required; full provider admission still validates the volume. Recognized
+invalid media fails admission without formatting. Ext4 root selection is retained.
+
+Supported operations include ASCII case-insensitive lookup, FAT32 long names and
+8.3 aliases, exFAT checksummed entry sets and allocation bitmap, NoFatChain file
+handling, file read/write and zero-filled gaps, truncate, mkdir/list, unlink/rmdir,
+retained unlinked descriptors and ordinary fsync. The sync utility now accepts an
+explicit file/directory path; sync /media reaches the data filesystem. Its previous
+no-argument system-root behavior is retained.
+
+The implementation is explicitly bounded: 512-byte logical sectors, at most
+128 sectors per cluster, 262,144 data clusters, 1,024 clusters per chain, 128 live/
+retained/exposed node identities, and 31-character ASCII components. Permissions
+are fixed root-owned 0644 files/0755 directories (readonly attributes remove write
+bits). Other requested modes/owners fail before mutation. Rename, hard links,
+symlinks, general Unicode and maintained POSIX timestamps are not supplied by FAT.
+Unexposed retired nodes recycle; borrowed identities remain tombstones. Hosted
+coverage includes 512 create/delete cycles per format and retained-unlink release.
+
+The tested SDK root is native-final/source/build/sdk; choose the exact
+architecture/debug or architecture/release directory in the OS kernel_sdk option.
+Installed SDK directories were not replaced. An older SDK lacking the new FAT
+headers is rejected explicitly rather than silently using source fallbacks.
+
+These limits and APIs are documented in:
+  ../../ObfuscationKernel/docs/fs/FAT_MOUNTED_PROFILE.md
+  ../../ObfuscationOS/docs/FAT_MEDIA.md
+
+Additional correctness and security defects corrected
+- Seven ext4 directory traversals now confirm eight header bytes remain before
+  reading a record. Malformed regression cases reject with no backing writes.
+- Raw ext4/FAT checks reject wrapping/huge indices, invalid geometry and declared
+  volumes beyond backing storage. Failed admission does not publish partial state.
+- BlockCache invalidates a replacement before a fallible device read and drops
+  cached sectors after uncertain writes, preventing poisoned/stale cache hits.
+- Stat-image parsing bounds block-size exponents before shifting; typed inventory
+  and exact link-count controls reject malformed or ambiguous fixture inputs.
+- FAT mount checks cycles, crosslinks, allocation ownership, mirrors, boot/entry
+  checksums and supported names. I/O failure disables further writes. Eight
+  injected write-failure boundaries per format pass the hosted controls.
+- FAT32 long names and 8.3 aliases share one checked namespace. The reproduced
+  alias collision is rejected, and new aliases avoid existing long names/aliases.
+- The FAT guest harness rejects late failure markers and abnormal emulator exit
+  codes, even after apparently successful phase/prompt output.
+
+Evidence index (relative to this directory)
+report.json and source-integrity-final.json: consolidated receipts and source checks.
+root-changes.patch / root-changes-inventory.json: root-owned changes against verified
+  original audit snapshots; component before/after inventories and patches are retained.
+native-final/result.json: final ten Debug boots and fourteen explicit SDK exports.
+runtime/x64-final-v3-results/results.json: final x86_64 OS consumer and real guests.
+runtime/other-matrix/root-final/result.json: three final lanes for twelve OS tuples.
+os-aggregate-final/result.json and run.log: final complete canonical tool-suite run.
+filesystems/FAT_RESULT.md and fat-suite-v8/result.json: final hosted FAT controls.
+filesystems/os-fat-review/: independent review and reproduced final defects.
+ext4/fix-summary.json: ext4 security and existing filesystem regression evidence.
+kernel/fix-summary.json: repaired hosted entrypoints and sanitizer coverage.
+block-cache/result.json: partial read/write failure regression.
+os/FIX_REPORT.md and stat-oracle-final/result.json: tool/stat/ABI repair details.
+os-integration/: SDK header, storage seam and FAT runner controls.
+runtime/unlabelled-fat32-baseline/ and unlabelled-fat32/: native before/after control.
+runtime/fat32-independent-read/result.json: independent mtools interoperability.
+
+Evidence interpretation
+Counts above measure different kinds of checks and must not be summed into a
+standards or milestone completion percentage. Host models, actual QEMU user
+programs and physical hardware are distinct. No physical machines were tested.
+Guest acceptance uses maintenance consoles with login disabled; it is not a fresh
+account-login or clean system-power qualification.
+FAT is nonjournalled and does not support the stronger sync_persistent/clean-power
+contract. Stop/start after guest fsync does not establish arbitrary power-cut,
+torn-write or physical volatile-cache durability. Full POSIX, SMP/IRQ/DMA breadth,
+all ext4 feature combinations and absence of all vulnerabilities are not claimed.
+Hosted ASan runs disabled LeakSanitizer; they do not establish leak freedom.
+Prior superseded/interrupted campaigns and their failures remain in place; use
+only the final paths above for the final implementation result.

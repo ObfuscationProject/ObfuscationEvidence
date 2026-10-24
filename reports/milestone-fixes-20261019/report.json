@@ -1,0 +1,135 @@
+{
+  "status": "passed",
+  "date": "2026-10-19",
+  "scope": "Requested reproduced regressions and bounded filesystem feature work",
+  "roadmap_complete": false,
+  "simplefs": "intentionally unchanged",
+  "physical_hardware_tested": false,
+  "tests": {
+    "kernel_debug_profiles": 10,
+    "kernel_points_per_profile": 80,
+    "kernel_sdk_exports": 14,
+    "os_debug_profiles": 10,
+    "os_primary_release_profiles": 4,
+    "os_tools": {
+      "status": "passed",
+      "scope": "hosted-unittest-tools",
+      "source_files": 943,
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/tools",
+        "-p",
+        "test_*.py"
+      ],
+      "sdk": "/media/data1/Project/System/ObfuscationProject/build/milestone-fixes-20261019/native-final/source/build/sdk/x86_64/debug",
+      "exit_code": 0,
+      "tests": 1284,
+      "seconds": 760.521,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "source_mismatches": [],
+      "log_sha256": "938fbdcb1c80f023c53c0f444ed6e1fb9ea84a5c676a33065e78f8183daeb958"
+    },
+    "real_fat_campaigns": [
+      {
+        "architecture": "x86_64",
+        "filesystem": "fat32",
+        "receipt": "runtime/x64-final-v3-results/fat32/result.json",
+        "sha256": "761ecda4fe08f765b298f10334f4fa01f4f66ee621a7e53d69ba71c35c6398d5"
+      },
+      {
+        "architecture": "x86_64",
+        "filesystem": "exfat",
+        "receipt": "runtime/x64-final-v3-results/exfat/result.json",
+        "sha256": "b3a14ae12865297a8d6d63d67078203409e211f16c98286f57a7d811eaa78798"
+      },
+      {
+        "architecture": "aarch64",
+        "filesystem": "fat32",
+        "receipt": "runtime/other-matrix/root-final/lane-0/aarch64-release-fat32/result.json",
+        "sha256": "738ae62ad64c76b8a8a1fe1b518e0ffa7cd75cb808b10c663123f60904c6dabb"
+      },
+      {
+        "architecture": "aarch64",
+        "filesystem": "exfat",
+        "receipt": "runtime/other-matrix/root-final/lane-0/aarch64-release-exfat/result.json",
+        "sha256": "9cdb5fa49bc1e0e7fa49c2c3e11f5386cd97f0ab67f87dbb3c1072f9b4a29dfa"
+      },
+      {
+        "architecture": "rv64",
+        "filesystem": "fat32",
+        "receipt": "runtime/other-matrix/root-final/lane-1/rv64-release-fat32/result.json",
+        "sha256": "2e7192e58422ceb2d69606d78fea7815db8baeb443d112522f1879570121214a"
+      },
+      {
+        "architecture": "rv64",
+        "filesystem": "exfat",
+        "receipt": "runtime/other-matrix/root-final/lane-1/rv64-release-exfat/result.json",
+        "sha256": "e95b370186dc83ce045b2ca94ed9624376428e4bfa14004fbbb0e1eab24d66d0"
+      },
+      {
+        "architecture": "loongarch64",
+        "filesystem": "fat32",
+        "receipt": "runtime/other-matrix/root-final/lane-2/loongarch64-release-fat32/result.json",
+        "sha256": "f5d72f18c4645860cae0dc334ae9229b61a3021ddc16f64edaec3c092467f78c"
+      },
+      {
+        "architecture": "loongarch64",
+        "filesystem": "exfat",
+        "receipt": "runtime/other-matrix/root-final/lane-2/loongarch64-release-exfat/result.json",
+        "sha256": "5694a2305556df170e870cbb06b4e20c7ab208962c5e27d7d587e5a54ee6f17d"
+      }
+    ],
+    "fat_host_commands": 41,
+    "independent_fat32_read_architectures": 4,
+    "ext4_primary_release_persistence_profiles": 4,
+    "kernel_hosted_repaired_runners": 4
+  },
+  "source_integrity": {
+    "ObfuscationKernel": {
+      "source_files": 1511,
+      "receipt": "native-final/source-sha256.json",
+      "mismatches": []
+    },
+    "ObfuscationOS": {
+      "source_files": 943,
+      "receipt": "runtime/x64-final-v3-results/source-sha256.json",
+      "mismatches": []
+    }
+  },
+  "security_repairs": [
+    "ext4 trailing directory-header bounds",
+    "filesystem geometry/index overflow checks",
+    "block-cache partial I/O invalidation",
+    "stat fixture exponent and hardlink inventory validation",
+    "FAT chain/crosslink and entry-set validation",
+    "FAT32 LFN/short-alias namespace collision",
+    "unlabelled FAT32 boot admission",
+    "FAT harness abnormal process exit rejection"
+  ],
+  "evidence": {
+    "kernel": "native-final/result.json",
+    "x86_64": "runtime/x64-final-v3-results/results.json",
+    "other_consumers": "runtime/other-matrix/root-final/result.json",
+    "fat_hosted": "filesystems/fat-suite-v8/result.json",
+    "ext4": "ext4/fix-summary.json",
+    "block_cache": "block-cache/result.json",
+    "hosted_kernel": "kernel/fix-summary.json",
+    "os_tools": "os-aggregate-final/result.json",
+    "stat_oracle": "os/stat-oracle-final/result.json",
+    "unlabelled_fat32": "runtime/unlabelled-fat32/result.json",
+    "independent_fat32": "runtime/fat32-independent-read/result.json"
+  },
+  "limitations": [
+    "Bounded ASCII FAT profile and fixed root-owned permissions; see provider documentation",
+    "FAT is nonjournalled; arbitrary power-loss and physical durability are not qualified",
+    "QEMU boot model tests remain model evidence; native program acceptance is separately identified",
+    "M0-M12 complete gates and full POSIX compliance are not established by this repair task"
+  ]
+}

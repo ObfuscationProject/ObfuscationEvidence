@@ -1,0 +1,135 @@
+M0-M12 implementation and functional test review
+Date: 2026-10-19
+
+Conclusion: all thirteen complete milestone gates remain open. Useful bounded implementation is present, but the current test entrypoints are not all green. No product source, canonical SDK or existing user disk was repaired or replaced.
+
+Coverage and results
+- All ten fresh standalone Kernel Debug images build and boot in QEMU: i386, x86_64, aarch64, arm32, rv64, rv32, loongarch64, mips, mips64, ppc.
+- All twenty installed architecture/mode SDKs pass strict hash/profile admission (ABI74/UAPI0.16). Fresh x86_64 Debug/Release SDKs were additionally exported and consumed.
+- Eight selected OS architecture/mode consumers are covered: x86_64, aarch64, rv64, loongarch64 in Debug/Release. Other six OS userland profiles remain present; this report does not claim their new OS consumer build/runtime coverage.
+- OS unittest methods: 1266 passed, 1 failed, 1 errored of 1268; no skips. The original aggregate discovery failure is retained. The standalone stat oracle is a separate failing CLI, not a zero-test pass.
+- Selected Kernel hosted suites: 43/47 pass after correcting one audit CLI invocation; four official runners remain broken. Two separate dependency-complete diagnostic harnesses pass. This is representative functional coverage, not execution of every Kernel test file.
+- Seventeen additional OS host executables pass. Files/Notes/handoff have 11157 hosted checks; separate Notes file/fault and block-boundary campaigns pass 41 and 15 cases. Counts are different granularities and may overlap; do not add them into a milestone completion score.
+- Actual networking: x86_64 PCI and aarch64 MMIO static ARP/IPv4/UDP pass four scenarios each, including 97 exchange and 13 hostile-frame records per profile.
+- Actual x86_64 full native/POSIX acceptance fails at the quota fixture in Debug and Release. Earlier time/poll/private/paged-VM markers pass. Aarch64 Debug reproduces the same failure.
+
+Selected Release userland results (actual guest execution)
+- x86_64 release-native-ext4-shell: PASS
+- x86_64 release-ext4-persistence: PASS
+- aarch64 native-ext4-shell: PASS
+- aarch64 ext4-persistence: PASS
+- rv64 native-ext4-shell: PASS
+- rv64 ext4-persistence: PASS
+- loongarch64 native-ext4-shell: PASS
+- loongarch64 ext4-persistence: PASS
+
+Per-milestone assessment
+M0: Contracts and evidence ledger — complete gate OPEN
+  Fresh evidence: Schema, SDK admission and 97 related controls pass; full gate-m0 fails.
+  Remaining: Seed inventory, four reviewed normative indexes, source/requirement/test mappings and complete evidence closure are missing.
+
+M1: Allocation, VM, waits and time — complete gate OPEN
+  Fresh evidence: Hosted allocator/mapping/wait controls pass; actual x86_64 native time/poll/private VM and paged VM markers pass before a later quota-test failure.
+  Remaining: General allocation/reclaim/OOM/VM and sustained pressure qualification are incomplete. POSIX pressure fixture and ABI55 object-pressure admission are broken.
+
+M2: Paths, files, credentials and IPC — complete gate OPEN
+  Fresh evidence: Hosted VFS/UNIX/PTY/console ownership controls pass; actual shell pipes, namespace operations and links pass.
+  Remaining: Complete path/mount/race semantics, independent PTY session/foreground authority, termios and broad IPC failure handling remain open.
+
+M3: Native ABI and libc substrate — complete gate OPEN
+  Fresh evidence: ABI, signal, futex, thread and wrapper controls pass apart from stale harnesses; native applications execute fork/exec/wait paths.
+  Remaining: No complete libc/pthread/cancellation or all-profile native musl acceptance; no new claim of full POSIX conformance.
+
+M4: Durable root filesystem — complete gate OPEN
+  Fresh evidence: Fresh ext4 consumers build; bounded native save/sync/host-retire/restart and offline fsck are tested; hosted ext4/JBD2 paths pass.
+  Remaining: Default general journalled root, metadata/cache/request ownership and crash/volatile-cache-loss/FLUSH qualification remain open.
+
+M5: User environment — complete gate OPEN
+  Fresh evidence: Actual release shell pipelines, Notes and basic utilities are tested; hosted shell/shared-loader controls pass.
+  Remaining: General shell scripts/expansion/jobs, shared mappings/cache, shared loader/TLS/dlopen/cancellation and ports breadth remain open. Full SimpleFS staging fails.
+
+M6: Networking — complete gate OPEN
+  Fresh evidence: Actual x86_64 PCI and aarch64 MMIO Virtio static ARP/IPv4/UDP campaigns pass exchange/hostile/absent/legacy scenarios.
+  Remaining: Reliable general TCP/IPv6, IRQ networking, configuration/DNS/HTTP/TLS and loss/reordering/pressure acceptance remain open.
+
+M7: PID1, accounts and services — complete gate OPEN
+  Fresh evidence: Hosted account, authenticated-control, service lifecycle, logging, time, resolver, mount and shutdown policy controls pass. Basic native PID1 launches tested maintenance shells.
+  Remaining: Authenticated account login and orderly reboot/poweroff campaigns were not rerun here; general session authority, graphical login and full system services remain open.
+
+M8: Isolated graphics — complete gate OPEN
+  Fresh evidence: Files/Notes/handoff hosted ASan+UBSan checks pass; privileged GUI boot is present.
+  Remaining: Separate user compositor and clients, protected display buffers, input ownership, toolkit/fonts/Wayland and isolated PTY terminal execution remain open.
+
+M9: Daily desktop — complete gate OPEN
+  Fresh evidence: Notes actual-source host file/fault controls and real native command-line save/read workflows pass where listed below.
+  Remaining: Unprivileged GUI applications and complete login/network/package/installer/recovery/accessibility/UTF-8-CJK/lock workflows remain open.
+
+M10: Ext4 feature breadth — complete gate OPEN
+  Fresh evidence: Bounded supported ext4 operations, block sizes, format refusal and offline interoperability are tested.
+  Remaining: Every advertised feature/combination and read/write/replay profile is not qualified; stat hardlink-oracle construction currently fails.
+
+M11: Architecture, SMP and device breadth — complete gate OPEN
+  Fresh evidence: All ten current-source standalone Debug kernels build and boot in QEMU; all twenty installed SDKs pass admission.
+  Remaining: Single-CPU boot/model records do not establish concurrent SMP/TLB/IRQ/DMA/hotplug or actual module relocation/execution/unload. Physical machines were not tested.
+
+M12: Complete workstation/release target — complete gate OPEN
+  Fresh evidence: Fresh x86_64 Debug/Release SDK export and selected consumer builds are verified with preserved failures and artifacts.
+  Remaining: Mandatory ledger closure, complete release/recovery and manual desktop acceptance remain open.
+
+Reproduced problems (no fixes made)
+F1: Full rootfs staging contains 36 files but SimpleFS accepts at most 32. Fresh x86_64 Debug/Release and three other Debug consumers reproduce failure. Existing archive unit tests deliberately expect full-staging rejection.
+  Source: ObfuscationOS/tools/mksimplefs.py:62
+  Evidence: runtime/fresh-x64/x86_64/debug/rootfs-simplefs.log
+
+F2: POSIX second_pressure allocation fails with ENOMEM on fresh x86_64 Debug/Release and installed-SDK aarch64 Debug. Current user quota is 661 pages; two requested 384-page mappings alone require 768, before existing user pages. Earlier native private-VM/time/poll checks pass. This does not establish allocator corruption.
+  Source: ObfuscationOS/apps/posix-check/main.c:554
+  Evidence: runtime/fresh-x64-guests/debug-native-ext4.log
+
+F3: Object pressure calls the shared ABI74 SDK validator and then requires ABI55. Its 27-method module has one failure and one error; the current qualifier cannot admit a current SDK.
+  Source: ObfuscationOS/tools/object_pressure_evidence.py:91
+  Evidence: os/isolated-test_object_pressure.log
+
+F4: Documented whole-suite unittest discovery aborts because tools/test_native_users.py shadows tests/tools/test_native_users.py. Per-module processes recover coverage.
+  Source: ObfuscationOS/tests/tools/test_native_users.py
+  Evidence: os/python-tools.log
+
+F5: Standalone Linux-stat oracle intentionally stages hard links, but the current composed-root policy rejects aliased inodes; failure occurs before guest stat execution.
+  Source: ObfuscationOS/tools/rootfs_policy.py:141
+  Evidence: os/linux-stat-oracle/post2038-mkext4.log
+
+F6: Static dispatch tests copy BasicScheduler after ownership members made it noncopyable; the first i386 hosted profile does not compile.
+  Source: ObfuscationKernel/tests/host/static_dispatch_tests.cpp:182
+  Evidence: kernel/hosted/static_dispatch.log
+
+F7: scheduler_waits and thread_lifecycle snapshots omit scheduler .inc files and current memory/UDP/VFS link dependencies. Official entrypoints fail. Separate diagnostic harnesses using unchanged current dependencies pass 9487 and 3206 x86_64 checks; canonical runners remain unfixed.
+  Source: ObfuscationKernel/scripts/test_scheduler_waits.py:13
+  Evidence: kernel/scheduler_waits-output/i386-build.log
+
+F8: kernel_services runner omits terminal_power.cpp and its execution stub lacks enter_owned. Normal standalone kernels build, but this regression entrypoint cannot link.
+  Source: ObfuscationKernel/scripts/test_kernel_services.py:23
+  Evidence: kernel/hosted/kernel_services.log
+
+Interpretation and limits
+- Model/parser/hosted tests are not guest execution, process isolation, hardware IRQ/SMP or runtime ELF module loading. Kernel boot markers with scope=model retain that meaning even when emitted by QEMU.
+- Native filesystem persistence tests sync, stop the emulator from the host, restart the same private disk and inspect with e2fsck/debugfs. They do not prove clean guest shutdown, volatile-cache loss, torn writes or general crash durability.
+- Login is disabled in these maintenance-shell guest builds. Account/session/authentication/poweroff evidence in this review is hosted or previously documented, not a newly executed login/power campaign.
+- The sandbox initially denied getsockopt on local socketpairs; a minimal probe confirmed EPERM. The separately permitted networking successors pass. Initial failures are retained and are not product networking failures.
+- LeakSanitizer could not run under the sandbox ptrace environment. ASan/UBSan desktop successors used detect_leaks=0; leak freedom is not established.
+- README/current-support prose is stale in places (ABI58 versus current ABI74, old shell/socket/symlink statements). Current source and retained fresh results take precedence.
+- M0 schema success is not M0 completion. The ledger still has 95 requirements, 175 test definitions, 11 historical evidence entries and incomplete reviewed normative indexes. No new verification claim was written back into the official ledger.
+
+Evidence index (paths relative to this review directory)
+report.json: consolidated machine-readable results and issue mapping
+source-integrity.json: canonical OS and Kernel snapshot integrity checks
+audit/AUDIT.md: milestone definitions, source references and M0 gate commands
+audit/INTEGRATION_FAILURES.md: SimpleFS and native pressure root-cause analysis
+os/REVIEW.md: complete hosted OS results and reproduction commands
+kernel/kernel-audit-summary.json: kernel suite mapping and harness failures
+kernel/native-results.json: exact ten-profile standalone build/boot commands
+runtime/fresh-x64/results.json: fresh standalone SDK-only x86_64 consumers
+runtime/fresh-x64-guests/results.json: actual x86_64 acceptance/shell/persistence
+runtime/release-userland-matrix/results.json: other supplied Release consumers and guests
+runtime/fresh-x64-products/manifest.json: preserved current x86_64 binaries and ext4 inputs
+runtime/network-x64-static-udp/result.json and runtime/network-aarch64-static-udp-permitted/result.json: real device packet exchange
+
+Recommended repair order for a later implementation task: reconcile SimpleFS product packaging; update native pressure tests to the enforced quotas without weakening reserves; migrate current qualification entrypoints coherently to ABI74; restore aggregate discovery and stale hosted runner dependency lists; reconcile the stat oracle with rootfs policy. Then rerun the affected acceptance paths before claiming a milestone closed.

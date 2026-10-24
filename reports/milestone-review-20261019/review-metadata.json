@@ -1,0 +1,15 @@
+{
+  "review_date": "2026-10-19",
+  "source_root": "/media/data1/Project/System/ObfuscationProject",
+  "notes": "Read-only implementation audit. Build outputs and private guest disks are disposable audit artifacts; no source repair was requested.",
+  "scripts": {
+    "runtime/run_release_guests.py": "7e4affce4184a09b1ec2bb962f7fc7ddfadbe887e17b087602d61453b326794c",
+    "runtime/run_runtime.py": "47f9257eba475ad448959ab8fa66df6f40321ed2821bb209e7fb134a79ddf2dd",
+    "runtime/run_x64_guests.py": "34503b931f2d55f4df5aa6a6b6ccd9e571fba31c64b87e47599c7e36ad27cd22",
+    "kernel/run_hosted.py": "dd4cc04add6b7596225622ee1d11f5c1a089b18cc0d2ca6522677e37d9feeb42",
+    "kernel/run_native.py": "9e9458a3580968f79306bd75489ca21eedb70374ffb8598c72e0fc057156c1b5",
+    "kernel/run_secondary.py": "9a46537e640d2a6ef4eaf799d4c37a52a542b22b19c093c5dad78edd2d2af227",
+    "os/run_hosted_models.py": "d24eb546a32125b87ae8499afcada895713571a6ea94b69720374db10d7a61b6",
+    "os/run_isolated_tools.py": "e22890a262151cfd380c811cd572f27a1fc2b34dec64fbdf46b07a9877b6a3d9"
+  }
+}
