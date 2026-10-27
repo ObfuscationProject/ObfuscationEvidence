@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "d2d58b0fdfcf2dcc45d7b5cce593b576871ecc74",
+  "branch": "refactor/ext4-layout",
+  "campaign": "object-identity",
+  "date": "2026-10-27",
+  "scope": "Generated-code identity of the main merge f8a1df8 (before the ABI 76 bump, which changes the ABI constant itself) against main 05c985e: kernel objects on ten profiles in debug and release, and every hosted translation unit that reaches an ext4 header.",
+  "claims": [
+    "kernel: every object of okernel and okernel_image is byte-identical after objcopy --strip-debug, or identical per symbol in assembly at -O2, or identical per symbol at -O0 (see kernel-asm.log)",
+    "hosted: every unit that compiles on main produces identical code (byte-identical object, per-symbol -O2 assembly, or per-symbol -O0 assembly with C1/C2 aliases merged)",
+    "hosted: of the units that fail on main, 16 fail with the same diagnostics and 2 (Ext4OwnedTransaction instantiated before Ext4MountedMetadata is complete) compile with the modules"
+  ],
+  "sources": [
+    {
+      "tree": "kernel@f8a1df8",
+      "repository": "ObfuscationKernel",
+      "commit": "f8a1df8aeae1ec61a18416db09385c8a15770b32",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@f8a1df8>",
+      "use": "merge of main into the branch; ancestor of d2d58b0, which adds the ABI 76 bump and documentation"
+    },
+    {
+      "tree": "kernel@05c985e",
+      "repository": "ObfuscationKernel",
+      "commit": "05c985e1cec5660931e537cbe267c48aa8387c74",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@05c985e>",
+      "use": "baseline"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple, sha256-verified), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "e2fsprogs": "mke2fs 1.47.0 (5-Feb-2023)"
+  },
+  "summary": {
+    "kernel_objects": {
+      "aarch64-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 83,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "aarch64-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "arm32-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 83,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "arm32-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "i386-debug": {
+        "objects": 86,
+        "byte_identical_after_strip_debug": 84,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "i386-release": {
+        "objects": 78,
+        "byte_identical_after_strip_debug": 77,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "loongarch64-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 79,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "loongarch64-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "mips-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 83,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "mips-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "mips64-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 79,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "mips64-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "ppc-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 83,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "ppc-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "rv32-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 79,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "rv32-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "rv64-debug": {
+        "objects": 85,
+        "byte_identical_after_strip_debug": 79,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "rv64-release": {
+        "objects": 77,
+        "byte_identical_after_strip_debug": 76,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "x86_64-debug": {
+        "objects": 86,
+        "byte_identical_after_strip_debug": 84,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "x86_64-release": {
+        "objects": 78,
+        "byte_identical_after_strip_debug": 77,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      }
+    },
+    "kernel_asm": [
+      "x86_64-release: .objs/okernel/linux/x86_64/release/tests/kernel/debug/suite.cpp.o -> same 382",
+      "x86_64-debug: .objs/okernel/linux/x86_64/debug/tests/kernel/debug/suite.cpp.o -> same 382",
+      "x86_64-debug: .objs/okernel/linux/x86_64/debug/tests/kernel/points/test_point.cpp.o -> same 1539",
+      "arm32-release: .objs/okernel/linux/arm32/release/tests/kernel/debug/suite.cpp.o -> DIFF 0 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1916",
+      "arm32-debug: .objs/okernel/linux/arm32/debug/tests/kernel/debug/suite.cpp.o -> DIFF 0 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1916",
+      "arm32-debug: .objs/okernel/linux/arm32/debug/tests/kernel/points/test_point.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=6021",
+      "ppc-release: .objs/okernel/linux/ppc/release/tests/kernel/debug/suite.cpp.o -> DIFF 26 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1907",
+      "ppc-debug: .objs/okernel/linux/ppc/debug/tests/kernel/debug/suite.cpp.o -> DIFF 26 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1907",
+      "ppc-debug: .objs/okernel/linux/ppc/debug/tests/kernel/points/test_point.cpp.o -> DIFF 1072 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=6018",
+      "i386-release: .objs/okernel/linux/i386/release/tests/kernel/debug/suite.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1884",
+      "i386-debug: .objs/okernel/linux/i386/debug/tests/kernel/debug/suite.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1884",
+      "i386-debug: .objs/okernel/linux/i386/debug/tests/kernel/points/test_point.cpp.o -> DIFF 7 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=5979",
+      "aarch64-release: .objs/okernel/linux/aarch64/release/tests/kernel/debug/suite.cpp.o -> same 389",
+      "aarch64-debug: .objs/okernel/linux/aarch64/debug/tests/kernel/debug/suite.cpp.o -> same 389",
+      "aarch64-debug: .objs/okernel/linux/aarch64/debug/tests/kernel/points/test_point.cpp.o -> same 1545",
+      "rv64-release: .objs/okernel/linux/rv64/release/tests/kernel/debug/suite.cpp.o -> same 385",
+      "rv64-debug: .objs/okernel/linux/rv64/debug/src/fs/ext4.cpp.o -> same 5",
+      "rv64-debug: .objs/okernel/linux/rv64/debug/src/fs/ext4_fs.cpp.o -> same 116",
+      "rv64-debug: .objs/okernel/linux/rv64/debug/src/rescue/shell/storage.cpp.o -> same 5",
+      "rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/debug/suite.cpp.o -> same 385",
+      "rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/points/test_point.cpp.o -> same 1541",
+      "rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 55",
+      "rv32-release: .objs/okernel/linux/rv32/release/tests/kernel/debug/suite.cpp.o -> same 388",
+      "rv32-debug: .objs/okernel/linux/rv32/debug/src/fs/ext4.cpp.o -> same 5",
+      "rv32-debug: .objs/okernel/linux/rv32/debug/src/fs/ext4_fs.cpp.o -> same 116",
+      "rv32-debug: .objs/okernel/linux/rv32/debug/src/rescue/shell/storage.cpp.o -> same 5",
+      "rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/debug/suite.cpp.o -> same 388",
+      "rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/points/test_point.cpp.o -> same 1553",
+      "rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 54",
+      "loongarch64-release: .objs/okernel/linux/loongarch64/release/tests/kernel/debug/suite.cpp.o -> same 385",
+      "loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/fs/ext4.cpp.o -> same 5",
+      "loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/fs/ext4_fs.cpp.o -> same 116",
+      "loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/rescue/shell/storage.cpp.o -> same 5",
+      "loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/debug/suite.cpp.o -> same 385",
+      "loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/points/test_point.cpp.o -> same 1536",
+      "loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 54",
+      "mips-release: .objs/okernel/linux/mips/release/tests/kernel/debug/suite.cpp.o -> same 379",
+      "mips-debug: .objs/okernel/linux/mips/debug/tests/kernel/debug/suite.cpp.o -> same 379",
+      "mips-debug: .objs/okernel/linux/mips/debug/tests/kernel/points/test_point.cpp.o -> same 1542",
+      "mips64-release: .objs/okernel/linux/mips64/release/tests/kernel/debug/suite.cpp.o -> same 378",
+      "mips64-debug: .objs/okernel/linux/mips64/debug/src/fs/ext4.cpp.o -> same 5",
+      "mips64-debug: .objs/okernel/linux/mips64/debug/src/fs/ext4_fs.cpp.o -> same 116",
+      "mips64-debug: .objs/okernel/linux/mips64/debug/src/rescue/shell/storage.cpp.o -> same 5",
+      "mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/debug/suite.cpp.o -> same 378",
+      "mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/points/test_point.cpp.o -> same 1537",
+      "mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 53"
+    ],
+    "hosted_unit_states": {
+      "unrelated": 285,
+      "base-preprocess-fail": 6,
+      "identical": 84,
+      "both-fail": 16,
+      "CODE-DIFFERS": 143,
+      "same-code": 18,
+      "ACCESS-CONTROL-DIFFERS": 6,
+      "base-fail-new-ok": 2
+    },
+    "hosted_asm_O2": {
+      "DIFF": 29,
+      "same": 138
+    },
+    "hosted_asm_O0_after_alias_merge": {
+      "same": 29,
+      "units": 29
+    },
+    "note": "kernel.elf is not compared: xmake archives libokernel.a members in a nondeterministic order"
+  },
+  "status": "passed",
+  "commands": [
+    {
+      "label": "kernel builds, twenty configurations",
+      "command": "for <tree> in <kernel@05c985e> <kernel@f8a1df8>, <arch> in ten profiles, <mode> in debug release: xmake f -P <tree> -c -y -m <mode> -a <arch> -o <build> --systoolchain_dir=<systoolchain>/<triple> && xmake -P <tree> -y -b -j8 okernel_image",
+      "returncode": 0
+    },
+    {
+      "label": "object comparison",
+      "command": "tools/objcount.py objcount.json  # objcopy --strip-debug, then byte compare",
+      "returncode": 0
+    },
+    {
+      "label": "assembly comparison of objects that are not byte-identical",
+      "command": "tools/kasm.py <kernel@05c985e> <kernel@f8a1df8> <config>...  # exact xmake command lines, -S -g0; tools/asm_cmp.py at -O2, tools/asm_cmp0.py at -O0",
+      "returncode": 0
+    },
+    {
+      "label": "hosted translation units",
+      "command": "tools/tu_oracle.py <kernel@05c985e> <kernel@f8a1df8> <out> 10 && tools/asm_oracle.py ... -O2 && tools/asm_oracle.py ... -O0 <O2-differing units> && tools/asm_cmp0.py per unit  # test sources of 05c985e, its headers vs the module headers of f8a1df8 through old-path forwarding shims",
+      "returncode": 0
+    },
+    {
+      "label": "hosted translation units, recheck",
+      "command": "tools/tu_oracle.py <kernel@05c985e> <kernel@f8a1df8> <out> 3 recheck-units.txt && tools/asm_oracle.py ... 3 -O2 recheck-asm-units.txt && tools/asm_oracle.py ... 1 -O0 tests/host/ext4_mounted_namespace_c1_tests.cpp && tools/asm_cmp0.py  # the first run, beside about 40 concurrent build and test jobs, recorded ext4_mounted_namespace_c1_tests as failing on main and two -O2 comparisons without output; none of these reproduced when the units ran alone",
+      "returncode": 0
+    }
+  ]
+}

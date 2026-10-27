@@ -1,0 +1,6 @@
+same 1613                                                    tests/host/ext4_mounted_directory_create_tests.cpp
+same 1649                                                    tests/host/ext4_mounted_mutation_identity_tests.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_mounted_namespace_c1_tests.cpp
+DIFF 1 pool-equal
+   _ZL19unsupported_historyRKSt6vectorIhSaIhEEb
+{"same": 2, "DIFF": 1}

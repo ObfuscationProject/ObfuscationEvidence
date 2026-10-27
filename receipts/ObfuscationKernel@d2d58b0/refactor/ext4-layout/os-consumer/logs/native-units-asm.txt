@@ -1,0 +1,6 @@
+DIFF 5 pool-equal | -O0: same unreferenced-one-sided-objects=34 symbols=1147 block_sessions.cpp
+DIFF 14 pool-equal | -O0: same unreferenced-one-sided-objects=42 symbols=888 ext4_completion.cpp
+same 1605 ext4_mounted.cpp
+same 495 ext4_owned.cpp
+DIFF 5 pool-equal | -O0: same unreferenced-one-sided-objects=42 symbols=861 ext4_preview.cpp
+DIFF 5 pool-equal | -O0: same unreferenced-one-sided-objects=34 symbols=1080 ext4_transaction.cpp

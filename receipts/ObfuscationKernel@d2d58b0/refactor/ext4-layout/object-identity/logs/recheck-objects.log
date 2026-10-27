@@ -1,0 +1,13 @@
+CODE-DIFFERS tests/host/ext4_mounted_namespace_c1_tests.cpp
+base-fail-new-ok tests/host/ext4_orphan_owner_preparation_compile.cpp
+base-fail-new-ok tests/native/ext4_orphan_owner_publication_probe.cpp
+{
+ "unrelated": 285,
+ "base-preprocess-fail": 6,
+ "identical": 84,
+ "both-fail": 16,
+ "CODE-DIFFERS": 143,
+ "same-code": 18,
+ "ACCESS-CONTROL-DIFFERS": 6,
+ "base-fail-new-ok": 2
+}

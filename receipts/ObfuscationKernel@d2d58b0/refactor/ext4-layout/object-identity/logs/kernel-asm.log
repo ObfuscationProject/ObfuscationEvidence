@@ -1,0 +1,46 @@
+x86_64-release: .objs/okernel/linux/x86_64/release/tests/kernel/debug/suite.cpp.o -> same 382
+x86_64-debug: .objs/okernel/linux/x86_64/debug/tests/kernel/debug/suite.cpp.o -> same 382
+x86_64-debug: .objs/okernel/linux/x86_64/debug/tests/kernel/points/test_point.cpp.o -> same 1539
+arm32-release: .objs/okernel/linux/arm32/release/tests/kernel/debug/suite.cpp.o -> DIFF 0 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1916
+arm32-debug: .objs/okernel/linux/arm32/debug/tests/kernel/debug/suite.cpp.o -> DIFF 0 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1916
+arm32-debug: .objs/okernel/linux/arm32/debug/tests/kernel/points/test_point.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=6021
+ppc-release: .objs/okernel/linux/ppc/release/tests/kernel/debug/suite.cpp.o -> DIFF 26 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1907
+ppc-debug: .objs/okernel/linux/ppc/debug/tests/kernel/debug/suite.cpp.o -> DIFF 26 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1907
+ppc-debug: .objs/okernel/linux/ppc/debug/tests/kernel/points/test_point.cpp.o -> DIFF 1072 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=6018
+i386-release: .objs/okernel/linux/i386/release/tests/kernel/debug/suite.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1884
+i386-debug: .objs/okernel/linux/i386/debug/tests/kernel/debug/suite.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1884
+i386-debug: .objs/okernel/linux/i386/debug/tests/kernel/points/test_point.cpp.o -> DIFF 7 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=5979
+aarch64-release: .objs/okernel/linux/aarch64/release/tests/kernel/debug/suite.cpp.o -> same 389
+aarch64-debug: .objs/okernel/linux/aarch64/debug/tests/kernel/debug/suite.cpp.o -> same 389
+aarch64-debug: .objs/okernel/linux/aarch64/debug/tests/kernel/points/test_point.cpp.o -> same 1545
+rv64-release: .objs/okernel/linux/rv64/release/tests/kernel/debug/suite.cpp.o -> same 385
+rv64-debug: .objs/okernel/linux/rv64/debug/src/fs/ext4.cpp.o -> same 5
+rv64-debug: .objs/okernel/linux/rv64/debug/src/fs/ext4_fs.cpp.o -> same 116
+rv64-debug: .objs/okernel/linux/rv64/debug/src/rescue/shell/storage.cpp.o -> same 5
+rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/debug/suite.cpp.o -> same 385
+rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/points/test_point.cpp.o -> same 1541
+rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 55
+rv32-release: .objs/okernel/linux/rv32/release/tests/kernel/debug/suite.cpp.o -> same 388
+rv32-debug: .objs/okernel/linux/rv32/debug/src/fs/ext4.cpp.o -> same 5
+rv32-debug: .objs/okernel/linux/rv32/debug/src/fs/ext4_fs.cpp.o -> same 116
+rv32-debug: .objs/okernel/linux/rv32/debug/src/rescue/shell/storage.cpp.o -> same 5
+rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/debug/suite.cpp.o -> same 388
+rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/points/test_point.cpp.o -> same 1553
+rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 54
+loongarch64-release: .objs/okernel/linux/loongarch64/release/tests/kernel/debug/suite.cpp.o -> same 385
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/fs/ext4.cpp.o -> same 5
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/fs/ext4_fs.cpp.o -> same 116
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/rescue/shell/storage.cpp.o -> same 5
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/debug/suite.cpp.o -> same 385
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/points/test_point.cpp.o -> same 1536
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 54
+mips-release: .objs/okernel/linux/mips/release/tests/kernel/debug/suite.cpp.o -> same 379
+mips-debug: .objs/okernel/linux/mips/debug/tests/kernel/debug/suite.cpp.o -> same 379
+mips-debug: .objs/okernel/linux/mips/debug/tests/kernel/points/test_point.cpp.o -> same 1542
+mips64-release: .objs/okernel/linux/mips64/release/tests/kernel/debug/suite.cpp.o -> same 378
+mips64-debug: .objs/okernel/linux/mips64/debug/src/fs/ext4.cpp.o -> same 5
+mips64-debug: .objs/okernel/linux/mips64/debug/src/fs/ext4_fs.cpp.o -> same 116
+mips64-debug: .objs/okernel/linux/mips64/debug/src/rescue/shell/storage.cpp.o -> same 5
+mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/debug/suite.cpp.o -> same 378
+mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/points/test_point.cpp.o -> same 1537
+mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 53

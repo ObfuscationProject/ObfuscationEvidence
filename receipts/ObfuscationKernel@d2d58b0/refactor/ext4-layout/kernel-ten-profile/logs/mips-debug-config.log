@@ -1,0 +1,3 @@
+checking for platform ... linux (mips)
+checking for systoolchain_dir ... <systoolchain>/mips-elf
+checking for qemu_binary ... no

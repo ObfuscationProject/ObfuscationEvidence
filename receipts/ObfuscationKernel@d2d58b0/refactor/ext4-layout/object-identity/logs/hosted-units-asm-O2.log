@@ -1,0 +1,264 @@
+DIFF 2 pool-equal                                            tests/host/completed_ownership_birth/model.cpp
+DIFF 2 pool-equal
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs27Ext4ZeroTruncateTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_ 
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs33Ext4AllocatedEmptyDataTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_
+same 1688                                                    tests/host/ext4_account_writes_tests.cpp
+same 45                                                      tests/host/ext4_allocated_empty_data_journal_tests.cpp
+same 21                                                      tests/host/ext4_allocated_empty_data_ownership_compile.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_allocated_empty_data_ownership_tests.cpp
+DIFF 1 pool-equal
+   _ZN12_GLOBAL__N_19mutationsEv
+same 63                                                      tests/host/ext4_allocated_empty_data_preview_tests.cpp
+same 60                                                      tests/host/ext4_allocated_empty_data_session_preview_compile.cpp
+same 125                                                     tests/host/ext4_allocated_empty_data_session_preview_tests.cpp
+same 143                                                     tests/host/ext4_allocated_empty_data_transaction_compile.cpp
+same 159                                                     tests/host/ext4_allocated_empty_data_transaction_test.cpp
+same 33                                                      tests/host/ext4_allocated_empty_data_witness_tests.cpp
+same 1770                                                    tests/host/ext4_checked_ownership_invariants.cpp
+same 1691                                                    tests/host/ext4_checked_ownership_recovery.cpp
+same 1681                                                    tests/host/ext4_checked_ownership_tests.cpp
+DIFF 2 pool-differs                                          tests/host/ext4_completion_compile.cpp
+DIFF 2 pool-differs
+   _ZN2ok2fs22Ext4RecoveryCompletionILm64ELm64EE16execute_preparedEv 
+   _ZN2ok6driver11BlockDevice5flushEv only-a
+same 165                                                     tests/host/ext4_completion_tests.cpp
+same 398                                                     tests/host/ext4_create_frontier_tests.cpp
+same 145                                                     tests/host/ext4_create_replay_tests.cpp
+same 268                                                     tests/host/ext4_create_reuse_compile.cpp
+same 34                                                      tests/host/ext4_create_reuse_fixture.cpp
+same 495                                                     tests/host/ext4_create_reuse_tests.cpp
+same 212                                                     tests/host/ext4_direct_read_scope_tests.cpp
+same 31                                                      tests/host/ext4_directory_create_plan_tests.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_directory_create_replay_tests.cpp
+DIFF 1 pool-equal
+   main
+same 1716                                                    tests/host/ext4_directory_initialization_tests.cpp
+same 1768                                                    tests/host/ext4_directory_mode_tests.cpp
+DIFF 2 pool-differs                                          tests/host/ext4_directory_replay_compile.cpp
+DIFF 2 pool-differs
+   _ZN2ok2fs22Ext4RecoveryCompletionILm4ELm2EE16execute_preparedEv 
+   _ZN2ok6driver11BlockDevice5flushEv only-a
+same 155                                                     tests/host/ext4_directory_replay_tests.cpp
+same 1757 (access flags base=[] new=['-fno-access-control']) tests/host/ext4_empty_orphan_recovery_tests.cpp
+same 154                                                     tests/host/ext4_first_data_replay_tests.cpp
+same 20                                                      tests/host/ext4_inode_lifetime_exact_tests.cpp
+same 1671                                                    tests/host/ext4_journalled_mode_tests.cpp
+same 1608                                                    tests/host/ext4_mkdir_populated_rename_composition_tests.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_mounted_create_tests.cpp
+DIFF 1 pool-equal
+   main (access flags base=[] new=['-fno-access-control'])
+CMP-ERROR                                                    tests/host/ext4_mounted_directory_create_tests.cpp
+CMP-ERROR 
+same 1622                                                    tests/host/ext4_mounted_dirty_tests.cpp
+same 1610                                                    tests/host/ext4_mounted_first_data_tests.cpp
+same 1616                                                    tests/host/ext4_mounted_invariant_tests.cpp
+same 1662                                                    tests/host/ext4_mounted_lifetime_compile.cpp
+same 1635                                                    tests/host/ext4_mounted_lifetime_tests.cpp
+same 1662                                                    tests/host/ext4_mounted_mutation_identity_compile.cpp
+CMP-ERROR                                                    tests/host/ext4_mounted_mutation_identity_tests.cpp
+CMP-ERROR 
+same 1609                                                    tests/host/ext4_mounted_next_data_tests.cpp
+same 1638                                                    tests/host/ext4_mounted_orphan_runtime_tests.cpp
+same 1617                                                    tests/host/ext4_mounted_persistent_invariants.cpp
+same 1662                                                    tests/host/ext4_mounted_rename_noop_compile.cpp
+same 1605                                                    tests/host/ext4_mounted_rename_noop_tests.cpp
+same 1608                                                    tests/host/ext4_mounted_rename_tests.cpp
+same 1638                                                    tests/host/ext4_mounted_root_retention_tests.cpp
+same 1643                                                    tests/host/ext4_mounted_startup_route_tests.cpp
+same 1659                                                    tests/host/ext4_mounted_startup_tests.cpp
+same 1654                                                    tests/host/ext4_mounted_tests.cpp
+same 37                                                      tests/host/ext4_namespace_cold_replay_compile.cpp
+same 72                                                      tests/host/ext4_namespace_cold_replay_tests.cpp
+same 242                                                     tests/host/ext4_namespace_completion_compile.cpp
+same 431                                                     tests/host/ext4_namespace_completion_tests.cpp
+same 57                                                      tests/host/ext4_namespace_journal_tests.cpp
+DIFF 5 pool-equal                                            tests/host/ext4_namespace_recovery_binding_compile.cpp
+DIFF 5 pool-equal
+   _ZN2ok2fs28Ext4NamespaceRecoveryBinding12BeforeDevice11read_blocksEmSt4spanISt4byteLm18446744073709551615EE 
+   _ZN2ok2fs28Ext4NamespaceRecoveryBinding7prepareERNS_6driver11BlockDeviceENS0_18Ext4RecoveryBoundsE 
+   _ZNK2ok2fs28Ext4NamespaceRecoveryBinding10read_blockEjSt4spanIhLm18446744073709551615EE 
+   _ZNK2ok2fs28Ext4NamespaceRecoveryBinding12BeforeDevice8geometryEv only-a
+   _ZNK2ok2fs28Ext4NamespaceRecoveryBinding6stableEv only-a
+DIFF 1 pool-equal                                            tests/host/ext4_namespace_recovery_binding_tests.cpp
+DIFF 1 pool-equal
+   _ZN13owned_fixture16completed_oracleERKSt6vectorIhSaIhEE
+same 31                                                      tests/host/ext4_namespace_replay_compile.cpp
+same 67                                                      tests/host/ext4_namespace_replay_tests.cpp
+same 1639                                                    tests/host/ext4_namespace_result_history_tests.cpp
+same 271                                                     tests/host/ext4_namespace_transaction_compile.cpp
+same 413                                                     tests/host/ext4_namespace_transaction_tests.cpp
+same 1700                                                    tests/host/ext4_next_data_compile.cpp
+same 169                                                     tests/host/ext4_next_data_replay_adversarial_tests.cpp
+DIFF 2 pool-differs                                          tests/host/ext4_next_data_replay_compile.cpp
+DIFF 2 pool-differs
+   _ZN2ok2fs22Ext4RecoveryCompletionILm4ELm2EE16execute_preparedEv 
+   _ZN2ok6driver11BlockDevice5flushEv only-a
+same 157                                                     tests/host/ext4_next_data_replay_tests.cpp
+same 1608                                                    tests/host/ext4_ordered_data_tests.cpp
+same 33                                                      tests/host/ext4_orphan_access_tests.cpp
+same 129                                                     tests/host/ext4_orphan_chain_capture_bootstrap_tests.cpp
+DIFF 3 pool-equal                                            tests/host/ext4_orphan_chain_capture_boundary_tests.cpp
+DIFF 3 pool-equal
+   _ZN2ok2fs22Ext4OrphanChainCaptureILm2EE7captureINS2_13UnguardedReadEEENS_6StatusERNS_5block13BlockSessionsILm2EE7SessionERNS0_29Ext4OrphanChainCaptureStorageERNS0_42Ext4OrphanDirectoryQualifiedReclaimScratchERT_ 
+   _ZN2ok2fs24Ext4ReclaimResultHistoryILm2EE14transport_readINS0_22Ext4OrphanChainCaptureILm2EE13UnguardedReadEEENS_6StatusEmSt4spanISt4byteLm18446744073709551615EEPKSt5arrayIhLm1024EERT_ 
+   _ZN2ok2fs28Ext4OrphanOwnershipValidator14ordinary_inodeERKNS0_16Ext4RecoveryInfoERKNS0_25Ext4OrphanOwnershipSourceERKNS0_20Ext4OrphanChainProofERNS0_26Ext4OrphanOwnershipScratchEjjSt4spanIKhLm18446744073709551615EE
+same 98                                                      tests/host/ext4_orphan_chain_capture_compile.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_orphan_chain_capture_guard_tests.cpp
+DIFF 1 pool-equal
+   _ZN2ok2fs22Ext4OrphanChainCaptureILm2EE7captureIN12_GLOBAL__N_15GuardEEENS_6StatusERNS_5block13BlockSessionsILm2EE7SessionERNS0_29Ext4OrphanChainCaptureStorageERNS0_42Ext4OrphanDirectoryQualifiedReclaimScratchERT_.part.0
+same 128                                                     tests/host/ext4_orphan_chain_capture_tests.cpp
+same 33                                                      tests/host/ext4_orphan_chain_tests.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_orphan_nonmember_profiles_tests.cpp
+DIFF 1 pool-equal
+   _ZNKSt14default_deleteI12OwnerHarnessEclEPS0_.part.0
+same 635                                                     tests/host/ext4_orphan_owner_preparation_tests.cpp
+same 698                                                     tests/host/ext4_orphan_owner_publication_tests.cpp
+same 79                                                      tests/host/ext4_orphan_reclaim_capture_compile.cpp
+same 125                                                     tests/host/ext4_orphan_reclaim_capture_tests.cpp
+same 51                                                      tests/host/ext4_orphan_reclaim_cold_compile.cpp
+same 83                                                      tests/host/ext4_orphan_snapshot_compile.cpp
+same 139                                                     tests/host/ext4_orphan_snapshot_tests.cpp
+same 150                                                     tests/host/ext4_owned_budget_lifetime_tests.cpp
+same 358                                                     tests/host/ext4_owned_compile.cpp
+same 1682                                                    tests/host/ext4_owned_create_tests.cpp
+same 491                                                     tests/host/ext4_owned_edge_tests.cpp
+same 1683                                                    tests/host/ext4_owned_first_data_tests.cpp
+same 480                                                     tests/host/ext4_owned_invariant_tests.cpp
+same 1682                                                    tests/host/ext4_owned_next_data_tests.cpp
+same 779                                                     tests/host/ext4_owned_prefix_forwarding_tests.cpp
+same 1636                                                    tests/host/ext4_owned_regular_move_tests.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_owned_rename_after_effect_tests.cpp
+DIFF 1 pool-equal
+   _ZN13owned_fixture16completed_oracleERKSt6vectorIhSaIhEE
+same 358                                                     tests/host/ext4_owned_rename_compile.cpp
+same 1673                                                    tests/host/ext4_owned_rename_fault_tests.cpp
+same 1690                                                    tests/host/ext4_owned_rename_relocation_after_effect_tests.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_owned_rename_relocation_fault_tests.cpp
+DIFF 1 pool-equal
+   _ZN12_GLOBAL__N_19torn_headERKSt6vectorIhSaIhEEmbb
+same 1674                                                    tests/host/ext4_owned_rename_relocation_tests.cpp
+same 1678                                                    tests/host/ext4_owned_rename_tests.cpp
+same 604                                                     tests/host/ext4_owned_tests.cpp
+same 1401                                                    tests/host/ext4_owned_typed_compile.cpp
+same 408                                                     tests/host/ext4_owned_typed_large_tests.cpp
+same 727                                                     tests/host/ext4_owned_typed_tests.cpp
+same 509 (access flags base=[] new=['-fno-access-control'])  tests/host/ext4_reclaim_composed_history_tests.cpp
+DIFF 1 pool-equal                                            tests/host/ext4_reclaim_history_guard_tests.cpp
+DIFF 1 pool-equal
+   _ZN2ok2fs17Ext4ReplayPreviewILm8ELm2EE4openERNS_6driver11BlockDeviceENS0_18Ext4RecoveryBoundsE
+same 1700                                                    tests/host/ext4_reclaim_physical_prefix_tests.cpp
+same 483                                                     tests/host/ext4_reclaim_recovery_binding_tests.cpp
+same 437 (access flags base=[] new=['-fno-access-control'])  tests/host/ext4_reclaim_result_history_tests.cpp
+DIFF 2 pool-equal                                            tests/host/ext4_reclaim_route_budget_tests.cpp
+DIFF 2 pool-equal
+   _ZN12_GLOBAL__N_119exact_route_profileEv 
+   _ZN2ok2fs22Ext4ReclaimRouteBudgetINS_5block13BlockSessionsILm2EE7SessionEE6rejectENS_6StatusE.isra.0
+same 1636                                                    tests/host/ext4_regular_move_integration_tests.cpp
+same 1635                                                    tests/host/ext4_regular_move_mounted_tests.cpp
+same 73                                                      tests/host/ext4_regular_move_transaction_tests.cpp
+DIFF 7 pool-differs                                          tests/host/ext4_rename_plan_tests.cpp
+DIFF 7 pool-differs
+   _ZN2ok2fs17Ext4ReplayPreviewILm4ELm2EE4openERNS_6driver11BlockDeviceENS0_18Ext4RecoveryBoundsE 
+   _ZN2ok2fs17Ext4ReplayPreviewILm4ELm2EE9raw_blockEjSt4spanIhLm18446744073709551615EE 
+   _ZN2ok2fs22Ext4RecoveryCompletionILm4ELm2EE12prepare_implILb0EEENS_6StatusERNS_6driver11BlockDeviceENS0_18Ext4RecoveryBoundsE 
+   _ZN2ok2fs22Ext4RecoveryCompletionILm4ELm2EE16execute_preparedEv only-b
+   _ZN2ok2fs22Ext4RecoveryCompletionILm4ELm2EE5flushEv only-a
+   _ZN2ok2fs22Ext4RecoveryCompletionILm4ELm2EE5writeEjSt4spanIKhLm18446744073709551615EE 
+   main
+DIFF 2 pool-differs                                          tests/host/ext4_rename_relocation_compile.cpp
+DIFF 2 pool-differs
+   _ZN2ok2fs22Ext4RecoveryCompletionILm4ELm2EE16execute_preparedEv 
+   _ZN2ok6driver11BlockDevice5flushEv only-a
+same 44                                                      tests/host/ext4_replay_shape_planner_outputs_tests.cpp
+same 119                                                     tests/host/ext4_replay_view_compile.cpp
+DIFF 4 pool-equal                                            tests/host/ext4_replay_view_tests.cpp
+DIFF 4 pool-equal
+   _ZN2ok2fs17Ext4ReplayPreviewILm1ELm64EE4openERNS_6driver11BlockDeviceENS0_18Ext4RecoveryBoundsE 
+   _ZN2ok2fs17Ext4ReplayPreviewILm1ELm64EE9raw_blockEjSt4spanIhLm18446744073709551615EE 
+   _ZN2ok2fs17Ext4ReplayPreviewILm64ELm64EE4openERNS_6driver11BlockDeviceENS0_18Ext4RecoveryBoundsE 
+   _ZN2ok2fs17Ext4ReplayPreviewILm64ELm64EE9raw_blockEjSt4spanIhLm18446744073709551615EE
+same 1685                                                    tests/host/ext4_source_directory_rename_transaction_tests.cpp
+DIFF 8 pool-differs                                          tests/host/ext4_transaction_compile.cpp
+DIFF 8 pool-differs
+   _ZN2ok2fs17Ext4ReplayPreviewILm2ELm2EE4openERNS_6driver11BlockDeviceENS0_18Ext4RecoveryBoundsE 
+   _ZN2ok2fs17Ext4ReplayPreviewILm2ELm2EE9raw_blockEjSt4spanIhLm18446744073709551615EE 
+   _ZN2ok2fs23Ext4MetadataTransaction14ProposedDevice12write_blocksEmSt4spanIKSt4byteLm18446744073709551615EE only-a
+   _ZN2ok2fs23Ext4MetadataTransaction16publish_preparedEv 
+   _ZN2ok2fs23Ext4MetadataTransaction5flushEv 
+   _ZN2ok2fs23Ext4MetadataTransaction5writeEjRKSt5arrayIhLm1024EE 
+   _ZNK2ok2fs17Ext4ReplayPreviewILm2ELm2EE6stableEv only-a
+   _ZNK2ok2fs23Ext4MetadataTransaction14ProposedDevice8geometryEv only-a
+same 273                                                     tests/host/ext4_transaction_tests.cpp
+same 99 (access flags base=[] new=['-fno-access-control'])   tests/host/ext4_zero_truncate_anchor_observation_tests.cpp
+same 87                                                      tests/host/ext4_zero_truncate_compile.cpp
+same 44                                                      tests/host/ext4_zero_truncate_journal_tests.cpp
+same 87                                                      tests/host/ext4_zero_truncate_large_preview_tests.cpp
+same 48                                                      tests/host/ext4_zero_truncate_preview_tests.cpp
+same 101                                                     tests/host/ext4_zero_truncate_session_preview_tests.cpp
+same 138                                                     tests/host/ext4_zero_truncate_transaction_compile.cpp
+same 148 (access flags base=[] new=['-fno-access-control'])  tests/host/ext4_zero_truncate_transaction_tests.cpp
+same 30                                                      tests/host/ext4_zero_truncate_witness_tests.cpp
+same 16                                                      tests/host/lifetime_ticket_tests.cpp
+DIFF 1 pool-equal                                            tests/host/linux_directory_tests.cpp
+DIFF 1 pool-equal
+   _ZN2ok2fs4Node21create_child_retainedESt17basic_string_viewIcSt11char_traitsIcEERKNS0_21InitialNodeAttributesE
+DIFF 7 pool-equal                                            tests/host/metadata_buffers_tests.cpp
+DIFF 7 pool-equal
+   _ZN12_GLOBAL__N_114geometry_casesILm4096EEEvv 
+   _ZN2ok2fs15MetadataBuffersILm1ELm1024ELm2EED2Ev 
+   _ZN2ok2fs15MetadataBuffersILm1ELm2048ELm2EED2Ev 
+   _ZN2ok2fs15MetadataBuffersILm1ELm4096ELm2EE5closeEv 
+   _ZN2ok2fs15MetadataBuffersILm2ELm1024ELm2EED2Ev 
+   _ZN2ok5block13BlockSessionsILm2EE7Session5flushEv 
+   main
+same 1385                                                    tests/host/mounted_node_suffix_renewal_composition/cancellation.cpp
+same 1368                                                    tests/host/mounted_node_suffix_renewal_composition/child_outer.cpp
+DIFF 2 pool-equal                                            tests/host/mounted_node_suffix_renewal_composition/compile.cpp
+DIFF 2 pool-equal
+   _ZN2ok2fs16Ext4ReadOnlyViewINS0_17Ext4ReplayPreviewILm2ELm2EE11FinalReaderEE20first_data_ownershipEjj 
+   _ZN2ok2fs16Ext4ReadOnlyViewINS0_17Ext4ReplayPreviewILm8ELm2EE11FinalReaderEE20first_data_ownershipEjj
+same 1364                                                    tests/host/mounted_node_suffix_renewal_composition/model.cpp
+same 1607                                                    tests/host/mounted_node_suffix_renewal_composition/original_node.cpp
+same 1377                                                    tests/host/mounted_node_suffix_renewal_composition/renewal_fixture.cpp
+same 1379                                                    tests/host/mounted_node_suffix_renewal_composition/renewal_lifecycle.cpp
+same 2067                                                    tests/host/mounted_request_zero_refill/compile.cpp
+DIFF 2 pool-equal                                            tests/host/mounted_request_zero_refill/model.cpp
+DIFF 2 pool-equal
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs27Ext4ZeroTruncateTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_ 
+   _ZN12_GLOBAL__N_13runEbbbjhb
+same 2067                                                    tests/host/mounted_suffix_view_publication/compile.cpp
+DIFF 2 pool-equal                                            tests/host/mounted_suffix_view_publication/model.cpp
+DIFF 2 pool-equal
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs27Ext4ZeroTruncateTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_ 
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs33Ext4AllocatedEmptyDataTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_
+same 376                                                     tests/host/mounted_typed_cold_startup/prepare.cpp
+same 377                                                     tests/host/mounted_typed_cold_startup/verify.cpp
+same 2067                                                    tests/host/mounted_typed_suffix_semantics/compile.cpp
+DIFF 2 pool-equal                                            tests/host/mounted_typed_suffix_semantics/model.cpp
+DIFF 2 pool-equal
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs27Ext4ZeroTruncateTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_ 
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs33Ext4AllocatedEmptyDataTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_
+DIFF 2 pool-equal                                            tests/host/native_session_return_order/birth_safe.cpp
+DIFF 2 pool-equal
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs27Ext4ZeroTruncateTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_ 
+   _ZN12_GLOBAL__N_117field_comparisonsIN2ok2fs33Ext4AllocatedEmptyDataTransactionINS1_5block13BlockSessionsILm2EE7SessionEEENS2_16Ext4ReadOnlyViewINS8_6ReaderEEENS2_25Ext4ZeroTruncateOwnershipENS2_16Ext4RecoveryInfoEEEvRT_RKT0_RKT1_RKT2_
+same 213                                                     tests/host/native_session_return_order/scope_safe.cpp
+same 1661                                                    tests/host/persistent_sync_compile.cpp
+same 2169                                                    tests/host/persistent_sync_tests.cpp
+same 1593                                                    tests/host/public_common_storage/compile.cpp
+DIFF 1 pool-equal                                            tests/host/public_common_storage/model.cpp
+DIFF 1 pool-equal
+   main
+same 1583                                                    tests/host/public_common_storage/profile_compile.cpp
+same 1661                                                    tests/host/vfs_retained_identity_compile.cpp
+same 1663                                                    tests/host/vfs_retained_identity_tests.cpp
+same 1662                                                    tests/native/checked_ownership_compile.cpp
+same 271                                                     tests/native/ext4_empty_orphan_recovery_probe.cpp
+same 1066                                                    tests/native/ext4_mounted_namespace_c1_probe.cpp
+same 1661                                                    tests/native/ext4_mounted_orphan_runtime_probe.cpp
+same 1078                                                    tests/native/ext4_mounted_startup_probe.cpp
+same 1067                                                    tests/native/ext4_namespace_result_history_probe.cpp
+same 87                                                      tests/native/ext4_orphan_chain_capture_guard_probe.cpp
+same 156                                                     tests/native/ext4_reclaim_recovery_binding_probe.cpp
+same 381                                                     tests/kernel/debug/suite.cpp
+{"DIFF": 28, "same": 136, "CMP-ERROR": 2}

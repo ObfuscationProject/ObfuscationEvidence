@@ -1,0 +1,11 @@
+checking for platform ... linux (x86_64)
+[ 19%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/x2/os-main/lib/okcrt/src/pty.c
+[ 38%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/x2/os-main/tests/native_pty_wrapper_tests.c
+[ 56%]: <wrapper> linking.release wrapper
+[100%]: build ok, spent 0.989s
+NATIVE_PTY_WRAPPER_PASS cases=11 host_mock_only=1
+.
+----------------------------------------------------------------------
+Ran 1 test in 1.941s
+
+OK

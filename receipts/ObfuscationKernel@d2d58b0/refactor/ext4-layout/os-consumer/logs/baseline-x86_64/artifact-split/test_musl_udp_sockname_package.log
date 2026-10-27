@@ -1,0 +1,8 @@
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.032s
+
+OK
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp2m11gnzn/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpk1lxz1sh/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpum5szy9g/package/receipt.json

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<kernel@d2d58b0>/scripts/test_ext4_directory_mode.py", line 114, in <module>
+    main()
+  File "<kernel@d2d58b0>/scripts/test_ext4_directory_mode.py", line 79, in main
+    text = run([binary,image],'host-run')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<kernel@d2d58b0>/scripts/test_ext4_directory_mode.py", line 52, in run
+    if done.returncode: raise RuntimeError(str(log))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: <scratch>/hosted2/new_img/test_ext4_directory_mode/host-run.log

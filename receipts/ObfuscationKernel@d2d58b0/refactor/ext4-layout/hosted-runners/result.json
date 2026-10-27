@@ -1,0 +1,373 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "d2d58b0fdfcf2dcc45d7b5cce593b576871ecc74",
+  "branch": "refactor/ext4-layout",
+  "campaign": "hosted-runners",
+  "date": "2026-10-27",
+  "scope": "refactor/ext4-layout at d2d58b0: the ext4/JBD2 hosted runners that need no reviewed fixture, the clean-image runners and the pinned inode-lifetime runner, compared with main 05c985e.",
+  "claims": [
+    "same status for every runner as on main 05c985e, and the same result.json payload apart from source hashes and paths",
+    "runners failing on main fail at the same step",
+    "test_ext4_inode_lifetime.py passes with fresh pins whose sources match the tree"
+  ],
+  "sources": [
+    {
+      "tree": "kernel@d2d58b0",
+      "repository": "ObfuscationKernel",
+      "commit": "d2d58b0fdfcf2dcc45d7b5cce593b576871ecc74",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@d2d58b0>"
+    },
+    {
+      "tree": "kernel@05c985e",
+      "repository": "ObfuscationKernel",
+      "commit": "05c985e1cec5660931e537cbe267c48aa8387c74",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@05c985e>",
+      "use": "baseline"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple, sha256-verified), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "e2fsprogs": "mke2fs 1.47.0 (5-Feb-2023)"
+  },
+  "summary": {
+    "counts": {
+      "fixture-free": {
+        "pass": 18,
+        "fail": 5
+      },
+      "clean-image": {
+        "fail": 8
+      }
+    },
+    "status_or_payload_changes": []
+  },
+  "hosted_runners": [
+    {
+      "runner": "run_ext4_create_plan_tests",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_create_plan_tests.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_create_plan_tests.log"
+    },
+    {
+      "runner": "run_ext4_first_data_plan_tests",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_first_data_plan_tests.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_first_data_plan_tests.log"
+    },
+    {
+      "runner": "run_ext4_first_data_replay_cross",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_first_data_replay_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_first_data_replay_cross.log"
+    },
+    {
+      "runner": "run_ext4_next_data_plan_tests",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_next_data_plan_tests.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_next_data_plan_tests.log"
+    },
+    {
+      "runner": "run_ext4_next_data_replay_cross",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_next_data_replay_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_next_data_replay_cross.log"
+    },
+    {
+      "runner": "test_ext4_attributes",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_attributes.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_attributes.log"
+    },
+    {
+      "runner": "test_ext4_bounds",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_bounds.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_bounds.log"
+    },
+    {
+      "runner": "test_ext4_fs",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_ext4_fs.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_fs.log"
+    },
+    {
+      "runner": "test_ext4_initial_attributes",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_initial_attributes.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_initial_attributes.log"
+    },
+    {
+      "runner": "test_ext4_maintained_times",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_maintained_times.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_maintained_times.log"
+    },
+    {
+      "runner": "test_ext4_recovery",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_recovery.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_recovery.log"
+    },
+    {
+      "runner": "test_ext4_replay_shape",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_replay_shape.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_replay_shape.log"
+    },
+    {
+      "runner": "test_ext4_replay_view",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_replay_view.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_replay_view.log"
+    },
+    {
+      "runner": "test_jbd2",
+      "group": "fixture-free",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_jbd2.log",
+      "baseline_log": "logs/fixture-free-baseline/test_jbd2.log"
+    },
+    {
+      "runner": "test_jbd2_replay",
+      "group": "fixture-free",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_jbd2_replay.log",
+      "baseline_log": "logs/fixture-free-baseline/test_jbd2_replay.log"
+    },
+    {
+      "runner": "test_linux_chmod",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_linux_chmod.log",
+      "baseline_log": "logs/fixture-free-baseline/test_linux_chmod.log"
+    },
+    {
+      "runner": "test_linux_stat_blocks_oracle",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_linux_stat_blocks_oracle.log",
+      "baseline_log": "logs/fixture-free-baseline/test_linux_stat_blocks_oracle.log"
+    },
+    {
+      "runner": "test_metadata_buffers",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_metadata_buffers.log",
+      "baseline_log": "logs/fixture-free-baseline/test_metadata_buffers.log"
+    },
+    {
+      "runner": "test_mount_info_uapi_cross",
+      "group": "fixture-free",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_mount_info_uapi_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_mount_info_uapi_cross.log"
+    },
+    {
+      "runner": "test_persistent_sync_cross",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_persistent_sync_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_persistent_sync_cross.log"
+    },
+    {
+      "runner": "test_posix_ext4_truncate",
+      "group": "fixture-free",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_posix_ext4_truncate.log",
+      "baseline_log": "logs/fixture-free-baseline/test_posix_ext4_truncate.log"
+    },
+    {
+      "runner": "test_power_uapi_cross",
+      "group": "fixture-free",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_power_uapi_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_power_uapi_cross.log"
+    },
+    {
+      "runner": "test_shutdown_cross",
+      "group": "fixture-free",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_shutdown_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_shutdown_cross.log"
+    },
+    {
+      "runner": "test_checked_ownership",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_checked_ownership.log",
+      "baseline_log": "logs/clean-image-baseline/test_checked_ownership.log"
+    },
+    {
+      "runner": "test_ext4_directory_mode",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_directory_mode.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_directory_mode.log"
+    },
+    {
+      "runner": "test_ext4_journalled_mode",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_journalled_mode.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_journalled_mode.log"
+    },
+    {
+      "runner": "test_ext4_mounted",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_mounted.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_mounted.log"
+    },
+    {
+      "runner": "test_ext4_mounted_create",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_mounted_create.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_mounted_create.log"
+    },
+    {
+      "runner": "test_ext4_owned",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_owned.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_owned.log"
+    },
+    {
+      "runner": "test_ext4_owned_edges",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_owned_edges.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_owned_edges.log"
+    },
+    {
+      "runner": "test_ext4_transaction",
+      "group": "clean-image",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_transaction.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_transaction.log"
+    }
+  ],
+  "status": "passed",
+  "commands": [
+    {
+      "label": "fixture-free hosted runners",
+      "command": "tools/hosted.py <tree> <out> 6 <runner>...  # trees <kernel@05c985e> and <kernel@d2d58b0>",
+      "returncode": 0
+    },
+    {
+      "label": "clean-image hosted runners",
+      "command": "EXTRA='{<runner>: [--clean-image, clean.img]}' tools/hosted.py <tree> <out> 2 <runner>...  # clean.img from receipts/ObfuscationKernel@5372e50/refactor/ext4-layout/hosted-runners",
+      "returncode": 0,
+      "fixture_sha256": "8e27b22967d5153ce977b54242cd382f951b20df2319969b1698f79fe7f6be02"
+    },
+    {
+      "label": "pinned inode-lifetime runner",
+      "command": "cd <kernel@d2d58b0> && python3 -B scripts/test_ext4_inode_lifetime.py --output <out> --source-hashes <pins> --source-hashes-sha256 <sha> --host-cxx /usr/bin/x86_64-linux-gnu-g++-13 --host-cxx-sha256 <sha> --toolchain-root <systoolchain>",
+      "returncode": 0,
+      "status": "passed-pinned-vfs-lifetime-model-ten-arch",
+      "profiles": [
+        "i386",
+        "x86_64",
+        "aarch64",
+        "arm32",
+        "rv64",
+        "rv32",
+        "loongarch64",
+        "mips",
+        "mips64",
+        "ppc"
+      ],
+      "pinned_sources_match_tree": true
+    }
+  ]
+}

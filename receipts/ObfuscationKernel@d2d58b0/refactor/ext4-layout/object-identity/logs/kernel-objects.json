@@ -1,0 +1,168 @@
+{
+ "aarch64-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 83,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o"
+  ]
+ },
+ "aarch64-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "arm32-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 83,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o"
+  ]
+ },
+ "arm32-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "i386-debug": {
+  "objects": 86,
+  "byte_identical_after_strip_debug": 84,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o"
+  ]
+ },
+ "i386-release": {
+  "objects": 78,
+  "byte_identical_after_strip_debug": 77,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "loongarch64-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 79,
+  "not_byte_identical": [
+   "src/fs/ext4.cpp.o",
+   "src/fs/ext4_fs.cpp.o",
+   "src/rescue/shell/storage.cpp.o",
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o",
+   "tests/kernel/roadmap/network_storage_tests.cpp.o"
+  ]
+ },
+ "loongarch64-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "mips-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 83,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o"
+  ]
+ },
+ "mips-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "mips64-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 79,
+  "not_byte_identical": [
+   "src/fs/ext4.cpp.o",
+   "src/fs/ext4_fs.cpp.o",
+   "src/rescue/shell/storage.cpp.o",
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o",
+   "tests/kernel/roadmap/network_storage_tests.cpp.o"
+  ]
+ },
+ "mips64-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "ppc-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 83,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o"
+  ]
+ },
+ "ppc-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "rv32-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 79,
+  "not_byte_identical": [
+   "src/fs/ext4.cpp.o",
+   "src/fs/ext4_fs.cpp.o",
+   "src/rescue/shell/storage.cpp.o",
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o",
+   "tests/kernel/roadmap/network_storage_tests.cpp.o"
+  ]
+ },
+ "rv32-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "rv64-debug": {
+  "objects": 85,
+  "byte_identical_after_strip_debug": 79,
+  "not_byte_identical": [
+   "src/fs/ext4.cpp.o",
+   "src/fs/ext4_fs.cpp.o",
+   "src/rescue/shell/storage.cpp.o",
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o",
+   "tests/kernel/roadmap/network_storage_tests.cpp.o"
+  ]
+ },
+ "rv64-release": {
+  "objects": 77,
+  "byte_identical_after_strip_debug": 76,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ },
+ "x86_64-debug": {
+  "objects": 86,
+  "byte_identical_after_strip_debug": 84,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o",
+   "tests/kernel/points/test_point.cpp.o"
+  ]
+ },
+ "x86_64-release": {
+  "objects": 78,
+  "byte_identical_after_strip_debug": 77,
+  "not_byte_identical": [
+   "tests/kernel/debug/suite.cpp.o"
+  ]
+ }
+}

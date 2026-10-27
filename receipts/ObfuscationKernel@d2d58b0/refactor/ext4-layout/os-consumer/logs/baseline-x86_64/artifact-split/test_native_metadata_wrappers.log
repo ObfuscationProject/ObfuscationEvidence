@@ -1,0 +1,11 @@
+checking for platform ... linux (x86_64)
+[ 15%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/x2/os-main/lib/okcrt/src/syscalls.c
+[ 31%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/x2/os-main/tests/native_metadata_wrapper_tests.c
+[ 47%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/x2/os-main/lib/okcrt/src/errno.c
+[ 63%]: <wrapper> linking.release wrapper
+[100%]: build ok, spent 1.028s
+.
+----------------------------------------------------------------------
+Ran 1 test in 2.248s
+
+OK

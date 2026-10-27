@@ -1,0 +1,33 @@
+# kernel debug i386
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/i386 && xmake f -P . -c -y -m debug -a i386 -o <build>/i386 --systoolchain_dir=<systoolchain>/i386-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug x86_64
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/x86_64 && xmake f -P . -c -y -m debug -a x86_64 -o <build>/x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug aarch64
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/aarch64 && xmake f -P . -c -y -m debug -a aarch64 -o <build>/aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug arm32
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/arm32 && xmake f -P . -c -y -m debug -a arm32 -o <build>/arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug rv64
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/rv64 && xmake f -P . -c -y -m debug -a rv64 -o <build>/rv64 --systoolchain_dir=<systoolchain>/riscv64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug rv32
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/rv32 && xmake f -P . -c -y -m debug -a rv32 -o <build>/rv32 --systoolchain_dir=<systoolchain>/riscv32-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug loongarch64
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/loongarch64 && xmake f -P . -c -y -m debug -a loongarch64 -o <build>/loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug mips
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/mips && xmake f -P . -c -y -m debug -a mips -o <build>/mips --systoolchain_dir=<systoolchain>/mips-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug mips64
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/mips64 && xmake f -P . -c -y -m debug -a mips64 -o <build>/mips64 --systoolchain_dir=<systoolchain>/mips64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel debug ppc
+cd <kernel@d2d58b0> && export XMAKE_CONFIGDIR=<config>/ppc && xmake f -P . -c -y -m debug -a ppc -o <build>/ppc --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk
+
+# kernel SDK producer/consumer contract tests
+cd <umbrella>/ObfuscationKernel && python3 -B tests/host/<name>_sdk_contract_tests.py; python3 -B tests/host/sdk_boot_archive_receipt_tests.py --exporter tools/export_sdk.py  # <umbrella@new> = git archives of ObfuscationKernel@d2d58b0 and ObfuscationOS@da58575; <umbrella@main> = ObfuscationKernel@05c985e and ObfuscationOS@016b7ab
+

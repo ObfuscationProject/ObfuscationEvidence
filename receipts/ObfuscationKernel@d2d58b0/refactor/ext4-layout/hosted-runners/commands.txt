@@ -1,0 +1,9 @@
+# fixture-free hosted runners
+tools/hosted.py <tree> <out> 6 <runner>...  # trees <kernel@05c985e> and <kernel@d2d58b0>
+
+# clean-image hosted runners
+EXTRA='{<runner>: [--clean-image, clean.img]}' tools/hosted.py <tree> <out> 2 <runner>...  # clean.img from receipts/ObfuscationKernel@5372e50/refactor/ext4-layout/hosted-runners
+
+# pinned inode-lifetime runner
+cd <kernel@d2d58b0> && python3 -B scripts/test_ext4_inode_lifetime.py --output <out> --source-hashes <pins> --source-hashes-sha256 <sha> --host-cxx /usr/bin/x86_64-linux-gnu-g++-13 --host-cxx-sha256 <sha> --toolchain-root <systoolchain>
+

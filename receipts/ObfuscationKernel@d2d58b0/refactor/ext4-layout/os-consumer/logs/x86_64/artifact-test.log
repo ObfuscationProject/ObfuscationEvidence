@@ -1,0 +1,11 @@
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@d2d58b0>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@d2d58b0>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@d2d58b0>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@d2d58b0>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@d2d58b0>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@d2d58b0>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@d2d58b0>/build/sdk/x86_64/debug
+error: ...........................................................................................................................................................................................................................................................................................................................................................................................MUSL_UDP_PACKAGE_FAIL [Errno 2] No such file or directory: '/tmp/tmp7sb6zzzg/missing/manifest.json'
+.....MUSL_UDP_PACKAGE_FAIL unsupported archive permissions 104755: /tmp/tmpggma5u2d/package/root/entry
+MUSL_UDP_PACKAGE_FAIL unsupported archive permissions 44755: /tmp/tmp9s2g6toj/package/root/entry
+.............................................................................................................sssssss...............s.ss.......................sssss........................................................................................sssssE..s.ss...............................................................................................s.ss...............................E................................................................ssssss...............................................................................................................

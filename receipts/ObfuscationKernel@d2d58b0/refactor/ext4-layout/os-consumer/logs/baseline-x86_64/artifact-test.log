@@ -1,0 +1,71 @@
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@05c985e>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@05c985e>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@05c985e>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@05c985e>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@05c985e>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@05c985e>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@05c985e>/build/sdk/x86_64/debug
+error: MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpsed1qrrd/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpemyny0pi/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp7mcv_23q/package/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmp7d6fvvpn/evidence/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmp7d6fvvpn/malformed-child/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmplcg9d8c2/evidence/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpabyd3zaz/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp3m0estet/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpekt9ha4j/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpwb9ijl7q/package/receipt.json
+[rootfs] staged /tmp/tmpy3o00qr1/maintenance
+[rootfs] staged /tmp/tmpy3o00qr1/login
+[rootfs] staged /tmp/tmpt15cc747/output
+[rootfs] staged /tmp/tmpx83w39ve/staged
+[rootfs] staged /tmp/tmpvr_fjn5n/sgid-parent/root-0o77
+[rootfs] staged /tmp/tmpvr_fjn5n/sgid-parent/root-0o2
+.......................................................................s.ss...............................E................................................................ssssss.......................................................................................................................................................................................................................................................................................................................................................................................................................s.............s....................
+======================================================================
+ERROR: test_actual_syscall6_marshalling_reserved_words_and_errno (test_native_metadata_wrappers.NativeMetadataWrapperTests.test_actual_syscall6_marshalling_reserved_words_and_errno)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<os@016b7ab>/tests/tools/test_native_metadata_wrappers.py", line 47, in test_actual_syscall6_marshalling_reserved_words_and_errno
+    subprocess.run(command, cwd=project, env=env, check=True, timeout=90)
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2141, in _communicate
+    self.wait(timeout=self._remaining_time(endtime))
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['xmake', 'f', '-P', '/tmp/native-metadata-wrapper-c97b7xxc', '-c', '-y', '-m', 'release', '--ccache=n']' timed out after 89.99998708500016 seconds
+
+======================================================================
+ERROR: test_pair_arguments_reserved_words_and_errno (test_native_pty_wrappers.NativePtyWrapperTests.test_pair_arguments_reserved_words_and_errno)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<os@016b7ab>/tests/tools/test_native_pty_wrappers.py", line 59, in test_pair_arguments_reserved_words_and_errno
+    subprocess.run(command, cwd=project, env=env, check=True, timeout=90)
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2141, in _communicate
+    self.wait(timeout=self._remaining_time(endtime))
+  File "/usr/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['xmake', 'f', '-P', '/tmp/native-pty-wrappers-13bz795e', '-c', '-y', '-m', 'release', '--ccache=n']' timed out after 89.99999100600007 seconds
+
+----------------------------------------------------------------------
+Ran 1290 tests in 973.657s
+
+FAILED (errors=2, skipped=34)
+

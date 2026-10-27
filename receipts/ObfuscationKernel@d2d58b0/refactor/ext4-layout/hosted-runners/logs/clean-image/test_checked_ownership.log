@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<kernel@d2d58b0>/scripts/test_checked_ownership.py", line 176, in <module>
+    main()
+  File "<kernel@d2d58b0>/scripts/test_checked_ownership.py", line 118, in main
+    text = run(arguments, name)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "<kernel@d2d58b0>/scripts/test_checked_ownership.py", line 62, in run
+    raise RuntimeError(str(log))
+RuntimeError: <scratch>/hosted2/new_img/test_checked_ownership/ownership.log

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<kernel@05c985e>/scripts/test_mount_info_uapi_cross.py", line 129, in <module>
+    main()
+  File "<kernel@05c985e>/scripts/test_mount_info_uapi_cross.py", line 93, in main
+    run(['xmake', 'build', '-P', source, '-j4', '-v'], 'all-ten-build')
+  File "<kernel@05c985e>/scripts/test_mount_info_uapi_cross.py", line 58, in run
+    raise RuntimeError(label + ' failed; retained ' + str(log))
+RuntimeError: all-ten-build failed; retained <scratch>/hosted2/main/test_mount_info_uapi_cross/all-ten-build.log

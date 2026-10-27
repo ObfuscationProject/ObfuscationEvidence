@@ -1,0 +1,44 @@
+new-source compiles block_sessions.cpp
+compiled-both-code-differs block_sessions.cpp
+new-source compiles ext4_completion.cpp
+compiled-both-code-differs ext4_completion.cpp
+new-source compiles ext4_mounted.cpp
+compiled-both-code-differs ext4_mounted.cpp
+new-source compiles ext4_owned.cpp
+compiled-both-code-differs ext4_owned.cpp
+new-source compiles ext4_preview.cpp
+compiled-both-code-differs ext4_preview.cpp
+new-source compiles ext4_timestamp_user.cpp
+identical-object ext4_timestamp_user.cpp
+new-source FAILS fatal error: timestamp_fixture.hpp: No such file or directory ext4_timestamps.cpp
+fails-both-same-errors ext4_timestamps.cpp
+new-source compiles ext4_transaction.cpp
+compiled-both-code-differs ext4_transaction.cpp
+new-source FAILS fatal error: attribute_fixture.hpp: No such file or directory file_attributes.cpp
+fails-both-same-errors file_attributes.cpp
+new-source compiles jbd2_linux.cpp
+identical-object jbd2_linux.cpp
+new-source FAILS fatal error: cstdio: No such file or directory jbd2_plan_audit.cpp
+fails-both-same-errors jbd2_plan_audit.cpp
+new-source FAILS fatal error: journalled_directory_mode_fixture.hpp: No such file or directory journalled_directory_mode.cpp
+fails-both-same-errors journalled_directory_mode.cpp
+new-source FAILS fatal error: journalled_directory_mode_fixture.hpp: No such file or directory journalled_directory_mode_cut.cpp
+fails-both-same-errors journalled_directory_mode_cut.cpp
+new-source FAILS fatal error: journalled_directory_mode_fixture.hpp: No such file or directory journalled_directory_mode_recovery.cpp
+fails-both-same-errors journalled_directory_mode_recovery.cpp
+new-source FAILS fatal error: journalled_mode_fixture.hpp: No such file or directory journalled_mode_cut.cpp
+fails-both-same-errors journalled_mode_cut.cpp
+new-source FAILS fatal error: journalled_mode_fixture.hpp: No such file or directory journalled_mode_recovery.cpp
+fails-both-same-errors journalled_mode_recovery.cpp
+new-source FAILS fatal error: journalled_mode_fixture.hpp: No such file or directory journalled_mode_user.cpp
+fails-both-same-errors journalled_mode_user.cpp
+new-source FAILS fatal error: journalled_root_fixture.hpp: No such file or directory journalled_root.cpp
+fails-both-same-errors journalled_root.cpp
+new-source compiles linux_stat_user.cpp
+identical-object linux_stat_user.cpp
+new-source FAILS fatal error: metadata_fixture.hpp: No such file or directory metadata_buffers.cpp
+fails-both-same-errors metadata_buffers.cpp
+new-source FAILS fatal error: journalled_root_fixture.hpp: No such file or directory mounted_root_retention.cpp
+fails-both-same-errors mounted_root_retention.cpp
+new-source FAILS fatal error: journalled_root_fixture.hpp: No such file or directory ordered_data_root.cpp
+fails-both-same-errors ordered_data_root.cpp

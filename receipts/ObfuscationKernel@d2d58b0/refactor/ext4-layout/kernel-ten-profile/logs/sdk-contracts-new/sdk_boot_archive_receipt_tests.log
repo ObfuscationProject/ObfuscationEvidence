@@ -1,0 +1,24 @@
+test_ar_failure_does_not_complete_receipt (__main__.ReceiptTests.test_ar_failure_does_not_complete_receipt) ... ok
+test_changed_input_before_publication_refuses (__main__.ReceiptTests.test_changed_input_before_publication_refuses) ... ok
+test_changed_object_after_ar_refuses (__main__.ReceiptTests.test_changed_object_after_ar_refuses) ... ok
+test_changed_published_bytes_refuse (__main__.ReceiptTests.test_changed_published_bytes_refuse) ... ok
+test_changed_published_mode_refuses (__main__.ReceiptTests.test_changed_published_mode_refuses) ... ok
+test_changed_tool_mode_after_ar_refuses (__main__.ReceiptTests.test_changed_tool_mode_after_ar_refuses) ... ok
+test_complete_export_prints_one_canonical_receipt (__main__.ReceiptTests.test_complete_export_prints_one_canonical_receipt) ... ok
+test_exact_ordered_invocation (__main__.ReceiptTests.test_exact_ordered_invocation) ... ok
+test_missing_ar_output_refuses (__main__.ReceiptTests.test_missing_ar_output_refuses) ... ok
+test_missing_object_refuses_before_invocation (__main__.ReceiptTests.test_missing_object_refuses_before_invocation) ... ok
+test_no_objects_refuses_before_invocation (__main__.ReceiptTests.test_no_objects_refuses_before_invocation) ... ok
+test_nonregular_object_refuses_before_invocation (__main__.ReceiptTests.test_nonregular_object_refuses_before_invocation) ... ok
+test_postpublication_failure_restores_previous_sdk_and_prints_no_receipt (__main__.ReceiptTests.test_postpublication_failure_restores_previous_sdk_and_prints_no_receipt) ... ok
+test_postpublication_failure_without_previous_sdk_leaves_no_public_output (__main__.ReceiptTests.test_postpublication_failure_without_previous_sdk_leaves_no_public_output) ... ok
+test_preexisting_staged_output_refuses_before_invocation (__main__.ReceiptTests.test_preexisting_staged_output_refuses_before_invocation) ... ok
+test_published_path_does_not_replace_staging_argv (__main__.ReceiptTests.test_published_path_does_not_replace_staging_argv) ... ok
+test_stage_rename_failure_restores_previous_sdk (__main__.ReceiptTests.test_stage_rename_failure_restores_previous_sdk) ... ok
+test_wrong_publication_directory_refuses (__main__.ReceiptTests.test_wrong_publication_directory_refuses) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.314s
+
+OK
+SDK_BOOT_ARCHIVE_RECEIPT_MODEL_PASS tests=18 actual_ar=0 actual_compile=0

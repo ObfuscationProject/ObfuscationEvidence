@@ -1,0 +1,1 @@
+same unreferenced-one-sided-objects=0 symbols=6077 tests/host/ext4_mounted_namespace_c1_tests.cpp

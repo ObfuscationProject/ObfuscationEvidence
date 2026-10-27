@@ -1,0 +1,8 @@
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.007s
+
+OK
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmp04ffsncp/evidence/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmp04ffsncp/malformed-child/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmp9_suet3r/evidence/receipt.json

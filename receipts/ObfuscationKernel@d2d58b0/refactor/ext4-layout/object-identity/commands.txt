@@ -1,0 +1,15 @@
+# kernel builds, twenty configurations
+for <tree> in <kernel@05c985e> <kernel@f8a1df8>, <arch> in ten profiles, <mode> in debug release: xmake f -P <tree> -c -y -m <mode> -a <arch> -o <build> --systoolchain_dir=<systoolchain>/<triple> && xmake -P <tree> -y -b -j8 okernel_image
+
+# object comparison
+tools/objcount.py objcount.json  # objcopy --strip-debug, then byte compare
+
+# assembly comparison of objects that are not byte-identical
+tools/kasm.py <kernel@05c985e> <kernel@f8a1df8> <config>...  # exact xmake command lines, -S -g0; tools/asm_cmp.py at -O2, tools/asm_cmp0.py at -O0
+
+# hosted translation units
+tools/tu_oracle.py <kernel@05c985e> <kernel@f8a1df8> <out> 10 && tools/asm_oracle.py ... -O2 && tools/asm_oracle.py ... -O0 <O2-differing units> && tools/asm_cmp0.py per unit  # test sources of 05c985e, its headers vs the module headers of f8a1df8 through old-path forwarding shims
+
+# hosted translation units, recheck
+tools/tu_oracle.py <kernel@05c985e> <kernel@f8a1df8> <out> 3 recheck-units.txt && tools/asm_oracle.py ... 3 -O2 recheck-asm-units.txt && tools/asm_oracle.py ... 1 -O0 tests/host/ext4_mounted_namespace_c1_tests.cpp && tools/asm_cmp0.py  # the first run, beside about 40 concurrent build and test jobs, recorded ext4_mounted_namespace_c1_tests as failing on main and two -O2 comparisons without output; none of these reproduced when the units ran alone
+

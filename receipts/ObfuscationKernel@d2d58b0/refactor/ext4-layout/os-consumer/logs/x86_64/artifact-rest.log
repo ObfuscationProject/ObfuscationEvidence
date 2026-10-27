@@ -1,0 +1,23 @@
+..........................................................................................................................................................Fatal Python error: Segmentation fault
+
+Current thread 0x00007ce389ac7080 (most recent call first):
+  File "<frozen posixpath>", line 474 in _joinrealpath
+  File "<frozen posixpath>", line 432 in realpath
+  File "/usr/lib/python3.12/pathlib.py", line 1242 in resolve
+  File "<os@da58575>/tools/kernel_sdk.py", line 1250 in validate_sdk
+  File "<os@da58575>/tests/tools/test_kernel_sdk.py", line 578 in test_all_native_markers_reject_conditional_raw_string_and_malformed_duplicate_declarations
+  File "/usr/lib/python3.12/unittest/case.py", line 589 in _callTestMethod
+  File "/usr/lib/python3.12/unittest/case.py", line 634 in run
+  File "/usr/lib/python3.12/unittest/case.py", line 690 in __call__
+  File "/usr/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/usr/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/usr/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/usr/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/usr/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/usr/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/usr/lib/python3.12/unittest/runner.py", line 240 in run
+  File "/usr/lib/python3.12/unittest/main.py", line 281 in runTests
+  File "/usr/lib/python3.12/unittest/main.py", line 105 in __init__
+  File "/usr/lib/python3.12/unittest/__main__.py", line 18 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main

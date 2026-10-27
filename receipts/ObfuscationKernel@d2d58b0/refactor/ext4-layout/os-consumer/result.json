@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "d2d58b0fdfcf2dcc45d7b5cce593b576871ecc74",
+  "branch": "refactor/ext4-layout",
+  "campaign": "os-consumer",
+  "date": "2026-10-27",
+  "scope": "ObfuscationOS refactor/ext4-layout (da58575) against the kernel-sdk export of d2d58b0 (ABI 76): CI fast-lane steps, artifact tests, cross-tests, the ext4 two-boot persistence test and the native ext4 units, compared with ObfuscationOS main 016b7ab on kernel main 05c985e (ABI 75).",
+  "claims": [
+    "kernel-sdk-check, uapi-test, libc-test, distro_image, linux-driver-compat, rootfs-simplefs, rootfs-ext4 and qemu-distro --require-native pass on x86_64, arm32 and ppc; compat-test passes on x86_64",
+    "the 1290 OS artifact tests pass on x86_64 in one interpreter and with one interpreter per module, with the same per-module results as the baseline; two earlier runs under heavy parallel load died before finishing (xmake run; two-process run with SIGSEGV in pathlib), see summary.artifact_tests",
+    "the cross-tests pass on x86_64, as on the baseline",
+    "the ext4 two-boot persistence test passes; its offline content is byte-identical to the baseline run",
+    "the ext4 tests/native units that compile standalone produce the same code against both SDKs"
+  ],
+  "sources": [
+    {
+      "tree": "os@da58575",
+      "repository": "ObfuscationOS",
+      "commit": "da58575772e0246e9044e38697eb23b101c7c555",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@da58575>"
+    },
+    {
+      "tree": "kernel@d2d58b0",
+      "repository": "ObfuscationKernel",
+      "commit": "d2d58b0fdfcf2dcc45d7b5cce593b576871ecc74",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@d2d58b0>"
+    },
+    {
+      "tree": "os@016b7ab",
+      "repository": "ObfuscationOS",
+      "commit": "016b7ab90acc35cd212e282c93a6e83c987a39b2",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@016b7ab>",
+      "use": "baseline"
+    },
+    {
+      "tree": "kernel@05c985e",
+      "repository": "ObfuscationKernel",
+      "commit": "05c985e1cec5660931e537cbe267c48aa8387c74",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@05c985e>",
+      "use": "baseline SDK"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple, sha256-verified), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "e2fsprogs": "mke2fs 1.47.0 (5-Feb-2023)",
+    "obfuscation_os": "ObfuscationOS@da58575772e0246e9044e38697eb23b101c7c555 (git archive, unmodified)"
+  },
+  "summary": {
+    "lane_steps": {
+      "x86_64": {
+        "configure": "ok",
+        "artifact-test": "FAIL",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "compat-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok",
+        "persistence": "ok",
+        "cross-tests": "rc=0"
+      },
+      "arm32": {
+        "configure": "ok",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok"
+      },
+      "ppc": {
+        "configure": "ok",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok"
+      }
+    },
+    "artifact_tests": {
+      "xmake_run": {
+        "ran": null,
+        "result": null,
+        "finished": false
+      },
+      "all_but_lineage": {
+        "ran": null,
+        "result": null,
+        "finished": false,
+        "crash": "Segmentation fault"
+      },
+      "lineage_guest": {
+        "ran": 7,
+        "result": "OK",
+        "finished": true
+      },
+      "single_process_rerun": {
+        "ran": 1290,
+        "result": "OK (skipped=34)",
+        "finished": true
+      },
+      "per_module": {
+        "modules": 142,
+        "tests": 1290,
+        "skipped": 34,
+        "no_tests": [
+          "test_linux_stat_oracle"
+        ],
+        "not_ok": {}
+      },
+      "baseline_xmake_run": {
+        "ran": 1290,
+        "result": "FAILED (errors=2, skipped=34)",
+        "finished": true
+      },
+      "baseline_single_process": {
+        "ran": 1290,
+        "result": "OK (skipped=34)",
+        "finished": true
+      },
+      "baseline_per_module": {
+        "modules": 142,
+        "tests": 1290,
+        "skipped": 34,
+        "no_tests": [
+          "test_linux_stat_oracle"
+        ],
+        "not_ok": {}
+      },
+      "per_module_test_count_changes": {}
+    },
+    "cross_tests": {
+      "new": {
+        "ran": 52,
+        "result": "OK",
+        "finished": true
+      },
+      "main": {
+        "ran": 52,
+        "result": "OK",
+        "finished": true
+      }
+    },
+    "persistence_offline_content_identical_to_baseline": true,
+    "persistence_marker": "PASS scope=hardware arch=x86_64 virtio=read-write-flush ext4=root-exec-reboot rename=pass hardlink=pass symlink=pass fsck=clean",
+    "baseline_persistence_marker": "PASS scope=hardware arch=x86_64 virtio=read-write-flush ext4=root-exec-reboot rename=pass hardlink=pass symlink=pass fsck=clean"
+  },
+  "status": "passed",
+  "commands": [
+    {
+      "label": "ObfuscationOS lane x86_64",
+      "command": "cd <os@da58575> && xmake f -P . -c -y -m debug -a x86_64 --kernel_sdk=<kernel@d2d58b0>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -P . -y -b artifact-test; for t in kernel-sdk-check uapi-test libc-test compat-test distro_image linux-driver-compat rootfs-simplefs rootfs-ext4; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --require-native --timeout=30 && python3 scripts/test_persistent_ext4.py --arch x86_64 --qemu <systoolchain>/x86_64-elf/bin/qemu-system-x86_64 --kernel build/x86_64/debug/distro/kernel.bin --rootfs build/x86_64/debug/rootfs.ext4.img --out <out>/persistence",
+      "steps": {
+        "configure": "ok",
+        "artifact-test": "FAIL",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "compat-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok",
+        "persistence": "ok",
+        "cross-tests": "rc=0"
+      }
+    },
+    {
+      "label": "ObfuscationOS lane arm32",
+      "command": "cd <os@da58575> && xmake f -P . -c -y -m debug -a arm32 --kernel_sdk=<kernel@d2d58b0>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && for t in kernel-sdk-check uapi-test libc-test distro_image linux-driver-compat rootfs-simplefs rootfs-ext4; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --require-native --timeout=30",
+      "steps": {
+        "configure": "ok",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok"
+      }
+    },
+    {
+      "label": "ObfuscationOS lane ppc",
+      "command": "cd <os@da58575> && xmake f -P . -c -y -m debug -a ppc --kernel_sdk=<kernel@d2d58b0>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && for t in kernel-sdk-check uapi-test libc-test distro_image linux-driver-compat rootfs-simplefs rootfs-ext4; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --require-native --timeout=30",
+      "steps": {
+        "configure": "ok",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok"
+      }
+    },
+    {
+      "label": "baseline ObfuscationOS lane x86_64",
+      "command": "same as the x86_64 lane on <os@016b7ab> with --kernel_sdk=<kernel@05c985e>/build/sdk/x86_64/debug"
+    },
+    {
+      "label": "artifact tests in two processes (x86_64)",
+      "command": "cd <os@da58575>/tests/tools && OK_TEST_KERNEL_SDK=<kernel@d2d58b0>/build/sdk/x86_64/debug OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -X faulthandler -m unittest <every test_*.py except test_native_child_exit_lineage_guest>; python3 -B -X faulthandler -m unittest test_native_child_exit_lineage_guest  # the first process died with SIGSEGV in pathlib.resolve under test_kernel_sdk, like the xmake run"
+    },
+    {
+      "label": "artifact tests, one interpreter per module (x86_64)",
+      "command": "tools/artifact_split.sh <os@da58575> <kernel@d2d58b0>/build/sdk/x86_64/debug <out>; tools/artifact_split.sh <os@016b7ab> <kernel@05c985e>/build/sdk/x86_64/debug <out-baseline>  # isolates the modules after the single-process crashes"
+    },
+    {
+      "label": "artifact tests, one more single-process run per tree (x86_64)",
+      "command": "cd <os@da58575>/tests/tools && OK_TEST_KERNEL_SDK=<kernel@d2d58b0>/build/sdk/x86_64/debug OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -X faulthandler -m unittest <every test_*.py module>; the same on <os@016b7ab> with <kernel@05c985e>/build/sdk/x86_64/debug  # both at once, beside the baseline per-module run"
+    },
+    {
+      "label": "ctypes modules under the debug allocator (x86_64)",
+      "command": "cd <os@da58575>/tests/tools && PYTHONMALLOC=debug python3 -B -X faulthandler -X dev -m unittest <module>  # each module that imports ctypes; no buffer overrun or heap corruption reported"
+    },
+    {
+      "label": "cross-tests (x86_64)",
+      "command": "cd <os@da58575>/tests/tools && OK_REQUIRE_KERNEL_CHECKOUT=1 OK_KERNEL_CHECKOUT=<kernel@d2d58b0> OK_TEST_KERNEL_SDK=<kernel@d2d58b0>/build/sdk/x86_64/debug python3 -B -m unittest <modules importing kernel_checkout>  # as scripts/workspace.py cross-tests; baseline on the main trees"
+    },
+    {
+      "label": "native ext4 units",
+      "command": "tools/native_check.py <os@016b7ab> <kernel@05c985e SDK x86_64> <os@da58575> <kernel@d2d58b0 SDK x86_64> <out> && tools/native_asm.py ...  # fixture header from ObfuscationOS tools/jbd2/admit_linux_fixture.header_for(inspect(clean.img))"
+    }
+  ]
+}
