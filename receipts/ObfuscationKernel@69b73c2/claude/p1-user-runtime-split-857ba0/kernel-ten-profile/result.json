@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "69b73c2ac97370f3531217f97e4fc97605f2c18b",
+  "branch": "claude/p1-user-runtime-split-857ba0",
+  "campaign": "kernel-ten-profile",
+  "date": "2026-10-27",
+  "scope": "Per-architecture signal headers collapsed into include/ok/arch/<arch>/signal.hpp: ten-profile debug + xmake test, release build/boot, object identity against the split.",
+  "claims": [
+    "all ten debug kernels pass xmake test; all ten release kernels boot to status=ready",
+    "release objects match 0d62887 after stripping debug info and .comment: byte-identical, or (mips64 signals.cpp.o) differing only in section emission order and local label numbering with every function disassembling identically"
+  ],
+  "sources": [
+    {
+      "tree": "w4",
+      "commit": "69b73c2ac97370f3531217f97e4fc97605f2c18b",
+      "relation": "blob-identical except the listed paths",
+      "differs": [
+        "scripts/check_runtime_split.py",
+        "src/user/README.md"
+      ],
+      "missing": [],
+      "extra": [],
+      "why_not_read": "src/user/README.md and scripts/check_runtime_split.py: documentation and a ratchet no command here runs"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "obfuscation_os": "ObfuscationOS@658b18b8099a6601010b4a38133dc9be598f51be (git archive, unmodified)"
+  },
+  "commands": [
+    {
+      "label": "kernel debug i386",
+      "command": "cd <tree> && xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<systoolchain>/i386-elf/bin/qemu-system-i386 && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 3217447,
+      "data": 1313688,
+      "bss": 64703548,
+      "bin": 8389120,
+      "qemu_test_summary": "serial/i386-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/i386-debug.log",
+      "log_sha256": "20735906175f27aadb72f4d98626ab409062087c958f6bac570619682e4cfdaa"
+    },
+    {
+      "label": "kernel debug x86_64",
+      "command": "cd <tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 3431178,
+      "data": 1487224,
+      "bss": 69299696,
+      "bin": 8389120,
+      "qemu_test_summary": "serial/x86_64-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/x86_64-debug.log",
+      "log_sha256": "574749c4cee9ab3d4a0d83493eb24d97438f0815fb3f1cf550e67a46f2779e86"
+    },
+    {
+      "label": "kernel debug aarch64",
+      "command": "cd <tree> && xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<systoolchain>/aarch64-elf/bin/qemu-system-aarch64 && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 2973472,
+      "data": 1519616,
+      "bss": 69213664,
+      "bin": 4497408,
+      "qemu_test_summary": "serial/aarch64-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/aarch64-debug.log",
+      "log_sha256": "0d5f2fd94627abb7adee241905dab0d7206930b5d0d53ddca71f0fe2e3635707"
+    },
+    {
+      "label": "kernel debug arm32",
+      "command": "cd <tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<systoolchain>/arm-none-eabi/bin/qemu-system-arm && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 3148233,
+      "data": 1389976,
+      "bss": 64868136,
+      "bin": 4539801,
+      "qemu_test_summary": "serial/arm32-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/arm32-debug.log",
+      "log_sha256": "2a7a84a617fa480668e9db4ad437a6bd06f550772abf270dc5740a063304f67f"
+    },
+    {
+      "label": "kernel debug rv64",
+      "command": "cd <tree> && xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<systoolchain>/riscv64-elf/bin/qemu-system-riscv64 && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 2537679,
+      "data": 1519436,
+      "bss": 69136125,
+      "bin": 42525344,
+      "qemu_test_summary": "serial/rv64-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/rv64-debug.log",
+      "log_sha256": "dfccaa1b5d51b6417943c5e8cd62d65a34c21f089140c7f0b34fa1acef6cff26"
+    },
+    {
+      "label": "kernel debug rv32",
+      "command": "cd <tree> && xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<systoolchain>/riscv32-elf/bin/qemu-system-riscv32 && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 2714969,
+      "data": 1389980,
+      "bss": 65236973,
+      "bin": 41346804,
+      "qemu_test_summary": "serial/rv32-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/rv32-debug.log",
+      "log_sha256": "99b39d60016cc2d892b836156d3a64244b714c140adb691f0ae9d949e836b6f8"
+    },
+    {
+      "label": "kernel debug loongarch64",
+      "command": "cd <tree> && xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<systoolchain>/loongarch64-elf/bin/qemu-system-loongarch64 && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 3640988,
+      "data": 1429848,
+      "bss": 72072672,
+      "bin": 53694248,
+      "qemu_test_summary": "serial/loongarch64-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/loongarch64-debug.log",
+      "log_sha256": "5b196269dcaa126f2052a0fa9bc4a5d99fea8f5b3ffc3f90a3d83aa4cf81229f"
+    },
+    {
+      "label": "kernel debug mips",
+      "command": "cd <tree> && xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<systoolchain>/mips-elf/bin/qemu-system-mips && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 3765832,
+      "data": 1298448,
+      "bss": 66202728,
+      "bin": 48618112,
+      "qemu_test_summary": "serial/mips-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/mips-debug.log",
+      "log_sha256": "a504901fd1d8e10f7b0de79508a1c7e2d6c4b59c33bbeb5128eedd57bdda0777"
+    },
+    {
+      "label": "kernel debug mips64",
+      "command": "cd <tree> && xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<systoolchain>/mips64-elf/bin/qemu-system-mips64 && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 3835824,
+      "data": 1427872,
+      "bss": 70157408,
+      "bin": 144766784,
+      "qemu_test_summary": "serial/mips64-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/mips64-debug.log",
+      "log_sha256": "1b8418d85eea9a79aa08dacd7f2ee683fbd648dbb80ad6bbd60c1c2f7f97bf7a"
+    },
+    {
+      "label": "kernel debug ppc",
+      "command": "cd <tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<systoolchain>/powerpc-eabi/bin/qemu-system-ppc && xmake -y -j 6 -b okernel_image && xmake test",
+      "returncode": 0,
+      "text": 4374304,
+      "data": 1357224,
+      "bss": 62691368,
+      "bin": 48225752,
+      "qemu_test_summary": "serial/ppc-qemu-test-summary.txt",
+      "ok_test_pass": true,
+      "xmake_test": true,
+      "log": "logs/ppc-debug.log",
+      "log_sha256": "4dbef8c8fe1d21c2cfe4499c3d77aa101222775de5cb2d6b2317c715c1eb5b18"
+    },
+    {
+      "label": "kernel release i386",
+      "command": "cd <tree> && xmake f -c -y -m release -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<systoolchain>/i386-elf/bin/qemu-system-i386 && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1188243,
+      "data": 577912,
+      "bss": 28788394,
+      "bin": 8389120,
+      "log": "logs/i386-release.log",
+      "log_sha256": "4e9ac84d471231a1c2e0bee5fb4de75e6e0780f1cbd86e37b8c7239135100d3f"
+    },
+    {
+      "label": "kernel release x86_64",
+      "command": "cd <tree> && xmake f -c -y -m release -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1241810,
+      "data": 691064,
+      "bss": 29427370,
+      "bin": 8389120,
+      "log": "logs/x86_64-release.log",
+      "log_sha256": "5083e041a3478b429cb9a6a13dabf6f1f2f6cff15f77afb14e304ac8966fa68a"
+    },
+    {
+      "label": "kernel release aarch64",
+      "command": "cd <tree> && xmake f -c -y -m release -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<systoolchain>/aarch64-elf/bin/qemu-system-aarch64 && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1040096,
+      "data": 723552,
+      "bss": 29341354,
+      "bin": 1768032,
+      "log": "logs/aarch64-release.log",
+      "log_sha256": "a727161a0529b8d92fe57befce86c7dba4928bff1954bc9f9cdb8ddac3aa85f3"
+    },
+    {
+      "label": "kernel release arm32",
+      "command": "cd <tree> && xmake f -c -y -m release -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<systoolchain>/arm-none-eabi/bin/qemu-system-arm && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1163169,
+      "data": 628000,
+      "bss": 28432042,
+      "bin": 1795361,
+      "log": "logs/arm32-release.log",
+      "log_sha256": "a7cebe1079b5b97cc8fae0f996fc19985c746ce5aa3f01950def8db1bcfdba7f"
+    },
+    {
+      "label": "kernel release rv64",
+      "command": "cd <tree> && xmake f -c -y -m release -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<systoolchain>/riscv64-elf/bin/qemu-system-riscv64 && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 882143,
+      "data": 723368,
+      "bss": 29263697,
+      "bin": 1614832,
+      "log": "logs/rv64-release.log",
+      "log_sha256": "a92d245c6723e808010e74ceed7fb50ec7987d3d533c31ab42533f9334ac65f2"
+    },
+    {
+      "label": "kernel release rv32",
+      "command": "cd <tree> && xmake f -c -y -m release -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<systoolchain>/riscv32-elf/bin/qemu-system-riscv32 && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 961081,
+      "data": 627992,
+      "bss": 28792633,
+      "bin": 1597484,
+      "log": "logs/rv32-release.log",
+      "log_sha256": "90efa16fb5e927a8fe511e300b06516bb4cd058dd4b9c6cfc37e19289dee4322"
+    },
+    {
+      "label": "kernel release loongarch64",
+      "command": "cd <tree> && xmake f -c -y -m release -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<systoolchain>/loongarch64-elf/bin/qemu-system-loongarch64 && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1310436,
+      "data": 633760,
+      "bss": 32200362,
+      "bin": 1953408,
+      "log": "logs/loongarch64-release.log",
+      "log_sha256": "cca7728f0196746b16cc1725a7f169c3c7e8f865fe77b4b9b5bca4c41d88ff6c"
+    },
+    {
+      "label": "kernel release mips",
+      "command": "cd <tree> && xmake f -c -y -m release -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<systoolchain>/mips-elf/bin/qemu-system-mips && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1328704,
+      "data": 536480,
+      "bss": 29758480,
+      "bin": 1933860,
+      "log": "logs/mips-release.log",
+      "log_sha256": "a0d6d0cc693b663a2a57ceae660eece6152b27fa314a01d6cf36b80afe19293e"
+    },
+    {
+      "label": "kernel release mips64",
+      "command": "cd <tree> && xmake f -c -y -m release -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<systoolchain>/mips64-elf/bin/qemu-system-mips64 && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1348104,
+      "data": 631824,
+      "bss": 30285104,
+      "bin": 2055808,
+      "log": "logs/mips64-release.log",
+      "log_sha256": "f7b712252c07c14e0fa2b6cccc57752ba8fb5b96038bee182e534ad97739cd40"
+    },
+    {
+      "label": "kernel release ppc",
+      "command": "cd <tree> && xmake f -c -y -m release -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<systoolchain>/powerpc-eabi/bin/qemu-system-ppc && xmake -y -j 6 -b okernel_image",
+      "returncode": 0,
+      "text": 1788996,
+      "data": 595256,
+      "bss": 26245800,
+      "bin": 2455440,
+      "log": "logs/ppc-release.log",
+      "log_sha256": "8b1dc977cad53353e8feefca8844464c7091ae25c912c7e6c9bd9ef4d50eea19"
+    },
+    {
+      "label": "release boot i386",
+      "command": "<systoolchain>/i386-elf/bin/qemu-system-i386 -drive file=<tree>/build/linux/i386/release/kernel.bin,format=raw,if=ide -boot c -serial stdio -monitor none -no-reboot -vga none -display none -device ramfb -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=i386 status=ready (3 OK_ lines)",
+      "log": "serial/i386-release-boot.log",
+      "log_sha256": "91f3e3b4025aefc33e364bffba586c4d8d556dde35e9a47a32ecd5427c9f4cad"
+    },
+    {
+      "label": "release boot x86_64",
+      "command": "<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 -drive file=<tree>/build/linux/x86_64/release/kernel.bin,format=raw,if=ide -boot c -serial stdio -monitor none -no-reboot -vga none -display none -device ramfb -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=x86_64 status=ready (3 OK_ lines)",
+      "log": "serial/x86_64-release-boot.log",
+      "log_sha256": "07f6c283acabed88f0747609562dd8ef37d8675fbb41c37936866207abc3b938"
+    },
+    {
+      "label": "release boot aarch64",
+      "command": "<systoolchain>/aarch64-elf/bin/qemu-system-aarch64 -M virt -cpu cortex-a57 -m 256M -kernel <tree>/build/linux/aarch64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=aarch64 status=ready (3 OK_ lines)",
+      "log": "serial/aarch64-release-boot.log",
+      "log_sha256": "33a8c7b368f32c4c4581c1a1aeab1ad68dbb780986e0d39d368774decb808b4d"
+    },
+    {
+      "label": "release boot arm32",
+      "command": "<systoolchain>/arm-none-eabi/bin/qemu-system-arm -M virt -cpu cortex-a15 -m 256M -kernel <tree>/build/linux/arm32/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=arm32 status=ready (5 OK_ lines)",
+      "log": "serial/arm32-release-boot.log",
+      "log_sha256": "9513269d7bbc2a524270c6aba5c275f13491a41a6af73b7757663d8ba74c19f5"
+    },
+    {
+      "label": "release boot rv64",
+      "command": "<systoolchain>/riscv64-elf/bin/qemu-system-riscv64 -M virt -m 256M -bios none -kernel <tree>/build/linux/rv64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=rv64 status=ready (3 OK_ lines)",
+      "log": "serial/rv64-release-boot.log",
+      "log_sha256": "e7923de3ecf9b0845b349f77370e742da19eaf2a08c973c04f2e74a13453dadd"
+    },
+    {
+      "label": "release boot rv32",
+      "command": "<systoolchain>/riscv32-elf/bin/qemu-system-riscv32 -M virt -m 256M -bios none -kernel <tree>/build/linux/rv32/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=rv32 status=ready (3 OK_ lines)",
+      "log": "serial/rv32-release-boot.log",
+      "log_sha256": "6ec4889af49cea530e58c9ab604cd1e7c14dca84f67c538a81e63191eef7b56d"
+    },
+    {
+      "label": "release boot loongarch64",
+      "command": "<systoolchain>/loongarch64-elf/bin/qemu-system-loongarch64 -M virt -m 2G -kernel <tree>/build/linux/loongarch64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-pci -device virtio-mouse-pci -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=loongarch64 status=ready (2 OK_ lines)",
+      "log": "serial/loongarch64-release-boot.log",
+      "log_sha256": "6734fbbe51fd751ac73ec40193599032e79d9587d1caab56ad2ce27d43f711ac"
+    },
+    {
+      "label": "release boot mips",
+      "command": "<systoolchain>/mips-elf/bin/qemu-system-mips -M malta -vga none -m 256M -kernel <tree>/build/linux/mips/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=mips status=ready (2 OK_ lines)",
+      "log": "serial/mips-release-boot.log",
+      "log_sha256": "41874b447dab54d236db0861d21cf74557638ed02fde9a79c0db360959fd6089"
+    },
+    {
+      "label": "release boot mips64",
+      "command": "<systoolchain>/mips64-elf/bin/qemu-system-mips64 -M malta -cpu MIPS64R2-generic -vga none -m 256M -kernel <tree>/build/linux/mips64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=mips64 status=ready (2 OK_ lines)",
+      "log": "serial/mips64-release-boot.log",
+      "log_sha256": "680d0e64cd552f93b6b0305c2415cfeaf64dc811d88a3f9dc3bc22f654e7094d"
+    },
+    {
+      "label": "release boot ppc",
+      "command": "<systoolchain>/powerpc-eabi/bin/qemu-system-ppc -M ppce500 -m 256M -kernel <tree>/build/linux/ppc/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped",
+      "returncode": 0,
+      "boot_line": "OK_KERNEL_BOOT scope=kernel mode=release arch=ppc status=ready (3 OK_ lines)",
+      "log": "serial/ppc-release-boot.log",
+      "log_sha256": "0f88978444a89a86b24c05e1f50407ddd290d19fd37873ed2a24c9c49138d0a6"
+    }
+  ],
+  "summary": {
+    "object_identity_vs_0d62887": {
+      "i386": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "x86_64": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "aarch64": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "arm32": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "rv64": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "rv32": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "loongarch64": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "mips": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      },
+      "mips64": {
+        "byte_identical": 81,
+        "not_byte_identical": [
+          {
+            "object": "okernel/linux/mips64/release/src/user/runtime/signals.cpp.o",
+            "functions": "134 functions vs 134; 0 differ",
+            "code_identical": true
+          }
+        ]
+      },
+      "ppc": {
+        "byte_identical": 82,
+        "not_byte_identical": []
+      }
+    }
+  },
+  "status": "passed"
+}

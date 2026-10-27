@@ -1,0 +1,15 @@
+PASS i386: Linux ABI byte/register codec model; no target execution
+PASS x86_64: Linux ABI byte/register codec model; no target execution
+PASS aarch64: Linux ABI byte/register codec model; no target execution
+PASS arm32: Linux ABI byte/register codec model; no target execution
+PASS rv64: Linux ABI byte/register codec model; no target execution
+PASS rv32: Linux ABI byte/register codec model; no target execution
+PASS loongarch64: Linux ABI byte/register codec model; no target execution
+PASS mips: Linux ABI byte/register codec model; no target execution
+PASS mips64: Linux ABI byte/register codec model; no target execution
+PASS ppc: Linux ABI byte/register codec model; no target execution
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 0.012s
+
+OK

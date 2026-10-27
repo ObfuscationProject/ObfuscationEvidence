@@ -1,0 +1,14 @@
+/usr/bin/ld: /tmp/ccDJdkw7.o: in function `ok::net::PreparedTcpAccept::retire()':
+native_vm_tests.cpp:(.text._ZN2ok3net17PreparedTcpAccept6retireEv[_ZN2ok3net17PreparedTcpAccept6retireEv]+0x1b4): undefined reference to `ok::sched::DescriptorReservation::cancel()'
+/usr/bin/ld: native_vm_tests.cpp:(.text._ZN2ok3net17PreparedTcpAccept6retireEv[_ZN2ok3net17PreparedTcpAccept6retireEv]+0x221): undefined reference to `ok::sched::SchedulerState::release_description(unsigned short)'
+/usr/bin/ld: /tmp/ccDJdkw7.o: in function `ok::user::native::runtime_detail::TcpImmediateRuntime::~TcpImmediateRuntime()':
+native_vm_tests.cpp:(.text._ZN2ok4user6native14runtime_detail19TcpImmediateRuntimeD2Ev[_ZN2ok4user6native14runtime_detail19TcpImmediateRuntimeD5Ev]+0x76): undefined reference to `ok::sched::DescriptorReservation::~DescriptorReservation()'
+collect2: error: ld returned 1 exit status
+Traceback (most recent call last):
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/scripts/test_native_vm.py", line 37, in <module>
+    main()
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/scripts/test_native_vm.py", line 23, in main
+    subprocess.run([
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['g++', '-std=c++23', '-O2', '-Wall', '-Wextra', '-Wpedantic', '-Werror', '-fno-exceptions', '-ffunction-sections', '-fdata-sections', '-Wl,--gc-sections', '-DOK_ARCH_TARGET_X86_64', '-I/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/include', '/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/tests/host/native_vm_tests.cpp', '/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/src/sched/process.cpp', '/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/src/memory/memory.cpp', '-o', '/tmp/ok-native-vm-5ic6nbby/native-vm']' returned non-zero exit status 1.

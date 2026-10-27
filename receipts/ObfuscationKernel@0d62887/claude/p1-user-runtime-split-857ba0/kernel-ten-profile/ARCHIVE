@@ -1,0 +1,21 @@
+archive/receipts/ObfuscationKernel@0d62887/claude/p1-user-runtime-split-857ba0/kernel-ten-profile
+  images/i386-release/kernel.bin
+  images/i386-release/kernel.elf
+  images/x86_64-release/kernel.bin
+  images/x86_64-release/kernel.elf
+  images/aarch64-release/kernel.bin
+  images/aarch64-release/kernel.elf
+  images/arm32-release/kernel.bin
+  images/arm32-release/kernel.elf
+  images/rv64-release/kernel.bin
+  images/rv64-release/kernel.elf
+  images/rv32-release/kernel.bin
+  images/rv32-release/kernel.elf
+  images/loongarch64-release/kernel.bin
+  images/loongarch64-release/kernel.elf
+  images/mips-release/kernel.bin
+  images/mips-release/kernel.elf
+  images/mips64-release/kernel.bin
+  images/mips64-release/kernel.elf
+  images/ppc-release/kernel.bin
+  images/ppc-release/kernel.elf

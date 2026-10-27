@@ -1,0 +1,3 @@
+OK_HOST display_input_uapi layout=pass
+C layout ok for ['LP64']
+C layout ok for ['-m32']

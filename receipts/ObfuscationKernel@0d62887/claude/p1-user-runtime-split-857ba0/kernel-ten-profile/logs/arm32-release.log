@@ -1,0 +1,150 @@
+checking for platform ... linux (arm32)
+checking for qemu_binary ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/arm-none-eabi/bin/qemu-system-arm
+checking for systoolchain_dir ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/arm-none-eabi
+[  2%]: <okernel_image> compiling.release src/arch/arm32/boot.S
+[  3%]: <okernel_image> cache compiling.release src/core/kernel_main.cpp
+[  3%]: <okernel_image> cache compiling.release src/arch/arm32/platform.cpp
+[  3%]: <okernel> compiling.release src/arch/arm32/execution.S
+[  3%]: <okernel> cache compiling.release src/boot/fdt.cpp
+[  3%]: <okernel> cache compiling.release src/boot/raw_handoff.cpp
+[  4%]: <okernel> cache compiling.release src/core/kernel_syscalls.cpp
+[  4%]: <okernel> cache compiling.release src/core/kernel.cpp
+[  5%]: <okernel> cache compiling.release src/core/native_shutdown.cpp
+[  6%]: <okernel> cache compiling.release src/core/module.cpp
+src/core/module.cpp: In function 'ok::Status ok::{anonymous}::parse_okmod_line(ok::ModuleImageInfo&, std::string_view)':
+src/core/module.cpp:347:61: warning: narrowing conversion of 'ok::{anonymous}::parse_unsigned(line.std::basic_string_view<char>::substr(6, ((std::basic_string_view<char>::size_type)std::basic_string_view<char>::npos)))' from 'ok::u64' {aka 'long long unsigned int'} to 'ok::uptr' {aka 'unsigned int'} [-Wnarrowing]
+  347 |         ModuleRelocation relocation{.offset = parse_unsigned(line.substr(6)), .kind = ModuleRelocationKind::relative};
+      |                                               ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[  7%]: <okernel> cache compiling.release src/core/entry.cpp
+[  8%]: <okernel> cache compiling.release src/rescue/file_manager.cpp
+[  9%]: <okernel> cache compiling.release src/rescue/shell.cpp
+[ 10%]: <okernel> cache compiling.release src/rescue/task_manager.cpp
+[ 11%]: <okernel> cache compiling.release src/rescue/shell/status.cpp
+[ 12%]: <okernel> cache compiling.release src/rescue/shell/storage.cpp
+[ 13%]: <okernel> cache compiling.release src/rescue/shell/network.cpp
+src/core/kernel.cpp: In member function 'ok::Status ok::Kernel::open_file_manager(std::string_view, bool)':
+src/core/kernel.cpp:1456:29: warning: value computed is not used [-Wunused-value]
+ 1456 |     apps::KernelFileManager manager;
+      |                             ^~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 14%]: <okernel> cache compiling.release src/rescue/shell/task_manager.cpp
+[ 16%]: <okernel> cache compiling.release src/rescue/shell/filesystem.cpp
+[ 17%]: <okernel> cache compiling.release tests/kernel/debug/suite.cpp
+[ 18%]: <okernel> cache compiling.release tests/kernel/points/test_point.cpp
+[ 19%]: <okernel> cache compiling.release tests/kernel/roadmap/linux_abi_tests.cpp
+[ 20%]: <okernel> cache compiling.release tests/kernel/roadmap/vm_tests.cpp
+[ 21%]: <okernel> cache compiling.release tests/kernel/roadmap/process_tests.cpp
+[ 22%]: <okernel> cache compiling.release tests/kernel/roadmap/unix_vfs_tests.cpp
+[ 23%]: <okernel> cache compiling.release tests/kernel/roadmap/module_tests.cpp
+[ 24%]: <okernel> cache compiling.release tests/kernel/roadmap/gui_tests.cpp
+tests/kernel/roadmap/linux_abi_tests.cpp: In function 'ok::Status ok::{anonymous}::verify_linux_abi_decode_and_errno()':
+tests/kernel/roadmap/linux_abi_tests.cpp:178:25: warning: value computed is not used [-Wunused-value]
+  178 |     time::RealtimeClock local_clock;
+      |                         ^~~~~~~~~~~
+tests/kernel/roadmap/linux_abi_tests.cpp: In function 'ok::Status ok::{anonymous}::verify_linux_futex_random_and_tls(ok::syscall::LinuxSyscallDispatcher&, ok::sched::ProcessId)':
+tests/kernel/roadmap/linux_abi_tests.cpp:463:37: note: parameter passing for argument of type 'std::span<const ok::syscall::LinuxAuxvEntry>' changed in GCC 7.1
+  463 |     auto stack = stack_builder.build(0x800000, argv, envp, process.auxv().entries());
+      |                  ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 25%]: <okernel> cache compiling.release tests/kernel/roadmap/driver_abi_tests.cpp
+[ 26%]: <okernel> cache compiling.release tests/kernel/roadmap/smp_preempt_tests.cpp
+[ 27%]: <okernel> cache compiling.release tests/kernel/roadmap/network_storage_tests.cpp
+[ 28%]: <okernel> cache compiling.release src/driver/block.cpp
+[ 29%]: <okernel> cache compiling.release src/driver/abi.cpp
+[ 30%]: <okernel> cache compiling.release src/driver/driver.cpp
+[ 32%]: <okernel> cache compiling.release src/driver/bus_input.cpp
+[ 33%]: <okernel> cache compiling.release src/driver/display.cpp
+[ 34%]: <okernel> cache compiling.release src/fs/vfs.cpp
+[ 35%]: <okernel> cache compiling.release src/fs/simplefs.cpp
+[ 36%]: <okernel> cache compiling.release src/fs/fat.cpp
+[ 37%]: <okernel> cache compiling.release src/fs/ext4_recovery.cpp
+[ 38%]: <okernel> cache compiling.release src/fs/archive.cpp
+[ 39%]: <okernel> cache compiling.release src/fs/storage.cpp
+[ 40%]: <okernel> cache compiling.release src/fs/unix.cpp
+[ 41%]: <okernel> cache compiling.release src/fs/ext4.cpp
+[ 42%]: <okernel> cache compiling.release src/fs/fat_fs.cpp
+[ 43%]: <okernel> cache compiling.release src/fs/ext4_fs.cpp
+[ 44%]: <okernel> cache compiling.release src/gui/desktop.cpp
+[ 45%]: <okernel> cache compiling.release src/gui/gui.cpp
+[ 46%]: <okernel> cache compiling.release src/interrupt/interrupt.cpp
+[ 48%]: <okernel> cache compiling.release src/ipc/ipc.cpp
+[ 49%]: <okernel> cache compiling.release src/memory/memory.cpp
+[ 50%]: <okernel> cache compiling.release src/memory/physical_map.cpp
+[ 51%]: <okernel> cache compiling.release src/memory/runtime_frames.cpp
+[ 52%]: <okernel> cache compiling.release src/net/native_udp.cpp
+[ 53%]: <okernel> cache compiling.release src/net/net.cpp
+[ 54%]: <okernel> cache compiling.release src/posix/fd.cpp
+[ 55%]: <okernel> cache compiling.release src/posix/posix.cpp
+[ 56%]: <okernel> cache compiling.release src/posix/entropy.cpp
+[ 57%]: <okernel> cache compiling.release src/posix/process.cpp
+[ 58%]: <okernel> cache compiling.release src/posix/path.cpp
+[ 59%]: <okernel> cache compiling.release src/sched/scheduler.cpp
+[ 60%]: <okernel> cache compiling.release src/sched/process.cpp
+[ 61%]: <okernel> cache compiling.release src/smp/preempt.cpp
+[ 62%]: <okernel> cache compiling.release src/smp/smp.cpp
+[ 64%]: <okernel> cache compiling.release src/syscall/syscall.cpp
+[ 65%]: <okernel> cache compiling.release src/syscall/linux.cpp
+[ 66%]: <okernel> cache compiling.release src/user/user.cpp
+[ 67%]: <okernel> cache compiling.release src/user/runtime.cpp
+[ 68%]: <okernel> cache compiling.release src/user/runtime/pipe.cpp
+src/syscall/linux.cpp: In member function 'ok::Result<ok::syscall::LinuxInitialStack> ok::syscall::LinuxInitialStackBuilder::build(ok::uptr, std::span<const std::basic_string_view<char> >, std::span<const std::basic_string_view<char> >, std::span<const ok::syscall::LinuxAuxvEntry>)':
+src/syscall/linux.cpp:112:27: note: parameter passing for argument of type 'std::span<const ok::syscall::LinuxAuxvEntry>' changed in GCC 7.1
+  112 | Result<LinuxInitialStack> LinuxInitialStackBuilder::build(uptr stack_top, std::span<const std::string_view> argv,
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~
+[ 69%]: <okernel> cache compiling.release src/user/runtime/loader.cpp
+[ 70%]: <okernel> cache compiling.release src/user/runtime/net.cpp
+[ 71%]: <okernel> cache compiling.release src/user/runtime/signals.cpp
+src/sched/scheduler.cpp: In member function 'ok::Result<long long unsigned int> ok::sched::RoundRobinPolicy::pick_next(std::span<const ok::sched::ProcessControlBlock>, ok::sched::ProcessId, ok::smp::CpuId)':
+src/sched/scheduler.cpp:87:19: note: parameter passing for argument of type 'std::span<const ok::sched::ProcessControlBlock>' changed in GCC 7.1
+   87 | Result<ProcessId> RoundRobinPolicy::pick_next(std::span<const ProcessControlBlock> processes, ProcessId current,
+      |                   ^~~~~~~~~~~~~~~~
+[ 72%]: <okernel> cache compiling.release src/user/runtime/entry.cpp
+[ 73%]: <okernel> cache compiling.release src/user/runtime/futex.cpp
+[ 74%]: <okernel> cache compiling.release src/user/runtime/wait.cpp
+[ 75%]: <okernel> cache compiling.release src/user/runtime/pty.cpp
+[ 76%]: <okernel> cache compiling.release src/user/runtime/vm.cpp
+[ 77%]: <okernel> cache compiling.release src/arch/arch.cpp
+[ 78%]: <okernel> cache compiling.release src/arch/clock.cpp
+[ 80%]: <okernel> cache compiling.release src/arch/realtime.cpp
+[ 81%]: <okernel> cache compiling.release src/arch/terminal_power.cpp
+[ 82%]: <okernel> cache compiling.release src/arch/arm32/ops.cpp
+[ 83%]: <okernel> cache compiling.release src/arch/arm32/execution.cpp
+In file included from include/ok/boot/qemu_entry_memory.hpp:3,
+                 from include/ok/boot/qemu_runtime_frames.hpp:2,
+                 from include/ok/boot/qemu_process_memory.hpp:2,
+                 from src/user/runtime/private.hpp:91,
+                 from src/user/runtime/vm.cpp:2:
+include/ok/boot/qualified_memory.hpp: In function 'ok::Status ok::boot::qualify_boot_memory(const FirmwareMemory&, std::span<const LoadedReservation>, const ManagedMemoryPolicy&, QualifiedBootMemory&, QualifiedBootMemory&)':
+include/ok/boot/qualified_memory.hpp:104:15: note: parameter passing for argument of type 'std::span<const ok::boot::LoadedReservation>' changed in GCC 7.1
+  104 | inline Status qualify_boot_memory(const FirmwareMemory &source, std::span<const LoadedReservation> loaded,
+      |               ^~~~~~~~~~~~~~~~~~~
+include/ok/boot/qemu_entry_memory.hpp: In function 'ok::Status ok::boot::qemu_entry_memory_plan(const FirmwareMemory&, PhysicalRange, std::span<const LoadedReservation>, ok::u64, QemuEntryMemoryPlan&) [with ok::arch::Architecture A = ok::arch::Architecture::arm32]':
+include/ok/boot/qemu_entry_memory.hpp:19:8: note: parameter passing for argument of type 'std::span<const ok::boot::LoadedReservation>' changed in GCC 7.1
+   19 | Status qemu_entry_memory_plan(const FirmwareMemory &source, PhysicalRange linked_image,
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+In function 'ok::Status ok::boot::qemu_runtime_memory_plan(const FirmwareMemory&, PhysicalRange, std::span<const LoadedReservation>, ok::u64, QemuEntryMemoryPlan&) [with ok::arch::Architecture A = ok::arch::Architecture::arm32]',
+    inlined from 'ok::Status ok::user::native::prepare_memory()' at src/user/runtime/vm.cpp:1109:98:
+include/ok/boot/qemu_runtime_frames.hpp:18:48: note: parameter passing for argument of type 'std::span<const ok::boot::LoadedReservation>' changed in GCC 7.1
+In file included from include/ok/user/native_vfs_stat_continuation.hpp:5,
+                 from src/user/runtime/../native_shared_capture.hpp:4,
+                 from src/user/runtime/private.hpp:86,
+                 from src/user/runtime/entry.cpp:2:
+include/ok/abi/linux_stat_call.hpp: In static member function 'static ok::Result<ok::abi::linux_user::StatRequest> ok::abi::linux_user::StatCallAdapter<Target>::decode(ok::abi::linux_user::StatCall, std::span<const long long unsigned int>) [with ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+include/ok/abi/linux_stat_call.hpp:31:32: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   31 |     static Result<StatRequest> decode(StatCall call, std::span<const u64> arguments)
+      |                                ^~~~~~
+In file included from include/ok/user/linux_bootstrap.hpp:21,
+                 from src/user/runtime/private.hpp:96:
+include/ok/abi/linux_chmod_call.hpp: In static member function 'static ok::Result<ok::abi::linux_user::ChmodRequest> ok::abi::linux_user::ChmodCallAdapter<Target>::decode(ok::abi::linux_user::ChmodCall, std::span<const long long unsigned int>) [with ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+include/ok/abi/linux_chmod_call.hpp:45:47: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   45 |     [[nodiscard]] static Result<ChmodRequest> decode(ChmodCall call, std::span<const u64> arguments)
+      |                                               ^~~~~~
+include/ok/abi/linux_chmod_call.hpp: In static member function 'static ok::i64 ok::abi::linux_user::ChmodCallAdapter<Target>::execute(ok::abi::linux_user::ChmodCall, std::span<const long long unsigned int>, ReadPath, Change) [with ReadPath = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)> >(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)>&&, RejectThreadPreparation&&)::<lambda(ok::u64, ok::FixedString<256>&)>; Change = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)> >(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)>&&, RejectThreadPreparation&&)::<lambda(ok::abi::linux_user::ChmodRequest, std::string_view)>; ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+include/ok/abi/linux_chmod_call.hpp:81:16: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+[ 89%]: <okernel> archiving.release libokernel.a
+[ 91%]: <okernel_image> linking.release kernel.elf
+[100%]: build ok, spent 91.949s

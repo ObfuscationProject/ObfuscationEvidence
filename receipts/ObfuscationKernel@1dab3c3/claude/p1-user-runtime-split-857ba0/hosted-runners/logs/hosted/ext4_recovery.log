@@ -1,0 +1,12 @@
+MAPPING block_size=1024 journal_first=8709 journal_blocks=4096 groups=4 needs_recovery=0 empty=1 reads=8
+UNINIT poisoned_bitmaps=4 metadata_ranges=16
+PASS hosted ext4 recovery binding block_size=1024 cases=86 no_writes=true no_flushes=true
+MAPPING block_size=2048 journal_first=1037 journal_blocks=2048 groups=1 needs_recovery=0 empty=1 reads=6
+UNINIT poisoned_bitmaps=0 metadata_ranges=4
+PASS hosted ext4 recovery binding block_size=2048 cases=80 no_writes=true no_flushes=true
+MAPPING block_size=4096 journal_first=521 journal_blocks=1024 groups=1 needs_recovery=0 empty=1 reads=6
+UNINIT poisoned_bitmaps=0 metadata_ranges=4
+PASS hosted ext4 recovery binding block_size=4096 cases=80 no_writes=true no_flushes=true
+MAPPING block_size=1024 journal_first=28805 journal_blocks=1024 groups=32 needs_recovery=0 empty=1 reads=8
+UNINIT poisoned_bitmaps=60 metadata_ranges=128
+PASS hosted ext4 recovery binding block_size=1024 cases=86 no_writes=true no_flushes=true

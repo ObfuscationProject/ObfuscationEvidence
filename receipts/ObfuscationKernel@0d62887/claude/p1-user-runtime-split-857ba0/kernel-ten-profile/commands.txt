@@ -1,0 +1,101 @@
+# compile src/user/runtime.cpp src/user/runtime/*.cpp (all)
+for mode in release,debug; for each profile: <compile-flags.json[<mode>-<profile>]> -fsyntax-only <each of src/user/runtime.cpp src/user/runtime/*.cpp>  # run from the tree root
+
+# compile src/user/runtime.cpp src/user/runtime/*.cpp (signal-fixture)
+for mode in debug; for each profile: <compile-flags.json[<mode>-<profile>]> -DOK_PRIVATE_SIGNAL_DELIVERY_FIXTURE -fsyntax-only <each of src/user/runtime.cpp src/user/runtime/*.cpp>  # run from the tree root
+
+# compile src/user/runtime.cpp src/user/runtime/*.cpp (futex-fixture)
+for mode in debug; for each profile: <compile-flags.json[<mode>-<profile>]> -DOK_PRIVATE_FUTEX_PEER_FIXTURE -fsyntax-only <each of src/user/runtime.cpp src/user/runtime/*.cpp>  # run from the tree root
+
+# kernel debug i386
+cd <tree> && xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<systoolchain>/i386-elf/bin/qemu-system-i386 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug x86_64
+cd <tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug aarch64
+cd <tree> && xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<systoolchain>/aarch64-elf/bin/qemu-system-aarch64 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug arm32
+cd <tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<systoolchain>/arm-none-eabi/bin/qemu-system-arm && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug rv64
+cd <tree> && xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<systoolchain>/riscv64-elf/bin/qemu-system-riscv64 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug rv32
+cd <tree> && xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<systoolchain>/riscv32-elf/bin/qemu-system-riscv32 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug loongarch64
+cd <tree> && xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<systoolchain>/loongarch64-elf/bin/qemu-system-loongarch64 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug mips
+cd <tree> && xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<systoolchain>/mips-elf/bin/qemu-system-mips && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug mips64
+cd <tree> && xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<systoolchain>/mips64-elf/bin/qemu-system-mips64 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug ppc
+cd <tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<systoolchain>/powerpc-eabi/bin/qemu-system-ppc && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel release i386
+cd <tree> && xmake f -c -y -m release -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<systoolchain>/i386-elf/bin/qemu-system-i386 && xmake -y -j 6 -b okernel_image
+
+# kernel release x86_64
+cd <tree> && xmake f -c -y -m release -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 && xmake -y -j 6 -b okernel_image
+
+# kernel release aarch64
+cd <tree> && xmake f -c -y -m release -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<systoolchain>/aarch64-elf/bin/qemu-system-aarch64 && xmake -y -j 6 -b okernel_image
+
+# kernel release arm32
+cd <tree> && xmake f -c -y -m release -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<systoolchain>/arm-none-eabi/bin/qemu-system-arm && xmake -y -j 6 -b okernel_image
+
+# kernel release rv64
+cd <tree> && xmake f -c -y -m release -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<systoolchain>/riscv64-elf/bin/qemu-system-riscv64 && xmake -y -j 6 -b okernel_image
+
+# kernel release rv32
+cd <tree> && xmake f -c -y -m release -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<systoolchain>/riscv32-elf/bin/qemu-system-riscv32 && xmake -y -j 6 -b okernel_image
+
+# kernel release loongarch64
+cd <tree> && xmake f -c -y -m release -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<systoolchain>/loongarch64-elf/bin/qemu-system-loongarch64 && xmake -y -j 6 -b okernel_image
+
+# kernel release mips
+cd <tree> && xmake f -c -y -m release -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<systoolchain>/mips-elf/bin/qemu-system-mips && xmake -y -j 6 -b okernel_image
+
+# kernel release mips64
+cd <tree> && xmake f -c -y -m release -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<systoolchain>/mips64-elf/bin/qemu-system-mips64 && xmake -y -j 6 -b okernel_image
+
+# kernel release ppc
+cd <tree> && xmake f -c -y -m release -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<systoolchain>/powerpc-eabi/bin/qemu-system-ppc && xmake -y -j 6 -b okernel_image
+
+# release boot i386
+<systoolchain>/i386-elf/bin/qemu-system-i386 -drive file=<tree>/build/linux/i386/release/kernel.bin,format=raw,if=ide -boot c -serial stdio -monitor none -no-reboot -vga none -display none -device ramfb -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot x86_64
+<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 -drive file=<tree>/build/linux/x86_64/release/kernel.bin,format=raw,if=ide -boot c -serial stdio -monitor none -no-reboot -vga none -display none -device ramfb -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot aarch64
+<systoolchain>/aarch64-elf/bin/qemu-system-aarch64 -M virt -cpu cortex-a57 -m 256M -kernel <tree>/build/linux/aarch64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot arm32
+<systoolchain>/arm-none-eabi/bin/qemu-system-arm -M virt -cpu cortex-a15 -m 256M -kernel <tree>/build/linux/arm32/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot rv64
+<systoolchain>/riscv64-elf/bin/qemu-system-riscv64 -M virt -m 256M -bios none -kernel <tree>/build/linux/rv64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot rv32
+<systoolchain>/riscv32-elf/bin/qemu-system-riscv32 -M virt -m 256M -bios none -kernel <tree>/build/linux/rv32/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-device -device virtio-mouse-device -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot loongarch64
+<systoolchain>/loongarch64-elf/bin/qemu-system-loongarch64 -M virt -m 2G -kernel <tree>/build/linux/loongarch64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -device ramfb -device virtio-keyboard-pci -device virtio-mouse-pci -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot mips
+<systoolchain>/mips-elf/bin/qemu-system-mips -M malta -vga none -m 256M -kernel <tree>/build/linux/mips/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot mips64
+<systoolchain>/mips64-elf/bin/qemu-system-mips64 -M malta -cpu MIPS64R2-generic -vga none -m 256M -kernel <tree>/build/linux/mips64/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# release boot ppc
+<systoolchain>/powerpc-eabi/bin/qemu-system-ppc -M ppce500 -m 256M -kernel <tree>/build/linux/ppc/release/kernel.bin -monitor none -no-reboot -display none -serial stdio -drive file=<16 MiB zeroed disk.img>,format=raw,if=none,id=fsdisk -device virtio-blk-pci,drive=fsdisk  # serial captured for 60 s, then QEMU is stopped
+
+# host syntax sweep (tests/host/*.cpp, tests/native/*.cpp)
+for each file: g++ -std=c++23 -fsyntax-only -w -DOK_ARCH_TARGET_X86_64 -DOK_ENABLE_TEST_POINTS -Iinclude -Isrc -Isrc/user -Isrc/net -Itests -Itests/host <file>

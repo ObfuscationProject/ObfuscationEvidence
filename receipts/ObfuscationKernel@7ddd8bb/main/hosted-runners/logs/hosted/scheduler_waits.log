@@ -1,0 +1,10 @@
+PASS i386 scheduler wait hosted integration
+PASS x86_64 scheduler wait hosted integration
+PASS aarch64 scheduler wait hosted integration
+PASS arm32 scheduler wait hosted integration
+PASS rv64 scheduler wait hosted integration
+PASS rv32 scheduler wait hosted integration
+PASS loongarch64 scheduler wait hosted integration
+PASS mips scheduler wait hosted integration
+PASS mips64 scheduler wait hosted integration
+PASS ppc scheduler wait hosted integration

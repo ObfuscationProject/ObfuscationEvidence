@@ -1,0 +1,60 @@
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS i386: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS x86_64: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS aarch64: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS arm32: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS rv64: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS rv32: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS loongarch64: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS mips: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS mips64: process resource model
+PASS hosted AF_UNIX streams: duplex, partial/EAGAIN/EPIPE, dup/fork, EOF ownership and rollback
+PASS hosted fork capacity: EAGAIN, unchanged unrelated EOVERFLOW, descriptor accounting, reap/retry and true TID
+PASS hosted append open: initial read offset zero, append write follows read at current EOF
+PASS hosted open admission: EMFILE/ENFILE without create/truncate, pin cleanup, directory and flag errors
+PASS canonical owner, process isolation, shared offsets, exec, exit/wait, pipe wakeup, orphan reaping, exit status, rename/link lifetimes and retained directories
+PASS ppc: process resource model

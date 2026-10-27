@@ -1,0 +1,20 @@
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS i386: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS x86_64: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS aarch64: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS arm32: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS rv64: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS rv32: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS loongarch64: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS mips: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS mips64: hosted VFS mount inventory groups=4 drain=0 seal=0
+VFS_MOUNT_PREFLIGHT_PASS groups=4 guest=0 physical=0 drain=0 seal=0
+PASS ppc: hosted VFS mount inventory groups=4 drain=0 seal=0

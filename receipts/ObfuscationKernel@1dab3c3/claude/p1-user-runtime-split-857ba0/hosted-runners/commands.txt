@@ -1,0 +1,2 @@
+# hosted runners
+for each scripts/test_<name>.py: python3 scripts/test_<name>.py [--output <dir>]  # runners needing any other required argument are recorded as skip

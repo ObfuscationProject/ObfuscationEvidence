@@ -1,0 +1,4 @@
+REALTIME_MODEL_PASS calendar_oracles=39997 scope=hosted-not-hardware
+PASS -O0 normal
+REALTIME_MODEL_PASS calendar_oracles=39997 scope=hosted-not-hardware
+PASS -O2 normal

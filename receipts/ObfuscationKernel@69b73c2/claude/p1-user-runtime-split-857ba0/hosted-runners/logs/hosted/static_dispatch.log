@@ -1,0 +1,10 @@
+PASS i386: static architecture dispatch and two scheduler policies
+PASS x86_64: static architecture dispatch and two scheduler policies
+PASS aarch64: static architecture dispatch and two scheduler policies
+PASS arm32: static architecture dispatch and two scheduler policies
+PASS rv64: static architecture dispatch and two scheduler policies
+PASS rv32: static architecture dispatch and two scheduler policies
+PASS loongarch64: static architecture dispatch and two scheduler policies
+PASS mips: static architecture dispatch and two scheduler policies
+PASS mips64: static architecture dispatch and two scheduler policies
+PASS ppc: static architecture dispatch and two scheduler policies

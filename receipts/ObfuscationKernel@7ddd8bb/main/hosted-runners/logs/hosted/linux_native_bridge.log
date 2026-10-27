@@ -1,0 +1,12 @@
+PASS source frame/restore anchors for all ten profiles (static audit, no CPU execution)
+PASS i386 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS x86_64 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS aarch64 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS arm32 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS rv64 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS rv32 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS loongarch64 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS mips native frame bridge model: registers, widths, returns, flags and TLS route
+PASS mips64 native frame bridge model: registers, widths, returns, flags and TLS route
+PASS ppc native frame bridge model: registers, widths, returns, flags and TLS route
+PASS explicit O32 copy boundary: exact slots, overflow, failure, no unnecessary user reads

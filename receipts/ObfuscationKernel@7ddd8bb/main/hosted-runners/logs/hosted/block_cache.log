@@ -1,0 +1,9 @@
+checking for platform ... linux (x86_64)
+[ 11%]: <block-cache> compiling.release tests/host/block_cache_failure_tests.cpp
+[ 11%]: <block-cache> compiling.release src/fs/storage.cpp
+[ 23%]: <block-cache> compiling.release src/smp/smp.cpp
+[ 35%]: <block-cache> compiling.release src/arch/arch.cpp
+[ 47%]: <block-cache> compiling.release src/arch/x86_64/ops.cpp
+[ 71%]: <block-cache> linking.release block-cache
+[100%]: build ok, spent 2.943s
+PASS hosted block cache partial read/write failure controls

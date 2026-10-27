@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/scripts/test_native_signal_frame_x86_64.py", line 103, in <module>
+    main()
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/scripts/test_native_signal_frame_x86_64.py", line 76, in main
+    run([xmake, 'build', '-P', source, '-j2', '-v'], 'build')
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/wfix/scripts/test_native_signal_frame_x86_64.py", line 69, in run
+    raise RuntimeError(f'{label} failed; see {log}')
+RuntimeError: build failed; see /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/hosted-wfix/native_signal_frame_x86_64/build.log

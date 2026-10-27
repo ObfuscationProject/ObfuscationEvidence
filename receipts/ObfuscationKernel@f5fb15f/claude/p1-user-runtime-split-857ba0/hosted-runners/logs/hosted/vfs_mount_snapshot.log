@@ -1,0 +1,20 @@
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS i386: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS x86_64: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS aarch64: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS arm32: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS rv64: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS rv32: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS loongarch64: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS mips: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS mips64: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+VFS_MOUNT_SNAPSHOT_PASS groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0
+PASS ppc: hosted mount snapshot groups=6 debug_models=1 guest=0 physical=0 drain=0 seal=0

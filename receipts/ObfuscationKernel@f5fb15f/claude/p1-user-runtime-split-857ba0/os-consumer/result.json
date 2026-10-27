@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "f5fb15fea4eb729b99d2e6eedb169eae0e86240e",
+  "branch": "claude/p1-user-runtime-split-857ba0",
+  "campaign": "os-consumer",
+  "date": "2026-10-27",
+  "scope": "Branch tip: ObfuscationOS debug lane with native boot, and release build against the release SDK whose rescue applications are the never-opened stand-ins.",
+  "claims": [
+    "ObfuscationOS boots native userland on x86_64, arm32 and ppc against the debug SDK",
+    "ObfuscationOS kernel-sdk-check and distro image (incl. system-gui) link against the release SDK"
+  ],
+  "sources": [
+    {
+      "tree": "f5fb15f",
+      "commit": "f5fb15fea4eb729b99d2e6eedb169eae0e86240e",
+      "relation": "blob-identical to the commit (every tracked file)"
+    },
+    {
+      "tree": "w5",
+      "commit": "f5fb15fea4eb729b99d2e6eedb169eae0e86240e",
+      "relation": "blob-identical except the listed paths",
+      "differs": [
+        "docs/BUILD.md",
+        "docs/PLAN.md",
+        "src/rescue/README.md"
+      ],
+      "missing": [],
+      "extra": [],
+      "why_not_read": "docs/BUILD.md, docs/PLAN.md and src/rescue/README.md: documentation no command here reads"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "obfuscation_os": "ObfuscationOS@658b18b8099a6601010b4a38133dc9be598f51be (git archive, unmodified)"
+  },
+  "commands": [
+    {
+      "label": "ObfuscationOS debug lane x86_64",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-x86_64 && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/x86_64-debug-os-lane.log",
+      "log_sha256": "815bc7184ad047fb5bbb50a6ce3b95d117237e80a615269b57830414d146fd56"
+    },
+    {
+      "label": "ObfuscationOS debug lane arm32",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-arm && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/arm32-debug-os-lane.log",
+      "log_sha256": "dfc8af191cd77684952a93734d337e36cdfe90499bf63f56dd05aedd06d75686"
+    },
+    {
+      "label": "ObfuscationOS debug lane ppc",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-ppc && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/ppc-debug-os-lane.log",
+      "log_sha256": "d03555ae470ace141a381afb08700cbcc81120cd2476cd1f93b9bf787b483c87"
+    },
+    {
+      "label": "ObfuscationOS release lane x86_64",
+      "command": "cd <kernel tree> && xmake f -c -y -m release -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-x86_64 && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m release -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/release --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b kernel-sdk-check && xmake -b distro_image",
+      "returncode": 0,
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "release"
+      },
+      "log": "serial/x86_64-release-os-lane.log",
+      "log_sha256": "83c4964d62de82bfcdf1af0dfbc4654b1b7fa3ba8f3098985434f938cec31b01"
+    },
+    {
+      "label": "ObfuscationOS release lane arm32",
+      "command": "cd <kernel tree> && xmake f -c -y -m release -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-arm && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m release -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/release --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b kernel-sdk-check && xmake -b distro_image",
+      "returncode": 0,
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "release"
+      },
+      "log": "serial/arm32-release-os-lane.log",
+      "log_sha256": "cab395a6fbc2514d1ae065c4933613c477efd4c3b49bf8c73468536771c6b4c1"
+    },
+    {
+      "label": "ObfuscationOS release lane ppc",
+      "command": "cd <kernel tree> && xmake f -c -y -m release -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-ppc && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m release -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/release --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b kernel-sdk-check && xmake -b distro_image",
+      "returncode": 0,
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "release"
+      },
+      "log": "serial/ppc-release-os-lane.log",
+      "log_sha256": "2fcdca8dae992473ae4a9ed454760ecd77e3d87afb677733170f5a2157a2a7c1"
+    }
+  ],
+  "summary": {},
+  "status": "passed"
+}

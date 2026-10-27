@@ -1,0 +1,296 @@
+checking for platform ... linux (x86_64)
+checking for qemu_binary ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/x86_64-elf/bin/qemu-system-x86_64
+checking for systoolchain_dir ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/x86_64-elf
+[  2%]: <okernel_image> compiling.release src/arch/x86_64/boot.S
+[  3%]: <okernel_image> cache compiling.release src/core/kernel_main.cpp
+[  3%]: <okernel_image> cache compiling.release src/arch/x86_common/platform.cpp
+[  3%]: <okernel> compiling.release src/arch/x86_64/execution.S
+[  3%]: <okernel> cache compiling.release src/boot/raw_handoff.cpp
+[  3%]: <okernel> cache compiling.release src/boot/fdt.cpp
+[  3%]: <okernel> cache compiling.release src/core/kernel.cpp
+[  4%]: <okernel> cache compiling.release src/core/kernel_syscalls.cpp
+[  5%]: <okernel> cache compiling.release src/core/native_shutdown.cpp
+[  6%]: <okernel> cache compiling.release src/core/module.cpp
+[  7%]: <okernel> cache compiling.release src/core/entry.cpp
+[  8%]: <okernel> cache compiling.release src/rescue/disabled.cpp
+[ 10%]: <okernel> cache compiling.release tests/kernel/debug/suite.cpp
+[ 11%]: <okernel> cache compiling.release tests/kernel/points/test_point.cpp
+[ 12%]: <okernel> cache compiling.release tests/kernel/roadmap/linux_abi_tests.cpp
+[ 13%]: <okernel> cache compiling.release tests/kernel/roadmap/vm_tests.cpp
+[ 14%]: <okernel> cache compiling.release tests/kernel/roadmap/process_tests.cpp
+[ 15%]: <okernel> cache compiling.release tests/kernel/roadmap/unix_vfs_tests.cpp
+[ 16%]: <okernel> cache compiling.release tests/kernel/roadmap/module_tests.cpp
+[ 17%]: <okernel> cache compiling.release tests/kernel/roadmap/gui_tests.cpp
+[ 18%]: <okernel> cache compiling.release tests/kernel/roadmap/driver_abi_tests.cpp
+[ 20%]: <okernel> cache compiling.release tests/kernel/roadmap/smp_preempt_tests.cpp
+[ 21%]: <okernel> cache compiling.release tests/kernel/roadmap/network_storage_tests.cpp
+[ 22%]: <okernel> cache compiling.release src/driver/block.cpp
+[ 23%]: <okernel> cache compiling.release src/driver/abi.cpp
+[ 24%]: <okernel> cache compiling.release src/driver/driver.cpp
+[ 25%]: <okernel> cache compiling.release src/driver/bus_input.cpp
+[ 26%]: <okernel> cache compiling.release src/driver/display.cpp
+[ 27%]: <okernel> cache compiling.release src/fs/vfs.cpp
+[ 29%]: <okernel> cache compiling.release src/fs/simplefs.cpp
+[ 30%]: <okernel> cache compiling.release src/fs/fat.cpp
+[ 31%]: <okernel> cache compiling.release src/fs/ext4_recovery.cpp
+[ 32%]: <okernel> cache compiling.release src/fs/archive.cpp
+[ 33%]: <okernel> cache compiling.release src/fs/storage.cpp
+[ 34%]: <okernel> cache compiling.release src/fs/unix.cpp
+[ 35%]: <okernel> cache compiling.release src/fs/ext4.cpp
+[ 36%]: <okernel> cache compiling.release src/fs/fat_fs.cpp
+[ 37%]: <okernel> cache compiling.release src/fs/ext4_fs.cpp
+[ 39%]: <okernel> cache compiling.release src/gui/desktop.cpp
+[ 40%]: <okernel> cache compiling.release src/gui/gui.cpp
+[ 41%]: <okernel> cache compiling.release src/interrupt/interrupt.cpp
+[ 42%]: <okernel> cache compiling.release src/ipc/ipc.cpp
+[ 43%]: <okernel> cache compiling.release src/memory/memory.cpp
+[ 44%]: <okernel> cache compiling.release src/memory/physical_map.cpp
+[ 45%]: <okernel> cache compiling.release src/memory/runtime_frames.cpp
+[ 46%]: <okernel> cache compiling.release src/net/native_udp.cpp
+[ 48%]: <okernel> cache compiling.release src/net/net.cpp
+[ 49%]: <okernel> cache compiling.release src/posix/fd.cpp
+[ 50%]: <okernel> cache compiling.release src/posix/posix.cpp
+[ 51%]: <okernel> cache compiling.release src/posix/entropy.cpp
+[ 52%]: <okernel> cache compiling.release src/posix/process.cpp
+[ 53%]: <okernel> cache compiling.release src/posix/path.cpp
+[ 54%]: <okernel> cache compiling.release src/sched/scheduler.cpp
+[ 55%]: <okernel> cache compiling.release src/sched/process.cpp
+[ 57%]: <okernel> cache compiling.release src/smp/preempt.cpp
+[ 58%]: <okernel> cache compiling.release src/smp/smp.cpp
+[ 59%]: <okernel> cache compiling.release src/syscall/syscall.cpp
+[ 60%]: <okernel> cache compiling.release src/syscall/linux.cpp
+[ 61%]: <okernel> cache compiling.release src/user/user.cpp
+[ 62%]: <okernel> cache compiling.release src/user/runtime.cpp
+[ 63%]: <okernel> cache compiling.release src/user/runtime/pipe.cpp
+[ 64%]: <okernel> cache compiling.release src/user/runtime/loader.cpp
+[ 65%]: <okernel> cache compiling.release src/user/runtime/net.cpp
+[ 67%]: <okernel> cache compiling.release src/user/runtime/signals.cpp
+[ 68%]: <okernel> cache compiling.release src/user/runtime/entry.cpp
+[ 69%]: <okernel> cache compiling.release src/user/runtime/futex.cpp
+[ 70%]: <okernel> cache compiling.release src/user/runtime/wait.cpp
+[ 71%]: <okernel> cache compiling.release src/user/runtime/pty.cpp
+[ 72%]: <okernel> cache compiling.release src/user/runtime/vm.cpp
+[ 73%]: <okernel> cache compiling.release src/arch/arch.cpp
+[ 74%]: <okernel> cache compiling.release src/arch/clock.cpp
+[ 75%]: <okernel> cache compiling.release src/arch/realtime.cpp
+[ 77%]: <okernel> cache compiling.release src/arch/terminal_power.cpp
+[ 78%]: <okernel> cache compiling.release src/arch/x86_64/ops.cpp
+[ 79%]: <okernel> cache compiling.release src/arch/x86_64/execution.cpp
+[ 86%]: <okernel> archiving.release libokernel.a
+[ 88%]: <okernel_image> linking.release kernel.elf
+[kernel-sdk] boot-archive-construction-v1 {"ar_tool":{"entry":{"mode":"0o755","sha256":"59029bbea4c11b448c1b6eb0a14d5979d6bc2787e4198578d0b7b9ce824e8bc0"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/x86_64-elf/bin/x86_64-elf-ar"},"arch":"x86_64","argv":["/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/x86_64-elf/bin/x86_64-elf-ar","rcs","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/.kernel-sdk-87i1rjwb/lib/libokernel_boot.a","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/.objs/okernel_image/linux/x86_64/release/src/arch/x86_64/boot.S.o","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/.objs/okernel_image/linux/x86_64/release/src/core/kernel_main.cpp.o","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/.objs/okernel_image/linux/x86_64/release/src/arch/x86_common/platform.cpp.o"],"cwd":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64","kind":"sdk-boot-archive-construction-v1","members":[{"object":{"entry":{"mode":"0o644","sha256":"868f3ad2f4cc70cbbca7b0c4a4241b7fe0b179d89314239944fe674fbaebefe0"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/.objs/okernel_image/linux/x86_64/release/src/arch/x86_64/boot.S.o"},"ordinal":0},{"object":{"entry":{"mode":"0o644","sha256":"da9ea3f0d947b3ae59f658c217d7897c239e0bf5229a62f7be80e3aa0e325c49"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/.objs/okernel_image/linux/x86_64/release/src/core/kernel_main.cpp.o"},"ordinal":1},{"object":{"entry":{"mode":"0o644","sha256":"b032df09fada90650f11df438aacc260006bb5d04f3eb65a7e3cf8f28d07b1b7"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/.objs/okernel_image/linux/x86_64/release/src/arch/x86_common/platform.cpp.o"},"ordinal":2}],"mode":"release","producer":"kernel","publication":"atomic-sdk-directory-rename-v1","published_archive":{"entry":{"mode":"0o644","sha256":"8f44b5524be7c63ef685674e2e90b7a4de9f2af69a005bfbe546cf251743b472"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release/lib/libokernel_boot.a"},"published_sdk_directory":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release","returncode":0,"schema":1,"staged_archive":{"entry":{"mode":"0o644","sha256":"8f44b5524be7c63ef685674e2e90b7a4de9f2af69a005bfbe546cf251743b472"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/.kernel-sdk-87i1rjwb/lib/libokernel_boot.a"},"staging_directory":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/.kernel-sdk-87i1rjwb"}
+[kernel-sdk] exported x86_64/release: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[100%]: build ok, spent 29.796s
+checking for platform ... linux (x86_64)
+checking for musl_udp_sockname_musl_build ... no
+checking for musl_udp_musl_build ... no
+checking for systoolchain_dir ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/x86_64-elf
+checking for kernel_sdk ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+checking for musl_udp_sockname_child_manifest_sha256 ... no
+checking for native_tcp_peer_port ... no
+checking for service_graph_build ... no
+checking for managed_init_manifest_sha256 ... no
+checking for musl_udp_connected_child_manifest_sha256 ... no
+checking for musl_udp_sockname_musl_manifest_sha256 ... no
+checking for linux_journal_image_sha256 ... no
+checking for musl_udp_child_build ... no
+checking for service_graph_manifest_sha256 ... no
+checking for linux_journal_image ... no
+checking for musl_udp_child_manifest_sha256 ... no
+checking for musl_udp_connected_musl_build ... no
+checking for musl_udp_musl_manifest_sha256 ... no
+checking for managed_init_build ... no
+checking for musl_udp_connected_child_build ... no
+checking for musl_udp_sockname_child_build ... no
+checking for musl_udp_connected_musl_manifest_sha256 ... no
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[100%]: build ok, spent 0.305s
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[ 12%]: <app-init> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 13%]: <app-init> cache compiling.release apps/init/main.c
+[ 13%]: <okcrt> cache compiling.release lib/okcrt/src/storage.c
+[ 13%]: <okcrt> cache compiling.release lib/okcrt/src/pty.c
+[ 14%]: <okcrt> cache compiling.release lib/okcrt/src/errno.c
+[ 14%]: <okcrt> cache compiling.release lib/okcrt/src/stdio.c
+[ 15%]: <okcrt> cache compiling.release lib/okcrt/src/stdlib.c
+[ 15%]: <okcrt> cache compiling.release lib/okcrt/src/abi.c
+[ 15%]: <okcrt> cache compiling.release lib/okcrt/src/power.c
+[ 16%]: <okcrt> compiling.release lib/okcrt/arch/x86_64/syscall.S
+[ 16%]: <app-init> cache compiling.release apps/init/native_supervisor.c
+[ 16%]: <app-init> cache compiling.release apps/init/native_control.c
+[ 16%]: <okcrt> cache compiling.release lib/okcrt/src/console.c
+[ 16%]: <okcrt> cache compiling.release lib/okcrt/src/string.c
+[ 17%]: <app-oksh> cache compiling.release apps/oksh/main.c
+[ 17%]: <okcrt> cache compiling.release lib/okcrt/src/syscalls.c
+[ 17%]: <app-oksh> cache compiling.release apps/lib/commands.c
+[ 17%]: <app-oksh> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 18%]: <app-posix-check> cache compiling.release apps/posix-check/main.c
+[ 18%]: <app-posix-check> cache compiling.release apps/posix-check/fat.c
+[ 19%]: <app-posix-check> cache compiling.release apps/lib/commands.c
+[ 19%]: <app-posix-check> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 19%]: <app-udp-probe> cache compiling.release apps/udp-probe/main.c
+[ 20%]: <app-udp-probe> cache compiling.release apps/lib/commands.c
+[ 20%]: <app-udp-probe> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 20%]: <app-hello> cache compiling.release apps/hello/main.c
+[ 21%]: <app-hello> cache compiling.release apps/lib/commands.c
+[ 21%]: <app-hello> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 22%]: <app-cat> cache compiling.release apps/cat/main.c
+[ 22%]: <app-cat> cache compiling.release apps/lib/commands.c
+[ 22%]: <app-cat> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 23%]: <app-ls> cache compiling.release apps/ls/main.c
+[ 23%]: <app-ls> cache compiling.release apps/lib/commands.c
+[ 24%]: <app-ls> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 24%]: <app-stat> cache compiling.release apps/stat/main.c
+[ 24%]: <app-stat> cache compiling.release apps/lib/commands.c
+[ 25%]: <app-stat> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 25%]: <app-mkdir> cache compiling.release apps/mkdir/main.c
+[ 25%]: <app-mkdir> cache compiling.release apps/lib/commands.c
+[ 26%]: <app-mkdir> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 26%]: <app-rm> cache compiling.release apps/rm/main.c
+[ 27%]: <app-rm> cache compiling.release apps/lib/commands.c
+[ 27%]: <app-rm> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 27%]: <app-mv> cache compiling.release apps/mv/main.c
+[ 28%]: <app-mv> cache compiling.release apps/lib/commands.c
+[ 28%]: <app-mv> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 29%]: <app-ln> cache compiling.release apps/ln/main.c
+[ 29%]: <app-ln> cache compiling.release apps/lib/commands.c
+[ 29%]: <app-ln> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 30%]: <app-pwd> cache compiling.release apps/pwd/main.c
+[ 30%]: <app-pwd> cache compiling.release apps/lib/commands.c
+[ 31%]: <app-pwd> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 31%]: <app-whoami> cache compiling.release apps/whoami/main.c
+[ 31%]: <app-whoami> cache compiling.release apps/lib/commands.c
+[ 32%]: <app-whoami> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 32%]: <app-uname> cache compiling.release apps/uname/main.c
+[ 32%]: <app-uname> cache compiling.release apps/lib/commands.c
+[ 33%]: <app-uname> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 33%]: <app-uptime> cache compiling.release apps/uptime/main.c
+[ 34%]: <app-uptime> cache compiling.release apps/lib/commands.c
+[ 34%]: <app-uptime> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 34%]: <app-touch> cache compiling.release apps/touch/main.c
+[ 35%]: <app-touch> cache compiling.release apps/lib/commands.c
+[ 35%]: <app-touch> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 36%]: <app-settings> cache compiling.release apps/settings/main.c
+[ 36%]: <app-settings> cache compiling.release apps/lib/commands.c
+[ 36%]: <app-settings> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 37%]: <app-tasks> cache compiling.release apps/tasks/main.c
+[ 37%]: <app-tasks> cache compiling.release apps/lib/commands.c
+[ 38%]: <app-tasks> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 38%]: <app-notes> cache compiling.release apps/notes/main.c
+[ 38%]: <app-notes> cache compiling.release apps/notes/save.c
+[ 39%]: <app-notes> cache compiling.release apps/lib/commands.c
+[ 39%]: <app-notes> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 39%]: <app-about> cache compiling.release apps/about/main.c
+[ 40%]: <app-about> cache compiling.release apps/lib/commands.c
+[ 40%]: <app-about> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 41%]: <app-sync> cache compiling.release apps/sync/main.c
+[ 41%]: <app-sync> cache compiling.release apps/lib/commands.c
+[ 41%]: <app-sync> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 42%]: <app-kmodload> cache compiling.release apps/kmodload/main.c
+[ 42%]: <app-kmodload> cache compiling.release apps/lib/commands.c
+[ 43%]: <app-kmodload> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 43%]: <app-service-ctl> cache compiling.release apps/service-ctl/main.c
+[ 43%]: <app-service-ctl> cache compiling.release apps/init/native_control_client.c
+[ 44%]: <app-service-ctl> cache compiling.release apps/lib/commands.c
+[ 44%]: <app-service-ctl> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 44%]: <app-logd> cache compiling.release apps/logd/main.c
+[ 45%]: <app-logd> cache compiling.release apps/logging/transport.c
+[ 45%]: <app-logd> cache compiling.release apps/logging/store.c
+[ 46%]: <app-logd> cache compiling.release apps/logging/protocol.c
+[ 46%]: <app-logd> cache compiling.release apps/lib/commands.c
+[ 46%]: <app-logd> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 47%]: <app-logger> cache compiling.release apps/logger/main.c
+[ 47%]: <app-logger> cache compiling.release apps/logging/transport.c
+[ 48%]: <app-logger> cache compiling.release apps/logging/store.c
+[ 48%]: <app-logger> cache compiling.release apps/logging/protocol.c
+[ 48%]: <app-logger> cache compiling.release apps/lib/commands.c
+[ 49%]: <app-logger> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 49%]: <app-timed> cache compiling.release apps/timed/main.c
+[ 50%]: <app-timed> cache compiling.release apps/time/transport.c
+[ 50%]: <app-timed> cache compiling.release apps/time/protocol.c
+[ 50%]: <app-timed> cache compiling.release apps/lib/commands.c
+[ 51%]: <app-timed> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 51%]: <app-timectl> cache compiling.release apps/timectl/main.c
+[ 51%]: <app-timectl> cache compiling.release apps/time/transport.c
+[ 52%]: <app-timectl> cache compiling.release apps/time/protocol.c
+[ 52%]: <app-timectl> cache compiling.release apps/lib/commands.c
+[ 53%]: <app-timectl> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 53%]: <app-mountctl> cache compiling.release apps/mountctl/main.c
+[ 53%]: <app-mountctl> cache compiling.release apps/lib/commands.c
+[ 54%]: <app-mountctl> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 54%]: <app-resolved> cache compiling.release apps/resolved/main.c
+[ 55%]: <app-resolved> cache compiling.release apps/resolver/transport.c
+[ 55%]: <app-resolved> cache compiling.release apps/resolver/hosts.c
+[ 55%]: <app-resolved> cache compiling.release apps/resolver/protocol.c
+[ 56%]: <app-resolved> cache compiling.release apps/lib/commands.c
+[ 56%]: <app-resolved> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 57%]: <app-resolvectl> cache compiling.release apps/resolvectl/main.c
+[ 57%]: <app-resolvectl> cache compiling.release apps/resolver/transport.c
+[ 57%]: <app-resolvectl> cache compiling.release apps/resolver/hosts.c
+[ 58%]: <app-resolvectl> cache compiling.release apps/resolver/protocol.c
+[ 58%]: <app-resolvectl> cache compiling.release apps/lib/commands.c
+[ 58%]: <app-resolvectl> compiling.release lib/okcrt/arch/x86_64/crt0.S
+[ 59%]: <okcrt> archiving.release libokcrt.a
+[ 62%]: <app-init> linking.release init.elf
+[ 62%]: <app-posix-check> linking.release posix-check.elf
+[ 62%]: <app-oksh> linking.release oksh.elf
+[ 62%]: <app-udp-probe> linking.release udp-probe.elf
+[ 62%]: <app-hello> linking.release hello.elf
+[ 62%]: <app-cat> linking.release cat.elf
+[ 62%]: <app-ls> linking.release ls.elf
+[ 63%]: <app-stat> linking.release stat.elf
+[ 63%]: <app-mkdir> linking.release mkdir.elf
+[ 63%]: <app-rm> linking.release rm.elf
+[ 64%]: <app-mv> linking.release mv.elf
+[ 64%]: <app-ln> linking.release ln.elf
+[ 65%]: <app-pwd> linking.release pwd.elf
+[ 65%]: <app-whoami> linking.release whoami.elf
+[ 65%]: <app-uname> linking.release uname.elf
+[ 66%]: <app-uptime> linking.release uptime.elf
+[ 66%]: <app-touch> linking.release touch.elf
+[ 67%]: <app-settings> linking.release settings.elf
+[ 67%]: <app-tasks> linking.release tasks.elf
+[ 67%]: <app-notes> linking.release notes.elf
+[ 68%]: <app-about> linking.release about.elf
+[ 68%]: <app-sync> linking.release sync.elf
+[ 69%]: <app-kmodload> linking.release kmodload.elf
+[ 69%]: <app-service-ctl> linking.release service-ctl.elf
+[ 69%]: <app-logd> linking.release logd.elf
+[ 70%]: <app-logger> linking.release logger.elf
+[ 70%]: <app-timed> linking.release timed.elf
+[ 70%]: <app-timectl> linking.release timectl.elf
+[ 71%]: <app-mountctl> linking.release mountctl.elf
+[ 71%]: <app-resolved> linking.release resolved.elf
+[ 81%]: <app-resolvectl> linking.release resolvectl.elf
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[ 90%]: <distro_image> compiling.release modules/boot/archive.S
+[ 90%]: <distro_image> cache compiling.release modules/boot/archive.cpp
+[ 91%]: <distro_image> cache compiling.release modules/system-gui/system_gui_runtime.cpp
+[ 91%]: <distro_image> cache compiling.release modules/boot/storage.cpp
+[ 91%]: <distro_image> cache compiling.release drivers/virtio/block.cpp
+[ 91%]: <distro_image> cache compiling.release drivers/virtio/rng.cpp
+[ 91%]: <distro_image> cache compiling.release modules/boot/entropy.cpp
+[ 91%]: <distro_image> cache compiling.release modules/system-gui/external_module.cpp
+[ 91%]: <distro_image> cache compiling.release drivers/virtio/net.cpp
+[ 93%]: <distro_image> linking.release kernel.elf
+[kernel-sdk] x86_64/release version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/w5-release/kernel-x86_64/build/sdk/x86_64/release
+[100%]: build ok, spent 54.89s

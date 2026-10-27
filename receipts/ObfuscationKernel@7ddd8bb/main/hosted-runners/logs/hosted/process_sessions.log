@@ -1,0 +1,10 @@
+PASS i386 process session hosted integration
+PASS x86_64 process session hosted integration
+PASS aarch64 process session hosted integration
+PASS arm32 process session hosted integration
+PASS rv64 process session hosted integration
+PASS rv32 process session hosted integration
+PASS loongarch64 process session hosted integration
+PASS mips process session hosted integration
+PASS mips64 process session hosted integration
+PASS ppc process session hosted integration

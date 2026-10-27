@@ -1,0 +1,1691 @@
+checking for platform ... linux (ppc)
+checking for systoolchain_dir ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/powerpc-eabi
+checking for qemu_binary ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/powerpc-eabi/bin/qemu-system-ppc
+[  2%]: <okernel_image> compiling.debug src/arch/ppc/boot.S
+[  3%]: <okernel_image> cache compiling.debug src/core/kernel_main.cpp
+[  3%]: <okernel_image> cache compiling.debug src/arch/ppc/platform.cpp
+[  3%]: <okernel> compiling.debug src/arch/ppc/execution.S
+[  3%]: <okernel> cache compiling.debug src/boot/raw_handoff.cpp
+[  3%]: <okernel> cache compiling.debug src/boot/fdt.cpp
+[  4%]: <okernel> cache compiling.debug src/core/kernel_syscalls.cpp
+[  4%]: <okernel> cache compiling.debug src/core/kernel.cpp
+[  5%]: <okernel> cache compiling.debug src/core/native_shutdown.cpp
+[  6%]: <okernel> cache compiling.debug src/core/module.cpp
+[  7%]: <okernel> cache compiling.debug src/core/entry.cpp
+[  8%]: <okernel> cache compiling.debug src/rescue/file_manager.cpp
+[  9%]: <okernel> cache compiling.debug src/rescue/shell.cpp
+[ 10%]: <okernel> cache compiling.debug src/rescue/task_manager.cpp
+[ 11%]: <okernel> cache compiling.debug src/rescue/shell/status.cpp
+src/core/module.cpp: In function 'ok::Status ok::{anonymous}::parse_okmod_line(ok::ModuleImageInfo&, std::string_view)':
+src/core/module.cpp:347:61: warning: narrowing conversion of 'ok::{anonymous}::parse_unsigned(line.std::basic_string_view<char>::substr(6, ((std::basic_string_view<char>::size_type)std::basic_string_view<char>::npos)))' from 'ok::u64' {aka 'long long unsigned int'} to 'ok::uptr' {aka 'unsigned int'} [-Wnarrowing]
+  347 |         ModuleRelocation relocation{.offset = parse_unsigned(line.substr(6)), .kind = ModuleRelocationKind::relative};
+      |                                               ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 12%]: <okernel> cache compiling.debug src/rescue/shell/storage.cpp
+[ 13%]: <okernel> cache compiling.debug src/rescue/shell/network.cpp
+[ 14%]: <okernel> cache compiling.debug src/rescue/shell/task_manager.cpp
+[ 15%]: <okernel> cache compiling.debug src/rescue/shell/filesystem.cpp
+[ 16%]: <okernel> cache compiling.debug tests/kernel/debug/suite.cpp
+[ 17%]: <okernel> cache compiling.debug tests/kernel/points/test_point.cpp
+[ 18%]: <okernel> cache compiling.debug tests/kernel/roadmap/linux_abi_tests.cpp
+[ 19%]: <okernel> cache compiling.debug tests/kernel/roadmap/vm_tests.cpp
+[ 20%]: <okernel> cache compiling.debug tests/kernel/roadmap/process_tests.cpp
+[ 21%]: <okernel> cache compiling.debug tests/kernel/roadmap/unix_vfs_tests.cpp
+[ 22%]: <okernel> cache compiling.debug tests/kernel/roadmap/module_tests.cpp
+[ 23%]: <okernel> cache compiling.debug tests/kernel/roadmap/gui_tests.cpp
+[ 24%]: <okernel> cache compiling.debug tests/kernel/roadmap/driver_abi_tests.cpp
+[ 25%]: <okernel> cache compiling.debug tests/kernel/roadmap/smp_preempt_tests.cpp
+[ 26%]: <okernel> cache compiling.debug tests/kernel/roadmap/network_storage_tests.cpp
+[ 27%]: <okernel> cache compiling.debug src/driver/block.cpp
+[ 28%]: <okernel> cache compiling.debug src/driver/abi.cpp
+[ 29%]: <okernel> cache compiling.debug src/driver/driver.cpp
+[ 30%]: <okernel> cache compiling.debug src/driver/bus_input.cpp
+[ 32%]: <okernel> cache compiling.debug src/driver/display.cpp
+[ 33%]: <okernel> cache compiling.debug src/fs/vfs.cpp
+[ 34%]: <okernel> cache compiling.debug src/fs/simplefs.cpp
+[ 35%]: <okernel> cache compiling.debug src/fs/fat.cpp
+[ 36%]: <okernel> cache compiling.debug src/fs/ext4_recovery.cpp
+[ 37%]: <okernel> cache compiling.debug src/fs/archive.cpp
+[ 38%]: <okernel> cache compiling.debug src/fs/storage.cpp
+[ 39%]: <okernel> cache compiling.debug src/fs/unix.cpp
+[ 40%]: <okernel> cache compiling.debug src/fs/ext4.cpp
+[ 41%]: <okernel> cache compiling.debug src/fs/fat_fs.cpp
+[ 42%]: <okernel> cache compiling.debug src/fs/ext4_fs.cpp
+[ 43%]: <okernel> cache compiling.debug src/gui/desktop.cpp
+[ 44%]: <okernel> cache compiling.debug src/gui/gui.cpp
+[ 45%]: <okernel> cache compiling.debug src/interrupt/interrupt.cpp
+[ 46%]: <okernel> cache compiling.debug src/ipc/ipc.cpp
+[ 47%]: <okernel> cache compiling.debug src/memory/memory.cpp
+[ 48%]: <okernel> cache compiling.debug src/memory/physical_map.cpp
+[ 49%]: <okernel> cache compiling.debug src/memory/runtime_frames.cpp
+[ 50%]: <okernel> cache compiling.debug src/net/native_udp.cpp
+[ 51%]: <okernel> cache compiling.debug src/net/net.cpp
+[ 52%]: <okernel> cache compiling.debug src/posix/fd.cpp
+[ 53%]: <okernel> cache compiling.debug src/posix/posix.cpp
+[ 54%]: <okernel> cache compiling.debug src/posix/entropy.cpp
+[ 55%]: <okernel> cache compiling.debug src/posix/process.cpp
+[ 56%]: <okernel> cache compiling.debug src/posix/path.cpp
+[ 57%]: <okernel> cache compiling.debug src/sched/scheduler.cpp
+[ 58%]: <okernel> cache compiling.debug src/sched/process.cpp
+[ 59%]: <okernel> cache compiling.debug src/smp/preempt.cpp
+[ 60%]: <okernel> cache compiling.debug src/smp/smp.cpp
+[ 61%]: <okernel> cache compiling.debug src/syscall/syscall.cpp
+[ 62%]: <okernel> cache compiling.debug src/syscall/linux.cpp
+[ 64%]: <okernel> cache compiling.debug src/user/user.cpp
+[ 65%]: <okernel> cache compiling.debug src/user/runtime.cpp
+[ 66%]: <okernel> cache compiling.debug src/user/runtime/pipe.cpp
+[ 67%]: <okernel> cache compiling.debug src/user/runtime/loader.cpp
+[ 68%]: <okernel> cache compiling.debug src/user/runtime/net.cpp
+[ 69%]: <okernel> cache compiling.debug src/user/runtime/signals.cpp
+[ 70%]: <okernel> cache compiling.debug src/user/runtime/entry.cpp
+[ 71%]: <okernel> cache compiling.debug src/user/runtime/futex.cpp
+[ 72%]: <okernel> cache compiling.debug src/user/runtime/wait.cpp
+[ 73%]: <okernel> cache compiling.debug src/user/runtime/pty.cpp
+[ 74%]: <okernel> cache compiling.debug src/user/runtime/vm.cpp
+[ 75%]: <okernel> cache compiling.debug src/arch/arch.cpp
+[ 76%]: <okernel> cache compiling.debug src/arch/clock.cpp
+[ 77%]: <okernel> cache compiling.debug src/arch/realtime.cpp
+[ 78%]: <okernel> cache compiling.debug src/arch/terminal_power.cpp
+[ 79%]: <okernel> cache compiling.debug src/arch/ppc/ops.cpp
+[ 80%]: <okernel> cache compiling.debug src/arch/ppc/execution.cpp
+[ 86%]: <okernel> archiving.debug libokernel.a
+[ 88%]: <okernel_image> linking.debug kernel.elf
+[kernel-sdk] boot-archive-construction-v1 {"ar_tool":{"entry":{"mode":"0o755","sha256":"15ff778f7711b436934cc17714971638574c872c2fe334a4015882ab00c6c5d6"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/powerpc-eabi/bin/powerpc-eabi-ar"},"arch":"ppc","argv":["/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/powerpc-eabi/bin/powerpc-eabi-ar","rcs","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/.kernel-sdk-740jx7ga/lib/libokernel_boot.a","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/.objs/okernel_image/linux/ppc/debug/src/arch/ppc/boot.S.o","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/.objs/okernel_image/linux/ppc/debug/src/core/kernel_main.cpp.o","/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/.objs/okernel_image/linux/ppc/debug/src/arch/ppc/platform.cpp.o"],"cwd":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc","kind":"sdk-boot-archive-construction-v1","members":[{"object":{"entry":{"mode":"0o644","sha256":"f4b117392cf7c7e0eea75a04707dd0e3f5cada54623e8a85e97f71c9e7ea4715"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/.objs/okernel_image/linux/ppc/debug/src/arch/ppc/boot.S.o"},"ordinal":0},{"object":{"entry":{"mode":"0o644","sha256":"fdc0f3fb94c0e3700e322cfa93b505d445eac7a0830e0ac96591e1fd47f0eebf"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/.objs/okernel_image/linux/ppc/debug/src/core/kernel_main.cpp.o"},"ordinal":1},{"object":{"entry":{"mode":"0o644","sha256":"208151dad7402e889ca4395eb027de20bab30426ee0b6ea46a75722a20e2ffb8"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/.objs/okernel_image/linux/ppc/debug/src/arch/ppc/platform.cpp.o"},"ordinal":2}],"mode":"debug","producer":"kernel","publication":"atomic-sdk-directory-rename-v1","published_archive":{"entry":{"mode":"0o644","sha256":"e3507fc1a528ad4c051003c6f6cffb63bd82491b0a292ababac75c40de0ad104"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug/lib/libokernel_boot.a"},"published_sdk_directory":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug","returncode":0,"schema":1,"staged_archive":{"entry":{"mode":"0o644","sha256":"e3507fc1a528ad4c051003c6f6cffb63bd82491b0a292ababac75c40de0ad104"},"path":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/.kernel-sdk-740jx7ga/lib/libokernel_boot.a"},"staging_directory":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/.kernel-sdk-740jx7ga"}
+[kernel-sdk] exported ppc/debug: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[100%]: build ok, spent 76.003s
+checking for platform ... linux (ppc)
+checking for musl_udp_musl_build ... no
+checking for musl_udp_child_build ... no
+checking for systoolchain_dir ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/powerpc-eabi
+checking for musl_udp_connected_child_manifest_sha256 ... no
+checking for musl_udp_sockname_child_build ... no
+checking for service_graph_build ... no
+checking for linux_journal_image ... no
+checking for musl_udp_musl_manifest_sha256 ... no
+checking for managed_init_manifest_sha256 ... no
+checking for kernel_sdk ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+checking for service_graph_manifest_sha256 ... no
+checking for musl_udp_sockname_child_manifest_sha256 ... no
+checking for musl_udp_connected_musl_manifest_sha256 ... no
+checking for musl_udp_sockname_musl_manifest_sha256 ... no
+checking for musl_udp_sockname_musl_build ... no
+checking for musl_udp_child_manifest_sha256 ... no
+checking for musl_udp_connected_child_build ... no
+checking for native_tcp_peer_port ... no
+checking for musl_udp_connected_musl_build ... no
+checking for managed_init_build ... no
+checking for linux_journal_image_sha256 ... no
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[100%]: build ok, spent 0.347s
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[ 12%]: <app-init> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 12%]: <app-init> cache compiling.debug apps/init/main.c
+[ 13%]: <okcrt> cache compiling.debug lib/okcrt/src/syscalls.c
+[ 13%]: <okcrt> cache compiling.debug lib/okcrt/src/storage.c
+[ 13%]: <okcrt> cache compiling.debug lib/okcrt/src/pty.c
+[ 14%]: <okcrt> cache compiling.debug lib/okcrt/src/errno.c
+[ 14%]: <okcrt> cache compiling.debug lib/okcrt/src/stdio.c
+[ 15%]: <okcrt> cache compiling.debug lib/okcrt/src/stdlib.c
+[ 15%]: <okcrt> cache compiling.debug lib/okcrt/src/abi.c
+[ 15%]: <okcrt> cache compiling.debug lib/okcrt/src/power.c
+lib/okcrt/src/power.c: In function 'ok_power_prepare':
+lib/okcrt/src/power.c:16:27: warning: comparison of integer expressions of different signedness: 'long int' and 'unsigned int' [-Wsign-compare]
+   16 |     if (!result || result > OK_POWER_TOKEN_MAX) { errno = EIO; return -1; }
+      |                           ^
+At top level:
+cc1: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 16%]: <okcrt> compiling.debug lib/okcrt/arch/ppc/syscall.S
+[ 16%]: <app-init> cache compiling.debug apps/init/native_supervisor.c
+[ 16%]: <app-init> cache compiling.debug apps/init/native_control.c
+[ 16%]: <okcrt> cache compiling.debug lib/okcrt/src/console.c
+[ 16%]: <okcrt> cache compiling.debug lib/okcrt/src/string.c
+[ 16%]: <app-oksh> cache compiling.debug apps/oksh/main.c
+[ 17%]: <app-oksh> cache compiling.debug apps/lib/commands.c
+[ 17%]: <app-oksh> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 18%]: <app-posix-check> cache compiling.debug apps/posix-check/main.c
+[ 18%]: <app-posix-check> cache compiling.debug apps/posix-check/fat.c
+[ 18%]: <app-posix-check> cache compiling.debug apps/lib/commands.c
+[ 19%]: <app-posix-check> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 19%]: <app-udp-probe> cache compiling.debug apps/udp-probe/main.c
+[ 20%]: <app-udp-probe> cache compiling.debug apps/lib/commands.c
+[ 20%]: <app-udp-probe> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 20%]: <app-hello> cache compiling.debug apps/hello/main.c
+[ 21%]: <app-hello> cache compiling.debug apps/lib/commands.c
+[ 21%]: <app-hello> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 22%]: <app-cat> cache compiling.debug apps/cat/main.c
+[ 22%]: <app-cat> cache compiling.debug apps/lib/commands.c
+[ 22%]: <app-cat> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 23%]: <app-ls> cache compiling.debug apps/ls/main.c
+[ 23%]: <app-ls> cache compiling.debug apps/lib/commands.c
+[ 23%]: <app-ls> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 24%]: <app-stat> cache compiling.debug apps/stat/main.c
+[ 24%]: <app-stat> cache compiling.debug apps/lib/commands.c
+[ 25%]: <app-stat> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 25%]: <app-mkdir> cache compiling.debug apps/mkdir/main.c
+[ 25%]: <app-mkdir> cache compiling.debug apps/lib/commands.c
+[ 26%]: <app-mkdir> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 26%]: <app-rm> cache compiling.debug apps/rm/main.c
+[ 27%]: <app-rm> cache compiling.debug apps/lib/commands.c
+[ 27%]: <app-rm> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 27%]: <app-mv> cache compiling.debug apps/mv/main.c
+[ 28%]: <app-mv> cache compiling.debug apps/lib/commands.c
+[ 28%]: <app-mv> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 28%]: <app-ln> cache compiling.debug apps/ln/main.c
+[ 29%]: <app-ln> cache compiling.debug apps/lib/commands.c
+[ 29%]: <app-ln> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 30%]: <app-pwd> cache compiling.debug apps/pwd/main.c
+[ 30%]: <app-pwd> cache compiling.debug apps/lib/commands.c
+[ 30%]: <app-pwd> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 31%]: <app-whoami> cache compiling.debug apps/whoami/main.c
+[ 31%]: <app-whoami> cache compiling.debug apps/lib/commands.c
+[ 32%]: <app-whoami> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 32%]: <app-uname> cache compiling.debug apps/uname/main.c
+[ 32%]: <app-uname> cache compiling.debug apps/lib/commands.c
+[ 33%]: <app-uname> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 33%]: <app-uptime> cache compiling.debug apps/uptime/main.c
+[ 33%]: <app-uptime> cache compiling.debug apps/lib/commands.c
+[ 34%]: <app-uptime> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 34%]: <app-touch> cache compiling.debug apps/touch/main.c
+[ 35%]: <app-touch> cache compiling.debug apps/lib/commands.c
+[ 35%]: <app-touch> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 35%]: <app-settings> cache compiling.debug apps/settings/main.c
+[ 36%]: <app-settings> cache compiling.debug apps/lib/commands.c
+[ 36%]: <app-settings> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 37%]: <app-tasks> cache compiling.debug apps/tasks/main.c
+[ 37%]: <app-tasks> cache compiling.debug apps/lib/commands.c
+[ 37%]: <app-tasks> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 38%]: <app-notes> cache compiling.debug apps/notes/main.c
+[ 38%]: <app-notes> cache compiling.debug apps/notes/save.c
+[ 39%]: <app-notes> cache compiling.debug apps/lib/commands.c
+[ 39%]: <app-notes> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 39%]: <app-about> cache compiling.debug apps/about/main.c
+[ 40%]: <app-about> cache compiling.debug apps/lib/commands.c
+[ 40%]: <app-about> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 40%]: <app-sync> cache compiling.debug apps/sync/main.c
+[ 41%]: <app-sync> cache compiling.debug apps/lib/commands.c
+[ 41%]: <app-sync> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 42%]: <app-kmodload> cache compiling.debug apps/kmodload/main.c
+[ 42%]: <app-kmodload> cache compiling.debug apps/lib/commands.c
+[ 42%]: <app-kmodload> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 43%]: <app-service-ctl> cache compiling.debug apps/service-ctl/main.c
+[ 43%]: <app-service-ctl> cache compiling.debug apps/init/native_control_client.c
+[ 44%]: <app-service-ctl> cache compiling.debug apps/lib/commands.c
+[ 44%]: <app-service-ctl> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 44%]: <app-logd> cache compiling.debug apps/logd/main.c
+[ 45%]: <app-logd> cache compiling.debug apps/logging/transport.c
+[ 45%]: <app-logd> cache compiling.debug apps/logging/store.c
+[ 45%]: <app-logd> cache compiling.debug apps/logging/protocol.c
+[ 46%]: <app-logd> cache compiling.debug apps/lib/commands.c
+[ 46%]: <app-logd> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 47%]: <app-logger> cache compiling.debug apps/logger/main.c
+[ 47%]: <app-logger> cache compiling.debug apps/logging/transport.c
+[ 47%]: <app-logger> cache compiling.debug apps/logging/store.c
+[ 48%]: <app-logger> cache compiling.debug apps/logging/protocol.c
+apps/logging/store.c: In function 'regular':
+apps/logging/store.c:19:138: warning: comparison of integer expressions of different signedness: 'off_t' {aka 'long int'} and 'unsigned int' [-Wsign-compare]
+   19 |     if(!S_ISREG(s->st_mode)||(s->st_mode&07777)!=0600||s->st_uid||s->st_gid||s->st_nlink!=1||s->st_size<0||s->st_size>LG_LIMIT) { errno=EACCES; return -1; }
+      |                                                                                                                                          ^
+At top level:
+cc1: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 48%]: <app-logger> cache compiling.debug apps/lib/commands.c
+[ 49%]: <app-logger> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 49%]: <app-timed> cache compiling.debug apps/timed/main.c
+apps/logging/store.c: In function 'regular':
+apps/logging/store.c:19:138: warning: comparison of integer expressions of different signedness: 'off_t' {aka 'long int'} and 'unsigned int' [-Wsign-compare]
+   19 |     if(!S_ISREG(s->st_mode)||(s->st_mode&07777)!=0600||s->st_uid||s->st_gid||s->st_nlink!=1||s->st_size<0||s->st_size>LG_LIMIT) { errno=EACCES; return -1; }
+      |                                                                                                                                          ^
+At top level:
+cc1: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 49%]: <app-timed> cache compiling.debug apps/time/transport.c
+[ 50%]: <app-timed> cache compiling.debug apps/time/protocol.c
+[ 50%]: <app-timed> cache compiling.debug apps/lib/commands.c
+[ 50%]: <app-timed> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 51%]: <app-timectl> cache compiling.debug apps/timectl/main.c
+[ 51%]: <app-timectl> cache compiling.debug apps/time/transport.c
+[ 52%]: <app-timectl> cache compiling.debug apps/time/protocol.c
+[ 52%]: <app-timectl> cache compiling.debug apps/lib/commands.c
+[ 52%]: <app-timectl> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 53%]: <app-mountctl> cache compiling.debug apps/mountctl/main.c
+[ 53%]: <app-mountctl> cache compiling.debug apps/lib/commands.c
+[ 54%]: <app-mountctl> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 54%]: <app-resolved> cache compiling.debug apps/resolved/main.c
+[ 54%]: <app-resolved> cache compiling.debug apps/resolver/transport.c
+[ 55%]: <app-resolved> cache compiling.debug apps/resolver/hosts.c
+[ 55%]: <app-resolved> cache compiling.debug apps/resolver/protocol.c
+[ 55%]: <app-resolved> cache compiling.debug apps/lib/commands.c
+[ 56%]: <app-resolved> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 56%]: <app-resolvectl> cache compiling.debug apps/resolvectl/main.c
+[ 57%]: <app-resolvectl> cache compiling.debug apps/resolver/transport.c
+[ 57%]: <app-resolvectl> cache compiling.debug apps/resolver/hosts.c
+[ 57%]: <app-resolvectl> cache compiling.debug apps/resolver/protocol.c
+[ 58%]: <app-resolvectl> cache compiling.debug apps/lib/commands.c
+[ 58%]: <app-resolvectl> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 59%]: <okcrt> archiving.debug libokcrt.a
+[ 62%]: <app-init> linking.debug init.elf
+[ 62%]: <app-ls> linking.debug ls.elf
+[ 62%]: <app-oksh> linking.debug oksh.elf
+[ 62%]: <app-posix-check> linking.debug posix-check.elf
+[ 62%]: <app-udp-probe> linking.debug udp-probe.elf
+[ 62%]: <app-hello> linking.debug hello.elf
+[ 62%]: <app-cat> linking.debug cat.elf
+[ 62%]: <app-stat> linking.debug stat.elf
+[ 63%]: <app-mkdir> linking.debug mkdir.elf
+[ 63%]: <app-rm> linking.debug rm.elf
+[ 64%]: <app-mv> linking.debug mv.elf
+[ 64%]: <app-ln> linking.debug ln.elf
+[ 64%]: <app-pwd> linking.debug pwd.elf
+[ 65%]: <app-whoami> linking.debug whoami.elf
+[ 65%]: <app-uname> linking.debug uname.elf
+[ 66%]: <app-uptime> linking.debug uptime.elf
+[ 66%]: <app-touch> linking.debug touch.elf
+[ 66%]: <app-settings> linking.debug settings.elf
+[ 67%]: <app-tasks> linking.debug tasks.elf
+[ 67%]: <app-notes> linking.debug notes.elf
+[ 67%]: <app-about> linking.debug about.elf
+[ 68%]: <app-sync> linking.debug sync.elf
+[ 68%]: <app-kmodload> linking.debug kmodload.elf
+[ 69%]: <app-service-ctl> linking.debug service-ctl.elf
+[ 69%]: <app-logd> linking.debug logd.elf
+[ 69%]: <app-logger> linking.debug logger.elf
+[ 70%]: <app-timed> linking.debug timed.elf
+[ 70%]: <app-timectl> linking.debug timectl.elf
+[ 71%]: <app-mountctl> linking.debug mountctl.elf
+[ 71%]: <app-resolved> linking.debug resolved.elf
+[ 71%]: <app-resolvectl> linking.debug resolvectl.elf
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[ 89%]: <distro_image> compiling.debug modules/boot/archive.S
+[ 90%]: <distro_image> cache compiling.debug modules/boot/archive.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/system-gui/system_gui_runtime.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/boot/storage.cpp
+[ 90%]: <distro_image> cache compiling.debug drivers/virtio/block.cpp
+[ 90%]: <distro_image> cache compiling.debug drivers/virtio/rng.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/boot/entropy.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/system-gui/external_module.cpp
+[ 91%]: <distro_image> cache compiling.debug drivers/virtio/net.cpp
+[ 91%]: <distro_image> cache compiling.debug modules/system-gui/system_gui_tests.cpp
+[ 93%]: <distro_image> linking.debug kernel.elf
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[100%]: build ok, spent 55.52s
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[100%]: build ok, spent 0.546s
+checking for platform ... linux (ppc)
+checking for musl_udp_sockname_child_build ... no
+checking for linux_journal_image_sha256 ... no
+checking for managed_init_manifest_sha256 ... no
+checking for service_graph_manifest_sha256 ... no
+checking for musl_udp_sockname_child_manifest_sha256 ... no
+checking for musl_udp_connected_musl_build ... no
+checking for musl_udp_sockname_musl_build ... no
+checking for native_tcp_peer_port ... no
+checking for linux_journal_image ... no
+checking for musl_udp_connected_musl_manifest_sha256 ... no
+checking for musl_udp_musl_manifest_sha256 ... no
+checking for musl_udp_connected_child_manifest_sha256 ... no
+checking for musl_udp_child_build ... no
+checking for musl_udp_sockname_musl_manifest_sha256 ... no
+checking for musl_udp_connected_child_build ... no
+checking for systoolchain_dir ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/powerpc-eabi
+checking for service_graph_build ... no
+checking for musl_udp_child_manifest_sha256 ... no
+checking for managed_init_build ... no
+checking for musl_udp_musl_build ... no
+checking for kernel_sdk ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[ 13%]: <app-init> compiling.debug lib/okcrt/arch/ppc/crt0.S
+[ 13%]: <app-init> cache compiling.debug apps/init/main.c
+[ 55%]: <app-init> cache compiling.debug apps/init/native_supervisor.c
+[ 55%]: <app-init> cache compiling.debug apps/init/native_control.c
+[ 68%]: <app-init> linking.debug init.elf
+[100%]: build ok, spent 1.195s
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[ 89%]: <distro_image> compiling.debug modules/boot/archive.S
+[ 93%]: <distro_image> linking.debug kernel.elf
+[kernel-sdk] ppc/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/kernel-ppc/build/sdk/ppc/debug
+[100%]: build ok, spent 2.102s
+[qemu-distro] arch=ppc fs=simplefs qemu=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/powerpc-eabi/bin/qemu-system-ppc kernel=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/os-ppc/build/ppc/debug/distro/kernel.bin rootfs=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/os-runs/e-0d62887-debug/os-ppc/build/ppc/debug/rootfs.simplefs.img
+OK_NATIVE_MEMORY stage=prepare source=firmware status=pass image_begin=0x0000000001000000 image_end=0x0000000007c7b000 limit=1024
+OK_NATIVE_MEMORY_RANGE base=0x0000000007c7b000 size=0x0000000000400000
+OK_MODE debug
+OK_DEBUG boot=begin
+OK_DEBUG boot=complete
+OK_SYSTEM_GUI_FILES_ENTER status=Opening selected file in Notes
+OK_SYSTEM_GUI_HANDOFF_REFUSED reason=Notes has unsaved changes; save or close it before opening a file
+OK_SYSTEM_GUI_FILES_ENTER status=N file  F folder  R rename  D remove  J/K selects
+OK_SYSTEM_GUI_FILES_ENTER status=Opening selected file in Notes
+OK_SYSTEM_GUI_FILES_ENTER status=Opening selected file in Notes
+OK_SYSTEM_GUI_HANDOFF_REFUSED reason=Notes has unsaved changes; save or close it before opening a file
+OK_SYSTEM_GUI_FILES_ENTER status=Opening selected file in Notes
+OK_SYSTEM_GUI_HANDOFF privileged=1 path=files-notes-save-reopen
+OK_SYSTEM_GUI boot=complete
+OK_EXTENSION_TEST scope=model result=pass
+OK_MODULE name=arch state=started
+OK_MODULE name=memory state=started
+OK_MODULE name=interrupt state=started
+OK_MODULE name=scheduler state=started
+OK_MODULE name=smp state=started
+OK_MODULE name=ipc state=started
+OK_MODULE name=syscall state=started
+OK_MODULE name=driver-core state=started
+OK_MODULE name=vfs state=started
+OK_MODULE name=posix state=started
+OK_MODULE name=user-mode state=started
+OK_MODULE name=debug-shell state=started
+OK_MODULES count=12 failed=0
+OK_VM scope=model kernel_map=pass user_map=pass user_copy=pass fault=pass
+OK_PROC scope=model create=pass schedule=pass exit=pass wait=pass
+OK_ELF scope=model metadata=pass entry=pass stack=pass execution=unsupported
+OK_USERLAND scope=model service_write=pass fd=pass fork=pass exec=pass execution=unsupported
+OK_VFS mount=pass path=pass file=pass dir=pass symlink=pass
+OK_DEVFS null=pass zero=pass console=pass
+OK_PIPE create=pass transfer=pass poll=pass
+OK_TTY console=pass ioctl=pass
+OK_LINUX_ABI arch=ppc args=pass errno=pass unknown=pass
+OK_LINUX_SYSCALLS file=pass memory=pass time=pass futex=pass tls=pass
+OK_DRIVER_ABI scope=model native_probe=pass irq_model=pass mmio_model=pass remove=pass
+OK_GUI compositor=pass surface=pass restart=pass
+OK_NETDEV virtio=pass arp=pass icmp=pass socket=pass
+OK_SOCK udp=pass tcp=pass poll=pass
+OK_BLOCK disk=virtio cache=pass io=pass part=pass fat32=pass exfat=pass bounds=pass
+OK_EXT4_READONLY super=pass block=pass corrupt=pass bounds=pass
+OK_SMP scope=model topology=pass per_cpu=pass ap_start=unsupported
+OK_IRQ scope=model dispatch=pass timer=pass syscall=pass page_fault=pass hardware_delivery=unsupported
+OK_PREEMPT scope=model tick=pass selection=pass sleep=pass idle=pass context_switch=unsupported
+OK_DEBUG fs=pass user=pass display=pass
+OK_DISPLAY_TEXT [ daemon ] driver: guard armed for built-in driver processes
+OK_DISPLAY_TEXT [ daemon ] module: guard armed for kernel module processes
+OK_DISPLAY_TEXT [    0.000000] obfuscationos: C++23 kernel services online
+OK_DISPLAY_TEXT [    0.000001] arch: operations selected
+OK_DISPLAY_TEXT [    0.000002] smp: boot cpu online, secondary cpu records ready
+OK_DISPLAY_TEXT [    0.000003] memory: frame allocator and address space ready
+OK_DISPLAY_TEXT [    0.000004] driver: console timer block framebuffer pcie usb input started
+OK_DISPLAY_TEXT [    0.000005] fs: ram vfs mounted at /
+OK_DISPLAY_TEXT [    0.000006] fs: simplefs formatted on block device
+OK_DISPLAY_TEXT [ daemon ] driver: restarted drv:ram-block0 pid=7 -> 23
+OK_DISPLAY_TEXT [ daemon ] module: restarted mod:kernel-gui pid=17 -> 29
+OK_TEST_PASS arch=ppc processes=15 cpus=2 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=13395518439602740464
+OK_STORAGE source=archive reason=unrecognized-media
+OK_RUN source=ram mode=volatile pathname_sockets=bounded
+OK_ENTROPY source=virtio-rng-pci state=ready
+
+OK_NATIVE_FRAMES version=2 source=firmware used=0 total=1024 allocations=0 releases=0 pinned=0 user=0 objects=0 free=1024 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=0 active=0 quarantine=0 peak=0 reservations=0 releases=0 activations=0 syscalls=0 timers=0 faults=0 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_OBJECTS version=1 scope=kernel status=pass records=64 pages=8 slots_per_page=8 remaining=0
+
+OK_NATIVE_FRAMES version=2 source=firmware used=0 total=1024 allocations=8 releases=8 pinned=0 user=0 objects=0 free=1024 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0
+OK_NATIVE scope=hardware init=loaded
+ObfuscationOS: /init entered user mode
+OK_SLEEP_NATIVE scope=hardware sole_sleeper=pass
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=2 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+
+OK_NATIVE_PIPE_READ_WAIT pid=57 tid=57 wait=3 request=3 output=2146434136 fd=3 description=3 pipe=0 bytes=8 stage=arm live=1
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=57 tid=57 wait=3 request=3 output=2146434136 fd=3 description=3 pipe=0 bytes=8 result=8 outcome=ready pinned=0 live=0
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=5 wait=5 selector=58 output=2146433984 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=154 releases=81 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=3 releases=1 activations=1149 syscalls=1149 timers=0 faults=0 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=3 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=5 wait=5 selector=58 output=2146433984 format=status outcome=complete result=58 live=1
+OK_TIME_NATIVE scope=hardware monotonic=pass sleep=pass absolute=pass sibling=pass validation=pass
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=198 releases=125 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=4 releases=2 activations=1187 syscalls=1187 timers=0 faults=0 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=4 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_POLL_NATIVE scope=hardware nonblock=pass readiness=pass timeout=pass wake=pass peer_close=pass
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=9 wait=9 selector=60 output=2146433936 format=status outcome=arm result=-11 live=2
+hello from ObfuscationOS userland
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=260 releases=187 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=5 releases=3 activations=1318 syscalls=1318 timers=0 faults=0 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=5 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=9 wait=9 selector=60 output=2146433936 format=status outcome=complete result=60 live=1
+OK_NATIVE scope=hardware fault=contained
+
+OK_NATIVE_FRAMES version=2 source=firmware used=76 total=1024 allocations=309 releases=233 pinned=0 user=71 objects=5 free=948 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=6 releases=4 activations=1335 syscalls=1334 timers=0 faults=1 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=6 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE scope=hardware fault=contained
+
+OK_NATIVE_FRAMES version=2 source=firmware used=76 total=1024 allocations=353 releases=277 pinned=0 user=71 objects=5 free=948 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=7 releases=5 activations=1340 syscalls=1338 timers=0 faults=2 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=7 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=76 total=1024 allocations=397 releases=321 pinned=0 user=71 objects=5 free=948 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=8 releases=6 activations=1344 syscalls=1342 timers=0 faults=2 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=8 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE scope=hardware fault=contained
+
+OK_NATIVE_FRAMES version=2 source=firmware used=75 total=1024 allocations=440 releases=365 pinned=0 user=70 objects=5 free=949 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=9 releases=7 activations=1348 syscalls=1345 timers=0 faults=3 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=9 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=268 total=1024 allocations=869 releases=601 pinned=0 user=262 objects=6 free=756 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=10 releases=8 activations=1352 syscalls=1349 timers=0 faults=3 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=10 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE scope=hardware fault=contained
+
+OK_NATIVE_FRAMES version=2 source=firmware used=268 total=1024 allocations=1106 releases=838 pinned=0 user=262 objects=6 free=756 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=11 releases=9 activations=1357 syscalls=1353 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=11 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_VM_NATIVE scope=hardware map=pass zero=pass protect=pass unmap=pass fork=pass pressure=pass
+OK_VM_PAGED scope=hardware pages=192 fork=pass none=pass remap=pass rollback=pass cleanup=pass
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=10 wait=10 selector=67 output=2146433952 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=77 total=1024 allocations=1175 releases=1098 pinned=0 user=72 objects=5 free=947 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=12 releases=10 activations=1379 syscalls=1375 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=12 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=10 wait=10 selector=67 output=2146433952 format=status outcome=complete result=67 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=11 wait=11 selector=68 output=2146433952 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=77 total=1024 allocations=1219 releases=1142 pinned=0 user=72 objects=5 free=947 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=13 releases=11 activations=1384 syscalls=1380 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=13 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=11 wait=11 selector=68 output=2146433952 format=status outcome=complete result=68 live=1
+
+OK_NATIVE_PIPE_READ_WAIT pid=69 tid=69 wait=1 request=1 output=2146434180 fd=3 description=3 pipe=0 bytes=1 stage=arm live=1
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=69 tid=69 wait=1 request=1 output=2146434180 fd=3 description=3 pipe=0 bytes=1 result=1 outcome=ready pinned=0 live=0
+
+OK_NATIVE_PIPE_READ_WAIT pid=57 tid=57 wait=12 request=12 output=2146434048 fd=5 description=5 pipe=1 bytes=1 stage=arm live=1
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=57 tid=57 wait=12 request=12 output=2146434048 fd=5 description=5 pipe=1 bytes=1 result=1 outcome=ready pinned=0 live=0
+
+OK_NATIVE_FRAMES version=2 source=firmware used=76 total=1024 allocations=1265 releases=1189 pinned=0 user=71 objects=5 free=948 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=14 releases=12 activations=1399 syscalls=1395 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=14 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+
+OK_NATIVE_PIPE_READ_WAIT pid=70 tid=70 wait=1 request=1 output=2146434181 fd=3 description=3 pipe=0 bytes=1 stage=arm live=1
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=70 tid=70 wait=1 request=1 output=2146434181 fd=3 description=3 pipe=0 bytes=1 result=1 outcome=ready pinned=0 live=0
+
+OK_NATIVE_PIPE_READ_WAIT pid=57 tid=57 wait=13 request=13 output=2146434048 fd=5 description=5 pipe=1 bytes=1 stage=arm live=1
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=57 tid=57 wait=13 request=13 output=2146434048 fd=5 description=5 pipe=1 bytes=1 result=1 outcome=ready pinned=0 live=0
+
+OK_NATIVE_FRAMES version=2 source=firmware used=77 total=1024 allocations=1313 releases=1236 pinned=0 user=72 objects=5 free=947 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=15 releases=13 activations=1416 syscalls=1412 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=15 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=14 wait=14 selector=71 output=2146433952 format=status outcome=arm result=-11 live=2
+hello from ObfuscationOS userland
+
+OK_NATIVE_FRAMES version=2 source=firmware used=77 total=1024 allocations=1374 releases=1297 pinned=0 user=72 objects=5 free=947 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=16 releases=14 activations=1425 syscalls=1421 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=16 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=14 wait=14 selector=71 output=2146433952 format=status outcome=complete result=71 live=1
+OK_VM_SHARED scope=hardware fork=pass private_isolation=pass protect=pass none=pass partial_unmap=pass fixed=pass exec_exit=pass pressure=pass cleanup=pass
+OK_VM_FILE_PRIVATE scope=hardware ext4=unsupported-filesystem
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=15 wait=15 selector=72 output=2146433920 format=status outcome=arm result=-11 live=2
+hello from ObfuscationOS userland
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2296 releases=2223 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=17 releases=15 activations=1506 syscalls=1502 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=17 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=15 wait=15 selector=72 output=2146433920 format=status outcome=complete result=72 live=1
+OK_PATH scope=hardware relative_exec=pass symlink=pass
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2335 releases=2262 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=18 releases=16 activations=1520 syscalls=1516 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=18 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2374 releases=2301 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=19 releases=17 activations=1524 syscalls=1520 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=19 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2413 releases=2340 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=20 releases=18 activations=1527 syscalls=1523 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=20 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2452 releases=2379 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=3 reservations=21 releases=19 activations=1530 syscalls=1526 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=21 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=16 wait=16 selector=77 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=2530 releases=2418 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=23 releases=20 activations=1539 syscalls=1535 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=22 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=16 wait=16 selector=77 output=2146434176 format=status outcome=complete result=77 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2530 releases=2457 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=23 releases=21 activations=1543 syscalls=1539 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=2 wait=22 selector=4294967295 output=2146434824 format=status outcome=complete result=78 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=23 wait=23 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=17 wait=17 selector=79 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=2609 releases=2497 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=25 releases=22 activations=1554 syscalls=1550 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=23 wait=24 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=17 wait=17 selector=79 output=2146434176 format=status outcome=complete result=79 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2609 releases=2536 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=25 releases=23 activations=1558 syscalls=1554 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=23 wait=24 selector=4294967295 output=2146434824 format=status outcome=complete result=80 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=25 wait=25 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=18 wait=18 selector=81 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=2688 releases=2576 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=27 releases=24 activations=1569 syscalls=1565 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=25 wait=26 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=18 wait=18 selector=81 output=2146434176 format=status outcome=complete result=81 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2688 releases=2615 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=27 releases=25 activations=1573 syscalls=1569 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=25 wait=26 selector=4294967295 output=2146434824 format=status outcome=complete result=82 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=27 wait=27 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=19 wait=19 selector=83 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=2767 releases=2655 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=29 releases=26 activations=1584 syscalls=1580 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=27 wait=28 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=19 wait=19 selector=83 output=2146434176 format=status outcome=complete result=83 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2767 releases=2694 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=29 releases=27 activations=1588 syscalls=1584 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=27 wait=28 selector=4294967295 output=2146434824 format=status outcome=complete result=84 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=29 wait=29 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=20 wait=20 selector=85 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=2846 releases=2734 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=31 releases=28 activations=1599 syscalls=1595 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=29 wait=30 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=20 wait=20 selector=85 output=2146434176 format=status outcome=complete result=85 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2846 releases=2773 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=31 releases=29 activations=1603 syscalls=1599 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=29 wait=30 selector=4294967295 output=2146434824 format=status outcome=complete result=86 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=31 wait=31 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=21 wait=21 selector=87 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=2925 releases=2813 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=33 releases=30 activations=1614 syscalls=1610 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=31 wait=32 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=21 wait=21 selector=87 output=2146434176 format=status outcome=complete result=87 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=2925 releases=2852 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=33 releases=31 activations=1618 syscalls=1614 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=31 wait=32 selector=4294967295 output=2146434824 format=status outcome=complete result=88 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=33 wait=33 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=22 wait=22 selector=89 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3004 releases=2892 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=35 releases=32 activations=1629 syscalls=1625 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=33 wait=34 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=22 wait=22 selector=89 output=2146434176 format=status outcome=complete result=89 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3004 releases=2931 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=35 releases=33 activations=1633 syscalls=1629 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=33 wait=34 selector=4294967295 output=2146434824 format=status outcome=complete result=90 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=35 wait=35 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=23 wait=23 selector=91 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3083 releases=2971 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=37 releases=34 activations=1644 syscalls=1640 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=35 wait=36 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=23 wait=23 selector=91 output=2146434176 format=status outcome=complete result=91 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3083 releases=3010 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=37 releases=35 activations=1648 syscalls=1644 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=35 wait=36 selector=4294967295 output=2146434824 format=status outcome=complete result=92 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=37 wait=37 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=24 wait=24 selector=93 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3162 releases=3050 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=39 releases=36 activations=1659 syscalls=1655 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=37 wait=38 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=24 wait=24 selector=93 output=2146434176 format=status outcome=complete result=93 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3162 releases=3089 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=39 releases=37 activations=1663 syscalls=1659 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=37 wait=38 selector=4294967295 output=2146434824 format=status outcome=complete result=94 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=39 wait=39 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=25 wait=25 selector=95 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3241 releases=3129 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=41 releases=38 activations=1674 syscalls=1670 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=39 wait=40 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=25 wait=25 selector=95 output=2146434176 format=status outcome=complete result=95 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3241 releases=3168 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=41 releases=39 activations=1678 syscalls=1674 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=39 wait=40 selector=4294967295 output=2146434824 format=status outcome=complete result=96 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=41 wait=41 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=26 wait=26 selector=97 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3320 releases=3208 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=43 releases=40 activations=1689 syscalls=1685 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=41 wait=42 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=26 wait=26 selector=97 output=2146434176 format=status outcome=complete result=97 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3320 releases=3247 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=43 releases=41 activations=1693 syscalls=1689 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=41 wait=42 selector=4294967295 output=2146434824 format=status outcome=complete result=98 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=43 wait=43 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=27 wait=27 selector=99 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3399 releases=3287 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=45 releases=42 activations=1704 syscalls=1700 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=43 wait=44 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=27 wait=27 selector=99 output=2146434176 format=status outcome=complete result=99 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3399 releases=3326 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=45 releases=43 activations=1708 syscalls=1704 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=43 wait=44 selector=4294967295 output=2146434824 format=status outcome=complete result=100 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=45 wait=45 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=28 wait=28 selector=101 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3478 releases=3366 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=47 releases=44 activations=1719 syscalls=1715 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=45 wait=46 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=28 wait=28 selector=101 output=2146434176 format=status outcome=complete result=101 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3478 releases=3405 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=47 releases=45 activations=1723 syscalls=1719 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=45 wait=46 selector=4294967295 output=2146434824 format=status outcome=complete result=102 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=47 wait=47 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=29 wait=29 selector=103 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3557 releases=3445 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=49 releases=46 activations=1734 syscalls=1730 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=47 wait=48 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=29 wait=29 selector=103 output=2146434176 format=status outcome=complete result=103 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3557 releases=3484 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=49 releases=47 activations=1738 syscalls=1734 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=47 wait=48 selector=4294967295 output=2146434824 format=status outcome=complete result=104 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=49 wait=49 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=30 wait=30 selector=105 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3636 releases=3524 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=51 releases=48 activations=1749 syscalls=1745 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=49 wait=50 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=30 wait=30 selector=105 output=2146434176 format=status outcome=complete result=105 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3636 releases=3563 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=51 releases=49 activations=1753 syscalls=1749 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=49 wait=50 selector=4294967295 output=2146434824 format=status outcome=complete result=106 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=51 wait=51 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=31 wait=31 selector=107 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3715 releases=3603 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=53 releases=50 activations=1764 syscalls=1760 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=51 wait=52 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=31 wait=31 selector=107 output=2146434176 format=status outcome=complete result=107 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3715 releases=3642 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=53 releases=51 activations=1768 syscalls=1764 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=51 wait=52 selector=4294967295 output=2146434824 format=status outcome=complete result=108 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=53 wait=53 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=32 wait=32 selector=109 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3794 releases=3682 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=55 releases=52 activations=1779 syscalls=1775 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=53 wait=54 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=32 wait=32 selector=109 output=2146434176 format=status outcome=complete result=109 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3794 releases=3721 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=55 releases=53 activations=1783 syscalls=1779 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=53 wait=54 selector=4294967295 output=2146434824 format=status outcome=complete result=110 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=55 wait=55 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=33 wait=33 selector=111 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3873 releases=3761 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=57 releases=54 activations=1794 syscalls=1790 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=55 wait=56 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=33 wait=33 selector=111 output=2146434176 format=status outcome=complete result=111 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3873 releases=3800 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=57 releases=55 activations=1798 syscalls=1794 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=55 wait=56 selector=4294967295 output=2146434824 format=status outcome=complete result=112 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=57 wait=57 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=34 wait=34 selector=113 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=3952 releases=3840 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=59 releases=56 activations=1809 syscalls=1805 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=57 wait=58 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=34 wait=34 selector=113 output=2146434176 format=status outcome=complete result=113 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=3952 releases=3879 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=59 releases=57 activations=1813 syscalls=1809 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=57 wait=58 selector=4294967295 output=2146434824 format=status outcome=complete result=114 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=59 wait=59 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=35 wait=35 selector=115 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4031 releases=3919 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=61 releases=58 activations=1824 syscalls=1820 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=59 wait=60 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=35 wait=35 selector=115 output=2146434176 format=status outcome=complete result=115 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4031 releases=3958 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=61 releases=59 activations=1828 syscalls=1824 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=59 wait=60 selector=4294967295 output=2146434824 format=status outcome=complete result=116 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=61 wait=61 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=36 wait=36 selector=117 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4110 releases=3998 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=63 releases=60 activations=1839 syscalls=1835 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=61 wait=62 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=36 wait=36 selector=117 output=2146434176 format=status outcome=complete result=117 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4110 releases=4037 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=63 releases=61 activations=1843 syscalls=1839 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=61 wait=62 selector=4294967295 output=2146434824 format=status outcome=complete result=118 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=63 wait=63 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=37 wait=37 selector=119 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4189 releases=4077 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=65 releases=62 activations=1854 syscalls=1850 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=63 wait=64 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=37 wait=37 selector=119 output=2146434176 format=status outcome=complete result=119 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4189 releases=4116 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=65 releases=63 activations=1858 syscalls=1854 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=63 wait=64 selector=4294967295 output=2146434824 format=status outcome=complete result=120 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=65 wait=65 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=38 wait=38 selector=121 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4268 releases=4156 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=67 releases=64 activations=1869 syscalls=1865 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=65 wait=66 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=38 wait=38 selector=121 output=2146434176 format=status outcome=complete result=121 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4268 releases=4195 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=67 releases=65 activations=1873 syscalls=1869 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=65 wait=66 selector=4294967295 output=2146434824 format=status outcome=complete result=122 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=67 wait=67 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=39 wait=39 selector=123 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4347 releases=4235 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=69 releases=66 activations=1884 syscalls=1880 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=67 wait=68 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=39 wait=39 selector=123 output=2146434176 format=status outcome=complete result=123 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4347 releases=4274 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=69 releases=67 activations=1888 syscalls=1884 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=67 wait=68 selector=4294967295 output=2146434824 format=status outcome=complete result=124 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=69 wait=69 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=40 wait=40 selector=125 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4426 releases=4314 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=71 releases=68 activations=1899 syscalls=1895 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=69 wait=70 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=40 wait=40 selector=125 output=2146434176 format=status outcome=complete result=125 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4426 releases=4353 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=71 releases=69 activations=1903 syscalls=1899 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=69 wait=70 selector=4294967295 output=2146434824 format=status outcome=complete result=126 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=71 wait=71 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=41 wait=41 selector=127 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4505 releases=4393 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=73 releases=70 activations=1914 syscalls=1910 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=71 wait=72 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=41 wait=41 selector=127 output=2146434176 format=status outcome=complete result=127 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4505 releases=4432 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=73 releases=71 activations=1918 syscalls=1914 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=71 wait=72 selector=4294967295 output=2146434824 format=status outcome=complete result=128 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=73 wait=73 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=42 wait=42 selector=129 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4584 releases=4472 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=75 releases=72 activations=1929 syscalls=1925 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=73 wait=74 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=42 wait=42 selector=129 output=2146434176 format=status outcome=complete result=129 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4584 releases=4511 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=75 releases=73 activations=1933 syscalls=1929 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=73 wait=74 selector=4294967295 output=2146434824 format=status outcome=complete result=130 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=75 wait=75 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=43 wait=43 selector=131 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4663 releases=4551 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=77 releases=74 activations=1944 syscalls=1940 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=75 wait=76 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=43 wait=43 selector=131 output=2146434176 format=status outcome=complete result=131 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4663 releases=4590 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=77 releases=75 activations=1948 syscalls=1944 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=75 wait=76 selector=4294967295 output=2146434824 format=status outcome=complete result=132 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=77 wait=77 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=44 wait=44 selector=133 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4742 releases=4630 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=79 releases=76 activations=1959 syscalls=1955 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=77 wait=78 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=44 wait=44 selector=133 output=2146434176 format=status outcome=complete result=133 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4742 releases=4669 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=79 releases=77 activations=1963 syscalls=1959 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=77 wait=78 selector=4294967295 output=2146434824 format=status outcome=complete result=134 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=79 wait=79 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=45 wait=45 selector=135 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4821 releases=4709 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=81 releases=78 activations=1974 syscalls=1970 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=79 wait=80 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=45 wait=45 selector=135 output=2146434176 format=status outcome=complete result=135 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4821 releases=4748 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=81 releases=79 activations=1978 syscalls=1974 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=79 wait=80 selector=4294967295 output=2146434824 format=status outcome=complete result=136 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=81 wait=81 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=46 wait=46 selector=137 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4900 releases=4788 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=83 releases=80 activations=1989 syscalls=1985 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=81 wait=82 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=46 wait=46 selector=137 output=2146434176 format=status outcome=complete result=137 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4900 releases=4827 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=83 releases=81 activations=1993 syscalls=1989 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=81 wait=82 selector=4294967295 output=2146434824 format=status outcome=complete result=138 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=83 wait=83 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=47 wait=47 selector=139 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=4979 releases=4867 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=85 releases=82 activations=2004 syscalls=2000 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=83 wait=84 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=47 wait=47 selector=139 output=2146434176 format=status outcome=complete result=139 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=4979 releases=4906 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=85 releases=83 activations=2008 syscalls=2004 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=83 wait=84 selector=4294967295 output=2146434824 format=status outcome=complete result=140 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=85 wait=85 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=48 wait=48 selector=141 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5058 releases=4946 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=87 releases=84 activations=2019 syscalls=2015 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=85 wait=86 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=48 wait=48 selector=141 output=2146434176 format=status outcome=complete result=141 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5058 releases=4985 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=87 releases=85 activations=2023 syscalls=2019 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=85 wait=86 selector=4294967295 output=2146434824 format=status outcome=complete result=142 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=87 wait=87 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=49 wait=49 selector=143 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5137 releases=5025 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=89 releases=86 activations=2034 syscalls=2030 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=87 wait=88 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=49 wait=49 selector=143 output=2146434176 format=status outcome=complete result=143 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5137 releases=5064 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=89 releases=87 activations=2038 syscalls=2034 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=87 wait=88 selector=4294967295 output=2146434824 format=status outcome=complete result=144 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=89 wait=89 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=50 wait=50 selector=145 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5216 releases=5104 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=91 releases=88 activations=2049 syscalls=2045 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=89 wait=90 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=50 wait=50 selector=145 output=2146434176 format=status outcome=complete result=145 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5216 releases=5143 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=91 releases=89 activations=2053 syscalls=2049 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=89 wait=90 selector=4294967295 output=2146434824 format=status outcome=complete result=146 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=91 wait=91 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=51 wait=51 selector=147 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5295 releases=5183 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=93 releases=90 activations=2064 syscalls=2060 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=91 wait=92 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=51 wait=51 selector=147 output=2146434176 format=status outcome=complete result=147 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5295 releases=5222 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=93 releases=91 activations=2068 syscalls=2064 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=91 wait=92 selector=4294967295 output=2146434824 format=status outcome=complete result=148 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=93 wait=93 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=52 wait=52 selector=149 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5374 releases=5262 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=95 releases=92 activations=2079 syscalls=2075 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=93 wait=94 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=52 wait=52 selector=149 output=2146434176 format=status outcome=complete result=149 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5374 releases=5301 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=95 releases=93 activations=2083 syscalls=2079 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=93 wait=94 selector=4294967295 output=2146434824 format=status outcome=complete result=150 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=95 wait=95 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=53 wait=53 selector=151 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5453 releases=5341 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=97 releases=94 activations=2094 syscalls=2090 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=95 wait=96 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=53 wait=53 selector=151 output=2146434176 format=status outcome=complete result=151 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5453 releases=5380 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=97 releases=95 activations=2098 syscalls=2094 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=95 wait=96 selector=4294967295 output=2146434824 format=status outcome=complete result=152 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=97 wait=97 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=54 wait=54 selector=153 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5532 releases=5420 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=99 releases=96 activations=2109 syscalls=2105 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=97 wait=98 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=54 wait=54 selector=153 output=2146434176 format=status outcome=complete result=153 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5532 releases=5459 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=99 releases=97 activations=2113 syscalls=2109 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=97 wait=98 selector=4294967295 output=2146434824 format=status outcome=complete result=154 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=99 wait=99 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=55 wait=55 selector=155 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5611 releases=5499 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=101 releases=98 activations=2124 syscalls=2120 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=99 wait=100 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=55 wait=55 selector=155 output=2146434176 format=status outcome=complete result=155 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5611 releases=5538 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=101 releases=99 activations=2128 syscalls=2124 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=99 wait=100 selector=4294967295 output=2146434824 format=status outcome=complete result=156 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=101 wait=101 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=56 wait=56 selector=157 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5690 releases=5578 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=103 releases=100 activations=2139 syscalls=2135 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=101 wait=102 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=56 wait=56 selector=157 output=2146434176 format=status outcome=complete result=157 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5690 releases=5617 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=103 releases=101 activations=2143 syscalls=2139 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=101 wait=102 selector=4294967295 output=2146434824 format=status outcome=complete result=158 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=103 wait=103 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=57 wait=57 selector=159 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5769 releases=5657 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=105 releases=102 activations=2154 syscalls=2150 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=103 wait=104 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=57 wait=57 selector=159 output=2146434176 format=status outcome=complete result=159 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5769 releases=5696 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=105 releases=103 activations=2158 syscalls=2154 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=103 wait=104 selector=4294967295 output=2146434824 format=status outcome=complete result=160 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=105 wait=105 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=58 wait=58 selector=161 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5848 releases=5736 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=107 releases=104 activations=2169 syscalls=2165 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=105 wait=106 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=58 wait=58 selector=161 output=2146434176 format=status outcome=complete result=161 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5848 releases=5775 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=107 releases=105 activations=2173 syscalls=2169 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=105 wait=106 selector=4294967295 output=2146434824 format=status outcome=complete result=162 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=107 wait=107 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=59 wait=59 selector=163 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=5927 releases=5815 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=109 releases=106 activations=2184 syscalls=2180 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=107 wait=108 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=59 wait=59 selector=163 output=2146434176 format=status outcome=complete result=163 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=5927 releases=5854 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=109 releases=107 activations=2188 syscalls=2184 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=107 wait=108 selector=4294967295 output=2146434824 format=status outcome=complete result=164 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=109 wait=109 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=60 wait=60 selector=165 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6006 releases=5894 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=111 releases=108 activations=2199 syscalls=2195 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=109 wait=110 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=60 wait=60 selector=165 output=2146434176 format=status outcome=complete result=165 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6006 releases=5933 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=111 releases=109 activations=2203 syscalls=2199 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=109 wait=110 selector=4294967295 output=2146434824 format=status outcome=complete result=166 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=111 wait=111 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=61 wait=61 selector=167 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6085 releases=5973 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=113 releases=110 activations=2214 syscalls=2210 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=111 wait=112 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=61 wait=61 selector=167 output=2146434176 format=status outcome=complete result=167 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6085 releases=6012 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=113 releases=111 activations=2218 syscalls=2214 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=111 wait=112 selector=4294967295 output=2146434824 format=status outcome=complete result=168 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=113 wait=113 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=62 wait=62 selector=169 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6164 releases=6052 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=115 releases=112 activations=2229 syscalls=2225 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=113 wait=114 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=62 wait=62 selector=169 output=2146434176 format=status outcome=complete result=169 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6164 releases=6091 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=115 releases=113 activations=2233 syscalls=2229 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=113 wait=114 selector=4294967295 output=2146434824 format=status outcome=complete result=170 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=115 wait=115 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=63 wait=63 selector=171 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6243 releases=6131 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=117 releases=114 activations=2244 syscalls=2240 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=115 wait=116 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=63 wait=63 selector=171 output=2146434176 format=status outcome=complete result=171 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6243 releases=6170 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=117 releases=115 activations=2248 syscalls=2244 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=115 wait=116 selector=4294967295 output=2146434824 format=status outcome=complete result=172 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=117 wait=117 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=64 wait=64 selector=173 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6322 releases=6210 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=119 releases=116 activations=2259 syscalls=2255 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=117 wait=118 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=64 wait=64 selector=173 output=2146434176 format=status outcome=complete result=173 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6322 releases=6249 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=119 releases=117 activations=2263 syscalls=2259 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=117 wait=118 selector=4294967295 output=2146434824 format=status outcome=complete result=174 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=119 wait=119 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=65 wait=65 selector=175 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6401 releases=6289 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=121 releases=118 activations=2274 syscalls=2270 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=119 wait=120 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=65 wait=65 selector=175 output=2146434176 format=status outcome=complete result=175 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6401 releases=6328 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=121 releases=119 activations=2278 syscalls=2274 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=119 wait=120 selector=4294967295 output=2146434824 format=status outcome=complete result=176 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=121 wait=121 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=66 wait=66 selector=177 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6480 releases=6368 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=123 releases=120 activations=2289 syscalls=2285 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=121 wait=122 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=66 wait=66 selector=177 output=2146434176 format=status outcome=complete result=177 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6480 releases=6407 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=123 releases=121 activations=2293 syscalls=2289 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=121 wait=122 selector=4294967295 output=2146434824 format=status outcome=complete result=178 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=123 wait=123 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=67 wait=67 selector=179 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6559 releases=6447 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=125 releases=122 activations=2304 syscalls=2300 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=123 wait=124 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=67 wait=67 selector=179 output=2146434176 format=status outcome=complete result=179 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6559 releases=6486 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=125 releases=123 activations=2308 syscalls=2304 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=123 wait=124 selector=4294967295 output=2146434824 format=status outcome=complete result=180 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=125 wait=125 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=68 wait=68 selector=181 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6638 releases=6526 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=127 releases=124 activations=2319 syscalls=2315 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=125 wait=126 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=68 wait=68 selector=181 output=2146434176 format=status outcome=complete result=181 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6638 releases=6565 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=127 releases=125 activations=2323 syscalls=2319 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=125 wait=126 selector=4294967295 output=2146434824 format=status outcome=complete result=182 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=127 wait=127 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=69 wait=69 selector=183 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6717 releases=6605 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=129 releases=126 activations=2334 syscalls=2330 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=127 wait=128 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=69 wait=69 selector=183 output=2146434176 format=status outcome=complete result=183 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6717 releases=6644 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=129 releases=127 activations=2338 syscalls=2334 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=127 wait=128 selector=4294967295 output=2146434824 format=status outcome=complete result=184 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=129 wait=129 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=70 wait=70 selector=185 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6796 releases=6684 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=131 releases=128 activations=2349 syscalls=2345 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=129 wait=130 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=70 wait=70 selector=185 output=2146434176 format=status outcome=complete result=185 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6796 releases=6723 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=131 releases=129 activations=2353 syscalls=2349 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=129 wait=130 selector=4294967295 output=2146434824 format=status outcome=complete result=186 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=131 wait=131 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=71 wait=71 selector=187 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6875 releases=6763 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=133 releases=130 activations=2364 syscalls=2360 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=131 wait=132 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=71 wait=71 selector=187 output=2146434176 format=status outcome=complete result=187 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6875 releases=6802 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=133 releases=131 activations=2368 syscalls=2364 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=131 wait=132 selector=4294967295 output=2146434824 format=status outcome=complete result=188 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=133 wait=133 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=72 wait=72 selector=189 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=6954 releases=6842 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=135 releases=132 activations=2379 syscalls=2375 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=133 wait=134 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=72 wait=72 selector=189 output=2146434176 format=status outcome=complete result=189 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=6954 releases=6881 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=135 releases=133 activations=2383 syscalls=2379 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=133 wait=134 selector=4294967295 output=2146434824 format=status outcome=complete result=190 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=135 wait=135 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=73 wait=73 selector=191 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7033 releases=6921 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=137 releases=134 activations=2394 syscalls=2390 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=135 wait=136 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=73 wait=73 selector=191 output=2146434176 format=status outcome=complete result=191 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7033 releases=6960 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=137 releases=135 activations=2398 syscalls=2394 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=135 wait=136 selector=4294967295 output=2146434824 format=status outcome=complete result=192 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=137 wait=137 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=74 wait=74 selector=193 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7112 releases=7000 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=139 releases=136 activations=2409 syscalls=2405 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=137 wait=138 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=74 wait=74 selector=193 output=2146434176 format=status outcome=complete result=193 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7112 releases=7039 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=139 releases=137 activations=2413 syscalls=2409 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=137 wait=138 selector=4294967295 output=2146434824 format=status outcome=complete result=194 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=139 wait=139 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=75 wait=75 selector=195 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7191 releases=7079 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=141 releases=138 activations=2424 syscalls=2420 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=139 wait=140 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=75 wait=75 selector=195 output=2146434176 format=status outcome=complete result=195 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7191 releases=7118 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=141 releases=139 activations=2428 syscalls=2424 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=139 wait=140 selector=4294967295 output=2146434824 format=status outcome=complete result=196 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=141 wait=141 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=76 wait=76 selector=197 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7270 releases=7158 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=143 releases=140 activations=2439 syscalls=2435 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=141 wait=142 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=76 wait=76 selector=197 output=2146434176 format=status outcome=complete result=197 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7270 releases=7197 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=143 releases=141 activations=2443 syscalls=2439 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=141 wait=142 selector=4294967295 output=2146434824 format=status outcome=complete result=198 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=143 wait=143 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=77 wait=77 selector=199 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7349 releases=7237 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=145 releases=142 activations=2454 syscalls=2450 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=143 wait=144 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=77 wait=77 selector=199 output=2146434176 format=status outcome=complete result=199 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7349 releases=7276 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=145 releases=143 activations=2458 syscalls=2454 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=143 wait=144 selector=4294967295 output=2146434824 format=status outcome=complete result=200 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=145 wait=145 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=78 wait=78 selector=201 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7428 releases=7316 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=147 releases=144 activations=2469 syscalls=2465 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=145 wait=146 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=78 wait=78 selector=201 output=2146434176 format=status outcome=complete result=201 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7428 releases=7355 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=147 releases=145 activations=2473 syscalls=2469 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=145 wait=146 selector=4294967295 output=2146434824 format=status outcome=complete result=202 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=147 wait=147 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=79 wait=79 selector=203 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7507 releases=7395 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=149 releases=146 activations=2484 syscalls=2480 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=147 wait=148 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=79 wait=79 selector=203 output=2146434176 format=status outcome=complete result=203 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7507 releases=7434 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=149 releases=147 activations=2488 syscalls=2484 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=147 wait=148 selector=4294967295 output=2146434824 format=status outcome=complete result=204 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=149 wait=149 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=80 wait=80 selector=205 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=112 total=1024 allocations=7586 releases=7474 pinned=0 user=105 objects=7 free=912 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=151 releases=148 activations=2499 syscalls=2495 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=149 wait=150 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=80 wait=80 selector=205 output=2146434176 format=status outcome=complete result=205 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7586 releases=7513 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=151 releases=149 activations=2503 syscalls=2499 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=149 wait=150 selector=4294967295 output=2146434824 format=status outcome=complete result=206 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=151 wait=151 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7626 releases=7553 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=152 releases=150 activations=2515 syscalls=2511 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=151 wait=152 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=81 wait=81 selector=208 output=2146434176 format=status outcome=arm result=-11 live=2
+hello from ObfuscationOS userland
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7686 releases=7613 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=153 releases=151 activations=2527 syscalls=2523 timers=0 faults=4 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=151 wait=153 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=81 wait=81 selector=208 output=2146434176 format=status outcome=complete result=208 live=1
+OK_NATIVE scope=hardware fault=contained
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7725 releases=7652 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=154 releases=152 activations=2529 syscalls=2524 timers=0 faults=5 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=151 wait=154 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE scope=hardware fault=contained
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7764 releases=7691 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=155 releases=153 activations=2532 syscalls=2526 timers=0 faults=6 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=151 wait=155 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=1
+OK_NATIVE scope=hardware timer=preempted
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=82 wait=82 selector=211 output=2146434176 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=73 total=1024 allocations=7803 releases=7730 pinned=0 user=68 objects=5 free=951 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=156 releases=154 activations=2541 syscalls=2530 timers=5 faults=6 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=151 wait=156 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=57 tid=57 request=82 wait=82 selector=211 output=2146434176 format=status outcome=complete result=211 live=1
+OK_POSIX scope=hardware fork=pass isolation=pass exec=pass wait=pass pipe=pass efault=pass readonly=pass orphan=pass exit_status=pass file_io=pass vector_io=pass sync=pass rename=pass hardlink=pass
+
+OK_NATIVE_FRAMES version=2 source=firmware used=34 total=1024 allocations=7803 releases=7769 pinned=0 user=31 objects=3 free=990 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=1 active=0 quarantine=0 peak=4 reservations=156 releases=155 activations=2544 syscalls=2533 timers=5 faults=6 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=151 wait=156 selector=4294967295 output=2146434824 format=status outcome=complete result=57 live=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=157 wait=157 selector=4294967295 output=2146434824 format=status outcome=arm result=-11 live=1
+
+OK_NATIVE_PIPE_READ_WAIT pid=213 tid=213 wait=1 request=1 output=2146429828 fd=3 description=3 pipe=0 bytes=1 stage=arm live=1
+
+OK_NATIVE_PIPE_READ_WAIT pid=213 tid=213 wait=2 request=1 output=2146429828 fd=3 description=3 pipe=0 bytes=1 stage=rearm live=1
+
+OK_NATIVE_PIPE_READ_WAIT pid=214 tid=214 wait=1 request=1 output=2146429828 fd=3 description=3 pipe=0 bytes=1 stage=arm live=2
+
+OK_NATIVE_PIPE_READ_WAIT pid=213 tid=213 wait=3 request=1 output=2146429828 fd=3 description=3 pipe=0 bytes=1 stage=rearm live=2
+
+OK_NATIVE_PIPE_READ_WAIT pid=214 tid=214 wait=2 request=1 output=2146429828 fd=3 description=3 pipe=0 bytes=1 stage=rearm live=2
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=213 tid=213 wait=3 request=1 output=2146429828 fd=3 description=3 pipe=0 bytes=1 result=0 outcome=eof pinned=0 live=1
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=214 tid=214 wait=2 request=1 output=2146429828 fd=3 description=3 pipe=0 bytes=1 result=0 outcome=eof pinned=0 live=0
+OK_NATIVE_CHILD_WAIT pid=212 tid=212 request=1 wait=1 selector=213 output=2146429832 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_PIPE_READ_WAIT pid=214 tid=214 wait=3 request=3 output=2146434396 fd=0 description=5 pipe=1 bytes=512 stage=arm live=1
+
+OK_NATIVE_PIPE_READ_COMPLETE pid=214 tid=214 wait=3 request=3 output=2146434396 fd=0 description=5 pipe=1 bytes=512 result=33 outcome=ready pinned=0 live=0
+hello from ObfuscationOS userland
+OK_NATIVE_FRAMES version=2 source=firmware used=82 total=1024 allocations=7962 releases=7880 pinned=0 user=75 objects=7 free=942 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=3 active=0 quarantine=0 peak=4 reservations=159 releases=156 activations=2574 syscalls=2563 timers=5 faults=6 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=157 wait=158 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=212 tid=212 request=1 wait=1 selector=213 output=2146429832 format=status outcome=complete result=213 live=1
+
+OK_NATIVE_CHILD_WAIT pid=212 tid=212 request=2 wait=2 selector=214 output=2146429832 format=status outcome=arm result=-11 live=2
+
+OK_NATIVE_FRAMES version=2 source=firmware used=61 total=1024 allocations=7962 releases=7901 pinned=0 user=56 objects=5 free=963 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=2 active=0 quarantine=0 peak=4 reservations=159 releases=157 activations=2579 syscalls=2568 timers=5 faults=6 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=157 wait=159 selector=4294967295 output=2146434824 format=status outcome=rearm result=-11 live=2
+OK_NATIVE_CHILD_WAIT pid=212 tid=212 request=2 wait=2 selector=214 output=2146429832 format=status outcome=complete result=214 live=1
+
+OK_NATIVE_FRAMES version=2 source=firmware used=34 total=1024 allocations=7962 releases=7928 pinned=0 user=31 objects=3 free=990 pending=0 reserve=270 user_limit=754 object_quarantine=0
+OK_NATIVE_SHARED_FILES_LEDGER version=1 files=0 aliases=0 retiring_files=0 retained_frames=0 reserved_cells=0
+
+OK_ENTRY_STACKS version=1 scope=actual-user cpu=0 capacity=128 usable_bytes=65536 backing_bytes=9437184 leased=1 active=0 quarantine=0 peak=4 reservations=159 releases=158 activations=2580 syscalls=2569 timers=5 faults=6 rejected=0 guards=mapped-canaries smp=0
+OK_NATIVE_CHILD_WAIT pid=1 tid=1 request=157 wait=159 selector=4294967295 output=2146434824 format=status outcome=complete result=212 live=0
+OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass

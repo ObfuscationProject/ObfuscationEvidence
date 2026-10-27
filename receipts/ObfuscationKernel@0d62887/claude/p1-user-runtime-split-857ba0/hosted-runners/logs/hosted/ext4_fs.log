@@ -1,0 +1,83 @@
+Creating regular file /tmp/ok-ext4-92bs9j1y/ext4-1024.img
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/tmp/ok-ext4-92bs9j1y/ext4-1024.img: 16/4096 files (0.0% non-contiguous), 1050/16384 blocks
+PASS ext4 write: overwrite, holes, zero write, truncate, open unlink, mkdir/rmdir, inode/block reuse, links, replacement, directory topology, inline/extent/direct-block symlinks
+PASS ext4 reopen: persisted data, size, directory entries
+PASS 1058 injected ext4 read/write/flush failures: dirty marker and sticky quarantine
+PASS ext4 namespace extent-capacity failure preserves source links and quarantines partial mutation
+PASS malformed ext4 group, extent, directory and inode metadata rejected before mutation
+PASS malformed inline, extent and direct-block symlinks reject unsafe layouts without writes
+PASS ext4 symlink allocation rollback restores inode counts/bitmap; 50 rollback I/O faults quarantine
+PASS ext4 32-bit UID/GID ownership round trips without truncation
+PASS retained unlinked ext4 nodes survive cache reuse; released nodes fail safely
+PASS read-only ext4 mount rejects mutation
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/tmp/ok-ext4-92bs9j1y/ext4-1024.img: 29/4096 files (0.0% non-contiguous), 1061/16384 blocks
+PASS unsupported/unclean ext4 is rejected without modification
+PASS hosted ext4 1024-byte blocks: mutation, reopen and offline e2fsck
+Creating regular file /tmp/ok-ext4-92bs9j1y/ext4-2048.img
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/tmp/ok-ext4-92bs9j1y/ext4-2048.img: 16/4096 files (0.0% non-contiguous), 529/8192 blocks
+PASS ext4 write: overwrite, holes, zero write, truncate, open unlink, mkdir/rmdir, inode/block reuse, links, replacement, directory topology, inline/extent/direct-block symlinks
+PASS ext4 reopen: persisted data, size, directory entries
+PASS 1058 injected ext4 read/write/flush failures: dirty marker and sticky quarantine
+PASS ext4 namespace extent-capacity failure preserves source links and quarantines partial mutation
+PASS malformed ext4 group, extent, directory and inode metadata rejected before mutation
+PASS malformed inline, extent and direct-block symlinks reject unsafe layouts without writes
+PASS ext4 symlink allocation rollback restores inode counts/bitmap; 48 rollback I/O faults quarantine
+PASS ext4 32-bit UID/GID ownership round trips without truncation
+PASS retained unlinked ext4 nodes survive cache reuse; released nodes fail safely
+PASS read-only ext4 mount rejects mutation
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/tmp/ok-ext4-92bs9j1y/ext4-2048.img: 29/4096 files (0.0% non-contiguous), 540/8192 blocks
+PASS unsupported/unclean ext4 is rejected without modification
+PASS hosted ext4 2048-byte blocks: mutation, reopen and offline e2fsck
+Creating regular file /tmp/ok-ext4-92bs9j1y/ext4-4096.img
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/tmp/ok-ext4-92bs9j1y/ext4-4096.img: 16/4096 files (0.0% non-contiguous), 269/4096 blocks
+PASS ext4 write: overwrite, holes, zero write, truncate, open unlink, mkdir/rmdir, inode/block reuse, links, replacement, directory topology, inline/extent/direct-block symlinks
+PASS ext4 reopen: persisted data, size, directory entries
+PASS 1058 injected ext4 read/write/flush failures: dirty marker and sticky quarantine
+PASS ext4 namespace extent-capacity failure preserves source links and quarantines partial mutation
+PASS malformed ext4 group, extent, directory and inode metadata rejected before mutation
+PASS malformed inline, extent and direct-block symlinks reject unsafe layouts without writes
+PASS ext4 symlink allocation rollback restores inode counts/bitmap; 48 rollback I/O faults quarantine
+PASS ext4 32-bit UID/GID ownership round trips without truncation
+PASS retained unlinked ext4 nodes survive cache reuse; released nodes fail safely
+PASS read-only ext4 mount rejects mutation
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+/tmp/ok-ext4-92bs9j1y/ext4-4096.img: 29/4096 files (0.0% non-contiguous), 280/4096 blocks
+PASS unsupported/unclean ext4 is rejected without modification
+PASS hosted ext4 4096-byte blocks: mutation, reopen and offline e2fsck
+Creating regular file /tmp/ok-ext4-92bs9j1y/default-ext4.img
+PASS unsupported/unclean ext4 is rejected without modification
+e2fsck 1.47.0 (5-Feb-2023)
+e2fsck 1.47.0 (5-Feb-2023)
+e2fsck 1.47.0 (5-Feb-2023)
+e2fsck 1.47.0 (5-Feb-2023)
+e2fsck 1.47.0 (5-Feb-2023)
+e2fsck 1.47.0 (5-Feb-2023)

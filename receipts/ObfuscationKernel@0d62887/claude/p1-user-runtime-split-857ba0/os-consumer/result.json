@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "0d62887fec9beb477f39257565eb97a00f4bb07e",
+  "branch": "claude/p1-user-runtime-split-857ba0",
+  "campaign": "os-consumer",
+  "date": "2026-10-27",
+  "scope": "Runtime split: ObfuscationOS distro built against the exported debug SDK, native userland boot.",
+  "claims": [
+    "ObfuscationOS builds and boots native userland (acceptance=pass) on x86_64, arm32 and ppc"
+  ],
+  "sources": [
+    {
+      "tree": "0d62887",
+      "commit": "0d62887fec9beb477f39257565eb97a00f4bb07e",
+      "relation": "blob-identical to the commit (every tracked file)"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "obfuscation_os": "ObfuscationOS@658b18b8099a6601010b4a38133dc9be598f51be (git archive, unmodified)"
+  },
+  "commands": [
+    {
+      "label": "ObfuscationOS debug lane x86_64",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-x86_64 && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/x86_64-debug-os-lane.log",
+      "log_sha256": "a56ae64ee45c06d67c761e7840940737a0ab6b6a6abcc7fbc06160dafeff714f"
+    },
+    {
+      "label": "ObfuscationOS debug lane arm32",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-arm && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/arm32-debug-os-lane.log",
+      "log_sha256": "40623fddc2d49acd88d2808527d6583ab7a3034b45e584fba22c1a80e507e377"
+    },
+    {
+      "label": "ObfuscationOS debug lane ppc",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-ppc && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/ppc-debug-os-lane.log",
+      "log_sha256": "0ebdebb0f9f4a079110e2305aad44b8a11763c3bb3e71f5ef3c4a074e5104593"
+    }
+  ],
+  "summary": {},
+  "status": "passed"
+}

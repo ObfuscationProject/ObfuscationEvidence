@@ -1,0 +1,5 @@
+# hosted runners
+for each scripts/test_<name>.py: python3 scripts/test_<name>.py [--output <dir>]  # runners needing any other required argument are recorded as skip
+
+# host syntax sweep (tests/host/*.cpp, tests/native/*.cpp)
+for each file: g++ -std=c++23 -fsyntax-only -w -DOK_ARCH_TARGET_X86_64 -DOK_ENABLE_TEST_POINTS -Iinclude -Isrc -Isrc/user -Isrc/net -Itests -Itests/host <file>

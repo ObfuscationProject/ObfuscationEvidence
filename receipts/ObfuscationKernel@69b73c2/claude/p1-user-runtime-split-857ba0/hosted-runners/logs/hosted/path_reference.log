@@ -1,0 +1,20 @@
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS i386: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS x86_64: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS aarch64: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS arm32: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS rv64: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS rv32: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS loongarch64: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS mips: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS mips64: path-reference ownership model
+PASS hosted path-reference cleanup: publish after release, pin accounting, first-error priority, fd reuse
+PASS ppc: path-reference ownership model

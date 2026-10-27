@@ -1,0 +1,3 @@
+N64_SIGNAL_PLATFORM_PASS before-cxx=1 fp=fr1
+OK_NATIVE_MEMORY stage=prepare source=linker reason=unsupported-firmware-profile limit=1024
+OK_KERNEL_BOOT scope=kernel mode=release arch=mips64 status=ready

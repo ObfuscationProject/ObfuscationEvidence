@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/base-src/scripts/test_native_shutdown_runtime.py", line 64, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/base-src/scripts/test_native_shutdown_runtime.py", line 52, in main
+    run([xmake,'build','-P',source,'-j2','-v','native-shutdown-runtime-'+arch],arch+'-build')
+  File "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/base-src/scripts/test_native_shutdown_runtime.py", line 25, in run
+    if result.returncode:raise RuntimeError(label+' failed; retained '+str(log))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: x86_64-build failed; retained /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/hosted-base/native_shutdown_runtime/x86_64-build.log

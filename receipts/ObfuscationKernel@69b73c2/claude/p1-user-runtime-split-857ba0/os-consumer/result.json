@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "69b73c2ac97370f3531217f97e4fc97605f2c18b",
+  "branch": "claude/p1-user-runtime-split-857ba0",
+  "campaign": "os-consumer",
+  "date": "2026-10-27",
+  "scope": "Signal header collapse: ObfuscationOS kernel-sdk-check and native boot against the new exported header set.",
+  "claims": [
+    "ObfuscationOS accepts the SDK and boots native userland on x86_64, arm32 and ppc"
+  ],
+  "sources": [
+    {
+      "tree": "w4",
+      "commit": "69b73c2ac97370f3531217f97e4fc97605f2c18b",
+      "relation": "blob-identical except the listed paths",
+      "differs": [
+        "scripts/check_runtime_split.py",
+        "src/user/README.md"
+      ],
+      "missing": [],
+      "extra": [],
+      "why_not_read": "src/user/README.md and scripts/check_runtime_split.py: documentation and a ratchet no command here runs"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "obfuscation_os": "ObfuscationOS@658b18b8099a6601010b4a38133dc9be598f51be (git archive, unmodified)"
+  },
+  "commands": [
+    {
+      "label": "ObfuscationOS debug lane x86_64",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-x86_64 && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/x86_64-debug-os-lane.log",
+      "log_sha256": "2b13a4cf68002189c1a1626f88031cb27e49a2d1024ee8099328a0c266ed4cc4"
+    },
+    {
+      "label": "ObfuscationOS debug lane arm32",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-arm && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/arm32-debug-os-lane.log",
+      "log_sha256": "534f07bfbea4a6d0d9544240db048812f3ccfb3bcead5eaa4849579570f9bae8"
+    },
+    {
+      "label": "ObfuscationOS debug lane ppc",
+      "command": "cd <kernel tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-ppc && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+      "returncode": 0,
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+      "sdk": {
+        "abi_version": 74,
+        "kernel_gui": false,
+        "mode": "debug"
+      },
+      "log": "serial/ppc-debug-os-lane.log",
+      "log_sha256": "c85a2eecb21063b8f3b4ebedf9be75246c3c6c989e0ff799664e8ef030e56e55"
+    }
+  ],
+  "summary": {},
+  "status": "passed"
+}

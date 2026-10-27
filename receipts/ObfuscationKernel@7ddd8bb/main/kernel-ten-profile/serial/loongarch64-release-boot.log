@@ -1,0 +1,2 @@
+OK_NATIVE_MEMORY stage=prepare source=linker reason=unsupported-firmware-profile limit=1024
+OK_KERNEL_BOOT scope=kernel mode=release arch=loongarch64 status=ready

@@ -1,0 +1,17 @@
+# compile src/user/runtime.cpp (all)
+for mode in release,debug; for each profile: <compile-flags.json[<mode>-<profile>]> -fsyntax-only <each of src/user/runtime.cpp>  # run from the tree root
+
+# compile src/user/runtime.cpp (signal-fixture)
+for mode in debug; for each profile: <compile-flags.json[<mode>-<profile>]> -DOK_PRIVATE_SIGNAL_DELIVERY_FIXTURE -fsyntax-only <each of src/user/runtime.cpp>  # run from the tree root
+
+# compile src/user/runtime.cpp (futex-fixture)
+for mode in debug; for each profile: <compile-flags.json[<mode>-<profile>]> -DOK_PRIVATE_FUTEX_PEER_FIXTURE -fsyntax-only <each of src/user/runtime.cpp>  # run from the tree root
+
+# kernel debug x86_64
+cd <tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug arm32
+cd <tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<systoolchain>/arm-none-eabi/bin/qemu-system-arm && xmake -y -j 6 -b okernel_image && xmake test
+
+# kernel debug ppc
+cd <tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<systoolchain>/powerpc-eabi/bin/qemu-system-ppc && xmake -y -j 6 -b okernel_image && xmake test

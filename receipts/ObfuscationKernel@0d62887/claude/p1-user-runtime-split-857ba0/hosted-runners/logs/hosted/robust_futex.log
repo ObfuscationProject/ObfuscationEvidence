@@ -1,0 +1,1 @@
+PASS robust-futex checks=1470 hosted; guest=0 smp=0

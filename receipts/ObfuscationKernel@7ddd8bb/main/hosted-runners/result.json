@@ -1,0 +1,1973 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "7ddd8bb99333bd184d87f8ce6cd8539e775facbc",
+  "branch": "main",
+  "campaign": "hosted-runners",
+  "date": "2026-10-27",
+  "scope": "Baseline: every scripts/test_*.py hosted runner and a host syntax sweep over tests/.",
+  "claims": [
+    "records which hosted runners pass, fail or need extra arguments before WT1.4"
+  ],
+  "sources": [
+    {
+      "tree": "base-src",
+      "commit": "7ddd8bb99333bd184d87f8ce6cd8539e775facbc",
+      "relation": "blob-identical to the commit (every tracked file)"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "clang": "Ubuntu clang version 18.1.3 (1ubuntu1)",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "obfuscation_os": "ObfuscationOS@658b18b8099a6601010b4a38133dc9be598f51be (git archive, unmodified)"
+  },
+  "commands": [
+    {
+      "label": "hosted runners",
+      "command": "for each scripts/test_<name>.py: python3 scripts/test_<name>.py [--output <dir>]  # runners needing any other required argument are recorded as skip",
+      "returncode": 0,
+      "counts": {
+        "fail": 85,
+        "pass": 58,
+        "skip": 52
+      }
+    },
+    {
+      "label": "host syntax sweep (tests/host/*.cpp, tests/native/*.cpp)",
+      "command": "for each file: g++ -std=c++23 -fsyntax-only -w -DOK_ARCH_TARGET_X86_64 -DOK_ENABLE_TEST_POINTS -Iinclude -Isrc -Isrc/user -Isrc/net -Itests -Itests/host <file>",
+      "returncode": 0,
+      "ok": 441,
+      "err": 71,
+      "log": "logs/host-syntax-sweep.txt",
+      "log_sha256": "49197a10de9a06d28ed8582dbf8b930f56407183775a9df438a143e3e7b65abd"
+    }
+  ],
+  "summary": {
+    "hosted": {
+      "counts": {
+        "fail": 85,
+        "pass": 58,
+        "skip": 52
+      }
+    },
+    "note": "Failures are pre-existing: most runners still listed src/apps after the rescue move, others lack arch backends or fixtures."
+  },
+  "hosted_runners": [
+    {
+      "runner": "scripts/test_access_semantics.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/access_semantics.log",
+      "log_sha256": "19090bb67aa6dbd3a5bab48173ed8a8db922e11d5a0dbd59e3f22ef78e695ee9",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/access-semantics-x86_64 buildaccess_semantics_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cp",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_archive.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/archive.log",
+      "log_sha256": "f4b0e72ee7f25e8dfc4291491a4fb9cb985175ad8c75b6bd137260137cdadc1c"
+    },
+    {
+      "runner": "scripts/test_block_cache.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/block_cache.log",
+      "log_sha256": "8a63a3ca4e428ac19f2723812e640ed7af7b6d161c13e2b1d92fb1fffd8dc8ad"
+    },
+    {
+      "runner": "scripts/test_block_sessions.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/block_sessions.log",
+      "log_sha256": "ded1fa74c39ba39f363944de7100f2829bacd53345e2dbabadbc115f86a043f4"
+    },
+    {
+      "runner": "scripts/test_checked_ownership.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_checked_vfs.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/checked_vfs.log",
+      "log_sha256": "67387c4c6a6b6b25c471ec81cb73105011740bb95e4ebdedf6ce7d102ad81895"
+    },
+    {
+      "runner": "scripts/test_child_autoreap_scheduler.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/child_autoreap_scheduler.log",
+      "log_sha256": "7b7a98115df71fcf30f550be51cc88539483ff050979521947d9cc92d0ccf51c",
+      "failure_signature": [
+        "error \u001b[0msrcscheduler.cpp:1794:10: fatal error: unix_rights.inc: No such file or directory"
+      ]
+    },
+    {
+      "runner": "scripts/test_clock_counter.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/clock_counter.log",
+      "log_sha256": "925e06e348a608de2dc998cf9efec7073cf904108127ace13928119731fbb566"
+    },
+    {
+      "runner": "scripts/test_console_input.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/console_input.log",
+      "log_sha256": "39687d25a2ed706db6fdc7a6fdc6fd3914df334ef2f86019f1a12431dd719f3c",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/console-input-lease-x86_64 buildnative_console_lease_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buil",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_deadlines.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/deadlines.log",
+      "log_sha256": "51e76fef1cf30c0c61832caf09b6cdbef6c0a71efa6396e2aa53c4f141baf876"
+    },
+    {
+      "runner": "scripts/test_display_input_uapi.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/display_input_uapi.log",
+      "log_sha256": "ff624bf6c93de0a9fee89fa03dda2d364f1431238982a96faa2a9969d628fe07"
+    },
+    {
+      "runner": "scripts/test_e820_memory.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/e820_memory.log",
+      "log_sha256": "13e1e707b63fb453c1047974d2b1bbadc71ad79779e2ba02c427485b84cb034f"
+    },
+    {
+      "runner": "scripts/test_ext4_attributes.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_attributes.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "runner": "scripts/test_ext4_bounds.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_bounds.log",
+      "log_sha256": "4039280c83b2dcbc1caa20cebcf36ed65c6a554da8e7281ac8ffd5b6b4002339"
+    },
+    {
+      "runner": "scripts/test_ext4_completion.py",
+      "status": "skip",
+      "detail": "requires --fixture",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_directory_mode.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_first_data.py",
+      "status": "skip",
+      "detail": "requires --created-empty-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_fs.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_fs.log",
+      "log_sha256": "9e6896560adf819d9c65805ecfa0fd3a28c44580d94ac61ba20c3f5986ca55d7"
+    },
+    {
+      "runner": "scripts/test_ext4_initial_attributes.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_initial_attributes.log",
+      "log_sha256": "f1912cfa7068b13fad5506f96ea758ef60e4e878e0b26fc2f4fab60f0e9ac6d0"
+    },
+    {
+      "runner": "scripts/test_ext4_inode_lifetime.py",
+      "status": "skip",
+      "detail": "requires --source-hashes",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_journalled_mode.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_maintained_times.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_maintained_times.log",
+      "log_sha256": "d58261f3217d47d468334c355f73efeb1526f03a3eac11b66cbd1251802e66f4"
+    },
+    {
+      "runner": "scripts/test_ext4_mounted.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_mounted_create.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_namespace_cold_replay.py",
+      "status": "skip",
+      "detail": "requires --filled-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_namespace_completion.py",
+      "status": "skip",
+      "detail": "requires --image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_namespace_journal.py",
+      "status": "skip",
+      "detail": "requires --image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_namespace_owner_regressions.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_namespace_recovery_binding.py",
+      "status": "skip",
+      "detail": "requires --image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_namespace_replay.py",
+      "status": "skip",
+      "detail": "requires --filled-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_namespace_transaction.py",
+      "status": "skip",
+      "detail": "requires --image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_next_data.py",
+      "status": "skip",
+      "detail": "requires --empty-created-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_orphan_access.py",
+      "status": "skip",
+      "detail": "requires --source-hashes",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_orphan_ownership.py",
+      "status": "skip",
+      "detail": "requires --source-hashes",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_orphan_reclaim_plan.py",
+      "status": "skip",
+      "detail": "requires --source-hashes",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_owned.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_owned_edges.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_recovery.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_recovery.log",
+      "log_sha256": "d8c1c5af11dafc8fd56f72e6939dd13c4b923261e77a1ce5e24993821e0a32ec"
+    },
+    {
+      "runner": "scripts/test_ext4_rename_relocation.py",
+      "status": "skip",
+      "detail": "requires --attempt",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ext4_replay_shape.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_replay_shape.log",
+      "log_sha256": "452cc26caea7df335ba33f97c98b3508f9ce5fee30843fa5ab5b6de91605582c"
+    },
+    {
+      "runner": "scripts/test_ext4_replay_view.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/ext4_replay_view.log",
+      "log_sha256": "0ac45a0a7214f9e4974af78250796dd53bc00d0d5750f212155427e6857da4f6"
+    },
+    {
+      "runner": "scripts/test_ext4_transaction.py",
+      "status": "skip",
+      "detail": "requires --clean-image",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_fat_fs.py",
+      "status": "skip",
+      "detail": "requires --tools",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_fd_readiness.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/fd_readiness.log",
+      "log_sha256": "ccbb88a9e1781e26db1f357f31eea300eb90394039c41d88b94be1200a551447",
+      "failure_signature": [
+        "undef ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)",
+        "undef ok::net::NativeUdpService::close(unsigned int)"
+      ]
+    },
+    {
+      "runner": "scripts/test_fdt_memory.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/fdt_memory.log",
+      "log_sha256": "8c956f17fe4ff0e8e91eaec3473bb9b9ef256a5f22df65674ec6b7a541e38062"
+    },
+    {
+      "runner": "scripts/test_file_attributes.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/file_attributes.log",
+      "log_sha256": "5cd0d69ce41ef2315702965f5dfc409c23676590d5d32ce417ff038abf55d81f"
+    },
+    {
+      "runner": "scripts/test_firmware_handoff.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/firmware_handoff.log",
+      "log_sha256": "d211b0e73d3595d5bad36cbae231e4784e9b8f812875196e25a5d1a154ec6d3d"
+    },
+    {
+      "runner": "scripts/test_frame_allocator.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/frame_allocator.log",
+      "log_sha256": "0456124d2d89482b9b9d90d55d02f25adf76b6d6450b78ec8b69afaf2f786708"
+    },
+    {
+      "runner": "scripts/test_initial_child.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/initial_child.log",
+      "log_sha256": "c83eb230ccb485b7e3a7018fb91ebe8e15d6c63f3f2fe1b89fc648a9836a8b30",
+      "failure_signature": [
+        "undef ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)",
+        "undef ok::net::NativeUdpService::close(unsigned int)"
+      ]
+    },
+    {
+      "runner": "scripts/test_irq_wait_time.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/irq_wait_time.log",
+      "log_sha256": "e3e2c1db80d8ca1ad9147a991d683ad3ba85f6e98fd3938361073585089249fa"
+    },
+    {
+      "runner": "scripts/test_jbd2.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/jbd2.log",
+      "log_sha256": "77ebd5ffe4fdf4f39e8cd57e77149e74016e2e0efdf8624cf909e8cb0ad24bf6",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_jbd2_replay.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/jbd2_replay.log",
+      "log_sha256": "a4538dce0942554c3ca2e6f823901a1c52bf29b43aa7a82e58342920f20e423c",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_kernel_entry_stack_pool.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/kernel_entry_stack_pool.log",
+      "log_sha256": "8b3adbe279523603c83defeb8bb64ddedb167b90fd9db56d358d6a59105e9e38",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testskernel_entry_stack_pool_tests.cpp:1:",
+        "error oknative_signal_config.hpp: No such file or directory"
+      ]
+    },
+    {
+      "runner": "scripts/test_kernel_services.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/kernel_services.log",
+      "log_sha256": "3b0feb174ea8a9a497ca52a5e12d48971f9315f63af4479321208bb5151b92fe",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::KernelDebugShell::close_surface_window(unsigned short)",
+        "undef ok::KernelDebugShell::execute(std::basic_string_view<char, std::char_traits<char> >)",
+        "undef ok::KernelDebugShell::handle_key(unsigned short, int)",
+        "undef ok::KernelDebugShell::handle_surface_changed(unsigned short)",
+        "undef ok::KernelDebugShell::interrupt_foreground_process()",
+        "undef ok::KernelDebugShell::notify_process_exit(unsigned long)",
+        "undef ok::KernelDebugShell::owns_surface(unsigned short) const",
+        "undef ok::KernelDebugShell::reconcile_gui_windows()",
+        "undef ok::KernelDebugShell::scroll_gui_history(int)",
+        "undef ok::KernelDebugShell::show_gui()",
+        "undef ok::KernelDebugShell::start_foreground_process(unsigned long)",
+        "undef ok::KernelDebugShell::tick()",
+        "undef ok::apps::KernelFileManager::close(ok::gui::GuiCompositor&)",
+        "undef ok::apps::KernelFileManager::handle_key(ok::gui::GuiCompositor&, ok::fs::VirtualFileSystem&, int)",
+        "undef ok::apps::KernelFileManager::handle_mouse(ok::gui::GuiCompositor&, ok::fs::VirtualFileSystem&, int, int, bool)",
+        "undef ok::apps::KernelFileManager::handle_surface_changed(ok::gui::GuiCompositor&, ok::fs::VirtualFileSystem&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelFileManager::open(ok::gui::GuiCompositor&, ok::fs::VirtualFileSystem&, std::basic_string_view<char, std::char_traits<char> >, ok::user::Credentials, unsigned long)",
+        "undef ok::apps::KernelTaskManager::close(ok::gui::GuiCompositor&)",
+        "undef ok::apps::KernelTaskManager::handle_key(ok::gui::GuiCompositor&, ok::Kernel&, int)",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::open(ok::gui::GuiCompositor&, ok::Kernel&, ok::user::Credentials, unsigned long, ok::apps::TaskMonitorProgram)",
+        "undef ok::apps::KernelTaskManager::refresh(ok::gui::GuiCompositor&, ok::Kernel&)",
+        "undef ok::apps::KernelTaskManager::scroll_processes(ok::gui::GuiCompositor&, ok::Kernel&, int)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_access_targets.py",
+      "status": "skip",
+      "detail": "requires --toolchains",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_bootstrap.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_bootstrap.log",
+      "log_sha256": "8ca2d7aa7ff8597e30f63dc26e173aee66a1777d0c296c5ace5c287788a72c7a",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_linux_chmod.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_chmod.log",
+      "log_sha256": "0f18630367e5e45a00d8fb65501ed9dfeba1daac8a00ecc74cfbe1b333e6e0d3",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o buildchmod-dispatch buildlinux_chmod_dispatch_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp.o ",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_chmod_provider.py",
+      "status": "skip",
+      "detail": "requires --oracle",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_chmod_service.py",
+      "status": "skip",
+      "detail": "requires --oracle",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_chmod_targets.py",
+      "status": "skip",
+      "detail": "requires --toolchains",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_clock_set.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_clock_set.log",
+      "log_sha256": "858f433ec43af158cbc8b4bdcdda5d65afc18eef6715cc7d6dd20d0e09e59937",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_clone_preparation.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_clone_preparation.log",
+      "log_sha256": "a58aea8013d266c5c0fbde65737978fd96e182a41c01cf51022d5da3830ce96a"
+    },
+    {
+      "runner": "scripts/test_linux_credentials.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_credentials.log",
+      "log_sha256": "cc395afc2b48f8a7aa7df588798580c492ccd9322a1612bd6d4a6bfa3a97cec5",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/saved-credentials-x86_64 buildlinux_credentials_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_directory.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_directory.log",
+      "log_sha256": "ac7ebda2e0edba63b834c283748db23502eafb5ddf0fcc9cabba629b514d7b2f",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_dynamic_exec_x86_64.py",
+      "status": "skip",
+      "detail": "requires --main-elf",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_exec.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_exec.log",
+      "log_sha256": "22e9b5a0f0a90741c75d2f9c1865f15da3e5c065dac23c0cfaffc058773a9c50"
+    },
+    {
+      "runner": "scripts/test_linux_fds.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_fds.log",
+      "log_sha256": "e6103a9af80773dfeebdf77d64d570329de36e515a3ce28025ccfff009d6b84f",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_mkdir.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_mkdir.log",
+      "log_sha256": "ae7aedbfd48ff6ac992ffe7d8f091c0d27fadd554de2927aa8a9d2dda26f0e3f",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_native_bridge.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_native_bridge.log",
+      "log_sha256": "301bc01dcac9364316484c844ac0387d43ec85cff4bd66ad144f8e03f3e23014"
+    },
+    {
+      "runner": "scripts/test_linux_openat.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_openat.log",
+      "log_sha256": "0fef37b73fc54465d6deacb9c973b00805b650cc762d85a7ec77e4f967db26bd",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_owned_stat_bootstrap_targets.py",
+      "status": "skip",
+      "detail": "requires --toolchains",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_paths.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_paths.log",
+      "log_sha256": "32a01a2add060298a532115976dc517b930a83dcd34ed8b7363da94e5e6b1ff8",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_pipes.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_pipes.log",
+      "log_sha256": "94d0e724a9c609b085212eb0a8da04db303167f7dea9dd1d0fb6d2f33f274fad",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_poll.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_poll.log",
+      "log_sha256": "f228f67b1ba3513534f49ae97192caa7797b20353c643f27f83e44661b10e5e7",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_positional.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_positional.log",
+      "log_sha256": "2557f3ec00bebd7e33bcdc8b7014c8ba06fb0a562223b0b76149c16888ce1277",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_process.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_process.log",
+      "log_sha256": "a0912b1e15a75899e729b244496276f32a1fb2f15c5e133fe23f29bfc6ca365e",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_rename.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_rename.log",
+      "log_sha256": "8cb125c9a3b7b1e052c8c7f3c37c1a7d36bc3c280766ab12347307154c292419",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_runtime.py",
+      "status": "skip",
+      "detail": "requires --elf",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_seek.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_seek.log",
+      "log_sha256": "cab730c30bf309b4287c718dcf5b45f2d507ddeae683aaa966560daa7b5848b2",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_select.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_select.log",
+      "log_sha256": "cd1da8488033d9dcb4f5d74d37217dd2d4d0403e098b1473b10b534f4072272b",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_sleep.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_sleep.log",
+      "log_sha256": "b29e084322454248831ae91599dcc2255c0d38e4cebc70dd679f485a087103fc",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_stat.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_stat.log",
+      "log_sha256": "857848813e367ed6c5768e8bcc4322045e5d6605c2b4f09340f83433bb50ceab",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o buildstat-dispatch buildlinux_stat_dispatch_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp.o bu",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_stat_blocks_oracle.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_stat_blocks_oracle.log",
+      "log_sha256": "2ac4d9a76071add56a2f38a9837d75e8ad440a00072c8f92952c8eac8d4d91ed"
+    },
+    {
+      "runner": "scripts/test_linux_stat_copy_order.py",
+      "status": "skip",
+      "detail": "requires --oracle",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_stat_provider.py",
+      "status": "skip",
+      "detail": "requires --oracle",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_stat_service.py",
+      "status": "skip",
+      "detail": "requires --oracle",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_linux_udp_connected.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_udp_connected.log",
+      "log_sha256": "f19328e514d237b67f1ef5cc2acf1385a9e39bf29be9f0cdea248062a3447d80",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/linux_udp_connected_runtime buildlinux_udp_connected_runtime_tests.cpp.o -Lbuildrelease -lruntime-common -Wl,--gc-sections) failed(1), unknown reason\u001b[0m",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_udp_restart.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_udp_restart.log",
+      "log_sha256": "5ba72978a95e8eac8842798cfabeec597a756fee8d5b83947a4bd70883737151",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_linux_udp_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_udp_signal.log",
+      "log_sha256": "2c5ecc49736bc9b967ac1709b12192aae708b708d285ceb1fe93163e4fc3e728",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/linux_udp_dispatch_integration buildlinux_udp_dispatch_integration_tests.cpp.o -Lbuildrelease -lruntime-common -Wl,--gc-sections) failed(1), unknown reason\u001b[0m",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_udp_sockname.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_udp_sockname.log",
+      "log_sha256": "7cebaa05cf1cf65ae64d16e79439129344cee31e6bf9ca2e36c934706a452def",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/linux_udp_sockname_runtime buildlinux_udp_sockname_runtime_tests.cpp.o -Lbuildrelease -lruntime-common -Wl,--gc-sections) failed(1), unknown reason\u001b[0m",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_umask.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_umask.log",
+      "log_sha256": "d26e9a91b7bc22061eab818c4507a90d5f8e7e137d62204b26706387e0a0627e",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_linux_user_abi.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/linux_user_abi.log",
+      "log_sha256": "e1b20f6fd92932da00eb2c34885364c4fc4bb79247fea0105dae0db633c87f0f"
+    },
+    {
+      "runner": "scripts/test_mapping_view.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/mapping_view.log",
+      "log_sha256": "e46cffe8561c50891f842305b85e456ca0ce6c2de84f94cc521972ee6239f94a"
+    },
+    {
+      "runner": "scripts/test_metadata_buffers.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/metadata_buffers.log",
+      "log_sha256": "10fdacbc19d300fd0f15ba28bf8b71ffd7f92ceade004b163ee69e4121065e1b"
+    },
+    {
+      "runner": "scripts/test_mount_info_uapi_cross.py",
+      "status": "skip",
+      "detail": "requires --toolchain-root",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_aarch64.py",
+      "status": "skip",
+      "detail": "requires --toolchain",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_arm32.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_arm32.log",
+      "log_sha256": "f4c3c4496051302a4096e5e757463faf24b1a67325252f76762f44263ad27363",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_child_exit_exec_audit.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_child_exit_exec_audit.log",
+      "log_sha256": "5c6d4fc846eb03e98565832b9f42e2528b236a06a2ea57e51a194dbf7c13a7ae",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/child-exit-exec-audit-x86_64 buildnative_child_exit_exec_audit_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_child_exit_lifecycle.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_child_exit_lifecycle.log",
+      "log_sha256": "a38eddf5a954c066a0ca0d71c1c67011e06b3deb772443bd4577f03b214d8081"
+    },
+    {
+      "runner": "scripts/test_native_child_exit_runtime.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_child_exit_runtime.log",
+      "log_sha256": "5ff65b4c874eb8c98ad781a1a8b2eb9e7f41774f2e827eaa8d0996785d54fdad",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/child-exit-runtime-x86_64 buildnative_child_exit_runtime_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o ",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_child_siginfo.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_child_siginfo.log",
+      "log_sha256": "c386c7e2d032348ae24f87169349ee57450d543d3bb2b96f443973fb2497dd85"
+    },
+    {
+      "runner": "scripts/test_native_child_wait_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_child_wait_signal.log",
+      "log_sha256": "387cb478561dfb2dc53d4564bf83001754f9c5d0b5aaea39cba9d8bf0f4d6245",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/child-wait-signal-x86_64 buildnative_child_wait_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o bu",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_console_control.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_console_control.log",
+      "log_sha256": "581fca509c3913c38a76d2eab2b23b03938b006efa194618c08072d1b7016f06",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/console-control-x86_64 buildnative_console_control_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o builda",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_credentials.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_credentials.log",
+      "log_sha256": "e80dd40b46651fc1ea93e65cf53df4db8cc82fa921b0d05b5122db181205daff",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/saved-credentials-x86_64 buildnative_credentials_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_entry_stacks.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_entry_stacks.log",
+      "log_sha256": "2a81c502b40c003a531bf3062c419aa2d7a32725aae377d155f45cab373de24c",
+      "failure_signature": [
+        "error \u001b[0msrcscheduler.cpp:1794:10: fatal error: unix_rights.inc: No such file or directory"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_firmware_handoff.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_firmware_handoff.log",
+      "log_sha256": "dfcb21c7fde36522cf67eb1cea34f8856879e97bfccf0417b2ebbd37beec7cda",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_futex.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_futex.log",
+      "log_sha256": "1caea8862ab160be70f7a612f4e56f9f20da18f6dc85a15b5c0af522b92546d7",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_futex_origin.py",
+      "status": "skip",
+      "detail": "requires --ppc-elf",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_futex_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_futex_signal.log",
+      "log_sha256": "5a750b87b326ce3a3aad7d0c3573f5187e224b83944555d3e82b97306f96a35b",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/futex-signal-x86_64 buildnative_futex_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_group_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_group_signal.log",
+      "log_sha256": "bc57ae1596a6790eaf11e75124e1f6c0f0a6e16e17624d85eb6502a754aabb8c",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/group-signals-x86_64 buildnative_group_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cp",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_i386.py",
+      "status": "skip",
+      "detail": "requires --toolchain",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_loongarch64.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_loongarch64.log",
+      "log_sha256": "1f5e8b023b0cb9e40d2ea9fb957176ef404bd86ddb265b019250d94bd3aee58c",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_mapping_pages.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_mapping_pages.log",
+      "log_sha256": "880c68ceefc001ab27020baca30202f20a8bda6be9a8bdca87b9a7dba6b4259b"
+    },
+    {
+      "runner": "scripts/test_native_metadata.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_metadata.log",
+      "log_sha256": "15fe7f292282ee213fb827df2ee1f30cd307779a27f7e2a4736c3959dde037bd"
+    },
+    {
+      "runner": "scripts/test_native_mips.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_mips.log",
+      "log_sha256": "8f50b9d8eb00fe51204fa57223793faf42427ee78025a657c8f45957a5feab8e",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_mount_info.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_mount_info.log",
+      "log_sha256": "2f816f047420e3a85c31a34d26367abc627baa5673a24a90b8ad96f71e27415c",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/native-mount-info-x86_64 buildnative_mount_info_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_object_isolation.py",
+      "status": "skip",
+      "detail": "requires --toolchains",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_page_pool.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_page_pool.log",
+      "log_sha256": "f10b516acfc603442216756635b0fadee8a6a850906c976adebc5e213f856034"
+    },
+    {
+      "runner": "scripts/test_native_pipe_blocking_write.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_blocking_write.log",
+      "log_sha256": "5f5f7d4592b76b1a4d824dcd7f602b0c3cb0be5cdbdd13f7a1a2be82609e33a6",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/pipe-blocking-write-x86_64 buildnative_pipe_blocking_write_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_pipe_read_continuation.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_read_continuation.log",
+      "log_sha256": "c85739ddb3e9662432eb22dd265b75afaf4f61955cf548b0fff86e03568594c9",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_pipe_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_signal.log",
+      "log_sha256": "da4410326d24d1e308694b2704ac8c64d35797631c5eed51624e91782e1e506c",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/pipe-signal-x86_64 buildnative_pipe_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp.o",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_pipe_sigpipe.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_sigpipe.log",
+      "log_sha256": "a797fe3b61752b5f588f0b88e16885bb627b21809b520265ff91c39049ec6174",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/pipe-sigpipe-x86_64 buildnative_pipe_sigpipe_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_pipe_vector_continuation.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_vector_continuation.log",
+      "log_sha256": "b9699ac2869fddb6e698c52e796b86e1c484b8b446004753e577738d3ba29370",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_pipe_vector_origin.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_vector_origin.log",
+      "log_sha256": "8e74a8de9f2cb8d2df482e85d8885d75066a46299020d8703ba09745fa6c29f7",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_pipe_vector_publication.py",
+      "status": "skip",
+      "detail": "requires --ppc-elf",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_pipe_vector_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_vector_signal.log",
+      "log_sha256": "ce657558fbcce4ee5bc1370307fdf82dbcab1b373d0c0c69c34081f6e53d4351",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/pipe-vector-signal-x86_64 buildnative_pipe_vector_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o ",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_pipe_write_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_pipe_write_signal.log",
+      "log_sha256": "7380b7b8835296da633a284770bde6f2e412fc5e1d22db0572aaf60ba35cddb5",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/pipe-write-signal-x86_64 buildnative_pipe_write_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o bu",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_poll.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_poll.log",
+      "log_sha256": "46556e87a48874be5b6a18b631cee24cf260805802adab469a2023ff18b2d8a3",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_poll_objects.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_poll_objects.log",
+      "log_sha256": "7b70773da627ae618837e10a337d14392769f18a3f50f874a105c5fee7355d59",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_poll_object_tests.cpp:2:",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_poll_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_poll_signal.log",
+      "log_sha256": "a1f711f8925d8a266608e05cb3bf64986420fb8efd8da4e584b2f70fc2fc7560",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/poll-signal-x86_64 buildnative_poll_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp.o",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_poll_temporary_mask.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_poll_temporary_mask.log",
+      "log_sha256": "a5fa5747ab6f6b8a5e818ca9db8a21041669067b599ab9356226f5cc6f123c4b",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/poll-mask-x86_64 buildnative_poll_temporary_mask_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_ppc.py",
+      "status": "skip",
+      "detail": "requires --toolchain",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_process_memory_failure.py",
+      "status": "skip",
+      "detail": "requires --sdk-matrix",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_process_signal.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_process_signal.log",
+      "log_sha256": "93c2d60985bec456b1e29b4e93459dc0b81b1840baba0d9f5142d10027954afa",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/process-signal-x86_64 buildnative_process_signal_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_process_signal_waits.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_process_signal_waits.log",
+      "log_sha256": "9f46cd97dd9243310460d7dbe6c63df78bd28c05c619386b99ab376ce6d026ef",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/pipe_signal buildprocess_shared_pipe_signal.cpp.o -Lbuildrelease -lsupport -fsanitize=address,undefined -no-pie -Wl,--gc-sections) failed(1), unknown reason\u001b[0",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_qualified_memory.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_qualified_memory.log",
+      "log_sha256": "e82c6fc0a903cb8b6c16aa9549173b47390ec1def730c657c9ae70add67f7906",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_restart_regressions.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_restart_regressions.log",
+      "log_sha256": "1b051242320672d253479cabac8b42f34c5f13270170402cdf49deb1c74cf3fe",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_robust.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_robust.log",
+      "log_sha256": "16fcbd368fc6324eda7d7dfc488c6319ff7c750274c7ccecedc13ead5c399e91",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_runtime_frames.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_runtime_frames.log",
+      "log_sha256": "154dc23d8f5acbaf326c72772b6811e3b4eb8eedde3996e6c2ac3ba7d163bc05",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_rv32.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_rv32.log",
+      "log_sha256": "96a70b547bb79004dd11254ce309531201394f1046a9956ff480856e02b2a994",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_rv64.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_rv64.log",
+      "log_sha256": "62d318d70d0c1d27fae0bab227b033dce9ed3b7242da994ffca3d61153391cf8",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_sessions.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_sessions.log",
+      "log_sha256": "2d28903998a9cb49a8f01348f6816093964d02aa37c1395353e5ce445697f18a",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/process-sessions-x86_64 buildnative_sessions_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_shutdown_runtime.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_shutdown_runtime.log",
+      "log_sha256": "d816c4cd026dd118dbe77e99b1d5a19f0920f6101c99e2e32781c3b92f021f33",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/native-shutdown-runtime-x86_64 buildnative_shutdown_runtime_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_action.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_action.log",
+      "log_sha256": "63b1b4e9dafae4545fe90185948a442dd022e43ec5a33850db423d66dc1e10aa"
+    },
+    {
+      "runner": "scripts/test_native_signal_altstack_delivery.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_altstack_delivery.log",
+      "log_sha256": "2cabbb51992b184f13216aece36db403f04c70dedaed472fd9e258ff463871ca",
+      "failure_signature": [
+        "error \u001b[0m@programdirmain.lua:274: @programdirmain.lua:162: @programdirrunjobs.lua:282: @programdirobject.lua:96: @programdirgcc.lua:1061: In file included from includeexecution.hpp:4,",
+        "error oknative_signal_config.hpp: No such file or directory"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_delivery_x86_64.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_delivery_x86_64.log",
+      "log_sha256": "7c1014ea3d3f034aebb6f7e520fbad3b524025ef84bd2dc9048303eba3b5fcd0",
+      "failure_signature": [
+        "error \u001b[0m@programdirmain.lua:274: @programdirmain.lua:162: @programdirrunjobs.lua:282: @programdirobject.lua:96: @programdirgcc.lua:1061: In file included from includeexecution.hpp:4,",
+        "error oknative_signal_config.hpp: No such file or directory"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_exec.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_exec.log",
+      "log_sha256": "0aa12704e3077992d5924b0e7d4fc418fc3e2ef483f82c98dd840050c606a163",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/native-signal-exec-x86_64 buildnative_signal_exec_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildab",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_frame_aarch64.py",
+      "status": "skip",
+      "detail": "requires --toolchain",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_signal_frame_x86_64.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_frame_x86_64.log",
+      "log_sha256": "f5cee9cc741fb299feb42c7e7a56b01b2810888083fe61d123361c8413489ebf",
+      "failure_signature": [
+        "error \u001b[0mIn file included from includeexecution.hpp:4,",
+        "error oknative_signal_config.hpp: No such file or directory"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_mask.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_mask.log",
+      "log_sha256": "1a7555244d7331ffd2d8927fe0b70d0011c15a1ca0f386195a6632e95a0da855"
+    },
+    {
+      "runner": "scripts/test_native_signal_mips64_n64.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_mips64_n64.log",
+      "log_sha256": "0eb0b16bee871f69bd5c541e5a522c233d4d78130102b5af7d53a4df527230e4"
+    },
+    {
+      "runner": "scripts/test_native_signal_mips_o32.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_mips_o32.log",
+      "log_sha256": "08952e81e2632b7c61613f6a5a7d0a8b2cac76ef33757c7b4ecd3a5e269ad3d9",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_native_signal_ppc32.py",
+      "status": "skip",
+      "detail": "requires --linux-elf",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_signal_production.py",
+      "status": "skip",
+      "detail": "requires --mode",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_signal_runtime.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_runtime.log",
+      "log_sha256": "aba0647e5c2c98f76943c9912afd2a291abba599b8d62e3ac18ef7b79db8ff3d",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error no matching function for call to \u2018ok::user::native::Image::Image()\u2019",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_target.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_target.log",
+      "log_sha256": "0c01bc31f1e48650d3f7ec768062d2c48f2dee27a166bcb3f7869ca0179d6f3f",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/directed-signals-x86_64 buildnative_signal_target_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildab",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_wait.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_wait.log",
+      "log_sha256": "76652194a5b5d7b5f3ba6c3907589800334082336c849cc49806a0693bdcbb32",
+      "failure_signature": [
+        "error \u001b[0mexecv(x86_64-linux-gnu-g++-13 -o bin/signal-wait-x86_64 buildnative_signal_wait_tests.cpp.o buildkernel.cpp.o buildkernel_syscalls.cpp.o buildmodule.cpp.o buildnative_shutdown.cpp.o buildabi.cpp.o",
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_signal_wait_codec.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_signal_wait_codec.log",
+      "log_sha256": "f0829489f4352354af8e92b745f97d88ad0e3d66d4a72494c15f49bff02c7fd2"
+    },
+    {
+      "runner": "scripts/test_native_sleep_interruption.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_sleep_interruption.log",
+      "log_sha256": "4291e451237e953f39acb3bf6ac21bce1b3c119a6b823d56f3b860fbc26c92a3",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_stat.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_stat.log",
+      "log_sha256": "b16a00660b2ed90357d6b318eac1a73dc61755b68b448ae6fb1b9a08a01b52ff",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::execution::ownership_report()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_syscall_origin.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_syscall_origin.log",
+      "log_sha256": "7d47a1a2d26d24050e5ecfe10df40597aaa3a2a0cc9a4baf7e6d97e99fbbb0b8",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error no matching function for call to \u2018ok::user::native::Image::Image(<brace-enclosed initializer list>)\u2019",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_syscall_restart.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_syscall_restart.log",
+      "log_sha256": "e9d56e94beee07cb32bb4c1e7962c9bd1343d4f8b97a4f64507c7a4ba9395cf4"
+    },
+    {
+      "runner": "scripts/test_native_syscall_restart_publication.py",
+      "status": "skip",
+      "detail": "requires --ppc-elf",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_native_thread_io.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_thread_io.log",
+      "log_sha256": "ac52f0a4a3af987aa0cc73fa290baf7bc0cf61631b9e82f9fbdcecebb511c5d4",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_threads.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_threads.log",
+      "log_sha256": "da402bcb0a7453f1b39683a536a585dbada46a041182f81428da42419f803c21",
+      "failure_signature": [
+        "error \u001b[0mIn file included from testsnative_clock_model.hpp:3,",
+        "error static assertion failed"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_vm.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_vm.log",
+      "log_sha256": "047868c46acf080850a89731c7c9e59555e10a91bd8e6d42231ebb38a3bb966c",
+      "failure_signature": [
+        "undef ok::sched::DescriptorReservation::cancel()",
+        "undef ok::sched::DescriptorReservation::~DescriptorReservation()",
+        "undef ok::sched::SchedulerState::release_description(unsigned short)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_wait_ownership.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/native_wait_ownership.log",
+      "log_sha256": "905abf794d904af95c2b387af42368484a9be1a65262dbd32025c7cbbde6182c",
+      "failure_signature": [
+        "undef ok::KernelDebugShell::attach(ok::Kernel&)",
+        "undef ok::apps::KernelFileManager::mark_closed()",
+        "undef ok::apps::KernelTaskManager::mark_closed()",
+        "undef ok::arch::preflight_terminal_power_action(ok::SystemPowerAction)"
+      ]
+    },
+    {
+      "runner": "scripts/test_native_x86_64.py",
+      "status": "skip",
+      "detail": "requires --toolchain",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_network_wire.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/network_wire.log",
+      "log_sha256": "8e6a3f7dd2f719c6dd42ee6f271bd5a863e6bb4c03bba97893b2f7423b339320"
+    },
+    {
+      "runner": "scripts/test_object_pool.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/object_pool.log",
+      "log_sha256": "b2c86500bb94d67bd0865ecb8df1ceeb83c8a6e89b633801f7bb6a5ee9045c0f"
+    },
+    {
+      "runner": "scripts/test_path_reference.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/path_reference.log",
+      "log_sha256": "45819465106caed1b8f2c98b40f0b00c61e9caf1064101932079e75e620dd07a"
+    },
+    {
+      "runner": "scripts/test_pending_signals.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/pending_signals.log",
+      "log_sha256": "09e30e6cfb3bbb7802eef8acfc824af71cb04e7f5781efeb77e45753a1742af1"
+    },
+    {
+      "runner": "scripts/test_persistent_sync.py",
+      "status": "skip",
+      "detail": "requires --fixture",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_persistent_sync_cross.py",
+      "status": "skip",
+      "detail": "requires --toolchain-root",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_posix_ext4_truncate.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/posix_ext4_truncate.log",
+      "log_sha256": "49a95dbb6858fc87c126ddaaec177c94092502f0b688b41a86ab0f86a3f514d6",
+      "failure_signature": [
+        "undef ok::memory::FrameAllocator::allocate()",
+        "undef ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)",
+        "undef ok::net::NativeUdpService::close(unsigned int)"
+      ]
+    },
+    {
+      "runner": "scripts/test_power_uapi_cross.py",
+      "status": "skip",
+      "detail": "requires --toolchain-root",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_ppc_tlb.py",
+      "status": "skip",
+      "detail": "requires --qemu",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_process_resources.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/process_resources.log",
+      "log_sha256": "d875684efd55e36839cfa496a6ef2180cf00657b7b3e8e41b4a8109641a1cd13"
+    },
+    {
+      "runner": "scripts/test_process_sessions.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/process_sessions.log",
+      "log_sha256": "f7549e0a7e6c536df38c266325ccf71e208c00b2ecccfc876f39ddb9d39d0d8b"
+    },
+    {
+      "runner": "scripts/test_qualified_memory.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/qualified_memory.log",
+      "log_sha256": "10c9ee1122e470827d9468c32d91a180fdcd14c76747e4db4384b9e40a9d3936"
+    },
+    {
+      "runner": "scripts/test_realtime.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/realtime.log",
+      "log_sha256": "b5ce15d986626cd9fde1a31771f7590758985be3daaff5576a73398892993111"
+    },
+    {
+      "runner": "scripts/test_realtime_clock.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/realtime_clock.log",
+      "log_sha256": "fa6653d9ac6884a70b2ec45321806f088b1c665cfe7b65ba2cf3e11cb93ed154"
+    },
+    {
+      "runner": "scripts/test_robust_futex.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/robust_futex.log",
+      "log_sha256": "ce3840887d9161ff86a4780335029fa46a99e9c007e25aa612fa886c5e11e1e4"
+    },
+    {
+      "runner": "scripts/test_runtime_frame_bridge.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/runtime_frame_bridge.log",
+      "log_sha256": "93a594f0a4e9f39225417264872792265dc77e085e15ce28c50cd0ab00383d4e"
+    },
+    {
+      "runner": "scripts/test_runtime_frames.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/runtime_frames.log",
+      "log_sha256": "3651c1a849cdfabd2647fcc16094383c96d3d887b4d22e2373fc913e64a2c71b"
+    },
+    {
+      "runner": "scripts/test_scheduler_waits.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/scheduler_waits.log",
+      "log_sha256": "ee8efcf578ee09cf8fdda1b9415c10c669dab8842d9fd194d7048887647bc5c7"
+    },
+    {
+      "runner": "scripts/test_service_stack.py",
+      "status": "fail",
+      "detail": "1",
+      "run": "hosted-base",
+      "log": "logs/hosted/service_stack.log",
+      "log_sha256": "dfc4b576d1afbb10c3f2c514b79f65745143e6bc433713690e493aff067fda5d",
+      "failure_signature": []
+    },
+    {
+      "runner": "scripts/test_shutdown_coordinator.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/shutdown_coordinator.log",
+      "log_sha256": "9e77d7915707b709ad62647f2b08654a06143a173d65a4426194551391701de2"
+    },
+    {
+      "runner": "scripts/test_shutdown_cross.py",
+      "status": "skip",
+      "detail": "requires --toolchain-root",
+      "run": "hosted-base"
+    },
+    {
+      "runner": "scripts/test_static_dispatch.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/static_dispatch.log",
+      "log_sha256": "f3198f1fbbc52875489020d437bb8ab75eb5cc39976e612dffe93f22b4012c96"
+    },
+    {
+      "runner": "scripts/test_thread_lifecycle.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/thread_lifecycle.log",
+      "log_sha256": "75f889098cb63a851cb06ab5cc7f04588b08b9f53bebaffdbf30304820f6e3ae"
+    },
+    {
+      "runner": "scripts/test_vfs_mount_preflight.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/vfs_mount_preflight.log",
+      "log_sha256": "0946f872545ea27ea464074b121b38c81bd2cb5985f75d33e5be62bae74b422b"
+    },
+    {
+      "runner": "scripts/test_vfs_mount_snapshot.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/vfs_mount_snapshot.log",
+      "log_sha256": "35a94719a30208bea7aa9f7da67ed41ff6c2b2b4012ba4cf9960edf98808d695"
+    },
+    {
+      "runner": "scripts/test_vfs_namespace.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/vfs_namespace.log",
+      "log_sha256": "b595446bcb439a46b1ceda28df29cd44f1d416e2dc64ced319b94d74bce0f29f"
+    },
+    {
+      "runner": "scripts/test_wait_registration.py",
+      "status": "pass",
+      "detail": "0",
+      "run": "hosted-base",
+      "log": "logs/hosted/wait_registration.log",
+      "log_sha256": "207d866117e5e7d56d728ca16dc2c1b5ac70796a1eab6ed2c095248b2779fdd5"
+    }
+  ],
+  "status": "recorded"
+}

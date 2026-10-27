@@ -1,0 +1,8 @@
+# ObfuscationOS debug lane x86_64
+cd <kernel tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-x86_64 && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120
+
+# ObfuscationOS debug lane arm32
+cd <kernel tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-arm && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120
+
+# ObfuscationOS debug lane ppc
+cd <kernel tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-ppc && xmake -y -j 6 -b kernel-sdk && cd <ObfuscationOS@658b18b> && xmake f -c -y -m debug -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b kernel-sdk-check && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120

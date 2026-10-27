@@ -1,0 +1,1 @@
+PASS hosted typed firmware discovery: all-ten source states, bounded reads, owned full-width records, failure atomicity; allocator not qualified

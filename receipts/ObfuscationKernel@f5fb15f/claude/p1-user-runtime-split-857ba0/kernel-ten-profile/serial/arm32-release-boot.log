@@ -1,0 +1,5 @@
+OK_ARM32_ENTRY cpsr=0x00000000400001d3 sctlr=0x0000000000c50078 mpidr=0x0000000080000000 status=pass
+OK_NATIVE_MEMORY_SOURCE protocol=arm32-linux-image fdt=0x0000000048000000 size=0x0000000000100000
+OK_NATIVE_MEMORY stage=prepare source=firmware status=pass image_begin=0x0000000040010000 image_end=0x0000000041cc9000 limit=1024
+OK_NATIVE_MEMORY_RANGE base=0x0000000041cc9000 size=0x0000000000400000
+OK_KERNEL_BOOT scope=kernel mode=release arch=arm32 status=ready

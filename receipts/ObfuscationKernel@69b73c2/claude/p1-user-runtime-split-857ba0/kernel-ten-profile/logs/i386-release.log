@@ -1,0 +1,94 @@
+checking for platform ... linux (i386)
+checking for systoolchain_dir ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/i386-elf
+checking for qemu_binary ... /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-user-runtime-split-857ba0/2fff4c50-3f0f-4c72-9010-7e2c5e38f77c/scratchpad/st/i386-elf/bin/qemu-system-i386
+[  2%]: <okernel_image> compiling.release src/arch/i386/boot.S
+[  3%]: <okernel_image> cache compiling.release src/core/kernel_main.cpp
+[  3%]: <okernel_image> cache compiling.release src/arch/x86_common/platform.cpp
+[  3%]: <okernel> cache compiling.release src/boot/raw_handoff.cpp
+[  3%]: <okernel> cache compiling.release src/core/kernel.cpp
+[  3%]: <okernel> cache compiling.release src/boot/fdt.cpp
+[  3%]: <okernel> cache compiling.release src/core/kernel_syscalls.cpp
+[  4%]: <okernel> cache compiling.release src/core/native_shutdown.cpp
+[  5%]: <okernel> cache compiling.release src/core/module.cpp
+[  6%]: <okernel> cache compiling.release src/core/entry.cpp
+[  7%]: <okernel> cache compiling.release src/rescue/file_manager.cpp
+[  8%]: <okernel> cache compiling.release src/rescue/shell.cpp
+src/core/module.cpp: In function 'ok::Status ok::{anonymous}::parse_okmod_line(ok::ModuleImageInfo&, std::string_view)':
+src/core/module.cpp:347:61: warning: narrowing conversion of 'ok::{anonymous}::parse_unsigned(line.std::basic_string_view<char>::substr(6, ((std::basic_string_view<char>::size_type)std::basic_string_view<char>::npos)))' from 'ok::u64' {aka 'long long unsigned int'} to 'ok::uptr' {aka 'long unsigned int'} [-Wnarrowing]
+  347 |         ModuleRelocation relocation{.offset = parse_unsigned(line.substr(6)), .kind = ModuleRelocationKind::relative};
+      |                                               ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[  9%]: <okernel> cache compiling.release src/rescue/task_manager.cpp
+[ 10%]: <okernel> cache compiling.release src/rescue/shell/status.cpp
+[ 11%]: <okernel> cache compiling.release src/rescue/shell/storage.cpp
+[ 12%]: <okernel> cache compiling.release src/rescue/shell/network.cpp
+[ 13%]: <okernel> cache compiling.release src/rescue/shell/task_manager.cpp
+[ 14%]: <okernel> cache compiling.release src/rescue/shell/filesystem.cpp
+[ 16%]: <okernel> cache compiling.release tests/kernel/debug/suite.cpp
+[ 17%]: <okernel> cache compiling.release tests/kernel/points/test_point.cpp
+[ 18%]: <okernel> cache compiling.release tests/kernel/roadmap/linux_abi_tests.cpp
+[ 19%]: <okernel> cache compiling.release tests/kernel/roadmap/vm_tests.cpp
+[ 20%]: <okernel> cache compiling.release tests/kernel/roadmap/process_tests.cpp
+[ 21%]: <okernel> cache compiling.release tests/kernel/roadmap/unix_vfs_tests.cpp
+[ 22%]: <okernel> cache compiling.release tests/kernel/roadmap/module_tests.cpp
+[ 23%]: <okernel> cache compiling.release tests/kernel/roadmap/gui_tests.cpp
+[ 24%]: <okernel> cache compiling.release tests/kernel/roadmap/driver_abi_tests.cpp
+[ 25%]: <okernel> cache compiling.release tests/kernel/roadmap/smp_preempt_tests.cpp
+[ 26%]: <okernel> cache compiling.release tests/kernel/roadmap/network_storage_tests.cpp
+[ 27%]: <okernel> cache compiling.release src/driver/block.cpp
+[ 28%]: <okernel> cache compiling.release src/driver/abi.cpp
+[ 29%]: <okernel> cache compiling.release src/driver/driver.cpp
+[ 30%]: <okernel> cache compiling.release src/driver/bus_input.cpp
+[ 32%]: <okernel> cache compiling.release src/driver/display.cpp
+[ 33%]: <okernel> cache compiling.release src/fs/vfs.cpp
+[ 34%]: <okernel> cache compiling.release src/fs/simplefs.cpp
+[ 35%]: <okernel> cache compiling.release src/fs/fat.cpp
+[ 36%]: <okernel> cache compiling.release src/fs/ext4_recovery.cpp
+[ 37%]: <okernel> cache compiling.release src/fs/archive.cpp
+[ 38%]: <okernel> cache compiling.release src/fs/storage.cpp
+[ 39%]: <okernel> cache compiling.release src/fs/unix.cpp
+[ 40%]: <okernel> cache compiling.release src/fs/ext4.cpp
+[ 41%]: <okernel> cache compiling.release src/fs/fat_fs.cpp
+[ 42%]: <okernel> cache compiling.release src/fs/ext4_fs.cpp
+[ 43%]: <okernel> cache compiling.release src/gui/desktop.cpp
+[ 44%]: <okernel> cache compiling.release src/gui/gui.cpp
+[ 45%]: <okernel> cache compiling.release src/interrupt/interrupt.cpp
+[ 46%]: <okernel> cache compiling.release src/ipc/ipc.cpp
+[ 48%]: <okernel> cache compiling.release src/memory/memory.cpp
+[ 49%]: <okernel> cache compiling.release src/memory/physical_map.cpp
+[ 50%]: <okernel> cache compiling.release src/memory/runtime_frames.cpp
+[ 51%]: <okernel> cache compiling.release src/net/native_udp.cpp
+[ 52%]: <okernel> cache compiling.release src/net/net.cpp
+[ 53%]: <okernel> cache compiling.release src/posix/fd.cpp
+[ 54%]: <okernel> cache compiling.release src/posix/posix.cpp
+[ 55%]: <okernel> cache compiling.release src/posix/entropy.cpp
+[ 56%]: <okernel> cache compiling.release src/posix/process.cpp
+[ 57%]: <okernel> cache compiling.release src/posix/path.cpp
+[ 58%]: <okernel> cache compiling.release src/sched/scheduler.cpp
+[ 59%]: <okernel> cache compiling.release src/sched/process.cpp
+[ 60%]: <okernel> cache compiling.release src/smp/preempt.cpp
+[ 61%]: <okernel> cache compiling.release src/smp/smp.cpp
+[ 62%]: <okernel> cache compiling.release src/syscall/syscall.cpp
+[ 64%]: <okernel> cache compiling.release src/syscall/linux.cpp
+[ 65%]: <okernel> cache compiling.release src/user/user.cpp
+[ 66%]: <okernel> cache compiling.release src/user/runtime.cpp
+[ 67%]: <okernel> cache compiling.release src/user/runtime/pipe.cpp
+[ 68%]: <okernel> cache compiling.release src/user/runtime/loader.cpp
+[ 69%]: <okernel> cache compiling.release src/user/runtime/net.cpp
+[ 70%]: <okernel> cache compiling.release src/user/runtime/signals.cpp
+[ 71%]: <okernel> cache compiling.release src/user/runtime/entry.cpp
+[ 72%]: <okernel> cache compiling.release src/user/runtime/futex.cpp
+[ 73%]: <okernel> cache compiling.release src/user/runtime/wait.cpp
+[ 74%]: <okernel> cache compiling.release src/user/runtime/pty.cpp
+[ 75%]: <okernel> cache compiling.release src/user/runtime/vm.cpp
+[ 76%]: <okernel> cache compiling.release src/arch/arch.cpp
+[ 77%]: <okernel> cache compiling.release src/arch/clock.cpp
+[ 78%]: <okernel> cache compiling.release src/arch/realtime.cpp
+[ 80%]: <okernel> cache compiling.release src/arch/terminal_power.cpp
+[ 81%]: <okernel> cache compiling.release src/arch/i386/ops.cpp
+[ 82%]: <okernel> cache compiling.release src/arch/i386/execution.cpp
+[ 83%]: <okernel> compiling.release src/arch/i386/execution.S
+[ 89%]: <okernel> archiving.release libokernel.a
+[ 91%]: <okernel_image> linking.release kernel.elf
+[100%]: build ok, spent 89.829s
