@@ -1,0 +1,16 @@
+same-errors 2 tests/host/completed_ownership_birth/compile.cpp
+same-errors 1 tests/host/ext4_create_compile.cpp
+same-errors 52 tests/host/ext4_direct_read_leaf_tests.cpp
+same-errors 22 tests/host/ext4_directory_relocation_replay_tests.cpp
+same-errors 1 tests/host/ext4_first_data_compile.cpp
+same-errors 1 tests/host/ext4_mounted_compile.cpp
+same-errors 27 tests/host/ext4_mounted_legacy_startup_tests.cpp
+same-errors (with -fno-access-control) 1 tests/host/ext4_reclaim_active_startup_tests.cpp
+same-errors 3 tests/host/mounted_cold_request_composition/compile.cpp
+same-errors 34 tests/host/mounted_cold_request_composition/model.cpp
+same-errors 3 tests/host/mounted_common_opening/compile.cpp
+same-errors 34 tests/host/mounted_common_opening/legacy_model.cpp
+same-errors 48 tests/host/mounted_common_opening/model.cpp
+same-errors 3 tests/host/mounted_typed_cold_startup/compile.cpp
+same-errors 49 tests/host/mounted_typed_cold_startup/model.cpp
+same-errors 1 tests/native/mount_retention_probe.cpp

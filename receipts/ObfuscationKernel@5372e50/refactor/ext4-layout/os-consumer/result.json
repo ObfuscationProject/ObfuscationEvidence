@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+  "branch": "refactor/ext4-layout",
+  "campaign": "os-consumer",
+  "date": "2026-10-27",
+  "scope": "ObfuscationOS refactor/ext4-layout (084e2bf) against the kernel-sdk export of 5372e50: CI fast-lane steps, artifact tests, the ext4 two-boot persistence test and the native ext4 units.",
+  "claims": [
+    "kernel-sdk-check, uapi-test, libc-test, distro_image, linux-driver-compat, rootfs-simplefs, rootfs-ext4 and qemu-distro --require-native pass on x86_64, arm32 and ppc; compat-test passes on x86_64",
+    "artifact tests on x86_64: the xmake artifact-test run (1287 tests) reports the same two errors as the 658b18b run, both an `xmake f` subprocess exceeding its 90 s timeout on a loaded host; test_native_metadata_wrappers and test_native_pty_wrappers pass alone on both trees, and the run in two processes (all modules, then test_native_child_exit_lineage_guest, which crashed the shared CPython interpreter in earlier runs on both trees) passes 1287 of 1287",
+    "the ext4 two-boot persistence test passes; its offline content is byte-identical to the 658b18b + 7ddd8bb SDK run",
+    "the ext4 tests/native units that compile standalone produce the same code against the 7ddd8bb and 5372e50 SDKs (byte-identical objects, per-symbol -O2 assembly, or per-symbol -O0 assembly)"
+  ],
+  "sources": [
+    {
+      "tree": "os@084e2bf",
+      "commit": "084e2bf08ac0b72b405b6ba5f7ec9265eaff93a3",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@084e2bf>",
+      "repository": "ObfuscationOS"
+    },
+    {
+      "tree": "kernel@5372e50",
+      "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@5372e50>"
+    },
+    {
+      "tree": "os-worktree@658b18b",
+      "repository": "ObfuscationOS",
+      "commit": "658b18b8099a6601010b4a38133dc9be598f51be",
+      "relation": "exact checkout (git worktree add --detach, unmodified); baseline persistence and artifact runs",
+      "differs": [],
+      "missing": [],
+      "extra": []
+    },
+    {
+      "tree": "os@658b18b",
+      "commit": "658b18b8099a6601010b4a38133dc9be598f51be",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@658b18b>",
+      "repository": "ObfuscationOS",
+      "use": "native unit baseline"
+    },
+    {
+      "tree": "kernel@7ddd8bb",
+      "commit": "7ddd8bb99333bd184d87f8ce6cd8539e775facbc",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@7ddd8bb>",
+      "use": "native unit baseline SDK"
+    },
+    {
+      "tree": "kernel-worktree@7ddd8bb",
+      "commit": "7ddd8bb99333bd184d87f8ce6cd8539e775facbc",
+      "relation": "exact checkout (git worktree add --detach, unmodified)",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel-worktree@7ddd8bb>",
+      "use": "baseline SDK for the baseline persistence run"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple, sha256-verified), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "e2fsprogs": "mke2fs 1.47.0 (5-Feb-2023)",
+    "obfuscation_os": "ObfuscationOS@084e2bf08ac0b72b405b6ba5f7ec9265eaff93a3 (git archive, unmodified)"
+  },
+  "summary": {
+    "lane_steps": {
+      "x86_64": {
+        "configure": "ok",
+        "artifact-test": "FAIL",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "compat-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok",
+        "persistence": "ok",
+        "artifact-rest": "rc=0",
+        "artifact-lineage": "rc=0"
+      },
+      "arm32": {
+        "configure": "ok",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok"
+      },
+      "ppc": {
+        "configure": "ok",
+        "kernel-sdk-check": "ok",
+        "uapi-test": "ok",
+        "libc-test": "ok",
+        "distro_image": "ok",
+        "linux-driver-compat": "ok",
+        "rootfs-simplefs": "ok",
+        "rootfs-ext4": "ok",
+        "qemu-distro": "ok"
+      }
+    },
+    "artifact_tests": {
+      "all_but_lineage": {
+        "ran": 1280,
+        "result": "OK (skipped=34)"
+      },
+      "lineage_guest": {
+        "ran": 7,
+        "result": "OK"
+      }
+    },
+    "persistence_offline_content_identical_to_baseline": true,
+    "persistence_marker": "PASS scope=hardware arch=x86_64 virtio=read-write-flush ext4=root-exec-reboot rename=pass hardlink=pass symlink=pass fsck=clean",
+    "baseline_persistence_marker": "PASS scope=hardware arch=x86_64 virtio=read-write-flush ext4=root-exec-reboot rename=pass hardlink=pass symlink=pass fsck=clean"
+  },
+  "status": "passed",
+  "commands": [
+    {
+      "label": "ObfuscationOS lane x86_64",
+      "command": "cd <os@084e2bf> && xmake f -P . -c -y -m debug -a x86_64 --kernel_sdk=<kernel@5372e50>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -P . -y -b artifact-test; for t in kernel-sdk-check uapi-test libc-test compat-test distro_image linux-driver-compat rootfs-simplefs rootfs-ext4; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --require-native --timeout=30 && python3 scripts/test_persistent_ext4.py --arch x86_64 --qemu <systoolchain>/x86_64-elf/bin/qemu-system-x86_64 --kernel build/x86_64/debug/distro/kernel.bin --rootfs build/x86_64/debug/rootfs.ext4.img --out <out>/persistence",
+      "steps": {
+        "artifact-lineage": "logs/x86_64/artifact-lineage.log",
+        "artifact-rest": "logs/x86_64/artifact-rest.log",
+        "artifact-test": "logs/x86_64/artifact-test.log",
+        "compat-test": "logs/x86_64/compat-test.log",
+        "configure": "logs/x86_64/configure.log",
+        "distro_image": "logs/x86_64/distro_image.log",
+        "kernel-sdk-check": "logs/x86_64/kernel-sdk-check.log",
+        "libc-test": "logs/x86_64/libc-test.log",
+        "linux-driver-compat": "logs/x86_64/linux-driver-compat.log",
+        "persistence": "serial/x86_64/persistence.log",
+        "qemu-distro": "serial/x86_64/qemu-distro.log",
+        "rootfs-ext4": "logs/x86_64/rootfs-ext4.log",
+        "rootfs-simplefs": "logs/x86_64/rootfs-simplefs.log",
+        "timeout-modules-new": "logs/x86_64/timeout-modules-new.log",
+        "uapi-test": "logs/x86_64/uapi-test.log"
+      }
+    },
+    {
+      "label": "ObfuscationOS lane arm32",
+      "command": "cd <os@084e2bf> && xmake f -P . -c -y -m debug -a arm32 --kernel_sdk=<kernel@5372e50>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && for t in kernel-sdk-check uapi-test libc-test distro_image linux-driver-compat rootfs-simplefs rootfs-ext4; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --require-native --timeout=30",
+      "steps": {
+        "configure": "logs/arm32/configure.log",
+        "distro_image": "logs/arm32/distro_image.log",
+        "kernel-sdk-check": "logs/arm32/kernel-sdk-check.log",
+        "libc-test": "logs/arm32/libc-test.log",
+        "linux-driver-compat": "logs/arm32/linux-driver-compat.log",
+        "qemu-distro": "serial/arm32/qemu-distro.log",
+        "rootfs-ext4": "logs/arm32/rootfs-ext4.log",
+        "rootfs-simplefs": "logs/arm32/rootfs-simplefs.log",
+        "uapi-test": "logs/arm32/uapi-test.log"
+      }
+    },
+    {
+      "label": "ObfuscationOS lane ppc",
+      "command": "cd <os@084e2bf> && xmake f -P . -c -y -m debug -a ppc --kernel_sdk=<kernel@5372e50>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && for t in kernel-sdk-check uapi-test libc-test distro_image linux-driver-compat rootfs-simplefs rootfs-ext4; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --require-native --timeout=30",
+      "steps": {
+        "configure": "logs/ppc/configure.log",
+        "distro_image": "logs/ppc/distro_image.log",
+        "kernel-sdk-check": "logs/ppc/kernel-sdk-check.log",
+        "libc-test": "logs/ppc/libc-test.log",
+        "linux-driver-compat": "logs/ppc/linux-driver-compat.log",
+        "qemu-distro": "serial/ppc/qemu-distro.log",
+        "rootfs-ext4": "logs/ppc/rootfs-ext4.log",
+        "rootfs-simplefs": "logs/ppc/rootfs-simplefs.log",
+        "uapi-test": "logs/ppc/uapi-test.log"
+      }
+    },
+    {
+      "label": "artifact tests in two processes (x86_64)",
+      "command": "cd <os@084e2bf>/tests/tools && OK_TEST_KERNEL_SDK=<kernel@5372e50>/build/sdk/x86_64/debug OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -X faulthandler -m unittest <every test_*.py module except test_native_child_exit_lineage_guest>; python3 -B -X faulthandler -m unittest test_native_child_exit_lineage_guest"
+    },
+    {
+      "label": "native ext4 units",
+      "command": "tools/native_check.py <os@658b18b> <kernel@7ddd8bb SDK x86_64> <os@084e2bf> <kernel@5372e50 SDK x86_64> <out> && tools/native_asm.py ...  # fixture header from ObfuscationOS tools/jbd2/admit_linux_fixture.header_for(inspect(clean.img))"
+    }
+  ]
+}

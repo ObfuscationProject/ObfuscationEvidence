@@ -1,0 +1,22 @@
+x86_64-release: .objs/okernel/linux/x86_64/release/tests/kernel/debug/suite.cpp.o -> same 372
+x86_64-debug: .objs/okernel/linux/x86_64/debug/tests/kernel/debug/suite.cpp.o -> same 372
+x86_64-debug: .objs/okernel/linux/x86_64/debug/tests/kernel/points/test_point.cpp.o -> same 1523
+arm32-release: .objs/okernel/linux/arm32/release/tests/kernel/debug/suite.cpp.o -> DIFF 0 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1872
+arm32-debug: .objs/okernel/linux/arm32/debug/tests/kernel/debug/suite.cpp.o -> DIFF 0 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1872
+arm32-debug: .objs/okernel/linux/arm32/debug/tests/kernel/points/test_point.cpp.o -> DIFF 11 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=5970
+ppc-release: .objs/okernel/linux/ppc/release/tests/kernel/debug/suite.cpp.o -> DIFF 26 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1863
+ppc-debug: .objs/okernel/linux/ppc/debug/tests/kernel/debug/suite.cpp.o -> DIFF 26 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1863
+ppc-debug: .objs/okernel/linux/ppc/debug/tests/kernel/points/test_point.cpp.o -> DIFF 1071 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=5967
+i386-release: .objs/okernel/linux/i386/release/tests/kernel/debug/suite.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1840
+i386-debug: .objs/okernel/linux/i386/debug/tests/kernel/debug/suite.cpp.o -> DIFF 5 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=1840
+i386-debug: .objs/okernel/linux/i386/debug/tests/kernel/points/test_point.cpp.o -> DIFF 7 pool-differs | -O0: same unreferenced-one-sided-objects=0 symbols=5929
+aarch64-release: .objs/okernel/linux/aarch64/release/tests/kernel/debug/suite.cpp.o -> same 379
+aarch64-debug: .objs/okernel/linux/aarch64/debug/tests/kernel/debug/suite.cpp.o -> same 379
+aarch64-debug: .objs/okernel/linux/aarch64/debug/tests/kernel/points/test_point.cpp.o -> same 1529
+rv64-release: .objs/okernel/linux/rv64/release/tests/kernel/debug/suite.cpp.o -> same 375
+rv64-debug: .objs/okernel/linux/rv64/debug/src/fs/ext4.cpp.o -> same 5
+rv64-debug: .objs/okernel/linux/rv64/debug/src/fs/ext4_fs.cpp.o -> same 115
+rv64-debug: .objs/okernel/linux/rv64/debug/src/rescue/shell/storage.cpp.o -> same 5
+rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/debug/suite.cpp.o -> same 375
+rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/points/test_point.cpp.o -> CMP-ERROR | -O0: same unreferenced-one-sided-objects=0 symbols=5919
+rv64-debug: .objs/okernel/linux/rv64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 56

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<worktree>/scripts/test_mount_info_uapi_cross.py", line 129, in <module>
+    main()
+  File "<worktree>/scripts/test_mount_info_uapi_cross.py", line 117, in main
+    raise ValueError('native mount wire bytes differ: ' + arch)
+ValueError: native mount wire bytes differ: i386

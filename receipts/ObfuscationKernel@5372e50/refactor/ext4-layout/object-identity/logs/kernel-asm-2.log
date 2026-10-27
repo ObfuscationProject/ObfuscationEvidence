@@ -1,0 +1,24 @@
+rv32-release: .objs/okernel/linux/rv32/release/tests/kernel/debug/suite.cpp.o -> same 378
+rv32-debug: .objs/okernel/linux/rv32/debug/src/fs/ext4.cpp.o -> same 5
+rv32-debug: .objs/okernel/linux/rv32/debug/src/fs/ext4_fs.cpp.o -> same 115
+rv32-debug: .objs/okernel/linux/rv32/debug/src/rescue/shell/storage.cpp.o -> same 5
+rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/debug/suite.cpp.o -> same 378
+rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/points/test_point.cpp.o -> same 1538
+rv32-debug: .objs/okernel/linux/rv32/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 55
+loongarch64-release: .objs/okernel/linux/loongarch64/release/tests/kernel/debug/suite.cpp.o -> same 375
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/fs/ext4.cpp.o -> same 5
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/fs/ext4_fs.cpp.o -> same 115
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/src/rescue/shell/storage.cpp.o -> same 5
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/debug/suite.cpp.o -> same 375
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/points/test_point.cpp.o -> same 1521
+loongarch64-debug: .objs/okernel/linux/loongarch64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 55
+mips-release: .objs/okernel/linux/mips/release/tests/kernel/debug/suite.cpp.o -> DIFF 822 pool-equal | -O0: DIFF 1900 unreferenced-one-sided-objects=0 symbols=9431
+mips-debug: .objs/okernel/linux/mips/debug/tests/kernel/debug/suite.cpp.o -> DIFF 822 pool-equal | -O0: DIFF 1900 unreferenced-one-sided-objects=0 symbols=9431
+mips-debug: .objs/okernel/linux/mips/debug/tests/kernel/points/test_point.cpp.o -> DIFF 20780 pool-equal | -O0: DIFF 24975 unreferenced-one-sided-objects=0 symbols=39057
+mips64-release: .objs/okernel/linux/mips64/release/tests/kernel/debug/suite.cpp.o -> DIFF 845 pool-equal | -O0: DIFF 1770 unreferenced-one-sided-objects=0 symbols=9114
+mips64-debug: .objs/okernel/linux/mips64/debug/src/fs/ext4.cpp.o -> same 62
+mips64-debug: .objs/okernel/linux/mips64/debug/src/fs/ext4_fs.cpp.o -> same 1481
+mips64-debug: .objs/okernel/linux/mips64/debug/src/rescue/shell/storage.cpp.o -> same 246
+mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/debug/suite.cpp.o -> DIFF 845 pool-equal | -O0: DIFF 1770 unreferenced-one-sided-objects=0 symbols=9114
+mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/points/test_point.cpp.o -> DIFF 20680 pool-equal | -O0: DIFF 23672 unreferenced-one-sided-objects=0 symbols=37531
+mips64-debug: .objs/okernel/linux/mips64/debug/tests/kernel/roadmap/network_storage_tests.cpp.o -> same 521

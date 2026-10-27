@@ -1,0 +1,419 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+  "branch": "refactor/ext4-layout",
+  "campaign": "hosted-runners",
+  "date": "2026-10-27",
+  "scope": "Folded ext4 module headers: the ext4/JBD2 hosted runners that need no reviewed fixture, the clean-image runners and the pinned inode-lifetime runner, compared with 7ddd8bb.",
+  "claims": [
+    "same status for every runner as on 7ddd8bb, and the same result.json payload apart from source hashes and paths",
+    "runners failing on 7ddd8bb fail at the same step; test_ext4_mounted_create's failing check moves from line 38 to 36 because the test lost its two-line access shim",
+    "test_ext4_inode_lifetime.py passes with fresh pins whose sources match the 5372e50 blobs"
+  ],
+  "sources": [
+    {
+      "tree": "worktree",
+      "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+      "relation": "blob-identical except the listed paths",
+      "differs": [
+        "docs/qualification/EXT4_MODULE_LAYOUT.md"
+      ],
+      "missing": [],
+      "extra": [],
+      "path": "<worktree>",
+      "basis": "the worktree tree equals 5372e50 now; no tracked file except docs/qualification/EXT4_MODULE_LAYOUT.md was modified after the campaign started (2026-10-27 00:13:32 fixture-free runners, 2026-10-26 22:59:20 inode-lifetime, by file mtime)",
+      "why_not_read": "docs/qualification/EXT4_MODULE_LAYOUT.md: documentation no command here reads"
+    },
+    {
+      "tree": "kernel@5372e50",
+      "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@5372e50>"
+    },
+    {
+      "tree": "kernel-worktree@7ddd8bb",
+      "commit": "7ddd8bb99333bd184d87f8ce6cd8539e775facbc",
+      "relation": "exact checkout (git worktree add --detach, unmodified)",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel-worktree@7ddd8bb>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple, sha256-verified), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "e2fsprogs": "mke2fs 1.47.0 (5-Feb-2023)"
+  },
+  "summary": {
+    "counts": {
+      "fixture-free": {
+        "pass": 17,
+        "fail": 6
+      },
+      "clean-image": {
+        "fail": 8
+      }
+    },
+    "status_or_payload_changes": []
+  },
+  "hosted_runners": [
+    {
+      "runner": "run_ext4_create_plan_tests",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_create_plan_tests.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_create_plan_tests.log"
+    },
+    {
+      "runner": "run_ext4_first_data_plan_tests",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_first_data_plan_tests.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_first_data_plan_tests.log"
+    },
+    {
+      "runner": "run_ext4_first_data_replay_cross",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_first_data_replay_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_first_data_replay_cross.log"
+    },
+    {
+      "runner": "run_ext4_next_data_plan_tests",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_next_data_plan_tests.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_next_data_plan_tests.log"
+    },
+    {
+      "runner": "run_ext4_next_data_replay_cross",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/run_ext4_next_data_replay_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/run_ext4_next_data_replay_cross.log"
+    },
+    {
+      "runner": "test_ext4_attributes",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_attributes.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_attributes.log"
+    },
+    {
+      "runner": "test_ext4_bounds",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_bounds.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_bounds.log"
+    },
+    {
+      "runner": "test_ext4_fs",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_ext4_fs.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_fs.log"
+    },
+    {
+      "runner": "test_ext4_initial_attributes",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_initial_attributes.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_initial_attributes.log"
+    },
+    {
+      "runner": "test_ext4_maintained_times",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_maintained_times.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_maintained_times.log"
+    },
+    {
+      "runner": "test_ext4_recovery",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_recovery.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_recovery.log"
+    },
+    {
+      "runner": "test_ext4_replay_shape",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_replay_shape.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_replay_shape.log"
+    },
+    {
+      "runner": "test_ext4_replay_view",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_ext4_replay_view.log",
+      "baseline_log": "logs/fixture-free-baseline/test_ext4_replay_view.log"
+    },
+    {
+      "runner": "test_jbd2",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_jbd2.log",
+      "baseline_log": "logs/fixture-free-baseline/test_jbd2.log"
+    },
+    {
+      "runner": "test_jbd2_replay",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_jbd2_replay.log",
+      "baseline_log": "logs/fixture-free-baseline/test_jbd2_replay.log"
+    },
+    {
+      "runner": "test_linux_chmod",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_linux_chmod.log",
+      "baseline_log": "logs/fixture-free-baseline/test_linux_chmod.log"
+    },
+    {
+      "runner": "test_linux_stat_blocks_oracle",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_linux_stat_blocks_oracle.log",
+      "baseline_log": "logs/fixture-free-baseline/test_linux_stat_blocks_oracle.log"
+    },
+    {
+      "runner": "test_metadata_buffers",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_metadata_buffers.log",
+      "baseline_log": "logs/fixture-free-baseline/test_metadata_buffers.log"
+    },
+    {
+      "runner": "test_mount_info_uapi_cross",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_mount_info_uapi_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_mount_info_uapi_cross.log"
+    },
+    {
+      "runner": "test_persistent_sync_cross",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_persistent_sync_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_persistent_sync_cross.log"
+    },
+    {
+      "runner": "test_posix_ext4_truncate",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "no result.json",
+      "log": "logs/fixture-free/test_posix_ext4_truncate.log",
+      "baseline_log": "logs/fixture-free-baseline/test_posix_ext4_truncate.log"
+    },
+    {
+      "runner": "test_power_uapi_cross",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_power_uapi_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_power_uapi_cross.log"
+    },
+    {
+      "runner": "test_shutdown_cross",
+      "group": "fixture-free",
+      "tree": "worktree",
+      "status": "pass",
+      "baseline_status": "pass",
+      "result_payload": "same-result",
+      "log": "logs/fixture-free/test_shutdown_cross.log",
+      "baseline_log": "logs/fixture-free-baseline/test_shutdown_cross.log"
+    },
+    {
+      "runner": "test_checked_ownership",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_checked_ownership.log",
+      "baseline_log": "logs/clean-image-baseline/test_checked_ownership.log"
+    },
+    {
+      "runner": "test_ext4_directory_mode",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_directory_mode.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_directory_mode.log"
+    },
+    {
+      "runner": "test_ext4_journalled_mode",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_journalled_mode.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_journalled_mode.log"
+    },
+    {
+      "runner": "test_ext4_mounted",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_mounted.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_mounted.log"
+    },
+    {
+      "runner": "test_ext4_mounted_create",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_mounted_create.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_mounted_create.log"
+    },
+    {
+      "runner": "test_ext4_owned",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_owned.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_owned.log"
+    },
+    {
+      "runner": "test_ext4_owned_edges",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_owned_edges.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_owned_edges.log"
+    },
+    {
+      "runner": "test_ext4_transaction",
+      "group": "clean-image",
+      "tree": "kernel@5372e50",
+      "status": "fail(1)",
+      "baseline_status": "fail(1)",
+      "result_payload": "same-result",
+      "log": "logs/clean-image/test_ext4_transaction.log",
+      "baseline_log": "logs/clean-image-baseline/test_ext4_transaction.log"
+    }
+  ],
+  "status": "passed",
+  "commands": [
+    {
+      "label": "fixture-free hosted runners",
+      "command": "tools/hosted.py <tree> <out> 6 <runner>...  # --output <dir>, --toolchain-root <systoolchain> when accepted; trees <kernel-worktree@7ddd8bb> and <worktree>",
+      "returncode": 0
+    },
+    {
+      "label": "clean journalled fixture",
+      "command": "truncate -s 32M clean.img && mke2fs -q -F -t ext4 -b 1024 -I 256 -O none,has_journal,extents,filetype,metadata_csum -J size=4 -E lazy_itable_init=0,lazy_journal_init=0 -U f2026092-0000-4000-8000-000000000001 clean.img && debugfs -w -f seed.debugfs clean.img  # as baseline-clean.img in ObfuscationOS tools/jbd2/create_linux_fixture.py",
+      "returncode": 0,
+      "sha256": "8e27b22967d5153ce977b54242cd382f951b20df2319969b1698f79fe7f6be02"
+    },
+    {
+      "label": "clean-image hosted runners",
+      "command": "EXTRA='{<runner>: [--clean-image, clean.img]}' tools/hosted.py <tree> <out> 2 <runner>...  # trees <kernel-worktree@7ddd8bb> and <kernel@5372e50>",
+      "returncode": 0
+    },
+    {
+      "label": "pinned inode-lifetime runner",
+      "command": "python3 -B scripts/test_ext4_inode_lifetime.py --output <out> --source-hashes <pins> --source-hashes-sha256 <sha> --host-cxx /usr/bin/x86_64-linux-gnu-g++-13 --host-cxx-sha256 <sha> --toolchain-root <systoolchain>",
+      "returncode": 0,
+      "status": "passed-pinned-vfs-lifetime-model-ten-arch",
+      "profiles": [
+        "i386",
+        "x86_64",
+        "aarch64",
+        "arm32",
+        "rv64",
+        "rv32",
+        "loongarch64",
+        "mips",
+        "mips64",
+        "ppc"
+      ],
+      "pinned_sources_match_5372e50_blobs": true
+    }
+  ]
+}

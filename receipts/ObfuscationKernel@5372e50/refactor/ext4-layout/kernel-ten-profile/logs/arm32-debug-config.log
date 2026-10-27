@@ -1,0 +1,3 @@
+checking for platform ... linux (arm32)
+checking for systoolchain_dir ... <systoolchain>/arm-none-eabi
+checking for qemu_binary ... no

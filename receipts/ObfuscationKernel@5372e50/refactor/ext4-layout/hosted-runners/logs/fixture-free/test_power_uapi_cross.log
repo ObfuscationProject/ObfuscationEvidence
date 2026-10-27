@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<worktree>/scripts/test_power_uapi_cross.py", line 129, in <module>
+    main()
+  File "<worktree>/scripts/test_power_uapi_cross.py", line 117, in main
+    raise ValueError('native scalar wire bytes differ: ' + arch)
+ValueError: native scalar wire bytes differ: i386

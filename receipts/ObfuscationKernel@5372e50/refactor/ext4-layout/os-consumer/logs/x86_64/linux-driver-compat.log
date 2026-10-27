@@ -1,0 +1,12 @@
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[ 31%]: <linux-driver-compat> cache compiling.debug compat/linux/src/abi_snapshot.cpp
+[ 31%]: <linux-driver-compat> cache compiling.debug compat/linux/src/pci_model.cpp
+[ 63%]: <linux-driver-compat> archiving.debug liblinux-driver-compat.a
+[100%]: build ok, spent 0.708s

@@ -1,0 +1,36 @@
+...........................................................................................................................................................................................................................................................................................................................................................................................MUSL_UDP_PACKAGE_FAIL [Errno 2] No such file or directory: '/tmp/tmpjme_kdy7/missing/manifest.json'
+.....MUSL_UDP_PACKAGE_FAIL unsupported archive permissions 104755: /tmp/tmpswztv_vi/package/root/entry
+MUSL_UDP_PACKAGE_FAIL unsupported archive permissions 44755: /tmp/tmpd6o1z3lg/package/root/entry
+......................................................................................................sssssss...............s.ss.......................sssss........................................................................................ssssschecking for platform ... linux (x86_64)
+[ 15%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/exact/os/lib/okcrt/src/syscalls.c
+[ 31%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/exact/os/tests/native_metadata_wrapper_tests.c
+[ 47%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/exact/os/lib/okcrt/src/errno.c
+[ 63%]: <wrapper> linking.release wrapper
+[100%]: build ok, spent 0.891s
+...s.ss...............................................................................................s.ss...............................checking for platform ... linux (x86_64)
+[ 19%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/exact/os/lib/okcrt/src/pty.c
+[ 38%]: <wrapper> compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-ext4-layout-refactor-bc633d/0517c873-3176-4dcd-a063-f6a1d8e4cdac/scratchpad/exact/os/tests/native_pty_wrapper_tests.c
+[ 56%]: <wrapper> linking.release wrapper
+[100%]: build ok, spent 0.897s
+NATIVE_PTY_WRAPPER_PASS cases=11 host_mock_only=1
+.................................................................ssssss....................................................................................................................................................................................................................................................................................................................................................................................................................s.............s....................
+----------------------------------------------------------------------
+Ran 1280 tests in 721.775s
+
+OK (skipped=34)
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp8t4go5m2/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp1mpuugnt/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpwdpv0del/package/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmpfad140ug/evidence/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmpfad140ug/malformed-child/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmpl7rmy0ci/evidence/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpawkuqzeq/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpxedgdmi5/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp8ishjp4t/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpe_k1e7za/package/receipt.json
+[rootfs] staged /tmp/tmpn6w52ap8/maintenance
+[rootfs] staged /tmp/tmpn6w52ap8/login
+[rootfs] staged /tmp/tmp7u42djhd/output
+[rootfs] staged /tmp/tmp7kgoxyqg/staged
+[rootfs] staged /tmp/tmpvqz7qmml/sgid-parent/root-0o77
+[rootfs] staged /tmp/tmpvqz7qmml/sgid-parent/root-0o2

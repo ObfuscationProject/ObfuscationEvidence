@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<worktree>/scripts/test_linux_chmod.py", line 113, in <module>
+    main()
+  File "<worktree>/scripts/test_linux_chmod.py", line 90, in main
+    run([xmake, 'build', '-P', source, '-j2', '-v'], 'build')
+  File "<worktree>/scripts/test_linux_chmod.py", line 83, in run
+    raise RuntimeError(f'{label} failed; see {log}')
+RuntimeError: build failed; see <scratch>/hosted/final/test_linux_chmod/build.log

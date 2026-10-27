@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+  "branch": "refactor/ext4-layout",
+  "campaign": "object-identity",
+  "date": "2026-10-27",
+  "scope": "Folded ext4 module headers: generated-code identity against 7ddd8bb for the kernel (ten profiles, debug and release) and for every hosted translation unit that reaches an ext4 header.",
+  "claims": [
+    "kernel: every object of okernel and okernel_image is byte-identical after objcopy --strip-debug, or identical per symbol in assembly at -O2, or (debug test units on arm32, i386, ppc and test_point on rv64 debug) identical per symbol at -O0",
+    "kernel: on rv32, rv64, loongarch64 and mips64 debug, src/fs/ext4.cpp, src/fs/ext4_fs.cpp and src/rescue/shell/storage.cpp differ only in the numbering of retained local .LFBn/.LFEn symbols; their assembly is identical",
+    "hosted: of 269 units, 84 objects are byte-identical, 135 are identical per symbol at -O2, 32 are identical at -O0 (C1/C2 aliases merged; extra symbols are unreferenced std concept-helper variables), 16 fail on 7ddd8bb with the same diagnostics, 2 failed on 7ddd8bb and compile now",
+    "six hosted models compiled with -fno-access-control on the new side produce the same code as their #define private public build on 7ddd8bb"
+  ],
+  "sources": [
+    {
+      "tree": "worktree",
+      "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+      "relation": "blob-identical except the listed paths",
+      "differs": [
+        "docs/qualification/EXT4_MODULE_LAYOUT.md"
+      ],
+      "missing": [],
+      "extra": [],
+      "path": "<worktree>",
+      "basis": "the worktree tree equals 5372e50 now; no tracked file except docs/qualification/EXT4_MODULE_LAYOUT.md was modified after the campaign started (2026-10-26 23:11:36 kernel builds, 23:34:59 hosted units, by file mtime)",
+      "why_not_read": "docs/qualification/EXT4_MODULE_LAYOUT.md: documentation no command here reads"
+    },
+    {
+      "tree": "kernel-worktree@7ddd8bb",
+      "commit": "7ddd8bb99333bd184d87f8ce6cd8539e775facbc",
+      "relation": "exact checkout (git worktree add --detach, unmodified)",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel-worktree@7ddd8bb>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple, sha256-verified), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "e2fsprogs": "mke2fs 1.47.0 (5-Feb-2023)"
+  },
+  "summary": {
+    "kernel_objects": {
+      "aarch64-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 71,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "aarch64-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "arm32-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 71,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "arm32-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "i386-debug": {
+        "objects": 74,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "i386-release": {
+        "objects": 74,
+        "byte_identical_after_strip_debug": 73,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "loongarch64-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 67,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "loongarch64-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "mips-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 71,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "mips-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "mips64-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 67,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "mips64-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "ppc-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 71,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "ppc-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "rv32-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 67,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "rv32-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "rv64-debug": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 67,
+        "not_byte_identical": [
+          "src/fs/ext4.cpp.o",
+          "src/fs/ext4_fs.cpp.o",
+          "src/rescue/shell/storage.cpp.o",
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o",
+          "tests/kernel/roadmap/network_storage_tests.cpp.o"
+        ]
+      },
+      "rv64-release": {
+        "objects": 73,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      },
+      "x86_64-debug": {
+        "objects": 74,
+        "byte_identical_after_strip_debug": 72,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o",
+          "tests/kernel/points/test_point.cpp.o"
+        ]
+      },
+      "x86_64-release": {
+        "objects": 74,
+        "byte_identical_after_strip_debug": 73,
+        "not_byte_identical": [
+          "tests/kernel/debug/suite.cpp.o"
+        ]
+      }
+    },
+    "hosted_unit_states": {
+      "unrelated": 282,
+      "base-preprocess-fail": 6,
+      "identical": 84,
+      "both-fail": 16,
+      "CODE-DIFFERS": 143,
+      "same-code": 18,
+      "ACCESS-CONTROL-DIFFERS": 6,
+      "base-fail-new-ok": 2
+    },
+    "hosted_asm_O2": {
+      "DIFF": 29,
+      "CMP-ERROR": 3,
+      "same": 135
+    },
+    "hosted_asm_O0_after_alias_merge": {
+      "same": 32
+    },
+    "note": "kernel.elf is not compared: xmake archives libokernel.a members in a nondeterministic order"
+  },
+  "status": "passed",
+  "commands": [
+    {
+      "label": "kernel builds, twenty configurations",
+      "command": "for <tree> in <kernel-worktree@7ddd8bb> <worktree>, <arch> in ten profiles, <mode> in debug release: xmake f -P <tree> -c -y -m <mode> -a <arch> -o <build> --systoolchain_dir=<systoolchain>/<triple> && xmake -P <tree> -y -b -j8 okernel_image",
+      "returncode": 0
+    },
+    {
+      "label": "object comparison",
+      "command": "tools/objcount.py objcount.json  # objcopy --strip-debug, then byte compare",
+      "returncode": 0
+    },
+    {
+      "label": "assembly comparison of objects that are not byte-identical",
+      "command": "tools/kasm.py <kernel-worktree@7ddd8bb> <worktree> <config>...  # exact xmake command lines from xmake project -k compile_commands, -S -g0; tools/asm_cmp.py at -O2, tools/asm_cmp0.py at -O0",
+      "returncode": 0
+    },
+    {
+      "label": "hosted translation units",
+      "command": "tools/tu_oracle.py <kernel@7ddd8bb tests> <worktree> <out> 10 && tools/asm_oracle.py ... -O2 && tools/asm_oracle.py ... -O0 <O2-differing units>  # parent-commit test sources, parent headers vs module headers through old-path forwarding shims",
+      "returncode": 0
+    }
+  ]
+}

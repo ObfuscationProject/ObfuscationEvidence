@@ -1,0 +1,12 @@
+# fixture-free hosted runners
+tools/hosted.py <tree> <out> 6 <runner>...  # --output <dir>, --toolchain-root <systoolchain> when accepted; trees <kernel-worktree@7ddd8bb> and <worktree>
+
+# clean journalled fixture
+truncate -s 32M clean.img && mke2fs -q -F -t ext4 -b 1024 -I 256 -O none,has_journal,extents,filetype,metadata_csum -J size=4 -E lazy_itable_init=0,lazy_journal_init=0 -U f2026092-0000-4000-8000-000000000001 clean.img && debugfs -w -f seed.debugfs clean.img  # as baseline-clean.img in ObfuscationOS tools/jbd2/create_linux_fixture.py
+
+# clean-image hosted runners
+EXTRA='{<runner>: [--clean-image, clean.img]}' tools/hosted.py <tree> <out> 2 <runner>...  # trees <kernel-worktree@7ddd8bb> and <kernel@5372e50>
+
+# pinned inode-lifetime runner
+python3 -B scripts/test_ext4_inode_lifetime.py --output <out> --source-hashes <pins> --source-hashes-sha256 <sha> --host-cxx /usr/bin/x86_64-linux-gnu-g++-13 --host-cxx-sha256 <sha> --toolchain-root <systoolchain>
+

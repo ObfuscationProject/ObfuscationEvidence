@@ -1,0 +1,24 @@
+archive/receipts/ObfuscationKernel@5372e50/refactor/ext4-layout/kernel-ten-profile
+  images/i386-debug/kernel.bin
+  images/i386-debug/kernel.elf
+  images/x86_64-debug/kernel.bin
+  images/x86_64-debug/kernel.elf
+  sdk/x86_64/debug
+  images/aarch64-debug/kernel.bin
+  images/aarch64-debug/kernel.elf
+  images/arm32-debug/kernel.bin
+  images/arm32-debug/kernel.elf
+  sdk/arm32/debug
+  images/rv64-debug/kernel.bin
+  images/rv64-debug/kernel.elf
+  images/rv32-debug/kernel.bin
+  images/rv32-debug/kernel.elf
+  images/loongarch64-debug/kernel.bin
+  images/loongarch64-debug/kernel.elf
+  images/mips-debug/kernel.bin
+  images/mips-debug/kernel.elf
+  images/mips64-debug/kernel.bin
+  images/mips64-debug/kernel.elf
+  images/ppc-debug/kernel.bin
+  images/ppc-debug/kernel.elf
+  sdk/ppc/debug

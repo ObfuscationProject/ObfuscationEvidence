@@ -1,0 +1,4 @@
+write seed.bin /seed
+set_inode_field /seed mode 0100644
+set_inode_field /seed uid 0
+set_inode_field /seed gid 0

@@ -1,0 +1,12 @@
+# kernel builds, twenty configurations
+for <tree> in <kernel-worktree@7ddd8bb> <worktree>, <arch> in ten profiles, <mode> in debug release: xmake f -P <tree> -c -y -m <mode> -a <arch> -o <build> --systoolchain_dir=<systoolchain>/<triple> && xmake -P <tree> -y -b -j8 okernel_image
+
+# object comparison
+tools/objcount.py objcount.json  # objcopy --strip-debug, then byte compare
+
+# assembly comparison of objects that are not byte-identical
+tools/kasm.py <kernel-worktree@7ddd8bb> <worktree> <config>...  # exact xmake command lines from xmake project -k compile_commands, -S -g0; tools/asm_cmp.py at -O2, tools/asm_cmp0.py at -O0
+
+# hosted translation units
+tools/tu_oracle.py <kernel@7ddd8bb tests> <worktree> <out> 10 && tools/asm_oracle.py ... -O2 && tools/asm_oracle.py ... -O0 <O2-differing units>  # parent-commit test sources, parent headers vs module headers through old-path forwarding shims
+

@@ -1,0 +1,165 @@
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[ 12%]: <app-init> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 12%]: <app-init> cache compiling.debug apps/init/main.c
+[ 12%]: <app-init> cache compiling.debug apps/init/native_supervisor.c
+[ 12%]: <app-init> cache compiling.debug apps/init/native_control.c
+[ 16%]: <app-oksh> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 16%]: <app-oksh> cache compiling.debug apps/oksh/main.c
+[ 16%]: <app-oksh> cache compiling.debug apps/lib/commands.c
+[ 16%]: <app-posix-check> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 16%]: <app-posix-check> cache compiling.debug apps/posix-check/main.c
+[ 16%]: <app-posix-check> cache compiling.debug apps/posix-check/fat.c
+[ 16%]: <app-posix-check> cache compiling.debug apps/lib/commands.c
+[ 16%]: <app-udp-probe> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 16%]: <app-udp-probe> cache compiling.debug apps/udp-probe/main.c
+[ 16%]: <app-udp-probe> cache compiling.debug apps/lib/commands.c
+[ 16%]: <app-hello> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 16%]: <app-hello> cache compiling.debug apps/hello/main.c
+[ 16%]: <app-hello> cache compiling.debug apps/lib/commands.c
+[ 16%]: <app-cat> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 16%]: <app-cat> cache compiling.debug apps/cat/main.c
+[ 16%]: <app-cat> cache compiling.debug apps/lib/commands.c
+[ 16%]: <app-ls> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 16%]: <app-ls> cache compiling.debug apps/ls/main.c
+[ 16%]: <app-ls> cache compiling.debug apps/lib/commands.c
+[ 16%]: <app-stat> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 16%]: <app-stat> cache compiling.debug apps/stat/main.c
+[ 17%]: <app-stat> cache compiling.debug apps/lib/commands.c
+[ 17%]: <app-mkdir> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 18%]: <app-mkdir> cache compiling.debug apps/mkdir/main.c
+[ 18%]: <app-mkdir> cache compiling.debug apps/lib/commands.c
+[ 18%]: <app-rm> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 19%]: <app-rm> cache compiling.debug apps/rm/main.c
+[ 19%]: <app-rm> cache compiling.debug apps/lib/commands.c
+[ 20%]: <app-mv> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 20%]: <app-mv> cache compiling.debug apps/mv/main.c
+[ 20%]: <app-mv> cache compiling.debug apps/lib/commands.c
+[ 21%]: <app-ln> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 21%]: <app-ln> cache compiling.debug apps/ln/main.c
+[ 22%]: <app-ln> cache compiling.debug apps/lib/commands.c
+[ 22%]: <app-pwd> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 22%]: <app-pwd> cache compiling.debug apps/pwd/main.c
+[ 23%]: <app-pwd> cache compiling.debug apps/lib/commands.c
+[ 23%]: <app-whoami> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 23%]: <app-whoami> cache compiling.debug apps/whoami/main.c
+[ 24%]: <app-whoami> cache compiling.debug apps/lib/commands.c
+[ 24%]: <app-uname> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 25%]: <app-uname> cache compiling.debug apps/uname/main.c
+[ 25%]: <app-uname> cache compiling.debug apps/lib/commands.c
+[ 25%]: <app-uptime> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 26%]: <app-uptime> cache compiling.debug apps/uptime/main.c
+[ 26%]: <app-uptime> cache compiling.debug apps/lib/commands.c
+[ 27%]: <app-touch> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 27%]: <app-touch> cache compiling.debug apps/touch/main.c
+[ 27%]: <app-touch> cache compiling.debug apps/lib/commands.c
+[ 28%]: <app-settings> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 28%]: <app-settings> cache compiling.debug apps/settings/main.c
+[ 28%]: <app-settings> cache compiling.debug apps/lib/commands.c
+[ 29%]: <app-tasks> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 29%]: <app-tasks> cache compiling.debug apps/tasks/main.c
+[ 30%]: <app-tasks> cache compiling.debug apps/lib/commands.c
+[ 30%]: <app-notes> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 30%]: <app-notes> cache compiling.debug apps/notes/main.c
+[ 31%]: <app-notes> cache compiling.debug apps/notes/save.c
+[ 31%]: <app-notes> cache compiling.debug apps/lib/commands.c
+[ 32%]: <app-about> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 32%]: <app-about> cache compiling.debug apps/about/main.c
+[ 32%]: <app-about> cache compiling.debug apps/lib/commands.c
+[ 33%]: <app-sync> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 33%]: <app-sync> cache compiling.debug apps/sync/main.c
+[ 33%]: <app-sync> cache compiling.debug apps/lib/commands.c
+[ 34%]: <app-kmodload> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 34%]: <app-kmodload> cache compiling.debug apps/kmodload/main.c
+[ 35%]: <app-kmodload> cache compiling.debug apps/lib/commands.c
+[ 35%]: <app-service-ctl> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 35%]: <app-service-ctl> cache compiling.debug apps/service-ctl/main.c
+[ 36%]: <app-service-ctl> cache compiling.debug apps/init/native_control_client.c
+[ 36%]: <app-service-ctl> cache compiling.debug apps/lib/commands.c
+[ 37%]: <app-logd> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 37%]: <app-logd> cache compiling.debug apps/logd/main.c
+[ 37%]: <app-logd> cache compiling.debug apps/logging/transport.c
+[ 38%]: <app-logd> cache compiling.debug apps/logging/store.c
+[ 38%]: <app-logd> cache compiling.debug apps/logging/protocol.c
+[ 39%]: <app-logd> cache compiling.debug apps/lib/commands.c
+[ 39%]: <app-logger> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 39%]: <app-logger> cache compiling.debug apps/logger/main.c
+[ 40%]: <app-logger> cache compiling.debug apps/logging/transport.c
+[ 40%]: <app-logger> cache compiling.debug apps/logging/store.c
+[ 40%]: <app-logger> cache compiling.debug apps/logging/protocol.c
+[ 41%]: <app-logger> cache compiling.debug apps/lib/commands.c
+[ 41%]: <app-timed> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 42%]: <app-timed> cache compiling.debug apps/timed/main.c
+[ 42%]: <app-timed> cache compiling.debug apps/time/transport.c
+[ 42%]: <app-timed> cache compiling.debug apps/time/protocol.c
+[ 43%]: <app-timed> cache compiling.debug apps/lib/commands.c
+[ 43%]: <app-timectl> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 44%]: <app-timectl> cache compiling.debug apps/timectl/main.c
+[ 44%]: <app-timectl> cache compiling.debug apps/time/transport.c
+[ 44%]: <app-timectl> cache compiling.debug apps/time/protocol.c
+[ 45%]: <app-timectl> cache compiling.debug apps/lib/commands.c
+[ 45%]: <app-mountctl> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 45%]: <app-mountctl> cache compiling.debug apps/mountctl/main.c
+[ 46%]: <app-mountctl> cache compiling.debug apps/lib/commands.c
+[ 46%]: <app-resolved> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 47%]: <app-resolved> cache compiling.debug apps/resolved/main.c
+[ 47%]: <app-resolved> cache compiling.debug apps/resolver/transport.c
+[ 47%]: <app-resolved> cache compiling.debug apps/resolver/hosts.c
+[ 48%]: <app-resolved> cache compiling.debug apps/resolver/protocol.c
+[ 48%]: <app-resolved> cache compiling.debug apps/lib/commands.c
+[ 49%]: <app-resolvectl> compiling.debug lib/okcrt/arch/x86_64/crt0.S
+[ 49%]: <app-resolvectl> cache compiling.debug apps/resolvectl/main.c
+[ 49%]: <app-resolvectl> cache compiling.debug apps/resolver/transport.c
+[ 50%]: <app-resolvectl> cache compiling.debug apps/resolver/hosts.c
+[ 50%]: <app-resolvectl> cache compiling.debug apps/resolver/protocol.c
+[ 50%]: <app-resolvectl> cache compiling.debug apps/lib/commands.c
+[ 62%]: <app-init> linking.debug init.elf
+[ 62%]: <app-timed> linking.debug timed.elf
+[ 62%]: <app-timectl> linking.debug timectl.elf
+[ 62%]: <app-oksh> linking.debug oksh.elf
+[ 62%]: <app-posix-check> linking.debug posix-check.elf
+[ 62%]: <app-udp-probe> linking.debug udp-probe.elf
+[ 62%]: <app-hello> linking.debug hello.elf
+[ 62%]: <app-cat> linking.debug cat.elf
+[ 62%]: <app-ls> linking.debug ls.elf
+[ 62%]: <app-stat> linking.debug stat.elf
+[ 62%]: <app-mkdir> linking.debug mkdir.elf
+[ 62%]: <app-rm> linking.debug rm.elf
+[ 62%]: <app-mv> linking.debug mv.elf
+[ 62%]: <app-ln> linking.debug ln.elf
+[ 63%]: <app-mountctl> linking.debug mountctl.elf
+[ 63%]: <app-pwd> linking.debug pwd.elf
+[ 63%]: <app-whoami> linking.debug whoami.elf
+[ 63%]: <app-uname> linking.debug uname.elf
+[ 63%]: <app-uptime> linking.debug uptime.elf
+[ 63%]: <app-touch> linking.debug touch.elf
+[ 63%]: <app-settings> linking.debug settings.elf
+[ 63%]: <app-tasks> linking.debug tasks.elf
+[ 63%]: <app-notes> linking.debug notes.elf
+[ 63%]: <app-about> linking.debug about.elf
+[ 63%]: <app-sync> linking.debug sync.elf
+[ 63%]: <app-kmodload> linking.debug kmodload.elf
+[ 63%]: <app-service-ctl> linking.debug service-ctl.elf
+[ 63%]: <app-resolved> linking.debug resolved.elf
+[ 63%]: <app-logd> linking.debug logd.elf
+[ 63%]: <app-logger> linking.debug logger.elf
+[ 66%]: <app-resolvectl> linking.debug resolvectl.elf
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[ 89%]: <distro_image> compiling.debug modules/boot/archive.S
+[ 90%]: <distro_image> cache compiling.debug modules/boot/archive.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/boot/storage.cpp
+[ 90%]: <distro_image> cache compiling.debug drivers/virtio/block.cpp
+[ 90%]: <distro_image> cache compiling.debug drivers/virtio/rng.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/boot/entropy.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/system-gui/external_module.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/system-gui/system_gui_tests.cpp
+[ 90%]: <distro_image> cache compiling.debug modules/system-gui/system_gui_runtime.cpp
+[ 90%]: <distro_image> cache compiling.debug drivers/virtio/net.cpp
+[ 93%]: <distro_image> linking.debug kernel.elf
+[kernel-sdk] x86_64/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/x86_64/debug
+[100%]: build ok, spent 42.683s

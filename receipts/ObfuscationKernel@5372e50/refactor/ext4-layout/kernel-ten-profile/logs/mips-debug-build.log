@@ -1,0 +1,82 @@
+[  2%]: <okernel_image> compiling.debug src/arch/mips/boot.S
+[  3%]: <okernel_image> cache compiling.debug src/core/kernel_main.cpp
+[  3%]: <okernel_image> cache compiling.debug src/arch/mips/platform.cpp
+[  3%]: <okernel> cache compiling.debug src/boot/raw_handoff.cpp
+[  3%]: <okernel> cache compiling.debug src/boot/fdt.cpp
+[  3%]: <okernel> cache compiling.debug src/core/kernel_syscalls.cpp
+[  3%]: <okernel> cache compiling.debug src/core/kernel.cpp
+[  3%]: <okernel> cache compiling.debug src/core/native_shutdown.cpp
+[  3%]: <okernel> cache compiling.debug src/core/module.cpp
+[  4%]: <okernel> cache compiling.debug src/core/entry.cpp
+[  5%]: <okernel> cache compiling.debug src/rescue/file_manager.cpp
+[  7%]: <okernel> cache compiling.debug src/rescue/shell.cpp
+[  8%]: <okernel> cache compiling.debug src/rescue/task_manager.cpp
+[  9%]: <okernel> cache compiling.debug src/rescue/shell/status.cpp
+[ 10%]: <okernel> cache compiling.debug src/rescue/shell/storage.cpp
+src/core/module.cpp: In function 'ok::Status ok::{anonymous}::parse_okmod_line(ok::ModuleImageInfo&, std::string_view)':
+src/core/module.cpp:347:61: warning: narrowing conversion of 'ok::{anonymous}::parse_unsigned(line.std::basic_string_view<char>::substr(6, ((std::basic_string_view<char>::size_type)std::basic_string_view<char>::npos)))' from 'ok::u64' {aka 'long long unsigned int'} to 'ok::uptr' {aka 'unsigned int'} [-Wnarrowing]
+  347 |         ModuleRelocation relocation{.offset = parse_unsigned(line.substr(6)), .kind = ModuleRelocationKind::relative};
+      |                                               ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 11%]: <okernel> cache compiling.debug src/rescue/shell/network.cpp
+[ 13%]: <okernel> cache compiling.debug src/rescue/shell/task_manager.cpp
+[ 14%]: <okernel> cache compiling.debug src/rescue/shell/filesystem.cpp
+[ 15%]: <okernel> cache compiling.debug tests/kernel/debug/suite.cpp
+[ 16%]: <okernel> cache compiling.debug tests/kernel/points/test_point.cpp
+[ 17%]: <okernel> cache compiling.debug tests/kernel/roadmap/linux_abi_tests.cpp
+[ 19%]: <okernel> cache compiling.debug tests/kernel/roadmap/vm_tests.cpp
+[ 20%]: <okernel> cache compiling.debug tests/kernel/roadmap/process_tests.cpp
+[ 21%]: <okernel> cache compiling.debug tests/kernel/roadmap/unix_vfs_tests.cpp
+[ 22%]: <okernel> cache compiling.debug tests/kernel/roadmap/module_tests.cpp
+[ 23%]: <okernel> cache compiling.debug tests/kernel/roadmap/gui_tests.cpp
+[ 24%]: <okernel> cache compiling.debug tests/kernel/roadmap/driver_abi_tests.cpp
+[ 26%]: <okernel> cache compiling.debug tests/kernel/roadmap/smp_preempt_tests.cpp
+[ 27%]: <okernel> cache compiling.debug tests/kernel/roadmap/network_storage_tests.cpp
+[ 28%]: <okernel> cache compiling.debug src/driver/block.cpp
+[ 29%]: <okernel> cache compiling.debug src/driver/abi.cpp
+[ 30%]: <okernel> cache compiling.debug src/driver/driver.cpp
+[ 32%]: <okernel> cache compiling.debug src/driver/bus_input.cpp
+[ 33%]: <okernel> cache compiling.debug src/driver/display.cpp
+[ 34%]: <okernel> cache compiling.debug src/fs/vfs.cpp
+[ 35%]: <okernel> cache compiling.debug src/fs/simplefs.cpp
+[ 36%]: <okernel> cache compiling.debug src/fs/fat.cpp
+[ 38%]: <okernel> cache compiling.debug src/fs/ext4_recovery.cpp
+[ 39%]: <okernel> cache compiling.debug src/fs/archive.cpp
+[ 40%]: <okernel> cache compiling.debug src/fs/storage.cpp
+[ 41%]: <okernel> cache compiling.debug src/fs/unix.cpp
+[ 42%]: <okernel> cache compiling.debug src/fs/ext4.cpp
+[ 43%]: <okernel> cache compiling.debug src/fs/fat_fs.cpp
+[ 45%]: <okernel> cache compiling.debug src/fs/ext4_fs.cpp
+[ 46%]: <okernel> cache compiling.debug src/gui/desktop.cpp
+[ 47%]: <okernel> cache compiling.debug src/gui/gui.cpp
+[ 48%]: <okernel> cache compiling.debug src/interrupt/interrupt.cpp
+[ 49%]: <okernel> cache compiling.debug src/ipc/ipc.cpp
+[ 51%]: <okernel> cache compiling.debug src/memory/memory.cpp
+[ 52%]: <okernel> cache compiling.debug src/memory/physical_map.cpp
+[ 53%]: <okernel> cache compiling.debug src/memory/runtime_frames.cpp
+[ 54%]: <okernel> cache compiling.debug src/net/native_udp.cpp
+[ 55%]: <okernel> cache compiling.debug src/net/net.cpp
+[ 56%]: <okernel> cache compiling.debug src/posix/fd.cpp
+[ 58%]: <okernel> cache compiling.debug src/posix/posix.cpp
+[ 59%]: <okernel> cache compiling.debug src/posix/entropy.cpp
+[ 60%]: <okernel> cache compiling.debug src/posix/process.cpp
+[ 61%]: <okernel> cache compiling.debug src/posix/path.cpp
+[ 62%]: <okernel> cache compiling.debug src/sched/scheduler.cpp
+[ 64%]: <okernel> cache compiling.debug src/sched/process.cpp
+[ 65%]: <okernel> cache compiling.debug src/smp/preempt.cpp
+[ 66%]: <okernel> cache compiling.debug src/smp/smp.cpp
+[ 67%]: <okernel> cache compiling.debug src/syscall/syscall.cpp
+[ 68%]: <okernel> cache compiling.debug src/syscall/linux.cpp
+[ 70%]: <okernel> cache compiling.debug src/user/user.cpp
+[ 71%]: <okernel> cache compiling.debug src/user/runtime.cpp
+[ 72%]: <okernel> cache compiling.debug src/arch/arch.cpp
+[ 73%]: <okernel> cache compiling.debug src/arch/clock.cpp
+[ 74%]: <okernel> cache compiling.debug src/arch/realtime.cpp
+[ 76%]: <okernel> cache compiling.debug src/arch/terminal_power.cpp
+[ 77%]: <okernel> cache compiling.debug src/arch/mips/ops.cpp
+[ 78%]: <okernel> cache compiling.debug src/arch/mips/execution.cpp
+[ 79%]: <okernel> compiling.debug src/arch/mips/execution.S
+[ 89%]: <okernel> archiving.debug libokernel.a
+[ 91%]: <okernel_image> linking.debug kernel.elf
+[100%]: build ok, spent 60.108s

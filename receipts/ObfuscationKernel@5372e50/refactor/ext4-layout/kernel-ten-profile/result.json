@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+  "branch": "refactor/ext4-layout",
+  "campaign": "kernel-ten-profile",
+  "date": "2026-10-27",
+  "scope": "Folded ext4 module headers: ten-profile debug build, xmake test (QEMU debug kernel) and kernel-sdk export.",
+  "claims": [
+    "all ten debug kernels pass xmake test (profile and booted QEMU debug kernel, OK_TEST_PASS with ext4=1)",
+    "kernel-sdk exports on all ten profiles; the SDK contract validators accept the module headers and the two standalone ext4 profile markers (ABI 74)"
+  ],
+  "sources": [
+    {
+      "tree": "kernel@5372e50",
+      "commit": "5372e508ea09fdaf8d7978094d0bef1783cca1ca",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@5372e50>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (one per triple, sha256-verified), installed with --systoolchain_dir",
+    "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+    "qemu": "QEMU emulator version 10.2.0",
+    "e2fsprogs": "mke2fs 1.47.0 (5-Feb-2023)"
+  },
+  "summary": {
+    "i386": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=i386 processes=15 cpus=2 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 3223019,
+      "data": 1313636,
+      "bss": 64703548,
+      "bin": 8389120,
+      "kernel_bin_sha256": "184e36d61921f198af77e36a58cfb351f58eabcc7d74762e286665e6b8b13f36",
+      "kernel_elf_sha256": "8a178381e489b239c42c2d112e6fb9b6521f649870f1c6c5f21671f36372bcd3",
+      "sdk_manifest_sha256": "a487bb59ba29e6dc88e92de63481a6959ccced4d2dc50ed36553dcaa1c6d55e7",
+      "sdk_abi_version": 74
+    },
+    "x86_64": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=x86_64 processes=15 cpus=4 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 3433591,
+      "data": 1487184,
+      "bss": 69299696,
+      "bin": 8389120,
+      "kernel_bin_sha256": "df39311541e3e901cf04a408406ffc6494b0612c0aa0bf6f4aece2a2a35f5138",
+      "kernel_elf_sha256": "81f923ba646139459e9174cb2ff87afccb97ce350aea725335c9cb79a5493e94",
+      "sdk_manifest_sha256": "143ea61d55f7cc28279a1846925e1ef608e418d501602f8f89cf56c51e861930",
+      "sdk_abi_version": 74
+    },
+    "aarch64": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=aarch64 processes=15 cpus=4 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 2978832,
+      "data": 1519608,
+      "bss": 69213664,
+      "bin": 4501496,
+      "kernel_bin_sha256": "3028c804ae691bcc8b072a779c24f05957e53634861c845061a9394af479a008",
+      "kernel_elf_sha256": "87af6eba507e8c181da6b171e0191cf2c646892dcaef59338f40b3f657c2cbc6",
+      "sdk_manifest_sha256": "790b319ca35ee54edf257981d6528087b141aac50c035543475feb94f339d9ba",
+      "sdk_abi_version": 74
+    },
+    "arm32": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=arm32 processes=15 cpus=2 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 3143249,
+      "data": 1389964,
+      "bss": 64868136,
+      "bin": 4539789,
+      "kernel_bin_sha256": "b1b7b0ff0f9d3cfa6a7352e32d2c90bc2f3961103ddc694aa4bba256e109a70b",
+      "kernel_elf_sha256": "830ecf90a3dd0535630698a960ad268fae4fc3c065c5fc7f7aec76cc4a46057f",
+      "sdk_manifest_sha256": "770eec94666689763b3604a2a0073924747347804283e65e1ef0db22d9a980a3",
+      "sdk_abi_version": 74
+    },
+    "rv64": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=rv64 processes=15 cpus=4 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 2541331,
+      "data": 1519396,
+      "bss": 69136125,
+      "bin": 38246952,
+      "kernel_bin_sha256": "069b9ff9bf6837b5721961a19ca164bc82eb510988003692ced917582cbc033a",
+      "kernel_elf_sha256": "069b9ff9bf6837b5721961a19ca164bc82eb510988003692ced917582cbc033a",
+      "sdk_manifest_sha256": "de4e0254ecae867f2fd777fca6bad9eb61e6e550fe82fcb02de87a97b12fab7d",
+      "sdk_abi_version": 74
+    },
+    "rv32": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=rv32 processes=15 cpus=2 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 2725613,
+      "data": 1389968,
+      "bss": 65236973,
+      "bin": 37064604,
+      "kernel_bin_sha256": "b12f87eb6ced50bf736b2ffa075fde4c2ea47d89d30942b22e3ac5fdf39e45c5",
+      "kernel_elf_sha256": "b12f87eb6ced50bf736b2ffa075fde4c2ea47d89d30942b22e3ac5fdf39e45c5",
+      "sdk_manifest_sha256": "a5f18532f66cca7a2a4fec39c6429ad3ea6c50e322aac03d13e4fe766ec30e79",
+      "sdk_abi_version": 74
+    },
+    "loongarch64": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=loongarch64 processes=15 cpus=4 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 3629256,
+      "data": 1429496,
+      "bss": 72072672,
+      "bin": 49374344,
+      "kernel_bin_sha256": "6b667e0a349e01af5679a70f633bbb25f5011cf777c133a5c2e5aea571d9f2b7",
+      "kernel_elf_sha256": "6b667e0a349e01af5679a70f633bbb25f5011cf777c133a5c2e5aea571d9f2b7",
+      "sdk_manifest_sha256": "e8c61c0aaee23fef22181e9a373e573b7b1caeaeeb47ae4eb56329541583b683",
+      "sdk_abi_version": 74
+    },
+    "mips": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=mips processes=15 cpus=2 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 3768124,
+      "data": 1298436,
+      "bss": 66198632,
+      "bin": 44228928,
+      "kernel_bin_sha256": "fc47c8699b433a5886633c22a3de3ab7b8fc2750d0cae022cc03fc49267ee8fe",
+      "kernel_elf_sha256": "fc47c8699b433a5886633c22a3de3ab7b8fc2750d0cae022cc03fc49267ee8fe",
+      "sdk_manifest_sha256": "b47724364cd415affea1d1e39ac32376843384e130933062d3b797055edcfe66",
+      "sdk_abi_version": 74
+    },
+    "mips64": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=mips64 processes=15 cpus=4 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 3843216,
+      "data": 1427832,
+      "bss": 70157408,
+      "bin": 138234464,
+      "kernel_bin_sha256": "09c94de0e6b4ab4f9bcfb40d2b9c71842980ae8432da24e39c0d39c4ca899aa6",
+      "kernel_elf_sha256": "09c94de0e6b4ab4f9bcfb40d2b9c71842980ae8432da24e39c0d39c4ca899aa6",
+      "sdk_manifest_sha256": "511fd966da52df41e17ed2f21031364bb5f839cea24714819018f5403545a01a",
+      "sdk_abi_version": 74
+    },
+    "ppc": {
+      "xmake_test": "100% tests passed, 0 test(s) failed out of 2",
+      "ok_test_pass": "OK_TEST_PASS arch=ppc processes=15 cpus=2 drivers=13 free_frames=16384 syscalls=98 debug_test_points=80 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "text": 4329720,
+      "data": 1357204,
+      "bss": 62688360,
+      "bin": 43712416,
+      "kernel_bin_sha256": "20703de959b17a577c2a13a08a459e989a7deed21a922faed012436345bfd716",
+      "kernel_elf_sha256": "20703de959b17a577c2a13a08a459e989a7deed21a922faed012436345bfd716",
+      "sdk_manifest_sha256": "cf325f5715aa8fb319d62d2697182f663c1d4af531772d8c4d6eeed638ba0ac3",
+      "sdk_abi_version": 74
+    }
+  },
+  "status": "passed",
+  "commands": [
+    {
+      "label": "kernel debug i386",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/i386 && xmake f -P . -c -y -m debug -a i386 -o <build>/i386 --systoolchain_dir=<systoolchain>/i386-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug x86_64",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/x86_64 && xmake f -P . -c -y -m debug -a x86_64 -o <build>/x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug aarch64",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/aarch64 && xmake f -P . -c -y -m debug -a aarch64 -o <build>/aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug arm32",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/arm32 && xmake f -P . -c -y -m debug -a arm32 -o <build>/arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug rv64",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/rv64 && xmake f -P . -c -y -m debug -a rv64 -o <build>/rv64 --systoolchain_dir=<systoolchain>/riscv64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug rv32",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/rv32 && xmake f -P . -c -y -m debug -a rv32 -o <build>/rv32 --systoolchain_dir=<systoolchain>/riscv32-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug loongarch64",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/loongarch64 && xmake f -P . -c -y -m debug -a loongarch64 -o <build>/loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug mips",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/mips && xmake f -P . -c -y -m debug -a mips -o <build>/mips --systoolchain_dir=<systoolchain>/mips-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug mips64",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/mips64 && xmake f -P . -c -y -m debug -a mips64 -o <build>/mips64 --systoolchain_dir=<systoolchain>/mips64-elf && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    },
+    {
+      "label": "kernel debug ppc",
+      "command": "cd <kernel@5372e50> && export XMAKE_CONFIGDIR=<config>/ppc && xmake f -P . -c -y -m debug -a ppc -o <build>/ppc --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -P . -y -b -j8 okernel_image && xmake -P . -y -b -j8 okernel okernel_image && xmake test -P . -y && xmake -P . -y -b kernel-sdk",
+      "returncode": 0
+    }
+  ]
+}

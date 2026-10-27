@@ -1,0 +1,6 @@
+mips-release suite.cpp.o -O2: same 369 | -O0: same unreferenced-one-sided-objects=0 symbols=1863
+mips-debug suite.cpp.o -O2: same 369 | -O0: same unreferenced-one-sided-objects=0 symbols=1863
+mips-debug test_point.cpp.o -O2: same 1527 | -O0: same unreferenced-one-sided-objects=0 symbols=5964
+mips64-release suite.cpp.o -O2: same 368 | -O0: same unreferenced-one-sided-objects=0 symbols=1839
+mips64-debug suite.cpp.o -O2: same 368 | -O0: same unreferenced-one-sided-objects=0 symbols=1839
+mips64-debug test_point.cpp.o -O2: same 1521 | -O0: same unreferenced-one-sided-objects=0 symbols=5919

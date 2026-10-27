@@ -1,0 +1,3 @@
+checking for platform ... linux (aarch64)
+checking for qemu_binary ... no
+checking for systoolchain_dir ... <systoolchain>/aarch64-elf

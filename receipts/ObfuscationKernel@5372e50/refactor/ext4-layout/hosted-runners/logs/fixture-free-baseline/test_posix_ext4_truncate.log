@@ -1,0 +1,27 @@
+Creating regular file /tmp/ok-posix-ext4-truncate-83lw3ejr/ext4-1024.img
+Creating regular file /tmp/ok-posix-ext4-truncate-83lw3ejr/ext4-2048.img
+Creating regular file /tmp/ok-posix-ext4-truncate-83lw3ejr/ext4-4096.img
+/usr/bin/ld: /tmp/cchYpeqp.o: in function `ok::user::native::NativePagePool::release_index(unsigned long)':
+<kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:321:(.text._ZN2ok4user6native12MappingPagesD2Ev[_ZN2ok4user6native12MappingPagesD5Ev]+0x1f1): undefined reference to `ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)'
+/usr/bin/ld: <kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:321:(.text._ZN2ok4user6native12MappingPagesD2Ev[_ZN2ok4user6native12MappingPagesD5Ev]+0x3eb): undefined reference to `ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)'
+/usr/bin/ld: /tmp/ccPqTk3x.o: in function `ok::user::native::NativePagePool::release_index(unsigned long)':
+<kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:321:(.text._ZNSt5arrayIN2ok5sched19ProcessControlBlockELm64EED2Ev[_ZNSt5arrayIN2ok5sched19ProcessControlBlockELm64EED5Ev]+0x23f): undefined reference to `ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)'
+/usr/bin/ld: <kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:321:(.text._ZNSt5arrayIN2ok5sched19ProcessControlBlockELm64EED2Ev[_ZNSt5arrayIN2ok5sched19ProcessControlBlockELm64EED5Ev]+0x46a): undefined reference to `ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)'
+/usr/bin/ld: <kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:321:(.text._ZN2ok4user6native17SharedMemoryFiles6retireERNS2_4FileE[_ZN2ok4user6native17SharedMemoryFiles6retireERNS2_4FileE]+0x2a4): undefined reference to `ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)'
+/usr/bin/ld: /tmp/ccPqTk3x.o: in function `ok::sched::SchedulerState::release_description(unsigned short)':
+<kernel-worktree@7ddd8bb>/src/sched/scheduler.cpp:953:(.text._ZN2ok5sched14SchedulerState19release_descriptionEt+0x5bf): undefined reference to `ok::net::NativeUdpService::close(unsigned int)'
+/usr/bin/ld: <kernel-worktree@7ddd8bb>/src/sched/scheduler.cpp:953:(.text._ZN2ok5sched14SchedulerState19release_descriptionEt+0x9ea): undefined reference to `ok::net::NativeUdpService::close(unsigned int)'
+/usr/bin/ld: /tmp/ccuZqeAq.o: in function `ok::user::native::NativePagePool::release_index(unsigned long)':
+<kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:321:(.text._ZN2ok4user6native14NativePagePool17release_referenceERKNS_6memory13PhysicalFrameE[_ZN2ok4user6native14NativePagePool17release_referenceERKNS_6memory13PhysicalFrameE]+0x157): undefined reference to `ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)'
+/usr/bin/ld: /tmp/ccuZqeAq.o: in function `ok::user::native::NativePagePool::acquire(ok::user::native::NativePagePool::Purpose)':
+<kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:289:(.text._ZN2ok4user6native17SharedMemoryFiles15initialize_sizeENS1_16SharedFileHandleEm.isra.0+0x6b0): undefined reference to `ok::memory::FrameAllocator::allocate()'
+/usr/bin/ld: <kernel-worktree@7ddd8bb>/include/ok/user/native_page_pool.hpp:295:(.text._ZN2ok4user6native17SharedMemoryFiles15initialize_sizeENS1_16SharedFileHandleEm.isra.0+0x89e): undefined reference to `ok::memory::FrameAllocator::release(ok::memory::PhysicalFrame)'
+collect2: error: ld returned 1 exit status
+Traceback (most recent call last):
+  File "<kernel-worktree@7ddd8bb>/scripts/test_posix_ext4_truncate.py", line 65, in <module>
+    main()
+  File "<kernel-worktree@7ddd8bb>/scripts/test_posix_ext4_truncate.py", line 48, in main
+    subprocess.run([
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['g++', '-std=c++23', '-O2', '-g', '-Wall', '-Wextra', '-Wpedantic', '-Werror', '-ffunction-sections', '-fdata-sections', '-Wl,--gc-sections', '-DOK_ARCH_TARGET_X86_64', '-I<kernel-worktree@7ddd8bb>/include', '<kernel-worktree@7ddd8bb>/tests/host/posix_ext4_truncate_tests.cpp', '<kernel-worktree@7ddd8bb>/tests/host/ext4_realtime_model.cpp', '<kernel-worktree@7ddd8bb>/src/sched/scheduler.cpp', '<kernel-worktree@7ddd8bb>/src/sched/process.cpp', '<kernel-worktree@7ddd8bb>/src/posix/posix.cpp', '<kernel-worktree@7ddd8bb>/src/posix/fd.cpp', '<kernel-worktree@7ddd8bb>/src/posix/path.cpp', '<kernel-worktree@7ddd8bb>/src/posix/process.cpp', '<kernel-worktree@7ddd8bb>/src/fs/vfs.cpp', '<kernel-worktree@7ddd8bb>/src/fs/ext4_fs.cpp', '<kernel-worktree@7ddd8bb>/src/driver/driver.cpp', '<kernel-worktree@7ddd8bb>/src/smp/smp.cpp', '<kernel-worktree@7ddd8bb>/src/arch/arch.cpp', '<kernel-worktree@7ddd8bb>/src/syscall/linux.cpp', '<kernel-worktree@7ddd8bb>/src/arch/x86_64/ops.cpp', '-o', '/tmp/ok-posix-ext4-truncate-83lw3ejr/truncate-x86_64']' returned non-zero exit status 1.

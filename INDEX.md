@@ -23,6 +23,6 @@ Top level of `archive/` (not versioned). Full name listings: `index/prototypes.t
 | `milestone-review-20261019/` | directory | 9 entries |
 | `prototypes/` | directory | 2869 entries |
 | `qualification/` | directory | 780 entries |
-| `receipts/` | directory | 4 entries (images and SDKs named by `receipts/*/ARCHIVE`) |
+| `receipts/` | directory | 5 entries (images and SDKs named by `receipts/*/ARCHIVE`) |
 | `sources/` | directory | 4 entries |
 | `status-history/` | directory | 18 entries |

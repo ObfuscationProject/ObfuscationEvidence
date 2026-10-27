@@ -1,0 +1,26 @@
+[kernel-sdk] ppc/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/ppc/debug
+[kernel-sdk] ppc/debug version=0.1.0 verified: <kernel@5372e50>/build/sdk/ppc/debug
+[  8%]: <okcrt> compiling.debug lib/okcrt/arch/ppc/syscall.S
+[ 12%]: <okcrt> cache compiling.debug lib/okcrt/src/console.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/string.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/syscalls.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/abi.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/stdlib.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/stdio.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/errno.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/pty.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/storage.c
+[ 24%]: <okcrt> cache compiling.debug lib/okcrt/src/power.c
+lib/okcrt/src/power.c: In function 'ok_power_prepare':
+lib/okcrt/src/power.c:16:27: warning: comparison of integer expressions of different signedness: 'long int' and 'unsigned int' [-Wsign-compare]
+   16 |     if (!result || result > OK_POWER_TOKEN_MAX) { errno = EIO; return -1; }
+      |                           ^
+At top level:
+cc1: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics
+[ 61%]: <okcrt> archiving.debug libokcrt.a
+[100%]: build ok, spent 0.909s
