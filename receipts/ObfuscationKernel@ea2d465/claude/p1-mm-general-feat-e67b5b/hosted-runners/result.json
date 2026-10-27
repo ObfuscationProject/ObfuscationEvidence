@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "ea2d4658dd89a2500564c9f274da6bc7ebe1b0f9",
+ "branch": "claude/p1-mm-general-feat-e67b5b",
+ "campaign": "hosted-runners",
+ "date": "2026-10-27",
+ "scope": "Branch tip: hosted model suites (no guest execution): the memory/VM/shared-file units under sanitizers, the SDK contract tests, and every hosted runner compared with main@b429bdc.",
+ "claims": [
+  "The core memory, VM, mapping, page-pool and shared-file units pass plain and under ASan/UBSan",
+  "The SDK contract tests admit shared-file profile v3 and refuse v2",
+  "No hosted runner that passes on main@b429bdc fails on the branch tip"
+ ],
+ "sources": [
+  {
+   "tree": "ea2d465",
+   "commit": "ea2d4658dd89a2500564c9f274da6bc7ebe1b0f9",
+   "relation": "the clean branch checkout at this commit"
+  }
+ ],
+ "environment": {
+  "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+  "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+  "python": "Python 3.12.3",
+  "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+  "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+  "qemu": "QEMU emulator version 10.2.0",
+  "obfuscation_os": "ObfuscationOS@4bd4b0c343ea04052a3f4557944862875fd50b67 (chore/sdk75-consumer, clean checkout)"
+ },
+ "commands": [
+  {
+   "label": "Core memory and VM hosted suites, plain and --sanitize, and the runtime split ratchet",
+   "command": "for t in native_vm native_page_pool native_mapping_pages mapping_view physical_map frame_allocator slab page_cache boot_memory process_resources; do python3 scripts/test_$t.py; python3 scripts/test_$t.py --sanitize; done",
+   "returncode": 0,
+   "log": "logs/core-suites.txt",
+   "log_sha256": "d7aa76e4b5369ffdd820197c0c773c08ac12bd47a81727015dcdff54d9c33959"
+  },
+  {
+   "label": "Kernel SDK contract tests (umbrella layout)",
+   "command": "python3 tests/host/<name>.py for each *_sdk_contract_tests.py, test_native_signal_export.py and sdk_boot_archive_receipt_tests.py --exporter tools/export_sdk.py",
+   "returncode": 0,
+   "log": "logs/sdk-contract-tests.txt",
+   "log_sha256": "b2a97f71fda44cbbafb4898b4cdda0eaaf70b81f155367e48de5a823e9253bd9"
+  },
+  {
+   "label": "Every hosted runner, branch tip against main@b429bdc",
+   "command": "python3 hosted_all.py <tree> <out> 6 <every scripts/test_*.py name>",
+   "returncode": 0,
+   "log": "logs/all-runners-branch.json",
+   "log_sha256": "87db63b6744add48928bb020dd6bbe034bc61a89d9a1148a58398276e0ffff52",
+   "baseline_log": "logs/all-runners-main-b429bdc.json",
+   "baseline_log_sha256": "ce6aac5c5b52a141f212f59ef739aa302f32b95928d7bbc5cc805367913e24aa"
+  }
+ ],
+ "summary": {
+  "branch": {
+   "pass": 73,
+   "fail": 73,
+   "skip": 52
+  },
+  "baseline": {
+   "pass": 69,
+   "fail": 74,
+   "skip": 52
+  },
+  "regressions": [],
+  "newly_passing": [
+   "boot_memory",
+   "native_vm",
+   "page_cache",
+   "physical_map",
+   "slab"
+  ],
+  "removed": {
+   "runtime_frames": "the RuntimeFrameAllocator scaffold folded into FrameAllocator on this branch; test_physical_map and test_frame_allocator cover it"
+  },
+  "failure_modes": "Runners failing in both trees fail at link on source lists that omit src/memory/memory.cpp and other units; neither tree has a compiler error in any runner log."
+ },
+ "status": "passed"
+}

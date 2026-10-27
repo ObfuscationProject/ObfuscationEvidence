@@ -1,0 +1,386 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "ea2d4658dd89a2500564c9f274da6bc7ebe1b0f9",
+ "branch": "claude/p1-mm-general-feat-e67b5b",
+ "campaign": "os-consumer",
+ "date": "2026-10-27",
+ "scope": "Branch tip: the paired ObfuscationOS boots native userland on all ten profiles against the debug SDK in both fork configurations, and admits and links the release SDK on all ten.",
+ "claims": [
+  "ObfuscationOS boots native userland on all ten profiles (qemu-distro --require-native), default and eager fallback",
+  "posix-check passes OK_VM_FORK_COPY and OK_VM_QUOTA and maps past the former 1024-record bound on all ten",
+  "Default builds report OK_NATIVE_COW with shared, copied and in-place resolved pages; fallback builds report none",
+  "ObfuscationOS kernel-sdk-check and distro_image pass against the ABI 75 release SDK on all ten profiles"
+ ],
+ "sources": [
+  {
+   "tree": "ea2d465",
+   "commit": "ea2d4658dd89a2500564c9f274da6bc7ebe1b0f9",
+   "relation": "the clean branch checkout at this commit"
+  }
+ ],
+ "environment": {
+  "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+  "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+  "python": "Python 3.12.3",
+  "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+  "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+  "qemu": "QEMU emulator version 10.2.0",
+  "obfuscation_os": "ObfuscationOS@4bd4b0c343ea04052a3f4557944862875fd50b67 (chore/sdk75-consumer, clean checkout)"
+ },
+ "commands": [
+  {
+   "label": "ObfuscationOS native lane x86_64 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=bios-e820 source=e820 status=pass image_begin=0x0000000000100000 image_end=0x000000000",
+   "log": "serial/x86_64-debug-default-os-lane.log",
+   "log_sha256": "39dc54c2d72dcdeb1a9c9b2d6b3f86338533ff4362d5d1e91bb0276d9e19e0d0",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=6090 copied=171 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane i386 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a i386 --kernel_sdk=<kernel tree>/build/sdk/i386/debug --systoolchain_dir=<systoolchain>/i386-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=bios-e820 source=e820 status=pass image_begin=0x0000000000100000 image_end=0x000000000",
+   "log": "serial/i386-debug-default-os-lane.log",
+   "log_sha256": "b686cd2c1e6b55a8af41fb7fff973f00b28a233508afcd0ae41329e1b0ec7696",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=5931 copied=169 reused=173",
+   "first_attempt": {
+    "returncode": 255,
+    "log": "serial/i386-debug-default-os-lane-first-attempt.log",
+    "log_sha256": "1551ec5c6a6a6cf383f9bfa0b61ae8cf56d5ade60a7d2595bace30496a09d731",
+    "note": "Failed in the kernel-sdk build step before any boot: xmake could not copy the generated boot16.bin into build/linux/i386/debug. Rerun on the same tree passed."
+   }
+  },
+  {
+   "label": "ObfuscationOS native lane aarch64 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a aarch64 --kernel_sdk=<kernel tree>/build/sdk/aarch64/debug --systoolchain_dir=<systoolchain>/aarch64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=aarch64-linux-image source=fdt status=pass image_begin=0x0000000040080000 image_end=0x",
+   "log": "serial/aarch64-debug-default-os-lane.log",
+   "log_sha256": "b7d1f5ac25fecd921f07d70e12d13b2ee016acffa1d80cc6ca068eba812e0ddb",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=6249 copied=171 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane arm32 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=arm32-linux-image source=fdt status=pass image_begin=0x0000000040010000 image_end=0x00",
+   "log": "serial/arm32-debug-default-os-lane.log",
+   "log_sha256": "fe217db40c6c3c69ea2fa46ba362306d26126021db1c7a51f7adea1eb4076617",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=6251 copied=169 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane rv64 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a rv64 --kernel_sdk=<kernel tree>/build/sdk/rv64/debug --systoolchain_dir=<systoolchain>/riscv64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=riscv-fdt source=fdt status=pass image_begin=0x0000000080000000 image_end=0x0000000086",
+   "log": "serial/rv64-debug-default-os-lane.log",
+   "log_sha256": "b819a1aa82155d5615774e53a853f23e0820553f5dcc8f7b42935ad5db572483",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=6090 copied=171 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane rv32 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a rv32 --kernel_sdk=<kernel tree>/build/sdk/rv32/debug --systoolchain_dir=<systoolchain>/riscv32-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=riscv-fdt source=fdt status=pass image_begin=0x0000000080000000 image_end=0x0000000086",
+   "log": "serial/rv32-debug-default-os-lane.log",
+   "log_sha256": "24a707016d0d6d62d93e1428923e4985c377446d0628e17ca06d994616030892",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=5935 copied=169 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane loongarch64 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a loongarch64 --kernel_sdk=<kernel tree>/build/sdk/loongarch64/debug --systoolchain_dir=<systoolchain>/loongarch64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=loongarch64-efi-fdt source=fdt status=pass image_begin=0x0000000090000000 image_end=0x",
+   "log": "serial/loongarch64-debug-default-os-lane.log",
+   "log_sha256": "6f99f17ff2b1bc62762f695d01542f326d7c743520574760fe6c15e4d1cd257b",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=6251 copied=171 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane mips debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a mips --kernel_sdk=<kernel tree>/build/sdk/mips/debug --systoolchain_dir=<systoolchain>/mips-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=malta-prom source=board status=pass image_begin=0x0000000000010000 image_end=0x0000000",
+   "log": "serial/mips-debug-default-os-lane.log",
+   "log_sha256": "29870b1e82e335f383feffa3a10cbfe8f67805fbac4cfda20e021580ea308b5d",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=6567 copied=169 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane mips64 debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a mips64 --kernel_sdk=<kernel tree>/build/sdk/mips64/debug --systoolchain_dir=<systoolchain>/mips64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=malta-prom source=board status=pass image_begin=0x0000000000010000 image_end=0x0000000",
+   "log": "serial/mips64-debug-default-os-lane.log",
+   "log_sha256": "92f3a370b3924596b560b54c468b9c377208da9f8c5a493375d2c3a66a192cf1",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=7344 copied=171 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane ppc debug, default (copy-on-write fork)",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-* && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=epapr source=fdt status=pass image_begin=0x0000000001000000 image_end=0x0000000007b5d0",
+   "log": "serial/ppc-debug-default-os-lane.log",
+   "log_sha256": "b50f268bad1bdbb1d7f2a02ec778a6b162fe7a45a8803b2c38092bde8c1e1fbd",
+   "copy_on_write": "OK_NATIVE_COW version=1 shared=6410 copied=169 reused=173"
+  },
+  {
+   "label": "ObfuscationOS native lane x86_64 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/debug --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=bios-e820 source=e820 status=pass image_begin=0x0000000000100000 image_end=0x000000000",
+   "log": "serial/x86_64-debug-fallback-os-lane.log",
+   "log_sha256": "6b8703baf254d2683903d833a04d4f00d08a964938a2db8af5bb9e303b77563d"
+  },
+  {
+   "label": "ObfuscationOS native lane i386 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a i386 --kernel_sdk=<kernel tree>/build/sdk/i386/debug --systoolchain_dir=<systoolchain>/i386-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=bios-e820 source=e820 status=pass image_begin=0x0000000000100000 image_end=0x000000000",
+   "log": "serial/i386-debug-fallback-os-lane.log",
+   "log_sha256": "b00e2dd853c55fa44dca603eabb427440a3aa62c2a161ca114b28847f173ae31"
+  },
+  {
+   "label": "ObfuscationOS native lane aarch64 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a aarch64 --kernel_sdk=<kernel tree>/build/sdk/aarch64/debug --systoolchain_dir=<systoolchain>/aarch64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=aarch64-linux-image source=fdt status=pass image_begin=0x0000000040080000 image_end=0x",
+   "log": "serial/aarch64-debug-fallback-os-lane.log",
+   "log_sha256": "565e040daac759322f9b1289803491a83290baf7bb6a4c7f8269339f198b7281"
+  },
+  {
+   "label": "ObfuscationOS native lane arm32 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/debug --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=arm32-linux-image source=fdt status=pass image_begin=0x0000000040010000 image_end=0x00",
+   "log": "serial/arm32-debug-fallback-os-lane.log",
+   "log_sha256": "ac3b3d48ec4861b9d5fbc458f9689b7a09fba0e100c31556d9e62f2c5a03ac91"
+  },
+  {
+   "label": "ObfuscationOS native lane rv64 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a rv64 --kernel_sdk=<kernel tree>/build/sdk/rv64/debug --systoolchain_dir=<systoolchain>/riscv64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=riscv-fdt source=fdt status=pass image_begin=0x0000000080000000 image_end=0x0000000086",
+   "log": "serial/rv64-debug-fallback-os-lane.log",
+   "log_sha256": "cf056f2e605f129c3befce4116640258cbbb91072c5729ca66af614429360ef6"
+  },
+  {
+   "label": "ObfuscationOS native lane rv32 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a rv32 --kernel_sdk=<kernel tree>/build/sdk/rv32/debug --systoolchain_dir=<systoolchain>/riscv32-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=riscv-fdt source=fdt status=pass image_begin=0x0000000080000000 image_end=0x0000000086",
+   "log": "serial/rv32-debug-fallback-os-lane.log",
+   "log_sha256": "54c4b82bc5de2e4974670ca0c9b7d094e03b191175b015221821b2336fde66ad"
+  },
+  {
+   "label": "ObfuscationOS native lane loongarch64 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a loongarch64 --kernel_sdk=<kernel tree>/build/sdk/loongarch64/debug --systoolchain_dir=<systoolchain>/loongarch64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=loongarch64-efi-fdt source=fdt status=pass image_begin=0x0000000090000000 image_end=0x",
+   "log": "serial/loongarch64-debug-fallback-os-lane.log",
+   "log_sha256": "8ab9cb9bb0fdb9f6a2efda5460b2f23429810dd9632a147d7257da8ecdb943c6"
+  },
+  {
+   "label": "ObfuscationOS native lane mips debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a mips --kernel_sdk=<kernel tree>/build/sdk/mips/debug --systoolchain_dir=<systoolchain>/mips-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=malta-prom source=board status=pass image_begin=0x0000000000010000 image_end=0x0000000",
+   "log": "serial/mips-debug-fallback-os-lane.log",
+   "log_sha256": "05f05f0c8629596e11cd82c8da1155f29dd1e7b91d2452009c172559981353ca"
+  },
+  {
+   "label": "ObfuscationOS native lane mips64 debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a mips64 --kernel_sdk=<kernel tree>/build/sdk/mips64/debug --systoolchain_dir=<systoolchain>/mips64-elf && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=malta-prom source=board status=pass image_begin=0x0000000000010000 image_end=0x0000000",
+   "log": "serial/mips64-debug-fallback-os-lane.log",
+   "log_sha256": "97b38dea671d077cc886a262c08ba28b85409f7a6f3ced2b2752bfe303aed622"
+  },
+  {
+   "label": "ObfuscationOS native lane ppc debug, eager fork fallback",
+   "command": "cd <kernel tree> && xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m debug -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/debug --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b distro_image && xmake -b rootfs-simplefs && xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "returncode": 0,
+   "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+   "fork_copy": "OK_VM_FORK_COPY scope=hardware parent_store=pass parent_kernel_copy=pass child_kernel_copy=pass child_store=pass",
+   "quota": "OK_VM_QUOTA scope=hardware resource=address-space refused=enomem restored=pass",
+   "boot_memory": "OK_BOOT_MEMORY version=1 protocol=epapr source=fdt status=pass image_begin=0x0000000001000000 image_end=0x0000000007b5c0",
+   "log": "serial/ppc-debug-fallback-os-lane.log",
+   "log_sha256": "9882903c112aae1ec2b128b15b94b4f8084f0ae869e63004afa26537be727c4b"
+  },
+  {
+   "label": "Release SDK x86_64: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a x86_64 --kernel_sdk=<kernel tree>/build/sdk/x86_64/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/x86_64-release-sdk.log",
+   "log_sha256": "0cec447724bb690ad4f9b7d689e421b7b45a9ea86895bf1c613298de4b3626e8"
+  },
+  {
+   "label": "Release SDK i386: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a i386 --systoolchain_dir=<systoolchain>/i386-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a i386 --kernel_sdk=<kernel tree>/build/sdk/i386/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/i386-release-sdk.log",
+   "log_sha256": "cef193d647e3d8be2f1120c516e6dc7a64502bea8d9ba63e1a8542e79aff37a3"
+  },
+  {
+   "label": "Release SDK aarch64: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a aarch64 --kernel_sdk=<kernel tree>/build/sdk/aarch64/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/aarch64-release-sdk.log",
+   "log_sha256": "f17b7d587be3c41d3883a4bca718e486ae9583b95f7af81cd6eb55c6fca3e9bb"
+  },
+  {
+   "label": "Release SDK arm32: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a arm32 --kernel_sdk=<kernel tree>/build/sdk/arm32/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/arm32-release-sdk.log",
+   "log_sha256": "1481e94e644f84a62ddb20ad64ad186949ce683d4ba1515127d077e03deea6c3"
+  },
+  {
+   "label": "Release SDK rv64: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a rv64 --kernel_sdk=<kernel tree>/build/sdk/rv64/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/rv64-release-sdk.log",
+   "log_sha256": "f1c7669a37273888760bfd619c9bcda469d811d81056b9c097cafd01ebae5521"
+  },
+  {
+   "label": "Release SDK rv32: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a rv32 --kernel_sdk=<kernel tree>/build/sdk/rv32/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/rv32-release-sdk.log",
+   "log_sha256": "364a13408035af2659d47eb4dd88520d423f5dd81acf0408cf72e1665cac6fb5"
+  },
+  {
+   "label": "Release SDK loongarch64: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a loongarch64 --kernel_sdk=<kernel tree>/build/sdk/loongarch64/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/loongarch64-release-sdk.log",
+   "log_sha256": "0f5203a7a05706ea17584e98cd17f8aaeb17f6acbd86d36047937b33e394bea2"
+  },
+  {
+   "label": "Release SDK mips: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a mips --systoolchain_dir=<systoolchain>/mips-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a mips --kernel_sdk=<kernel tree>/build/sdk/mips/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/mips-release-sdk.log",
+   "log_sha256": "b7775c194e631c6e2ab4de8c1f3cad6fd04993391eb95fbd503ccee8c8ff48d8"
+  },
+  {
+   "label": "Release SDK mips64: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a mips64 --kernel_sdk=<kernel tree>/build/sdk/mips64/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/mips64-release-sdk.log",
+   "log_sha256": "43d5f6b186b711b18b75521f43e2f486614f028e29783ccdd73e691249e359cb"
+  },
+  {
+   "label": "Release SDK ppc: export, ObfuscationOS admission and distro_image",
+   "command": "cd <kernel tree> && xmake f -c -y -m release -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi && xmake -b kernel-sdk && cd <ObfuscationOS@4bd4b0c> && xmake f -c -y -m release -a ppc --kernel_sdk=<kernel tree>/build/sdk/ppc/release && xmake -b kernel-sdk-check && xmake -b distro_image",
+   "returncode": 0,
+   "sdk": {
+    "abi_version": 75,
+    "mode": "release"
+   },
+   "log": "logs/ppc-release-sdk.log",
+   "log_sha256": "146005cbb49bff6fa5cdc954834ae6fbcfaacecc6b36abafe3b0c5c463ed8dff"
+  }
+ ],
+ "summary": {
+  "native_lanes": 20,
+  "release_sdks": 10,
+  "passed": 30
+ },
+ "status": "passed"
+}

@@ -1,0 +1,40 @@
+# xmake test x86_64 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test i386 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test aarch64 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test arm32 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test rv64 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test rv32 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test loongarch64 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test mips debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test mips64 debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test ppc debug, default (copy-on-write fork)
+xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test
+# xmake test x86_64 debug, eager fork fallback
+xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test i386 debug, eager fork fallback
+xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test aarch64 debug, eager fork fallback
+xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test arm32 debug, eager fork fallback
+xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test rv64 debug, eager fork fallback
+xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test rv32 debug, eager fork fallback
+xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test loongarch64 debug, eager fork fallback
+xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test mips debug, eager fork fallback
+xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test mips64 debug, eager fork fallback
+xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test
+# xmake test ppc debug, eager fork fallback
+xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test

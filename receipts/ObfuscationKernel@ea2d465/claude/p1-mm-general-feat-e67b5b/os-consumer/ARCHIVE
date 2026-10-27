@@ -1,0 +1,11 @@
+archive/receipts/ObfuscationKernel@ea2d465/claude/p1-mm-general-feat-e67b5b/os-consumer
+  sdk/x86_64/release/
+  sdk/i386/release/
+  sdk/aarch64/release/
+  sdk/arm32/release/
+  sdk/rv64/release/
+  sdk/rv32/release/
+  sdk/loongarch64/release/
+  sdk/mips/release/
+  sdk/mips64/release/
+  sdk/ppc/release/

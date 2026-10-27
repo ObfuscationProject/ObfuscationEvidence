@@ -1,0 +1,782 @@
+{
+ "access_semantics": [
+  "fail",
+  "1"
+ ],
+ "archive": [
+  "pass",
+  "0"
+ ],
+ "block_cache": [
+  "pass",
+  "0"
+ ],
+ "block_sessions": [
+  "pass",
+  "0"
+ ],
+ "checked_ownership": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "checked_vfs": [
+  "pass",
+  "0"
+ ],
+ "child_autoreap_scheduler": [
+  "fail",
+  "1"
+ ],
+ "clock_counter": [
+  "pass",
+  "0"
+ ],
+ "console_input": [
+  "pass",
+  "0"
+ ],
+ "deadlines": [
+  "pass",
+  "0"
+ ],
+ "display_input_uapi": [
+  "pass",
+  "0"
+ ],
+ "e820_memory": [
+  "pass",
+  "0"
+ ],
+ "ext4_attributes": [
+  "pass",
+  "0"
+ ],
+ "ext4_bounds": [
+  "pass",
+  "0"
+ ],
+ "ext4_completion": [
+  "skip",
+  "requires --fixture"
+ ],
+ "ext4_directory_mode": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "ext4_first_data": [
+  "skip",
+  "requires --created-empty-image"
+ ],
+ "ext4_fs": [
+  "pass",
+  "0"
+ ],
+ "ext4_initial_attributes": [
+  "pass",
+  "0"
+ ],
+ "ext4_inode_lifetime": [
+  "skip",
+  "requires --source-hashes"
+ ],
+ "ext4_journalled_mode": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "ext4_maintained_times": [
+  "pass",
+  "0"
+ ],
+ "ext4_mounted": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "ext4_mounted_create": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "ext4_namespace_cold_replay": [
+  "skip",
+  "requires --filled-image"
+ ],
+ "ext4_namespace_completion": [
+  "skip",
+  "requires --image"
+ ],
+ "ext4_namespace_journal": [
+  "skip",
+  "requires --image"
+ ],
+ "ext4_namespace_owner_regressions": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "ext4_namespace_recovery_binding": [
+  "skip",
+  "requires --image"
+ ],
+ "ext4_namespace_replay": [
+  "skip",
+  "requires --filled-image"
+ ],
+ "ext4_namespace_transaction": [
+  "skip",
+  "requires --image"
+ ],
+ "ext4_next_data": [
+  "skip",
+  "requires --empty-created-image"
+ ],
+ "ext4_orphan_access": [
+  "skip",
+  "requires --source-hashes"
+ ],
+ "ext4_orphan_ownership": [
+  "skip",
+  "requires --source-hashes"
+ ],
+ "ext4_orphan_reclaim_plan": [
+  "skip",
+  "requires --source-hashes"
+ ],
+ "ext4_owned": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "ext4_owned_edges": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "ext4_recovery": [
+  "pass",
+  "0"
+ ],
+ "ext4_rename_relocation": [
+  "skip",
+  "requires --attempt"
+ ],
+ "ext4_replay_shape": [
+  "pass",
+  "0"
+ ],
+ "ext4_replay_view": [
+  "pass",
+  "0"
+ ],
+ "ext4_transaction": [
+  "skip",
+  "requires --clean-image"
+ ],
+ "fat_fs": [
+  "skip",
+  "requires --tools"
+ ],
+ "fd_readiness": [
+  "fail",
+  "1"
+ ],
+ "fdt_memory": [
+  "pass",
+  "0"
+ ],
+ "file_attributes": [
+  "pass",
+  "0"
+ ],
+ "firmware_handoff": [
+  "pass",
+  "0"
+ ],
+ "frame_allocator": [
+  "pass",
+  "0"
+ ],
+ "initial_child": [
+  "fail",
+  "1"
+ ],
+ "irq_wait_time": [
+  "pass",
+  "0"
+ ],
+ "jbd2": [
+  "fail",
+  "1"
+ ],
+ "jbd2_replay": [
+  "fail",
+  "1"
+ ],
+ "kernel_entry_stack_pool": [
+  "fail",
+  "1"
+ ],
+ "kernel_services": [
+  "pass",
+  "0"
+ ],
+ "linux_access_targets": [
+  "skip",
+  "requires --toolchains"
+ ],
+ "linux_bootstrap": [
+  "fail",
+  "1"
+ ],
+ "linux_chmod": [
+  "pass",
+  "0"
+ ],
+ "linux_chmod_provider": [
+  "skip",
+  "requires --oracle"
+ ],
+ "linux_chmod_service": [
+  "skip",
+  "requires --oracle"
+ ],
+ "linux_chmod_targets": [
+  "skip",
+  "requires --toolchains"
+ ],
+ "linux_clock_set": [
+  "fail",
+  "1"
+ ],
+ "linux_clone_preparation": [
+  "pass",
+  "0"
+ ],
+ "linux_credentials": [
+  "fail",
+  "1"
+ ],
+ "linux_directory": [
+  "fail",
+  "1"
+ ],
+ "linux_dynamic_exec_x86_64": [
+  "skip",
+  "requires --main-elf"
+ ],
+ "linux_exec": [
+  "pass",
+  "0"
+ ],
+ "linux_fds": [
+  "fail",
+  "1"
+ ],
+ "linux_mkdir": [
+  "pass",
+  "0"
+ ],
+ "linux_native_bridge": [
+  "pass",
+  "0"
+ ],
+ "linux_openat": [
+  "fail",
+  "1"
+ ],
+ "linux_owned_stat_bootstrap_targets": [
+  "skip",
+  "requires --toolchains"
+ ],
+ "linux_paths": [
+  "fail",
+  "1"
+ ],
+ "linux_pipes": [
+  "fail",
+  "1"
+ ],
+ "linux_poll": [
+  "fail",
+  "1"
+ ],
+ "linux_positional": [
+  "fail",
+  "1"
+ ],
+ "linux_process": [
+  "fail",
+  "1"
+ ],
+ "linux_rename": [
+  "fail",
+  "1"
+ ],
+ "linux_runtime": [
+  "skip",
+  "requires --elf"
+ ],
+ "linux_seek": [
+  "fail",
+  "1"
+ ],
+ "linux_select": [
+  "fail",
+  "1"
+ ],
+ "linux_sleep": [
+  "fail",
+  "1"
+ ],
+ "linux_stat": [
+  "pass",
+  "0"
+ ],
+ "linux_stat_blocks_oracle": [
+  "pass",
+  "0"
+ ],
+ "linux_stat_copy_order": [
+  "skip",
+  "requires --oracle"
+ ],
+ "linux_stat_provider": [
+  "skip",
+  "requires --oracle"
+ ],
+ "linux_stat_service": [
+  "skip",
+  "requires --oracle"
+ ],
+ "linux_udp_connected": [
+  "fail",
+  "1"
+ ],
+ "linux_udp_restart": [
+  "fail",
+  "1"
+ ],
+ "linux_udp_signal": [
+  "fail",
+  "1"
+ ],
+ "linux_udp_sockname": [
+  "fail",
+  "1"
+ ],
+ "linux_umask": [
+  "fail",
+  "1"
+ ],
+ "linux_user_abi": [
+  "pass",
+  "0"
+ ],
+ "mapping_view": [
+  "pass",
+  "0"
+ ],
+ "metadata_buffers": [
+  "pass",
+  "0"
+ ],
+ "mount_info_uapi_cross": [
+  "skip",
+  "requires --toolchain-root"
+ ],
+ "native_aarch64": [
+  "skip",
+  "requires --toolchain"
+ ],
+ "native_arm32": [
+  "fail",
+  "1"
+ ],
+ "native_child_exit_exec_audit": [
+  "fail",
+  "1"
+ ],
+ "native_child_exit_lifecycle": [
+  "pass",
+  "0"
+ ],
+ "native_child_exit_runtime": [
+  "fail",
+  "1"
+ ],
+ "native_child_siginfo": [
+  "pass",
+  "0"
+ ],
+ "native_child_wait_signal": [
+  "fail",
+  "1"
+ ],
+ "native_console_control": [
+  "pass",
+  "0"
+ ],
+ "native_credentials": [
+  "fail",
+  "1"
+ ],
+ "native_entry_stacks": [
+  "fail",
+  "1"
+ ],
+ "native_firmware_handoff": [
+  "fail",
+  "1"
+ ],
+ "native_futex": [
+  "fail",
+  "1"
+ ],
+ "native_futex_origin": [
+  "skip",
+  "requires --ppc-elf"
+ ],
+ "native_futex_signal": [
+  "fail",
+  "1"
+ ],
+ "native_group_signal": [
+  "pass",
+  "0"
+ ],
+ "native_i386": [
+  "skip",
+  "requires --toolchain"
+ ],
+ "native_loongarch64": [
+  "fail",
+  "1"
+ ],
+ "native_mapping_pages": [
+  "pass",
+  "0"
+ ],
+ "native_metadata": [
+  "pass",
+  "0"
+ ],
+ "native_mips": [
+  "fail",
+  "1"
+ ],
+ "native_mount_info": [
+  "pass",
+  "0"
+ ],
+ "native_object_isolation": [
+  "skip",
+  "requires --toolchains"
+ ],
+ "native_page_pool": [
+  "pass",
+  "0"
+ ],
+ "native_pipe_blocking_write": [
+  "fail",
+  "1"
+ ],
+ "native_pipe_read_continuation": [
+  "fail",
+  "1"
+ ],
+ "native_pipe_signal": [
+  "fail",
+  "1"
+ ],
+ "native_pipe_sigpipe": [
+  "fail",
+  "1"
+ ],
+ "native_pipe_vector_continuation": [
+  "fail",
+  "1"
+ ],
+ "native_pipe_vector_origin": [
+  "fail",
+  "1"
+ ],
+ "native_pipe_vector_publication": [
+  "skip",
+  "requires --ppc-elf"
+ ],
+ "native_pipe_vector_signal": [
+  "fail",
+  "1"
+ ],
+ "native_pipe_write_signal": [
+  "fail",
+  "1"
+ ],
+ "native_poll": [
+  "fail",
+  "1"
+ ],
+ "native_poll_objects": [
+  "fail",
+  "1"
+ ],
+ "native_poll_signal": [
+  "fail",
+  "1"
+ ],
+ "native_poll_temporary_mask": [
+  "fail",
+  "1"
+ ],
+ "native_ppc": [
+  "skip",
+  "requires --toolchain"
+ ],
+ "native_process_memory_failure": [
+  "skip",
+  "requires --sdk-matrix"
+ ],
+ "native_process_signal": [
+  "pass",
+  "0"
+ ],
+ "native_process_signal_waits": [
+  "fail",
+  "1"
+ ],
+ "native_qualified_memory": [
+  "fail",
+  "1"
+ ],
+ "native_restart_regressions": [
+  "fail",
+  "1"
+ ],
+ "native_robust": [
+  "fail",
+  "1"
+ ],
+ "native_runtime_frames": [
+  "fail",
+  "1"
+ ],
+ "native_rv32": [
+  "fail",
+  "1"
+ ],
+ "native_rv64": [
+  "fail",
+  "1"
+ ],
+ "native_sessions": [
+  "pass",
+  "0"
+ ],
+ "native_shutdown_runtime": [
+  "fail",
+  "1"
+ ],
+ "native_signal_action": [
+  "pass",
+  "0"
+ ],
+ "native_signal_altstack_delivery": [
+  "fail",
+  "1"
+ ],
+ "native_signal_delivery_x86_64": [
+  "fail",
+  "1"
+ ],
+ "native_signal_exec": [
+  "fail",
+  "1"
+ ],
+ "native_signal_frame_aarch64": [
+  "skip",
+  "requires --toolchain"
+ ],
+ "native_signal_frame_x86_64": [
+  "fail",
+  "1"
+ ],
+ "native_signal_mask": [
+  "pass",
+  "0"
+ ],
+ "native_signal_mips64_n64": [
+  "pass",
+  "0"
+ ],
+ "native_signal_mips_o32": [
+  "fail",
+  "1"
+ ],
+ "native_signal_ppc32": [
+  "skip",
+  "requires --linux-elf"
+ ],
+ "native_signal_production": [
+  "skip",
+  "requires --mode"
+ ],
+ "native_signal_runtime": [
+  "fail",
+  "1"
+ ],
+ "native_signal_target": [
+  "pass",
+  "0"
+ ],
+ "native_signal_wait": [
+  "fail",
+  "1"
+ ],
+ "native_signal_wait_codec": [
+  "pass",
+  "0"
+ ],
+ "native_sleep_interruption": [
+  "fail",
+  "1"
+ ],
+ "native_stat": [
+  "fail",
+  "1"
+ ],
+ "native_syscall_origin": [
+  "fail",
+  "1"
+ ],
+ "native_syscall_restart": [
+  "pass",
+  "0"
+ ],
+ "native_syscall_restart_publication": [
+  "skip",
+  "requires --ppc-elf"
+ ],
+ "native_thread_io": [
+  "fail",
+  "1"
+ ],
+ "native_threads": [
+  "fail",
+  "1"
+ ],
+ "native_vm": [
+  "fail",
+  "1"
+ ],
+ "native_wait_ownership": [
+  "fail",
+  "1"
+ ],
+ "native_x86_64": [
+  "skip",
+  "requires --toolchain"
+ ],
+ "network_wire": [
+  "pass",
+  "0"
+ ],
+ "object_pool": [
+  "pass",
+  "0"
+ ],
+ "path_reference": [
+  "pass",
+  "0"
+ ],
+ "pending_signals": [
+  "pass",
+  "0"
+ ],
+ "persistent_sync": [
+  "skip",
+  "requires --fixture"
+ ],
+ "persistent_sync_cross": [
+  "skip",
+  "requires --toolchain-root"
+ ],
+ "posix_ext4_truncate": [
+  "fail",
+  "1"
+ ],
+ "power_uapi_cross": [
+  "skip",
+  "requires --toolchain-root"
+ ],
+ "ppc_tlb": [
+  "skip",
+  "requires --qemu"
+ ],
+ "process_resources": [
+  "pass",
+  "0"
+ ],
+ "process_sessions": [
+  "pass",
+  "0"
+ ],
+ "qualified_memory": [
+  "pass",
+  "0"
+ ],
+ "realtime": [
+  "pass",
+  "0"
+ ],
+ "realtime_clock": [
+  "pass",
+  "0"
+ ],
+ "robust_futex": [
+  "pass",
+  "0"
+ ],
+ "runtime_frame_bridge": [
+  "pass",
+  "0"
+ ],
+ "runtime_frames": [
+  "pass",
+  "0"
+ ],
+ "scheduler_waits": [
+  "pass",
+  "0"
+ ],
+ "service_stack": [
+  "fail",
+  "1"
+ ],
+ "shutdown_coordinator": [
+  "pass",
+  "0"
+ ],
+ "shutdown_cross": [
+  "skip",
+  "requires --toolchain-root"
+ ],
+ "static_dispatch": [
+  "pass",
+  "0"
+ ],
+ "thread_lifecycle": [
+  "pass",
+  "0"
+ ],
+ "vfs_mount_preflight": [
+  "pass",
+  "0"
+ ],
+ "vfs_mount_snapshot": [
+  "pass",
+  "0"
+ ],
+ "vfs_namespace": [
+  "pass",
+  "0"
+ ],
+ "wait_registration": [
+  "pass",
+  "0"
+ ]
+}

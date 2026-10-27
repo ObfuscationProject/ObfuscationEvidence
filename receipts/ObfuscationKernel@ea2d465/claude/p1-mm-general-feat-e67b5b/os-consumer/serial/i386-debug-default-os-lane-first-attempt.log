@@ -1,0 +1,80 @@
+[0mchecking for platform ... [38;5;2;1mlinux (i386)[0m
+[0mchecking for systoolchain_dir ... [38;5;2;1m/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-mm-general-feat-e67b5b/a91825ff-7d7a-43f6-a24f-d7d31573a72e/scratchpad/st/i386-elf[0m
+[0mchecking for qemu_binary ... [38;5;2;1m/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-p1-mm-general-feat-e67b5b/a91825ff-7d7a-43f6-a24f-d7d31573a72e/scratchpad/st/i386-elf/bin/qemu-system-i386[0m
+[0m[38;5;2;1m[  2%]:[0m [38;5;5;1m<okernel_image>[0m cache compiling.debug src/core/kernel_main.cpp[0m
+[0m[38;5;2;1m[  4%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/linux_abi_tests.cpp[0m
+[0m[38;5;2;1m[  5%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/unix_vfs_tests.cpp[0m
+[0m[38;5;2;1m[  5%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/gui_tests.cpp[0m
+[0m[38;5;2;1m[  7%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/network_storage_tests.cpp[0m
+[0m[38;5;2;1m[  8%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/process_tests.cpp[0m
+[0m[38;5;2;1m[  8%]:[0m [38;5;5;1m<okernel_image>[0m cache compiling.debug src/arch/x86_common/platform.cpp[0m
+[0m[38;5;2;1m[  8%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/display.cpp[0m
+[0m[38;5;2;1m[ 10%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/abi.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/bus_input.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/kernel.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/native_shutdown.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/boot/boot_memory.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/entry.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/module.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/kernel_syscalls.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/status.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/task_manager.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/storage.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/network.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/filesystem.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/task_manager.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/disabled.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/file_manager.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/vm_tests.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/debug/suite.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/smp_preempt_tests.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/module_tests.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/points/test_point.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/driver_abi_tests.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/block.cpp[0m
+[0m[38;5;2;1m[ 13%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/driver.cpp[0m
+[0m[38;5;2;1m[ 14%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/fat_fs.cpp[0m
+[0m[38;5;2;1m[ 15%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/ext4_recovery.cpp[0m
+[0m[38;5;2;1m[ 16%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/fat.cpp[0m
+[0m[38;5;2;1m[ 16%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/simplefs.cpp[0m
+[0m[38;5;2;1m[ 17%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/storage.cpp[0m
+[0m[38;5;2;1m[ 19%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/ext4_fs.cpp[0m
+[0m[38;5;2;1m[ 21%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/page_cache.cpp[0m
+[0m[38;5;2;1m[ 23%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/ext4.cpp[0m
+[0m[38;5;3;1msrc/core/module.cpp: In function 'ok::Status ok::{anonymous}::parse_okmod_line(ok::ModuleImageInfo&, std::string_view)':
+src/core/module.cpp:347:61: warning: narrowing conversion of 'ok::{anonymous}::parse_unsigned(line.std::basic_string_view<char>::substr(6, ((std::basic_string_view<char>::size_type)std::basic_string_view<char>::npos)))' from 'ok::u64' {aka 'long long unsigned int'} to 'ok::uptr' {aka 'long unsigned int'} [-Wnarrowing]
+  347 |         ModuleRelocation relocation{.offset = parse_unsigned(line.substr(6)), .kind = ModuleRelocationKind::relative};
+      |                                               ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics[0m
+[0m[38;5;2;1m[ 25%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/gui/gui.cpp[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/gui/desktop.cpp[0m
+[0m[38;5;2;1m[ 28%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/ipc/ipc.cpp[0m
+[0m[38;5;2;1m[ 28%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/memory/slab.cpp[0m
+[0m[38;5;2;1m[ 30%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/memory/memory.cpp[0m
+[0m[38;5;2;1m[ 31%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/memory/physical_map.cpp[0m
+[0m[38;5;2;1m[ 33%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/path.cpp[0m
+[0m[38;5;2;1m[ 35%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/process.cpp[0m
+[0m[38;5;2;1m[ 35%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/fd.cpp[0m
+[0m[38;5;2;1m[ 37%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/entropy.cpp[0m
+[0m[38;5;2;1m[ 38%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/posix.cpp[0m
+[0m[38;5;2;1m[ 38%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/sched/process.cpp[0m
+[0m[38;5;2;1m[ 40%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/sched/scheduler.cpp[0m
+[0m[38;5;2;1m[ 40%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/smp/preempt.cpp[0m
+[0m[38;5;2;1m[ 43%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/syscall/syscall.cpp[0m
+[0m[38;5;2;1m[ 44%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/syscall/linux.cpp[0m
+[0m[38;5;2;1m[ 46%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime.cpp[0m
+[0m[38;5;2;1m[ 47%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/futex.cpp[0m
+[0m[38;5;2;1m[ 47%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/pty.cpp[0m
+[0m[38;5;2;1m[ 49%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/vm.cpp[0m
+[0m[38;5;2;1m[ 50%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/wait.cpp[0m
+[0m[38;5;2;1m[ 51%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/net.cpp[0m
+[0m[38;5;2;1m[ 52%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/pipe.cpp[0m
+[0m[38;5;2;1m[ 52%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/signals.cpp[0m
+[0m[38;5;2;1m[ 54%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/loader.cpp[0m
+[0m[38;5;2;1m[ 55%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/entry.cpp[0m
+[0m[38;5;2;1m[ 61%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/arch/i386/execution.cpp[0m
+[0m[38;5;2;1m[ 87%]:[0m [38;5;5;1m<okernel>[0m [38;5;5;1marchiving.debug libokernel.a[0m
+[0m[38;5;2;1m[ 89%]:[0m [38;5;5;1m<okernel_image>[0m [38;5;5;1mlinking.debug kernel.elf[0m
+[0m[1;38;5;1;1merror: [0mcannot copy file build/.gens/okernel_image/linux/i386/debug/boot/boot16.bin to build/linux/i386/debug/boot16.bin, No such file or directory[0m

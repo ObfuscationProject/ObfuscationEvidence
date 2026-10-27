@@ -1,0 +1,197 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "ea2d4658dd89a2500564c9f274da6bc7ebe1b0f9",
+ "branch": "claude/p1-mm-general-feat-e67b5b",
+ "campaign": "kernel-ten-profile",
+ "date": "2026-10-27",
+ "scope": "Branch tip: ten-profile debug build and booted xmake test under the pinned QEMU, in the default copy-on-write and the --native_cow_fork=n eager fallback configurations.",
+ "claims": [
+  "All ten profiles build and pass xmake test in both fork configurations",
+  "Standalone xmake test does not start native userland; native VM claims come from os-consumer"
+ ],
+ "sources": [
+  {
+   "tree": "ea2d465",
+   "commit": "ea2d4658dd89a2500564c9f274da6bc7ebe1b0f9",
+   "relation": "the clean branch checkout at this commit"
+  }
+ ],
+ "environment": {
+  "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+  "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+  "python": "Python 3.12.3",
+  "systoolchain": "SysToolchain 0.1.0 release archives (one per triple), installed with --systoolchain_dir",
+  "cross_gxx": "x86_64-elf-g++ (GCC) 14.2.0",
+  "qemu": "QEMU emulator version 10.2.0",
+  "obfuscation_os": "ObfuscationOS@4bd4b0c343ea04052a3f4557944862875fd50b67 (chore/sdk75-consumer, clean checkout)"
+ },
+ "commands": [
+  {
+   "label": "xmake test x86_64 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=x86_64 processes=15 cpus=4 drivers=13 free_frames=13983 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/x86_64-debug-default.log",
+   "log_sha256": "d9993c7af10ac15aed4c52cf94290f7831efa94226956e17706514826e904afe"
+  },
+  {
+   "label": "xmake test i386 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=i386 processes=15 cpus=2 drivers=13 free_frames=15059 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/i386-debug-default.log",
+   "log_sha256": "ac9884a35b40e6aec12bd84547db1f5ffb3434348b1585dde564c6426902de5f"
+  },
+  {
+   "label": "xmake test aarch64 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=aarch64 processes=15 cpus=4 drivers=13 free_frames=47625 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/aarch64-debug-default.log",
+   "log_sha256": "3d46336677b4a559f4e4695b6a6edf26b9ab47ca5cf4d06b0ca1019604bdda64"
+  },
+  {
+   "label": "xmake test arm32 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=arm32 processes=15 cpus=2 drivers=13 free_frames=48591 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/arm32-debug-default.log",
+   "log_sha256": "f46fce825c76a86af6d1ba701062acff198bcbd4d865dca1c3608422d91df048"
+  },
+  {
+   "label": "xmake test rv64 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=rv64 processes=15 cpus=4 drivers=13 free_frames=48134 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/rv64-debug-default.log",
+   "log_sha256": "873efa8b59d19281c450c53fe2ae08357d7d2734cd6fc50fe3de38b670ff06e9"
+  },
+  {
+   "label": "xmake test rv32 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=rv32 processes=15 cpus=2 drivers=13 free_frames=48965 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/rv32-debug-default.log",
+   "log_sha256": "dd2bf5bc364cdc560da6013411dcff4f4e3b6b95a959db7c04db3e6e33d80f55"
+  },
+  {
+   "label": "xmake test loongarch64 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=loongarch64 processes=15 cpus=4 drivers=13 free_frames=504554 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/loongarch64-debug-default.log",
+   "log_sha256": "0b116d56811fbf649b708d25ea2fa831a66e4c339983971c94c84433a9eef701"
+  },
+  {
+   "label": "xmake test mips debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=mips processes=15 cpus=2 drivers=13 free_frames=49208 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/mips-debug-default.log",
+   "log_sha256": "3393fb0cc56da244c67f0b40abf8eb524075be4dea0ba3b84343697878571027"
+  },
+  {
+   "label": "xmake test mips64 debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=mips64 processes=15 cpus=4 drivers=13 free_frames=48288 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/mips64-debug-default.log",
+   "log_sha256": "4dcdcafd1a8f43a4f012999d21e858f993221bb5177ec79c64034eedf0c66ae9"
+  },
+  {
+   "label": "xmake test ppc debug, default (copy-on-write fork)",
+   "command": "xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-* && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=ppc processes=15 cpus=2 drivers=13 free_frames=44573 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/ppc-debug-default.log",
+   "log_sha256": "8f28c7704ceb40320507436cffccedf352e1f4f6e0f93e6645895c33f4fa884e"
+  },
+  {
+   "label": "xmake test x86_64 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=x86_64 processes=15 cpus=4 drivers=13 free_frames=13984 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/x86_64-debug-fallback.log",
+   "log_sha256": "ab8fcee4784a0cbd5d19a21518f70e9538984ca5e77f21c016889e2dfa3837d5"
+  },
+  {
+   "label": "xmake test i386 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=i386 processes=15 cpus=2 drivers=13 free_frames=15060 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/i386-debug-fallback.log",
+   "log_sha256": "767f9907248b34677653f28a57e2dd7b5b2e259c233218ec2ee26e4913022354"
+  },
+  {
+   "label": "xmake test aarch64 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=aarch64 processes=15 cpus=4 drivers=13 free_frames=47626 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/aarch64-debug-fallback.log",
+   "log_sha256": "db00acf559814ae7f09cd9f1222215db1d3bde42deb9bcec95f34336cd193f58"
+  },
+  {
+   "label": "xmake test arm32 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=arm32 processes=15 cpus=2 drivers=13 free_frames=48592 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/arm32-debug-fallback.log",
+   "log_sha256": "4b91a18c0815d826e9175fd117d5307e791705b24d6b40479887b0b951e5ce6a"
+  },
+  {
+   "label": "xmake test rv64 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=rv64 processes=15 cpus=4 drivers=13 free_frames=48135 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/rv64-debug-fallback.log",
+   "log_sha256": "3852f3adbae689ded4424683808782d6004c2ac1b13510b40ccd4292d5eedd50"
+  },
+  {
+   "label": "xmake test rv32 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=rv32 processes=15 cpus=2 drivers=13 free_frames=48967 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/rv32-debug-fallback.log",
+   "log_sha256": "b4f50c3ce4cca908eed2c20bd3d6b58f8188fff1ae35dd36ed70eedb6d1d651f"
+  },
+  {
+   "label": "xmake test loongarch64 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=loongarch64 processes=15 cpus=4 drivers=13 free_frames=504555 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/loongarch64-debug-fallback.log",
+   "log_sha256": "16ff12c81e7f7493bdbc59894b539a2f36e996ebe799deddd655604bff95330f"
+  },
+  {
+   "label": "xmake test mips debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=mips processes=15 cpus=2 drivers=13 free_frames=49209 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/mips-debug-fallback.log",
+   "log_sha256": "0dedca9e5e3ccaadadcfe2566935acd47e06cd197bb424acc2f452573c5c06d2"
+  },
+  {
+   "label": "xmake test mips64 debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=mips64 processes=15 cpus=4 drivers=13 free_frames=48288 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/mips64-debug-fallback.log",
+   "log_sha256": "553ea5b123b994644d173993609ad80cfd04dbee6266c779b1451715960885de"
+  },
+  {
+   "label": "xmake test ppc debug, eager fork fallback",
+   "command": "xmake f -c -y -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<...>/qemu-system-* --native_cow_fork=n && xmake -y -b okernel_image && xmake test",
+   "returncode": 0,
+   "result": "OK_TEST_PASS arch=ppc processes=15 cpus=2 drivers=13 free_frames=44573 syscalls=98 debug_test_points=81 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+   "log": "logs/ppc-debug-fallback.log",
+   "log_sha256": "5fa5912475fde26d73aacacf11fd560f76c287f3cbc2dc8ad0ebea6ddea46d9e"
+  }
+ ],
+ "summary": {
+  "lanes": 20,
+  "passed": 20
+ },
+ "status": "passed"
+}

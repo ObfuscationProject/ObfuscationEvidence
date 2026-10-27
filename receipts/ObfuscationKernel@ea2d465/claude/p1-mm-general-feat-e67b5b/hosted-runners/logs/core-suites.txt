@@ -1,0 +1,12 @@
+native_vm plain=0 sanitize=0
+native_page_pool plain=0 sanitize=0
+native_mapping_pages plain=0 sanitize=0
+mapping_view plain=0 sanitize=0
+physical_map plain=0 sanitize=0
+frame_allocator plain=0 sanitize=0
+slab plain=0 sanitize=0
+page_cache plain=0 sanitize=0
+boot_memory plain=0 sanitize=0
+process_resources plain=0 sanitize=0
+ratchet: runtime.cpp lines: 675 (limit 675) ok
+ratchet: runtime.cpp includes: 1 (limit 1) ok

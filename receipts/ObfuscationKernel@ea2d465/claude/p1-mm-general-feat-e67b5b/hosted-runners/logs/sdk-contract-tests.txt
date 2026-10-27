@@ -1,0 +1,8 @@
+directory_create_sdk_contract_tests           pass
+futex_requeue_sdk_contract_tests              pass
+futex_wake_operation_sdk_contract_tests       pass
+unix_pathname_sdk_contract_tests              pass
+shared_file_sdk_contract_tests                pass
+native_pty_sdk_contract_tests                 pass
+test_native_signal_export                     pass
+sdk_boot_archive_receipt_tests                pass

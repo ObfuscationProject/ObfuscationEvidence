@@ -1,0 +1,22 @@
+{
+ "logs/aarch64-debug-default.log": "3d46336677b4a559f4e4695b6a6edf26b9ab47ca5cf4d06b0ca1019604bdda64",
+ "logs/aarch64-debug-fallback.log": "db00acf559814ae7f09cd9f1222215db1d3bde42deb9bcec95f34336cd193f58",
+ "logs/arm32-debug-default.log": "f46fce825c76a86af6d1ba701062acff198bcbd4d865dca1c3608422d91df048",
+ "logs/arm32-debug-fallback.log": "4b91a18c0815d826e9175fd117d5307e791705b24d6b40479887b0b951e5ce6a",
+ "logs/i386-debug-default.log": "ac9884a35b40e6aec12bd84547db1f5ffb3434348b1585dde564c6426902de5f",
+ "logs/i386-debug-fallback.log": "767f9907248b34677653f28a57e2dd7b5b2e259c233218ec2ee26e4913022354",
+ "logs/loongarch64-debug-default.log": "0b116d56811fbf649b708d25ea2fa831a66e4c339983971c94c84433a9eef701",
+ "logs/loongarch64-debug-fallback.log": "16ff12c81e7f7493bdbc59894b539a2f36e996ebe799deddd655604bff95330f",
+ "logs/mips-debug-default.log": "3393fb0cc56da244c67f0b40abf8eb524075be4dea0ba3b84343697878571027",
+ "logs/mips-debug-fallback.log": "0dedca9e5e3ccaadadcfe2566935acd47e06cd197bb424acc2f452573c5c06d2",
+ "logs/mips64-debug-default.log": "4dcdcafd1a8f43a4f012999d21e858f993221bb5177ec79c64034eedf0c66ae9",
+ "logs/mips64-debug-fallback.log": "553ea5b123b994644d173993609ad80cfd04dbee6266c779b1451715960885de",
+ "logs/ppc-debug-default.log": "8f28c7704ceb40320507436cffccedf352e1f4f6e0f93e6645895c33f4fa884e",
+ "logs/ppc-debug-fallback.log": "5fa5912475fde26d73aacacf11fd560f76c287f3cbc2dc8ad0ebea6ddea46d9e",
+ "logs/rv32-debug-default.log": "dd2bf5bc364cdc560da6013411dcff4f4e3b6b95a959db7c04db3e6e33d80f55",
+ "logs/rv32-debug-fallback.log": "b4f50c3ce4cca908eed2c20bd3d6b58f8188fff1ae35dd36ed70eedb6d1d651f",
+ "logs/rv64-debug-default.log": "873efa8b59d19281c450c53fe2ae08357d7d2734cd6fc50fe3de38b670ff06e9",
+ "logs/rv64-debug-fallback.log": "3852f3adbae689ded4424683808782d6004c2ac1b13510b40ccd4292d5eedd50",
+ "logs/x86_64-debug-default.log": "d9993c7af10ac15aed4c52cf94290f7831efa94226956e17706514826e904afe",
+ "logs/x86_64-debug-fallback.log": "ab8fcee4784a0cbd5d19a21518f70e9538984ca5e77f21c016889e2dfa3837d5"
+}

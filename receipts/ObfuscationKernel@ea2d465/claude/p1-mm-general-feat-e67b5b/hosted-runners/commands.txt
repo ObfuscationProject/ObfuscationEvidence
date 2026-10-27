@@ -1,0 +1,6 @@
+# Core memory and VM hosted suites, plain and --sanitize, and the runtime split ratchet
+for t in native_vm native_page_pool native_mapping_pages mapping_view physical_map frame_allocator slab page_cache boot_memory process_resources; do python3 scripts/test_$t.py; python3 scripts/test_$t.py --sanitize; done
+# Kernel SDK contract tests (umbrella layout)
+python3 tests/host/<name>.py for each *_sdk_contract_tests.py, test_native_signal_export.py and sdk_boot_archive_receipt_tests.py --exporter tools/export_sdk.py
+# Every hosted runner, branch tip against main@b429bdc
+python3 hosted_all.py <tree> <out> 6 <every scripts/test_*.py name>
