@@ -1,0 +1,106 @@
+{
+  "aarch64/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "aarch64/kernel": "36e3c8dbf88dbd994dbb6086877eeb30feddbeedac53a48c1352a9116d99fd8b",
+  "aarch64/qemu": "e20c507a75aa565740ef67a956406c7b0c621e0f2bd0f1fea1e687a9d08fd7b1",
+  "aarch64/rootfs": "5663fa26f6c7debb4dbf64492d37d9d30d9444e042fd8a9943efac5736cb8080",
+  "aarch64/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "aarch64/serial": "0e16ea39b3478a4b8fbe6a5090931d32a097ff6b3d2315490b478906e2431d6b",
+  "aarch64/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "arm32/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "arm32/kernel": "b61925f3d5151345e64807fbc7e7241da583dbcacc74252e0ba1db2f80beb824",
+  "arm32/qemu": "a1aa35f8cab4247ac932635d3f15ff0097d8289ba36f3a90f19188f8efef5ae1",
+  "arm32/rootfs": "71cc87f2437c140994f3c8a1cb3e4bdd923d72a0c215de238e1bc67982d8e8b9",
+  "arm32/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "arm32/serial": "9dfcc7da7e0587c4400659d89ad9fabc3f038b2d3f0d7981079cd588b78d6cf1",
+  "arm32/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "elf_identity_006bb09_to_final": {
+    "aarch64": {
+      "final_build_elf_sha256": "9884158dd9ba3150c04655a26fbcf3754c651fabb6549a85fd982ea9744d770f",
+      "run_build_elf_sha256": "9884158dd9ba3150c04655a26fbcf3754c651fabb6549a85fd982ea9744d770f"
+    },
+    "arm32": {
+      "final_build_elf_sha256": "80268168bbbc667a819ff3f2037aa5d230b68e34dbfe3b1f6d09ff48a65e2db9",
+      "run_build_elf_sha256": "80268168bbbc667a819ff3f2037aa5d230b68e34dbfe3b1f6d09ff48a65e2db9"
+    },
+    "i386": {
+      "final_build_elf_sha256": "c9eb3c016e25ffff0244005c9e0142dc62d06019f1807d427755c660b47f761e",
+      "run_build_elf_sha256": "c9eb3c016e25ffff0244005c9e0142dc62d06019f1807d427755c660b47f761e"
+    },
+    "loongarch64": {
+      "final_build_elf_sha256": "74b4fc3754f43f36cc3fed055fe401c850d6774070039910bedbd2100cee5cca",
+      "run_build_elf_sha256": "74b4fc3754f43f36cc3fed055fe401c850d6774070039910bedbd2100cee5cca"
+    },
+    "ppc": {
+      "final_build_elf_sha256": "aa9539105ed22f8fe8a7fbdd423b9853309825f8d1662d48c51148924d104b04",
+      "run_build_elf_sha256": "aa9539105ed22f8fe8a7fbdd423b9853309825f8d1662d48c51148924d104b04"
+    },
+    "rv32": {
+      "final_build_elf_sha256": "61a19cabc2e9ff12e23309a2c6f3379716dd380fa8c707965d75f8d963c84b3c",
+      "run_build_elf_sha256": "61a19cabc2e9ff12e23309a2c6f3379716dd380fa8c707965d75f8d963c84b3c"
+    },
+    "rv64": {
+      "final_build_elf_sha256": "8287d0a0166fbe5358ebb2b7efb0822d9b884c4fb045b761aa9e65d0f028afe1",
+      "run_build_elf_sha256": "8287d0a0166fbe5358ebb2b7efb0822d9b884c4fb045b761aa9e65d0f028afe1"
+    },
+    "x86_64": {
+      "final_build_elf_sha256": "62b8284f3b726447f803fc2d596ce9a0165d473ba17d052e8aaef291e3446fe7",
+      "run_build_elf_sha256": "62b8284f3b726447f803fc2d596ce9a0165d473ba17d052e8aaef291e3446fe7"
+    }
+  },
+  "i386/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "i386/kernel": "bb71058be1862275130c700171ae5b58520e6185fe4de8e44a68672b7147db54",
+  "i386/qemu": "425640ccdd55332fb43b00b55c4abb7c69cb5de488f400b83911e7e5b51ce7a7",
+  "i386/rootfs": "1c78f4adfba6faeef0532bf0e056a62e81ac8ee94a9290dde5f0260324f24bde",
+  "i386/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "i386/serial": "b2bb5a39fbbd6c81da3f959217a35ba96936defdf5bfaf2ceb3d67341d709074",
+  "i386/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "loongarch64/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "loongarch64/kernel": "44a71b9bed3b0aebc38cbf5a4114bafc3bba21a9e82d8abfbe969ed0a794a8a5",
+  "loongarch64/qemu": "4bce45bdb36f887d9299d411aded4f6e9f6148eb387850e47232ee4156baee3f",
+  "loongarch64/rootfs": "3e0c984028a03eafdab68fb9d6de1b565e6a56df9d14ba338e0dc6eb3872db96",
+  "loongarch64/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "loongarch64/serial": "ec9cb3b0a1ee9001b0c7321f41d6167e56dda90adc8565e600e748ee347530d7",
+  "loongarch64/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "mips/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "mips/kernel": "fb8ff504fbe57d4ee31c0077634c69f1cdaa189e2b2620fea8316529e263c1cf",
+  "mips/qemu": "dcb47565cda9d322fb8c67166d14f3d56221e7c2b7629156c0dad2ac6463c7cd",
+  "mips/rootfs": "7920988ed51d46444d9b5c488c069d9afbf8fd19ac145709be2e3812c7b04b6d",
+  "mips/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "mips/serial": "cbc56c56664f20bcef1f71139c5e36da961eb3bf250013497a71e35665a801ac",
+  "mips/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "mips64/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "mips64/kernel": "629924edb039276b5a4ca335491f230838e58b4b1a4071dba8e8e811283197c6",
+  "mips64/qemu": "8fb852041eabd7b3552c7d2685088b15a88f7fbecdf40435ff6ef1dbb81e26dc",
+  "mips64/rootfs": "3d0c4118bd5dc37d956d29e3c599707e83ba9506ca00934111330e67f236e03f",
+  "mips64/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "mips64/serial": "e18c6c428bfc792e36a72e127fb89cccc4ffdf758380d9a1be8196d5666e0531",
+  "mips64/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "ppc/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "ppc/kernel": "888ce5a18e634db03de3a69258654ec6125d49a902edbec03ae21cf94e69c2bf",
+  "ppc/qemu": "7ca5a721a97f34c34af5c5994af41d78c18c850b3d8c5e181bb5fe7180047f62",
+  "ppc/rootfs": "6f187bfb199c9204dae802f557192264320c711ef3dfa727cb190f33f89486a4",
+  "ppc/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "ppc/serial": "3c916448813d0c4412450ddfb1077498907273a07526af914c866d191fc79992",
+  "ppc/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "rv32/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "rv32/kernel": "d27dd9be58dad386e1676f68b72cd3df97684494d13aa3035c383fc81da86728",
+  "rv32/qemu": "c6f5091ce9c95c1207bfb86dde4d6b0c57c68f79297cd7cebf5c08999ab8d334",
+  "rv32/rootfs": "755c07d74e73b4d1a1ad02ab82bcb000c3fbe838468f34a26e2e3f2767c96566",
+  "rv32/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "rv32/serial": "3a28b40d024e6bdcc96cd9e6c3e2c9d17742275978ab84f4e4949f0720e31345",
+  "rv32/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "rv64/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "rv64/kernel": "779733f7abb012c720fafb340a9163b548bbd3c593472ae31f02b47aeb3e07fd",
+  "rv64/qemu": "e4b2c1c318901bc7643d9cc6a2bad8e2bcfe1e5342a88ac09ab7d993cf5b5eaa",
+  "rv64/rootfs": "90d1748c54c9a5770187ce9e18a72b22f656ddefa75435273cf4431dadb62636",
+  "rv64/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "rv64/serial": "ed18808b72b18ca1e18b2f0828392a077d217896fcd54333a581c23e750d844f",
+  "rv64/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee",
+  "x86_64/acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+  "x86_64/kernel": "98344fcb8874205e51931a02df849e5136d5ff3658496e059073c6f3c673a2f8",
+  "x86_64/qemu": "b9f7e439b72163515d87d998337771e39e291f1467d5feeebd4dadf5d554d916",
+  "x86_64/rootfs": "4b3fa2bdcc406fabc933ff1f68f1c32aeadd016e94e0b4a3c7e31cdd446a6860",
+  "x86_64/runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+  "x86_64/serial": "49d0fcf3fc728d2e0429e90f1f2af135d4611a1fa77f7f37b3583503503fada2",
+  "x86_64/suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee"
+}

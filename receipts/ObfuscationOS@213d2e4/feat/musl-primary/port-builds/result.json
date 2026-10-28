@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationOS",
+  "commit": "213d2e44e794c64f8673579f6c2fcb7561f05161",
+  "branch": "feat/musl-primary",
+  "date": "2026-10-28",
+  "kernel_sdk": {
+    "repository": "ObfuscationKernel",
+    "commit": "3418bec609bcf63bd58188b2a6cd86693309207b",
+    "abi": 76,
+    "mode": "debug"
+  },
+  "toolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0); ppc ports: ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+  "campaign": "port-builds",
+  "scope": "xmake port-build (tools/ports.py) of musl 1.2.5 and BusyBox 1.37.0 for ten profiles in debug mode; builds only, no target execution in this campaign.",
+  "claims": [
+    "musl and BusyBox reach built-not-executed on all ten profiles",
+    "the ppc BusyBox section table ends within the kernel's 512 KiB admission prefix"
+  ],
+  "profiles": {
+    "i386": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 373528
+    },
+    "x86_64": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 394464
+    },
+    "aarch64": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 415064
+    },
+    "arm32": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 414612
+    },
+    "rv64": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 357720
+    },
+    "rv32": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 369544
+    },
+    "loongarch64": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 468480
+    },
+    "mips": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 546196
+    },
+    "mips64": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 589576
+    },
+    "ppc": {
+      "musl": "built-not-executed",
+      "status": "built-not-executed",
+      "applets": 97,
+      "size": 509988
+    }
+  }
+}

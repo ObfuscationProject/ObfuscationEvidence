@@ -1,0 +1,41 @@
+{
+  "scope": "qemu-guest-execution",
+  "architecture": "mips",
+  "status": "fail",
+  "inputs": {
+    "kernel": "fb8ff504fbe57d4ee31c0077634c69f1cdaa189e2b2620fea8316529e263c1cf",
+    "rootfs": "7920988ed51d46444d9b5c488c069d9afbf8fd19ac145709be2e3812c7b04b6d",
+    "qemu": "dcb47565cda9d322fb8c67166d14f3d56221e7c2b7629156c0dad2ac6463c7cd",
+    "acceptance_script": "e5248a69b622760968230178df7ae3fee249f28ab40588d90f0344060f239eef",
+    "runner": "89e65d26bbedd25bc7bb04614c0917dd008c095fd1b28da4dd24d9f6e19923cf",
+    "suite_plan": "1da76d3a2f85012bc94e32a74b0c246b886abcb678909caefe231ac09ca10cee"
+  },
+  "command": [
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/mips-elf/bin/qemu-system-mips",
+    "-M",
+    "malta",
+    "-m",
+    "256M",
+    "-kernel",
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/receipts/mips-gate4/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/receipts/mips-gate4/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0"
+  ],
+  "root_timestamps": "maintained",
+  "root_clock": "provisional",
+  "failure": "timeout waiting for the guest",
+  "serial_sha256": "cbc56c56664f20bcef1f71139c5e36da961eb3bf250013497a71e35665a801ac"
+}

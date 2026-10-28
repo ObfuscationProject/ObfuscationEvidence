@@ -1,0 +1,8 @@
+# x86_64
+xmake f -P . -c -y -m release -a x86_64 --kernel_sdk=<kernel@3418bec>/build/sdk/x86_64/release --systoolchain_dir=<systoolchain>/x86_64-elf && for t in kernel-sdk-check distro_image rootfs-simplefs rootfs-ext4 rootfs-release; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --timeout=300 && xmake qemu-distro -P . --fs=release --timeout=300
+# aarch64
+xmake f -P . -c -y -m release -a aarch64 --kernel_sdk=<kernel@3418bec>/build/sdk/aarch64/release --systoolchain_dir=<systoolchain>/aarch64-elf && for t in kernel-sdk-check distro_image rootfs-simplefs rootfs-ext4 rootfs-release; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --timeout=300 && xmake qemu-distro -P . --fs=release --timeout=300
+# rv64
+xmake f -P . -c -y -m release -a rv64 --kernel_sdk=<kernel@3418bec>/build/sdk/rv64/release --systoolchain_dir=<systoolchain>/riscv64-elf && for t in kernel-sdk-check distro_image rootfs-simplefs rootfs-ext4 rootfs-release; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --timeout=300 && xmake qemu-distro -P . --fs=release --timeout=300
+# loongarch64
+xmake f -P . -c -y -m release -a loongarch64 --kernel_sdk=<kernel@3418bec>/build/sdk/loongarch64/release --systoolchain_dir=<systoolchain>/loongarch64-elf && for t in kernel-sdk-check distro_image rootfs-simplefs rootfs-ext4 rootfs-release; do xmake -P . -y -b $t; done && xmake qemu-distro -P . --fs=simplefs --timeout=300 && xmake qemu-distro -P . --fs=release --timeout=300

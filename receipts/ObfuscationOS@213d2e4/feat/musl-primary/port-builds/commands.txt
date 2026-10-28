@@ -1,0 +1,20 @@
+python3 tools/ports.py build --name musl --arch i386 --mode debug --archive <musl-archive> --toolchain <systoolchain>/i386-elf --out <out>/musl-i386-debug
+python3 tools/ports.py build --name busybox --arch i386 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/i386-elf --out <out>/busybox-i386-debug --musl-build <out>/musl-i386-debug
+python3 tools/ports.py build --name musl --arch x86_64 --mode debug --archive <musl-archive> --toolchain <systoolchain>/x86_64-elf --out <out>/musl-x86_64-debug
+python3 tools/ports.py build --name busybox --arch x86_64 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/x86_64-elf --out <out>/busybox-x86_64-debug --musl-build <out>/musl-x86_64-debug
+python3 tools/ports.py build --name musl --arch aarch64 --mode debug --archive <musl-archive> --toolchain <systoolchain>/aarch64-elf --out <out>/musl-aarch64-debug
+python3 tools/ports.py build --name busybox --arch aarch64 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/aarch64-elf --out <out>/busybox-aarch64-debug --musl-build <out>/musl-aarch64-debug
+python3 tools/ports.py build --name musl --arch arm32 --mode debug --archive <musl-archive> --toolchain <systoolchain>/arm-none-eabi --out <out>/musl-arm32-debug
+python3 tools/ports.py build --name busybox --arch arm32 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/arm-none-eabi --out <out>/busybox-arm32-debug --musl-build <out>/musl-arm32-debug
+python3 tools/ports.py build --name musl --arch rv64 --mode debug --archive <musl-archive> --toolchain <systoolchain>/riscv64-elf --out <out>/musl-rv64-debug
+python3 tools/ports.py build --name busybox --arch rv64 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/riscv64-elf --out <out>/busybox-rv64-debug --musl-build <out>/musl-rv64-debug
+python3 tools/ports.py build --name musl --arch rv32 --mode debug --archive <musl-archive> --toolchain <systoolchain>/riscv32-elf --out <out>/musl-rv32-debug
+python3 tools/ports.py build --name busybox --arch rv32 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/riscv32-elf --out <out>/busybox-rv32-debug --musl-build <out>/musl-rv32-debug
+python3 tools/ports.py build --name musl --arch loongarch64 --mode debug --archive <musl-archive> --toolchain <systoolchain>/loongarch64-elf --out <out>/musl-loongarch64-debug
+python3 tools/ports.py build --name busybox --arch loongarch64 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/loongarch64-elf --out <out>/busybox-loongarch64-debug --musl-build <out>/musl-loongarch64-debug
+python3 tools/ports.py build --name musl --arch mips --mode debug --archive <musl-archive> --toolchain <systoolchain>/mips-elf --out <out>/musl-mips-debug
+python3 tools/ports.py build --name busybox --arch mips --mode debug --archive <busybox-archive> --toolchain <systoolchain>/mips-elf --out <out>/busybox-mips-debug --musl-build <out>/musl-mips-debug
+python3 tools/ports.py build --name musl --arch mips64 --mode debug --archive <musl-archive> --toolchain <systoolchain>/mips64-elf --out <out>/musl-mips64-debug
+python3 tools/ports.py build --name busybox --arch mips64 --mode debug --archive <busybox-archive> --toolchain <systoolchain>/mips64-elf --out <out>/busybox-mips64-debug --musl-build <out>/musl-mips64-debug --softfp-build <softfp-mips64-debug> --softfp-manifest-sha256 <hash>
+python3 tools/ports.py build --name musl --arch ppc --mode debug --archive <musl-archive> --toolchain <systoolchain>/powerpc-eabi --out <out>/musl-ppc-debug --ppc-clang /usr/bin/clang-18
+python3 tools/ports.py build --name busybox --arch ppc --mode debug --archive <busybox-archive> --toolchain <systoolchain>/powerpc-eabi --out <out>/busybox-ppc-debug --musl-build <out>/musl-ppc-debug --ppc-clang /usr/bin/clang-18

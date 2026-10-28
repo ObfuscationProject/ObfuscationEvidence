@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationOS",
+  "commit": "f2bf03a",
+  "branch": "feat/musl-primary",
+  "date": "2026-10-28",
+  "kernel_sdk": {
+    "repository": "ObfuscationKernel",
+    "commit": "3418bec609bcf63bd58188b2a6cd86693309207b",
+    "abi": 76,
+    "mode": "release"
+  },
+  "toolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0); ppc ports: ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+  "campaign": "release-check",
+  "scope": "Release mode, okcrt images (no userland_build): kernel-sdk-check, distro_image, rootfs-simplefs, rootfs-ext4, rootfs-release, qemu-distro --fs=simplefs and --fs=release. Run at f2bf03a; d639f6e and 006bb09 change only the BusyBox port and its recipe, which okcrt images do not contain.",
+  "claims": [
+    "all four primary profiles build and boot both images in release mode"
+  ],
+  "profiles": {
+    "x86_64": {
+      "build": "pass",
+      "qemu_distro_simplefs": "pass",
+      "qemu_distro_release": "pass"
+    },
+    "aarch64": {
+      "build": "pass",
+      "qemu_distro_simplefs": "pass",
+      "qemu_distro_release": "pass"
+    },
+    "rv64": {
+      "build": "pass",
+      "qemu_distro_simplefs": "pass",
+      "qemu_distro_release": "pass"
+    },
+    "loongarch64": {
+      "build": "pass",
+      "qemu_distro_simplefs": "pass",
+      "qemu_distro_release": "pass"
+    }
+  }
+}
