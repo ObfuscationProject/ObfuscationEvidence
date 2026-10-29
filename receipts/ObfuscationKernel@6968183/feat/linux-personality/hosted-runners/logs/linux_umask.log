@@ -1,0 +1,11 @@
+PASS Linux umask i386: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask x86_64: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask aarch64: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask arm32: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask rv64: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask rv32: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask loongarch64: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask mips: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask mips64: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS Linux umask ppc: scalars, return values, common creation modes, existing inode, fork isolation, native sharing
+PASS all ten Linux umask profiles: hosted adapter/service models; no guest execution

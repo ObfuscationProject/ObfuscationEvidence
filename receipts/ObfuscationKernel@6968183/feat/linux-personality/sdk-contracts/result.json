@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "696818315162ff9a5f7e71174f2fb2d4188c2e76",
+  "branch": "feat/linux-personality",
+  "campaign": "sdk-contracts",
+  "date": "2026-10-29",
+  "scope": "Kernel SDK producer/consumer contract tests at ABI 77 on an umbrella of the exact archives ObfuscationKernel@6968183 and ObfuscationOS@8cb051a, and the ObfuscationOS SDK admission suites the ABI bump changes.",
+  "claims": [
+    "every kernel SDK producer/consumer contract test passes against the paired OS",
+    "the OS admission suites require ABI 77 and refuse 76 and 78"
+  ],
+  "sources": [
+    {
+      "tree": "kernel@6968183",
+      "repository": "ObfuscationKernel",
+      "commit": "696818315162ff9a5f7e71174f2fb2d4188c2e76",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@6968183>"
+    },
+    {
+      "tree": "os@9d9bae5",
+      "repository": "ObfuscationOS",
+      "commit": "9d9bae56189d3b887a72d70479b3aafd040ecfc3",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@9d9bae5>"
+    },
+    {
+      "tree": "os@8cb051a",
+      "repository": "ObfuscationOS",
+      "commit": "8cb051a7389440e353819851faf2aa711d10b4ca",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@8cb051a>",
+      "use": "guest, port, SDK-contract and OS CI-step runs"
+    },
+    {
+      "tree": "umbrella@new",
+      "repository": "ObfuscationKernel+ObfuscationOS",
+      "commit": "696818315162ff9a5f7e71174f2fb2d4188c2e76+8cb051a7389440e353819851faf2aa711d10b4ca",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<umbrella@new>",
+      "use": "kernel SDK contract tests"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0)",
+    "ppc_ports": "ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+    "busybox": "BusyBox 1.37.0 on musl 1.2.5 (static, debug)"
+  },
+  "runs": "Guest, port, SDK-contract and OS CI-step runs used the exact archive of ObfuscationOS 8cb051a; 9d9bae5 adds one commit that changes only tests/hosted/native_shutdown_storage_seams.hpp and tests/tools/test_native_shutdown_storage.py, which no image or SDK check reads. The x86_64 artifact tests ran on the exact archive of 9d9bae5.",
+  "tests": {
+    "kernel:archive_directory_sdk_contract_tests": {
+      "ran": "Ran 6 tests in 2.239s",
+      "status": "pass"
+    },
+    "kernel:console_input_sdk_contract_tests": {
+      "ran": "Ran 1 test in 0.596s",
+      "status": "pass"
+    },
+    "kernel:directory_create_sdk_contract_tests": {
+      "ran": "Ran 7 tests in 0.661s",
+      "status": "pass"
+    },
+    "kernel:futex_requeue_sdk_contract_tests": {
+      "ran": "Ran 9 tests in 9.409s",
+      "status": "pass"
+    },
+    "kernel:futex_wake_operation_sdk_contract_tests": {
+      "ran": "Ran 6 tests in 2.408s",
+      "status": "pass"
+    },
+    "kernel:mount_info_sdk_contract_tests": {
+      "ran": "Ran 1 test in 0.019s",
+      "status": "pass"
+    },
+    "kernel:native_pty_sdk_contract_tests": {
+      "ran": "Ran 11 tests in 1.072s",
+      "status": "pass"
+    },
+    "kernel:persistent_sync_sdk_contract_tests": {
+      "ran": "Ran 1 test in 0.055s",
+      "status": "pass"
+    },
+    "kernel:sdk_boot_archive_receipt_tests": {
+      "ran": "Ran 18 tests in 0.240s",
+      "status": "pass"
+    },
+    "kernel:shared_file_sdk_contract_tests": {
+      "ran": "Ran 6 tests in 0.065s",
+      "status": "pass"
+    },
+    "kernel:test_native_signal_export": {
+      "ran": "Ran 27 tests in 5.203s",
+      "status": "pass"
+    },
+    "kernel:unix_pathname_sdk_contract_tests": {
+      "ran": "Ran 6 tests in 0.242s",
+      "status": "pass"
+    },
+    "os:test_kernel_sdk": {
+      "ran": "Ran 92 tests in 18.108s",
+      "status": "pass"
+    },
+    "os:test_native_console_control_sdk": {
+      "ran": "Ran 7 tests in 6.782s",
+      "status": "pass"
+    },
+    "os:test_native_group_signal_sdk": {
+      "ran": "Ran 5 tests in 2.931s",
+      "status": "pass"
+    },
+    "os:test_native_metadata_sdk": {
+      "ran": "Ran 5 tests in 2.993s",
+      "status": "pass"
+    },
+    "os:test_native_persistent_sync_sdk": {
+      "ran": "Ran 4 tests in 1.244s",
+      "status": "pass"
+    },
+    "os:test_native_sessions_sdk": {
+      "ran": "Ran 6 tests in 4.754s",
+      "status": "pass"
+    },
+    "os:test_object_pressure": {
+      "ran": "Ran 28 tests in 0.497s",
+      "status": "pass"
+    },
+    "os:test_ports": {
+      "ran": "Ran 13 tests in 0.057s",
+      "status": "pass"
+    },
+    "os:test_uapi_fields": {
+      "ran": "Ran 17 tests in 1.010s",
+      "status": "pass"
+    }
+  },
+  "status": "pass"
+}

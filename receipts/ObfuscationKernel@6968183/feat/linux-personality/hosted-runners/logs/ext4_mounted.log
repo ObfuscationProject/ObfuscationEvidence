@@ -1,0 +1,3 @@
+PASS mounted metadata hosted checks=7493 first_reads=672 repeated_reads=671 faults=all-writes-flushes-and-repeated-reads
+PASS mounted private invariants cases=7 capacity_control=nonfatal epoch_binding=checked exact_cache=checked aborted_root=denied
+PASS mounted persistent invariants cases=12 exhaustion_after_success=2 same_address_reuse=1 stale_foreign_authority_after_success=9

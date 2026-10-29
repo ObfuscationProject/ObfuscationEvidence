@@ -1,0 +1,17 @@
+PASS Linux i386 mkdir: modes, credentials, dirfd, path copies, provider failures
+PASS Linux i386 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux x86_64 mkdir: modes, credentials, dirfd, path copies, provider failures
+PASS Linux x86_64 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux aarch64 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux arm32 mkdir: modes, credentials, dirfd, path copies, provider failures
+PASS Linux arm32 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux rv64 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux rv32 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux loongarch64 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux mips mkdir: modes, credentials, dirfd, path copies, provider failures
+PASS Linux mips mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux mips64 mkdir: modes, credentials, dirfd, path copies, provider failures
+PASS Linux mips64 mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS Linux ppc mkdir: modes, credentials, dirfd, path copies, provider failures
+PASS Linux ppc mkdirat: modes, credentials, dirfd, path copies, provider failures
+PASS all ten Linux mkdir profiles: hosted adapter/service models; no guest execution

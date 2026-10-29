@@ -1,0 +1,20 @@
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS i386: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS x86_64: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS aarch64: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS arm32: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS rv64: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS rv32: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS loongarch64: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS mips: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS mips64: checked-vfs ownership model
+PASS checked VFS models: metadata/lookup errors, append/seek offsets, explicit cleanup, cwd pins and no mutation after admission failure; retained payload priority/reentry/success status and independent RAM listings 0/64
+PASS ppc: checked-vfs ownership model

@@ -1,0 +1,1 @@
+PASS wait-registration checks=133366 hosted; guest=0 smp=0

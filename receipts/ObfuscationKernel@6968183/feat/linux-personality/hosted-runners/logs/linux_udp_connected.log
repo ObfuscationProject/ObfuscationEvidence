@@ -1,0 +1,6 @@
+PASS network_wire NETWORK_WIRE_PASS scope=hosted-model checks=113401 fuzz-seed=91e10da5 iterations=10000
+PASS native_udp NATIVE_UDP_MODEL_PASS checks=643
+PASS native_udp_binding NATIVE_UDP_BINDING_MODEL_PASS checks=507 hosted=1 guest=0 actual_nic=0
+PASS native_udp_connected NATIVE_UDP_CONNECTED_MODEL_PASS checks=680 hosted=1 guest=0 nic=0
+PASS linux_udp_connected_capture LINUX_UDP_CONNECTED_CAPTURE_PASS checks=11418 profiles=10 variants=13 calls=878 indirect=138 denials=40 hosted=1 guest=0 nic=0
+PASS linux_udp_connected_runtime LINUX_UDP_CONNECTED_RUNTIME_PASS checks=96 calls=20 backend_entries=20 tx=6 hosted=1 guest=0 nic=0

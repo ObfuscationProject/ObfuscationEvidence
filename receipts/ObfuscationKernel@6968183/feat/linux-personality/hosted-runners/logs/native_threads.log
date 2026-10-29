@@ -1,0 +1,10 @@
+PASS i386 hosted native thread runtime
+PASS x86_64 hosted native thread runtime
+PASS aarch64 hosted native thread runtime
+PASS arm32 hosted native thread runtime
+PASS rv64 hosted native thread runtime
+PASS rv32 hosted native thread runtime
+PASS loongarch64 hosted native thread runtime
+PASS mips hosted native thread runtime
+PASS mips64 hosted native thread runtime
+PASS ppc hosted native thread runtime

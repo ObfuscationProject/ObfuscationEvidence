@@ -1,0 +1,1 @@
+PASS native page provider: user/object ownership, copy-on-write references, opaque lease generations, exact backing, reserve quota, accounting and retained quarantine; hosted=1 guest=0 smp=0

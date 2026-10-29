@@ -1,0 +1,3 @@
+[0mchecking for platform ... [38;5;2;1mlinux (ppc)[0m
+[0mchecking for systoolchain_dir ... [38;5;2;1m/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/tc/powerpc-eabi[0m
+[0mchecking for qemu_binary ... [38;5;2;1m/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/tc/powerpc-eabi/bin/qemu-system-ppc[0m

@@ -1,0 +1,12 @@
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[kernel-sdk] x86_64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/k-x86_64/build/sdk/x86_64/debug
+[0m[38;5;2;1m[ 31%]:[0m [38;5;5;1m<linux-driver-compat>[0m cache compiling.debug compat/linux/src/abi_snapshot.cpp[0m
+[0m[38;5;2;1m[ 31%]:[0m [38;5;5;1m<linux-driver-compat>[0m cache compiling.debug compat/linux/src/pci_model.cpp[0m
+[0m[38;5;2;1m[ 63%]:[0m [38;5;5;1m<linux-driver-compat>[0m [38;5;5;1marchiving.debug liblinux-driver-compat.a[0m
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 1.358s[0m

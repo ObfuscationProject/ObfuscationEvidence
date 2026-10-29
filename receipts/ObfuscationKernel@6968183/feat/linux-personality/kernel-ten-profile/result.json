@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "696818315162ff9a5f7e71174f2fb2d4188c2e76",
+  "branch": "feat/linux-personality",
+  "campaign": "kernel-ten-profile",
+  "date": "2026-10-29",
+  "scope": "feat/linux-personality at 6968183 (the P1 review branches chore/hosted-runners, fix/mips-signal-resume and fix/ext4-node-cache merged in, module ABI 77): ten-profile debug build, xmake test (QEMU debug kernel) and kernel-sdk export.",
+  "claims": [
+    "all ten debug kernels pass xmake test (OK_TEST_PASS)",
+    "kernel-sdk exports on all ten profiles with abi_version 77"
+  ],
+  "sources": [
+    {
+      "tree": "kernel@6968183",
+      "repository": "ObfuscationKernel",
+      "commit": "696818315162ff9a5f7e71174f2fb2d4188c2e76",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@6968183>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0)",
+    "ppc_ports": "ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+    "busybox": "BusyBox 1.37.0 on musl 1.2.5 (static, debug)"
+  },
+  "profiles": {
+    "i386": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "8b726be881ab7b2f8386d1ce70e74ec4c73319c7598dd6fb4e789e527dbf2b8f"
+    },
+    "x86_64": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "dd60f89b11712d86abee6963e0e22f71a5bf4b045a7b75e6a67458ef49eb6be3"
+    },
+    "aarch64": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "018e412ff80118c90db600c913486e62986eccff58213370de0f6535fd06211f"
+    },
+    "arm32": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "d44ae172b561dd3c15a392a888987fb91e076db7afe80450e3c0d2c37c1caf6b"
+    },
+    "rv64": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "b69cf2ab3598619d1aedbaf4afab6a3333d102c998a9e00dad67c7a5e8ebb4e8"
+    },
+    "rv32": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "7c35ce68eaaf11e07974a40b017a60ae0da00a324a4b787be47abc78bca4a81b"
+    },
+    "loongarch64": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "6356554e9aae8d5cb977742b7fe03173368b033bf268b777f26c033d999b05a1"
+    },
+    "mips": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "cdd984975ec4124e020c67cde29f9dcce1335da36d18b3427d007e2c5104bb51"
+    },
+    "mips64": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "0b250d6157a0d012568b5437adc6149d8fed9f2a377e77f38024cda0f585773d"
+    },
+    "ppc": {
+      "xmake_test": "pass",
+      "sdk_abi_version": 77,
+      "sdk_manifest_sha256": "541772520d535717708da2225697515227c7ce7a695973c626a26c2e29a5fec7"
+    }
+  },
+  "status": "pass"
+}

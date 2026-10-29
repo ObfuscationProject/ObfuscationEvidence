@@ -1,0 +1,9 @@
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/bin/ld: warning: _dvmd_tls.o: missing .note.GNU-stack section implies executable stack
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+ARM32_NATIVE_BEGIN
+ARM32_NATIVE syscall=pass return=pass tls=pass thumb=pass
+ARM32_NATIVE timer=pass context=pass
+ARM32_NATIVE user_fpexc=pass arm_fp=pass thumb_fp=pass invalid_fp=10 kernel_fpexc=pass
+ARM32_NATIVE protection=pass fp=pass
+ARM32_NATIVE address_spaces=pass
+ARM32_NATIVE_PASS scope=hardware

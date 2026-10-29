@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationOS",
+  "commit": "9d9bae56189d3b887a72d70479b3aafd040ecfc3",
+  "branch": "feat/linux-personality",
+  "campaign": "port-builds",
+  "date": "2026-10-29",
+  "scope": "BusyBox 1.37.0 on static musl 1.2.5 built by tools/ports.py at 9d9bae5 (patch 0003 only, no -Dvfork=fork, no ppc/MIPS size checks) for the ten profiles.",
+  "claims": [
+    "BusyBox builds on all ten profiles (built-not-executed; execution is the userland-gate campaign)"
+  ],
+  "sources": [
+    {
+      "tree": "os@9d9bae5",
+      "repository": "ObfuscationOS",
+      "commit": "9d9bae56189d3b887a72d70479b3aafd040ecfc3",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@9d9bae5>"
+    },
+    {
+      "tree": "os@8cb051a",
+      "repository": "ObfuscationOS",
+      "commit": "8cb051a7389440e353819851faf2aa711d10b4ca",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@8cb051a>",
+      "use": "guest, port, SDK-contract and OS CI-step runs"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0)",
+    "ppc_ports": "ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+    "busybox": "BusyBox 1.37.0 on musl 1.2.5 (static, debug)"
+  },
+  "runs": "Guest, port, SDK-contract and OS CI-step runs used the exact archive of ObfuscationOS 8cb051a; 9d9bae5 adds one commit that changes only tests/hosted/native_shutdown_storage_seams.hpp and tests/tools/test_native_shutdown_storage.py, which no image or SDK check reads. The x86_64 artifact tests ran on the exact archive of 9d9bae5.",
+  "ports": {
+    "i386": {
+      "status": "built-not-executed",
+      "manifest_sha256": "281826eeab29ea66ac463b2beab2595fb52046f75e36b35b9d697e3b22f7d996"
+    },
+    "x86_64": {
+      "status": "built-not-executed",
+      "manifest_sha256": "f42e3a24017dbb5161774ccfb2b4d1021c1236f969aa6283e58d217bf89be57c"
+    },
+    "aarch64": {
+      "status": "built-not-executed",
+      "manifest_sha256": "4b50f1962ef2b1cb9bb0f6dc714c8b26cbb8d93f6aab7bee90818ed20682ff57"
+    },
+    "arm32": {
+      "status": "built-not-executed",
+      "manifest_sha256": "863a5fe554b3a1dfad05a9fe58bfc725561129e91fa22d3240e53331b2b860c8"
+    },
+    "rv64": {
+      "status": "built-not-executed",
+      "manifest_sha256": "e525d5d77265fb721e2fba67dad116b5edbaeb0eb251a1d64052ddeb70eade26"
+    },
+    "rv32": {
+      "status": "built-not-executed",
+      "manifest_sha256": "677efc19ddb170b031fdda9f6670dbfeee08740fe2bb1da1b2749022ddaa3d5b"
+    },
+    "loongarch64": {
+      "status": "built-not-executed",
+      "manifest_sha256": "28a49af0a7402ab127a8d12ca4ac4a33c9adf1b6acd3147feee186efd99d75e8"
+    },
+    "mips": {
+      "status": "built-not-executed",
+      "manifest_sha256": "d4ccbe4de737944c632d967fc4fdb1e65814d798553d8b3f27a5198854f5b08b"
+    },
+    "mips64": {
+      "status": "built-not-executed",
+      "manifest_sha256": "3c8e09ddb92e018fec953c21d7dbd8fced51405e44ef109d0399f2c5e5d2606c"
+    },
+    "ppc": {
+      "status": "built-not-executed",
+      "manifest_sha256": "d2d5c8c6aa7653322327753bb2af452c265ed9b9217162ad484508aa0628cfdd"
+    }
+  },
+  "status": "pass"
+}

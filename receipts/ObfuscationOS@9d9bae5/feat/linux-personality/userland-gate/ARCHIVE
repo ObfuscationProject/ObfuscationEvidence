@@ -1,0 +1,21 @@
+archive/receipts/ObfuscationOS@9d9bae5/feat/linux-personality/userland-gate
+  i386/kernel-input.bin
+  i386/rootfs.ext4.img
+  x86_64/kernel-input.bin
+  x86_64/rootfs.ext4.img
+  aarch64/kernel-input.bin
+  aarch64/rootfs.ext4.img
+  arm32/kernel-input.bin
+  arm32/rootfs.ext4.img
+  rv64/kernel-input.bin
+  rv64/rootfs.ext4.img
+  rv32/kernel-input.bin
+  rv32/rootfs.ext4.img
+  loongarch64/kernel-input.bin
+  loongarch64/rootfs.ext4.img
+  mips/kernel-input.bin
+  mips/rootfs.ext4.img
+  mips64/kernel-input.bin
+  mips64/rootfs.ext4.img
+  ppc/kernel-input.bin
+  ppc/rootfs.ext4.img

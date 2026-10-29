@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationOS",
+  "commit": "9d9bae56189d3b887a72d70479b3aafd040ecfc3",
+  "branch": "feat/linux-personality",
+  "campaign": "userland-gate",
+  "date": "2026-10-29",
+  "scope": "Full-profile ext4 image with BusyBox as /bin at 9d9bae5 on the ABI 77 kernel SDKs of ObfuscationKernel 6968183: qemu-distro --fs=ext4 --require-native, then scripts/test_musl_shell.py (sh acceptance and BusyBox testsuite/runtest for the gate plan's applets) on each profile.",
+  "claims": [
+    "native boot and the 54 sh acceptance checks pass on all ten profiles",
+    "the gate suite passes on all ten profiles; every failure is one listed in ports/busybox/testsuite-gate.txt (31-byte path components)"
+  ],
+  "sources": [
+    {
+      "tree": "os@9d9bae5",
+      "repository": "ObfuscationOS",
+      "commit": "9d9bae56189d3b887a72d70479b3aafd040ecfc3",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@9d9bae5>"
+    },
+    {
+      "tree": "os@8cb051a",
+      "repository": "ObfuscationOS",
+      "commit": "8cb051a7389440e353819851faf2aa711d10b4ca",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@8cb051a>",
+      "use": "guest, port, SDK-contract and OS CI-step runs"
+    },
+    {
+      "tree": "kernel@6968183",
+      "repository": "ObfuscationKernel",
+      "commit": "696818315162ff9a5f7e71174f2fb2d4188c2e76",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@6968183>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0)",
+    "ppc_ports": "ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+    "busybox": "BusyBox 1.37.0 on musl 1.2.5 (static, debug)"
+  },
+  "runs": "Guest, port, SDK-contract and OS CI-step runs used the exact archive of ObfuscationOS 8cb051a; 9d9bae5 adds one commit that changes only tests/hosted/native_shutdown_storage_seams.hpp and tests/tools/test_native_shutdown_storage.py, which no image or SDK check reads. The x86_64 artifact tests ran on the exact archive of 9d9bae5.",
+  "kernel_sdk": {
+    "repository": "ObfuscationKernel",
+    "commit": "696818315162ff9a5f7e71174f2fb2d4188c2e76",
+    "abi": 77,
+    "mode": "debug"
+  },
+  "not_claimed": [
+    "the complete BusyBox testsuite (255-byte path components, FIFOs, /proc)",
+    "job control",
+    "release-mode userland"
+  ],
+  "profiles": {
+    "i386": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "provisional",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "x86_64": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "provisional",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "aarch64": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "realtime",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "arm32": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "realtime",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "rv64": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "realtime",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "rv32": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "realtime",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "loongarch64": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "provisional",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "mips": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "provisional",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "mips64": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "provisional",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    },
+    "ppc": {
+      "native_boot": "pass",
+      "root_timestamps": "maintained",
+      "root_clock": "provisional",
+      "sh_acceptance": "pass",
+      "sh_checks": 54,
+      "suite_total": 151,
+      "suite_passed": 134,
+      "suite_reviewed_failures": 8,
+      "suite_unexpected_failures": [],
+      "status": "pass",
+      "failure": null
+    }
+  },
+  "status": "pass"
+}

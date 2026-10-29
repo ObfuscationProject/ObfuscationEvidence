@@ -1,0 +1,1 @@
+PASS native-signal-frame-x86_64 checks=1248 hosted; guest=0 smp=0

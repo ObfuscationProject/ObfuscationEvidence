@@ -1,0 +1,10 @@
+PASS i386 thread lifecycle hosted integration
+PASS x86_64 thread lifecycle hosted integration
+PASS aarch64 thread lifecycle hosted integration
+PASS arm32 thread lifecycle hosted integration
+PASS rv64 thread lifecycle hosted integration
+PASS rv32 thread lifecycle hosted integration
+PASS loongarch64 thread lifecycle hosted integration
+PASS mips thread lifecycle hosted integration
+PASS mips64 thread lifecycle hosted integration
+PASS ppc thread lifecycle hosted integration

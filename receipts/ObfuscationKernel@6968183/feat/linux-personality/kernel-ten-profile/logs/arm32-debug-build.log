@@ -1,0 +1,163 @@
+[0m[38;5;2;1m[  1%]:[0m [38;5;5;1m<okernel>[0m compiling.debug src/arch/arm32/execution.S[0m
+[0m[38;5;2;1m[  2%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/boot/raw_handoff.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/smp_preempt_tests.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/boot/fdt.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/boot/boot_memory.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/kernel_syscalls.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/kernel.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/disabled.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/file_manager.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/native_shutdown.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/module.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/core/entry.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/filesystem.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/task_manager.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/task_manager.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/status.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/storage.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/rescue/shell/network.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/debug/suite.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/points/test_point.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/linux_abi_tests.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/vm_tests.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/unix_vfs_tests.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/process_tests.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/gui_tests.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/module_tests.cpp[0m
+[0m[38;5;2;1m[  3%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/driver_abi_tests.cpp[0m
+[0m[38;5;2;1m[  4%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug tests/kernel/roadmap/network_storage_tests.cpp[0m
+[0m[38;5;2;1m[  5%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/block.cpp[0m
+[0m[38;5;2;1m[  6%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/abi.cpp[0m
+[0m[38;5;3;1msrc/core/module.cpp: In function 'ok::Status ok::{anonymous}::parse_okmod_line(ok::ModuleImageInfo&, std::string_view)':
+src/core/module.cpp:347:61: warning: narrowing conversion of 'ok::{anonymous}::parse_unsigned(line.std::basic_string_view<char>::substr(6, ((std::basic_string_view<char>::size_type)std::basic_string_view<char>::npos)))' from 'ok::u64' {aka 'long long unsigned int'} to 'ok::uptr' {aka 'unsigned int'} [-Wnarrowing]
+  347 |         ModuleRelocation relocation{.offset = parse_unsigned(line.substr(6)), .kind = ModuleRelocationKind::relative};
+      |                                               ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics[0m
+[0m[38;5;2;1m[  7%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/driver.cpp[0m
+[0m[38;5;2;1m[  8%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/bus_input.cpp[0m
+[0m[38;5;3;1mIn file included from include/ok/boot/qemu_entry_memory.hpp:3,
+                 from include/ok/boot/qemu_runtime_frames.hpp:2,
+                 from include/ok/boot/qemu_process_memory.hpp:2,
+                 from include/ok/boot/boot_memory.hpp:3,
+                 from src/boot/boot_memory.cpp:1:
+include/ok/boot/qualified_memory.hpp: In function 'ok::Status ok::boot::qualify_boot_memory(const FirmwareMemory&, std::span<const LoadedReservation>, const ManagedMemoryPolicy&, QualifiedBootMemory&, QualifiedBootMemory&)':
+include/ok/boot/qualified_memory.hpp:104:15: note: parameter passing for argument of type 'std::span<const ok::boot::LoadedReservation>' changed in GCC 7.1
+  104 | inline Status qualify_boot_memory(const FirmwareMemory &source, std::span<const LoadedReservation> loaded,
+      |               ^~~~~~~~~~~~~~~~~~~
+include/ok/boot/qemu_entry_memory.hpp: In function 'ok::Status ok::boot::qemu_entry_memory_plan(const FirmwareMemory&, PhysicalRange, std::span<const LoadedReservation>, ok::u64, QemuEntryMemoryPlan&) [with ok::arch::Architecture A = ok::arch::Architecture::arm32]':
+include/ok/boot/qemu_entry_memory.hpp:19:8: note: parameter passing for argument of type 'std::span<const ok::boot::LoadedReservation>' changed in GCC 7.1
+   19 | Status qemu_entry_memory_plan(const FirmwareMemory &source, PhysicalRange linked_image,
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+include/ok/boot/boot_memory.hpp: In function 'ok::Status ok::boot::kernel_memory_plan(const FirmwareMemory&, PhysicalRange, PhysicalRange, QemuEntryMemoryPlan&) [with ok::arch::Architecture A = ok::arch::Architecture::arm32]':
+include/ok/boot/boot_memory.hpp:22:48: note: parameter passing for argument of type 'std::span<const ok::boot::LoadedReservation>' changed in GCC 7.1
+   22 |     if (auto status = qemu_entry_memory_plan<A>(source, linked_image, {}, ~u64{0} / 4096, candidate); !status)[0m
+[0m[38;5;2;1m[  9%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/driver/display.cpp[0m
+[0m[38;5;2;1m[ 11%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/vfs.cpp[0m
+[0m[38;5;2;1m[ 12%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/simplefs.cpp[0m
+[0m[38;5;2;1m[ 13%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/fat.cpp[0m
+[0m[38;5;2;1m[ 14%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/ext4_recovery.cpp[0m
+[0m[38;5;2;1m[ 15%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/archive.cpp[0m
+[0m[38;5;2;1m[ 16%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/storage.cpp[0m
+[0m[38;5;2;1m[ 17%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/devfs.cpp[0m
+[0m[38;5;2;1m[ 18%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/unix.cpp[0m
+[0m[38;5;2;1m[ 19%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/ext4.cpp[0m
+[0m[38;5;2;1m[ 20%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/page_cache.cpp[0m
+[0m[38;5;2;1m[ 22%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/fat_fs.cpp[0m
+[0m[38;5;2;1m[ 23%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/fs/ext4_fs.cpp[0m
+[0m[38;5;2;1m[ 24%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/gui/desktop.cpp[0m
+[0m[38;5;2;1m[ 25%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/gui/gui.cpp[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/interrupt/interrupt.cpp[0m
+[0m[38;5;2;1m[ 27%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/ipc/ipc.cpp[0m
+[0m[38;5;2;1m[ 28%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/memory/slab.cpp[0m
+[0m[38;5;2;1m[ 29%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/memory/memory.cpp[0m
+[0m[38;5;2;1m[ 30%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/memory/physical_map.cpp[0m
+[0m[38;5;2;1m[ 32%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/net/native_udp.cpp[0m
+[0m[38;5;3;1mtests/kernel/roadmap/linux_abi_tests.cpp: In function 'ok::Status ok::{anonymous}::verify_linux_abi_decode_and_errno()':
+tests/kernel/roadmap/linux_abi_tests.cpp:178:25: warning: value computed is not used [-Wunused-value]
+  178 |     time::RealtimeClock local_clock;
+      |                         ^~~~~~~~~~~
+tests/kernel/roadmap/linux_abi_tests.cpp: In function 'ok::Status ok::{anonymous}::verify_linux_futex_random_and_tls(ok::syscall::LinuxSyscallDispatcher&, ok::sched::ProcessId)':
+tests/kernel/roadmap/linux_abi_tests.cpp:463:37: note: parameter passing for argument of type 'std::span<const ok::syscall::LinuxAuxvEntry>' changed in GCC 7.1
+  463 |     auto stack = stack_builder.build(0x800000, argv, envp, process.auxv().entries());
+      |                  ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics[0m
+[0m[38;5;2;1m[ 33%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/net/net.cpp[0m
+[0m[38;5;2;1m[ 34%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/fd.cpp[0m
+[0m[38;5;2;1m[ 35%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/posix.cpp[0m
+[0m[38;5;2;1m[ 36%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/entropy.cpp[0m
+[0m[38;5;2;1m[ 37%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/process.cpp[0m
+[0m[38;5;2;1m[ 38%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/posix/path.cpp[0m
+[0m[38;5;2;1m[ 39%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/sched/scheduler.cpp[0m
+[0m[38;5;2;1m[ 40%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/sched/process.cpp[0m
+[0m[38;5;2;1m[ 41%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/smp/preempt.cpp[0m
+[0m[38;5;2;1m[ 43%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/smp/smp.cpp[0m
+[0m[38;5;2;1m[ 44%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/syscall/syscall.cpp[0m
+[0m[38;5;2;1m[ 45%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/syscall/linux.cpp[0m
+[0m[38;5;2;1m[ 46%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/user.cpp[0m
+[0m[38;5;2;1m[ 47%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime.cpp[0m
+[0m[38;5;2;1m[ 48%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/pipe.cpp[0m
+[0m[38;5;2;1m[ 49%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/loader.cpp[0m
+[0m[38;5;2;1m[ 50%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/net.cpp[0m
+[0m[38;5;2;1m[ 51%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/signals.cpp[0m
+[0m[38;5;2;1m[ 53%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/entry.cpp[0m
+[0m[38;5;2;1m[ 54%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/futex.cpp[0m
+[0m[38;5;2;1m[ 55%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/wait.cpp[0m
+[0m[38;5;2;1m[ 56%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/pty.cpp[0m
+[0m[38;5;2;1m[ 57%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/user/runtime/vm.cpp[0m
+[0m[38;5;2;1m[ 58%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/arch/arch.cpp[0m
+[0m[38;5;2;1m[ 59%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/arch/clock.cpp[0m
+[0m[38;5;2;1m[ 60%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/arch/realtime.cpp[0m
+[0m[38;5;2;1m[ 61%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/arch/terminal_power.cpp[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/arch/arm32/ops.cpp[0m
+[0m[38;5;2;1m[ 64%]:[0m [38;5;5;1m<okernel>[0m cache compiling.debug src/arch/arm32/execution.cpp[0m
+[0m[38;5;3;1msrc/syscall/linux.cpp: In member function 'ok::Result<ok::syscall::LinuxInitialStack> ok::syscall::LinuxInitialStackBuilder::build(ok::uptr, std::span<const std::basic_string_view<char> >, std::span<const std::basic_string_view<char> >, std::span<const ok::syscall::LinuxAuxvEntry>)':
+src/syscall/linux.cpp:116:27: note: parameter passing for argument of type 'std::span<const ok::syscall::LinuxAuxvEntry>' changed in GCC 7.1
+  116 | Result<LinuxInitialStack> LinuxInitialStackBuilder::build(uptr stack_top, std::span<const std::string_view> argv,
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~[0m
+[0m[38;5;3;1msrc/core/kernel.cpp: In member function 'ok::Status ok::Kernel::open_file_manager(std::string_view, bool)':
+src/core/kernel.cpp:1463:29: warning: value computed is not used [-Wunused-value]
+ 1463 |     apps::KernelFileManager manager;
+      |                             ^~~~~~~
+At global scope:
+cc1plus: note: unrecognized command-line option '-Wno-gnu-line-marker' may have been intended to silence earlier diagnostics[0m
+[0m[38;5;3;1msrc/sched/scheduler.cpp: In member function 'ok::Result<long long unsigned int> ok::sched::RoundRobinPolicy::pick_next(std::span<const ok::sched::ProcessControlBlock>, ok::sched::ProcessId, ok::smp::CpuId)':
+src/sched/scheduler.cpp:87:19: note: parameter passing for argument of type 'std::span<const ok::sched::ProcessControlBlock>' changed in GCC 7.1
+   87 | Result<ProcessId> RoundRobinPolicy::pick_next(std::span<const ProcessControlBlock> processes, ProcessId current,
+      |                   ^~~~~~~~~~~~~~~~[0m
+[0m[38;5;3;1mIn file included from include/ok/user/native_vfs_stat_continuation.hpp:5,
+                 from src/user/runtime/../native_shared_capture.hpp:4,
+                 from src/user/runtime/private.hpp:77,
+                 from src/user/runtime/entry.cpp:2:
+include/ok/abi/linux_stat_call.hpp: In static member function 'static ok::Result<ok::abi::linux_user::StatRequest> ok::abi::linux_user::StatCallAdapter<Target>::decode(ok::abi::linux_user::StatCall, std::span<const long long unsigned int>) [with ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+include/ok/abi/linux_stat_call.hpp:31:32: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   31 |     static Result<StatRequest> decode(StatCall call, std::span<const u64> arguments)
+      |                                ^~~~~~
+In file included from include/ok/user/linux_bootstrap.hpp:21,
+                 from src/user/runtime/private.hpp:87:
+include/ok/abi/linux_chmod_call.hpp: In static member function 'static ok::Result<ok::abi::linux_user::ChmodRequest> ok::abi::linux_user::ChmodCallAdapter<Target>::decode(ok::abi::linux_user::ChmodCall, std::span<const long long unsigned int>) [with ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+include/ok/abi/linux_chmod_call.hpp:45:47: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   45 |     [[nodiscard]] static Result<ChmodRequest> decode(ChmodCall call, std::span<const u64> arguments)
+      |                                               ^~~~~~
+include/ok/abi/linux_chmod_call.hpp: In static member function 'static ok::i64 ok::abi::linux_user::ChmodCallAdapter<Target>::execute(ok::abi::linux_user::ChmodCall, std::span<const long long unsigned int>, ReadPath, Change) [with ReadPath = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)> >(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)>&&, RejectThreadPreparation&&)::<lambda(ok::u64, ok::FixedString<256>&)>; Change = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)> >(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, ok::user::native::step(ok::Kernel&)::<lambda(ok::arch::execution::Syscall, bool&)>&&, RejectThreadPreparation&&)::<lambda(ok::abi::linux_user::ChmodRequest, std::string_view)>; ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+include/ok/abi/linux_chmod_call.hpp:81:16: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1[0m
+[0m[38;5;3;1mIn file included from tests/kernel/points/test_point.cpp:14:
+tests/kernel/points/realtime_checks.hpp: In function 'ok::Status ok::tests::check_realtime_model()':
+tests/kernel/points/realtime_checks.hpp:12:23: warning: value computed is not used [-Wunused-value]
+   12 |     time::EpochAnchor anchor;
+      |                       ^~~~~~
+tests/kernel/points/test_point.cpp: In function 'ok::Status ok::test::{anonymous}::test_filesystem(TestPointRunner&)':
+tests/kernel/points/test_point.cpp:405:99: warning: value computed is not used [-Wunused-value]
+  405 |     std::span<const std::byte> bytes{reinterpret_cast<const std::byte *>(text.data()), text.size()};
+      |                                                                                                   ^
+In file included from include/ok/boot/qemu_entry_memory.hpp:3,
+                 from include/ok/boot/qemu_runtime_frames.hpp:2,
+                 from tests/kernel/points/runtime_frames_checks.hpp:2,
+                 from tests/kernel/points/test_point.cpp:9:
+include/ok/boot/qualified_memory.hpp: In function 'ok::Status ok::boot::qualify_boot_memory(const FirmwareMemory&, std::span<const LoadedReservation>, const ManagedMemoryPolicy&, QualifiedBootMemory&, QualifiedBootMemory&)':
+include/ok/boot/qualified_memory.hpp:104:15: note: parameter passing for argument of type 'std::span<const ok::boot::LoadedReservation>' changed in GCC 7.1
+  104 | inline Status qualify_boot_memory(const FirmwareMemory &source, std::span<const LoadedReservation> loaded,[0m
+[0m[38;5;2;1m[ 92%]:[0m [38;5;5;1m<okernel>[0m [38;5;5;1marchiving.debug libokernel.a[0m
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 77.883s[0m

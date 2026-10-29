@@ -1,0 +1,10 @@
+PASS i386 hosted native signal runtime
+PASS x86_64 hosted native signal runtime
+PASS aarch64 hosted native signal runtime
+PASS arm32 hosted native signal runtime
+PASS rv64 hosted native signal runtime
+PASS rv32 hosted native signal runtime
+PASS loongarch64 hosted native signal runtime
+PASS mips hosted native signal runtime
+PASS mips64 hosted native signal runtime
+PASS ppc hosted native signal runtime

@@ -1,0 +1,11 @@
+PASS Linux paths i386: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths x86_64: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths aarch64: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths arm32: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths rv64: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths rv32: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths loongarch64: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths mips: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths mips64: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS Linux paths ppc: retained cwd/dirfd, Linux sizes, copy boundaries and symlink bytes
+PASS all ten Linux pathname profiles: hosted adapter/service models; no guest execution

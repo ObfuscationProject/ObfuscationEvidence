@@ -1,0 +1,12 @@
+PASS hosted RV32 waitid: full siginfo, nohang zeroing, copy admission before reap, parent compaction, block/retry, exited/signalled status
+PASS hosted Linux process i386: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process x86_64: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process aarch64: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process arm32: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process rv64: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process rv32: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process loongarch64: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process mips: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process mips64: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS hosted Linux process ppc: identity/TID, selected clone/fork routing, EAGAIN vs EOVERFLOW, exec forwarding and typed wait completion
+PASS all ten Linux process profiles: hosted adapter/service models; no guest execution

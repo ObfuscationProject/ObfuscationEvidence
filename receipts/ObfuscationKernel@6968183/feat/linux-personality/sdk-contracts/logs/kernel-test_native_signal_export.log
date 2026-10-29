@@ -1,0 +1,7 @@
+........[kernel-sdk] boot-archive-construction-v1 {"ar_tool":{"entry":{"mode":"0o755","sha256":"6452af2eea333b8c65e1adb92964fc8f97863ab003fa13f9d12bff5345cd7dbe"},"path":"/usr/bin/x86_64-linux-gnu-ar"},"arch":"rv64","argv":["/usr/bin/x86_64-linux-gnu-ar","rcs","/tmp/tmpwsx6trjc/.kernel-sdk-h0qod1e_/lib/libokernel_boot.a","/tmp/tmpwsx6trjc/payload"],"cwd":"/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/umb/ObfuscationKernel","kind":"sdk-boot-archive-construction-v1","members":[{"object":{"entry":{"mode":"0o644","sha256":"ad73adc8efda1f03e6bf22f52d977f5c1fd9e683d8d6a8e20da5e71e19589bc2"},"path":"/tmp/tmpwsx6trjc/payload"},"ordinal":0}],"mode":"release","producer":"kernel","publication":"atomic-sdk-directory-rename-v1","published_archive":{"entry":{"mode":"0o644","sha256":"037909dc1842a12e89f49fea2315ed3599fcaf56c7ac178ca3646fb2c00c1031"},"path":"/tmp/tmpwsx6trjc/sdk/lib/libokernel_boot.a"},"published_sdk_directory":"/tmp/tmpwsx6trjc/sdk","returncode":0,"schema":1,"staged_archive":{"entry":{"mode":"0o644","sha256":"037909dc1842a12e89f49fea2315ed3599fcaf56c7ac178ca3646fb2c00c1031"},"path":"/tmp/tmpwsx6trjc/.kernel-sdk-h0qod1e_/lib/libokernel_boot.a"},"staging_directory":"/tmp/tmpwsx6trjc/.kernel-sdk-h0qod1e_"}
+...................
+----------------------------------------------------------------------
+Ran 27 tests in 5.203s
+
+OK
+[kernel-sdk] exported rv64/release: /tmp/tmpwsx6trjc/sdk

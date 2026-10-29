@@ -1,0 +1,10 @@
+PASS i386 hosted native sleep interruption
+PASS x86_64 hosted native sleep interruption
+PASS aarch64 hosted native sleep interruption
+PASS arm32 hosted native sleep interruption
+PASS rv64 hosted native sleep interruption
+PASS rv32 hosted native sleep interruption
+PASS loongarch64 hosted native sleep interruption
+PASS mips hosted native sleep interruption
+PASS mips64 hosted native sleep interruption
+PASS ppc hosted native sleep interruption

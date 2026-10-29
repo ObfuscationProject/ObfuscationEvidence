@@ -1,0 +1,1 @@
+PASS service-stack: 2 hosted, 20 compile/link rows, 2 x86_64 native guests; guards=0

@@ -1,0 +1,10 @@
+PASS i386 native entry stacks hosted integration
+PASS x86_64 native entry stacks hosted integration
+PASS aarch64 native entry stacks hosted integration
+PASS arm32 native entry stacks hosted integration
+PASS rv64 native entry stacks hosted integration
+PASS rv32 native entry stacks hosted integration
+PASS loongarch64 native entry stacks hosted integration
+PASS mips native entry stacks hosted integration
+PASS mips64 native entry stacks hosted integration
+PASS ppc native entry stacks hosted integration

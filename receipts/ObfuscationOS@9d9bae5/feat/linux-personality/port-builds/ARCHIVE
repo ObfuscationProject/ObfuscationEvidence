@@ -1,0 +1,11 @@
+archive/receipts/ObfuscationOS@9d9bae5/feat/linux-personality/port-builds
+  busybox-i386-debug
+  busybox-x86_64-debug
+  busybox-aarch64-debug
+  busybox-arm32-debug
+  busybox-rv64-debug
+  busybox-rv32-debug
+  busybox-loongarch64-debug
+  busybox-mips-debug
+  busybox-mips64-debug
+  busybox-ppc-debug

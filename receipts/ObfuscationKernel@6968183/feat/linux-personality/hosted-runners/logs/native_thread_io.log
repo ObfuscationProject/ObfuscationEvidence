@@ -1,0 +1,2 @@
+PASS hosted selected-thread scalar/vector pipe and any-child wait completion; no pthread/guest/SMP claim
+PASS native selected-thread IO: hosted runtime continuation; no guest execution

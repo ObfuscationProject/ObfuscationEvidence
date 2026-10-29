@@ -1,0 +1,12 @@
+PASS Linux seek i386: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek x86_64: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek aarch64: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek arm32: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek rv64: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek rv32: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek loongarch64: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek mips: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek mips64: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek ppc: scalar widths, offset sharing, errno ordering, endian output, copy-fault position and MIPS stack
+PASS Linux seek adapter: 2359 checks, ten profiles, shared-file SET/CUR/END and copy-fault positions
+PASS all ten Linux seek profiles: hosted adapter/service models; no guest execution

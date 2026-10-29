@@ -1,0 +1,29 @@
+# kernel debug i386
+cd <kernel@6968183> && xmake f -y -c -m debug -a i386 --systoolchain_dir=<systoolchain>/i386-elf --qemu_binary=<systoolchain>/i386-elf/bin/qemu-system-i386 && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug x86_64
+cd <kernel@6968183> && xmake f -y -c -m debug -a x86_64 --systoolchain_dir=<systoolchain>/x86_64-elf --qemu_binary=<systoolchain>/x86_64-elf/bin/qemu-system-x86_64 && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug aarch64
+cd <kernel@6968183> && xmake f -y -c -m debug -a aarch64 --systoolchain_dir=<systoolchain>/aarch64-elf --qemu_binary=<systoolchain>/aarch64-elf/bin/qemu-system-aarch64 && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug arm32
+cd <kernel@6968183> && xmake f -y -c -m debug -a arm32 --systoolchain_dir=<systoolchain>/arm-none-eabi --qemu_binary=<systoolchain>/arm-none-eabi/bin/qemu-system-arm && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug rv64
+cd <kernel@6968183> && xmake f -y -c -m debug -a rv64 --systoolchain_dir=<systoolchain>/riscv64-elf --qemu_binary=<systoolchain>/riscv64-elf/bin/qemu-system-riscv64 && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug rv32
+cd <kernel@6968183> && xmake f -y -c -m debug -a rv32 --systoolchain_dir=<systoolchain>/riscv32-elf --qemu_binary=<systoolchain>/riscv32-elf/bin/qemu-system-riscv32 && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug loongarch64
+cd <kernel@6968183> && xmake f -y -c -m debug -a loongarch64 --systoolchain_dir=<systoolchain>/loongarch64-elf --qemu_binary=<systoolchain>/loongarch64-elf/bin/qemu-system-loongarch64 && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug mips
+cd <kernel@6968183> && xmake f -y -c -m debug -a mips --systoolchain_dir=<systoolchain>/mips-elf --qemu_binary=<systoolchain>/mips-elf/bin/qemu-system-mips && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug mips64
+cd <kernel@6968183> && xmake f -y -c -m debug -a mips64 --systoolchain_dir=<systoolchain>/mips64-elf --qemu_binary=<systoolchain>/mips64-elf/bin/qemu-system-mips64 && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk
+
+# kernel debug ppc
+cd <kernel@6968183> && xmake f -y -c -m debug -a ppc --systoolchain_dir=<systoolchain>/powerpc-eabi --qemu_binary=<systoolchain>/powerpc-eabi/bin/qemu-system-ppc && xmake -y -b okernel && xmake test && xmake -y -b okernel_image && xmake -y -b kernel-sdk

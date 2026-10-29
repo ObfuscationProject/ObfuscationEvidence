@@ -1,0 +1,20 @@
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS i386: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS x86_64: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS aarch64: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS arm32: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS rv64: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS rv32: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS loongarch64: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS mips: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS mips64: descriptor readiness model
+PASS descriptor readiness model: nonblocking state, PIPE_BUF, shared flags, close/reuse pins, EOF/HUP/ERR, console ownership
+PASS ppc: descriptor readiness model

@@ -1,0 +1,12 @@
+PASS Linux poll i386: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll x86_64: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll aarch64: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll arm32: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll rv64: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll rv32: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll loongarch64: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll mips: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll mips64: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS Linux poll ppc: layouts, masks, retained descriptions, errors, deadlines and raw timeout copyback
+PASS hosted runtime poll: readiness/timeout/EFAULT completion once, frozen input, raw remainder and teardown
+PASS all ten Linux poll profiles: hosted adapter/service models; no guest execution

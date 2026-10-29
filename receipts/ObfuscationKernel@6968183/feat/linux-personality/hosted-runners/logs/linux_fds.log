@@ -1,0 +1,24 @@
+PASS native memfd syscall adapter: hosted=1 actual_native_alias=0 guest=0
+PASS Linux descriptors i386: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors x86_64: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors aarch64: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors arm32: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors rv64: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors rv32: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors loongarch64: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors mips: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors mips64: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux descriptors ppc: duplication, sharing, flags, scalar ABI, limits and rollback
+PASS Linux memfd adapter: profile=i386 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=x86_64 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=aarch64 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=arm32 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=rv64 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=rv32 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=loongarch64 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=mips hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=mips64 hosted=1 actual_native_alias=0 guest=0
+PASS Linux memfd adapter: profile=ppc hosted=1 actual_native_alias=0 guest=0
+PASS loaded image exec ownership: actual_loader=1 hosted_backend=1 actual_instruction_execution=0 guest=0
+PASS native preparation cleanup: actual_loader=1 actual_install=1 actual_thread_prepare=1 origin_retired=1 vfs_overflow=1 exact_tokens=17 hosted_backend=1 guest=0
+PASS all ten Linux descriptor profiles: hosted adapter/service models; no guest execution

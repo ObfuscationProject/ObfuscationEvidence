@@ -1,0 +1,12 @@
+LOONG_NATIVE_BEGIN
+LOONG_NATIVE enter
+LOONG_NATIVE syscall=pass
+LOONG_NATIVE stage=timer
+LOONG_NATIVE stage=readonly
+LOONG_NATIVE stage=copies
+LOONG_NATIVE stage=hardware-spaces
+LOONG_NATIVE stage=fp
+LOONG_NATIVE stage=noexecute-entry-guard
+LOONG_NATIVE stage=unmapped
+LOONG_NATIVE stage=invalid
+LOONG_NATIVE_PASS scope=hardware
