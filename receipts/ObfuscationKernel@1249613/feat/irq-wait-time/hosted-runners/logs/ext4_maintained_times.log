@@ -1,0 +1,6 @@
+PASS block1024-inode128 {'events': 334, 'no_events': 33, 'negative': 99, 'range': 31, 'faults': 1605, 'publication_observations': 86}
+PASS block1024-inode256 {'events': 341, 'no_events': 33, 'negative': 302, 'range': 217, 'faults': 1605, 'publication_observations': 100}
+PASS block2048-inode128 {'events': 463, 'no_events': 33, 'negative': 99, 'range': 31, 'faults': 1605, 'publication_observations': 138}
+PASS block2048-inode256 {'events': 470, 'no_events': 33, 'negative': 302, 'range': 217, 'faults': 1605, 'publication_observations': 152}
+PASS block4096-inode128 {'events': 718, 'no_events': 33, 'negative': 99, 'range': 31, 'faults': 1605, 'publication_observations': 240}
+PASS block4096-inode256 {'events': 725, 'no_events': 33, 'negative': 302, 'range': 217, 'faults': 1605, 'publication_observations': 254}

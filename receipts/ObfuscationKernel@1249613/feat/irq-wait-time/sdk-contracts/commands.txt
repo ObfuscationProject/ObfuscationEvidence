@@ -1,0 +1,2 @@
+cd <umbrella@new>/ObfuscationKernel && for t in tests/host/*_sdk_contract_tests.py tests/host/test_native_signal_export.py; do python3 -B $t; done; python3 -B tests/host/sdk_boot_archive_receipt_tests.py --exporter tools/export_sdk.py
+cd <umbrella@new>/ObfuscationOS && for m in test_kernel_sdk test_ports test_native_console_control_sdk test_native_group_signal_sdk test_native_metadata_sdk test_native_persistent_sync_sdk test_native_sessions_sdk test_object_pressure test_uapi_fields; do python3 -B -m unittest discover -s tests/tools -p $m.py; done

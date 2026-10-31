@@ -1,0 +1,11 @@
+PASS Linux directory i386: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory x86_64: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory aarch64: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory arm32: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory rv64: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory rv32: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory loongarch64: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory mips: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory mips64: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS Linux directory ppc: endian records, inode identities, cookies, dup/fork, errors and copy boundaries
+PASS all ten Linux directory profiles: hosted adapter/service models; no guest execution

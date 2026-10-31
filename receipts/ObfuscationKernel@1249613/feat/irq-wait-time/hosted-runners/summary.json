@@ -1,0 +1,796 @@
+{
+  "shard": "1/1",
+  "toolchain_root": "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc",
+  "results": {
+    "access_semantics": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 21
+    },
+    "archive": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "block_cache": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "block_sessions": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "boot_memory": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "checked_ownership": {
+      "kind": "fixture",
+      "status": "pass",
+      "seconds": 228
+    },
+    "checked_vfs": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 87
+    },
+    "child_autoreap_scheduler": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 30
+    },
+    "clock_counter": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 0
+    },
+    "console_input": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "deadlines": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 0
+    },
+    "display_input_uapi": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 0
+    },
+    "e820_memory": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 0
+    },
+    "ext4_attributes": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "ext4_bounds": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 5
+    },
+    "ext4_fs": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 36
+    },
+    "ext4_initial_attributes": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 23
+    },
+    "ext4_maintained_times": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 542
+    },
+    "ext4_mounted": {
+      "kind": "fixture",
+      "status": "pass",
+      "seconds": 157
+    },
+    "ext4_mounted_create": {
+      "kind": "fixture",
+      "status": "pass",
+      "seconds": 78
+    },
+    "ext4_owned": {
+      "kind": "fixture",
+      "status": "pass",
+      "seconds": 37
+    },
+    "ext4_owned_edges": {
+      "kind": "fixture",
+      "status": "pass",
+      "seconds": 44
+    },
+    "ext4_recovery": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 10
+    },
+    "ext4_replay_shape": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "ext4_replay_view": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 11
+    },
+    "fd_readiness": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 92
+    },
+    "fdt_memory": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "file_attributes": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 92
+    },
+    "firmware_handoff": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "frame_allocator": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "initial_child": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 91
+    },
+    "irq_wait_time": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "kernel_entry_stack_pool": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "kernel_services": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 50
+    },
+    "linux_bootstrap": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 21
+    },
+    "linux_chmod": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 30
+    },
+    "linux_clock_set": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 68
+    },
+    "linux_clone_preparation": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 15
+    },
+    "linux_credentials": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 24
+    },
+    "linux_directory": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 63
+    },
+    "linux_exec": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 4
+    },
+    "linux_fds": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 62
+    },
+    "linux_mkdir": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 69
+    },
+    "linux_native_bridge": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "linux_openat": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 66
+    },
+    "linux_paths": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 52
+    },
+    "linux_pipes": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 63
+    },
+    "linux_poll": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 50
+    },
+    "linux_positional": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 54
+    },
+    "linux_process": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 50
+    },
+    "linux_rename": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 63
+    },
+    "linux_seek": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 50
+    },
+    "linux_sleep": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 65
+    },
+    "linux_stat": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 32
+    },
+    "linux_stat_blocks_oracle": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 4
+    },
+    "linux_timers": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "linux_udp_connected": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 19
+    },
+    "linux_umask": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 51
+    },
+    "linux_user_abi": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "mapping_view": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 0
+    },
+    "metadata_buffers": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 4
+    },
+    "mount_info_uapi_cross": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 4
+    },
+    "native_aarch64": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 1
+    },
+    "native_arm32": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 1
+    },
+    "native_child_exit_exec_audit": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "native_child_exit_lifecycle": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 30
+    },
+    "native_child_exit_runtime": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "native_child_siginfo": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "native_console_control": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 23
+    },
+    "native_credentials": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "native_entry_stacks": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 30
+    },
+    "native_exec_arguments": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 37
+    },
+    "native_futex": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 202
+    },
+    "native_futex_signal": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "native_group_signal": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "native_i386": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 2
+    },
+    "native_loongarch64": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 6
+    },
+    "native_mapping_pages": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "native_metadata": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "native_mips": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 6
+    },
+    "native_mount_info": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 19
+    },
+    "native_page_pool": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "native_pipe_blocking_write": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 20
+    },
+    "native_pipe_read_continuation": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 171
+    },
+    "native_pipe_signal": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 20
+    },
+    "native_pipe_sigpipe": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 20
+    },
+    "native_pipe_vector_continuation": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 170
+    },
+    "native_pipe_vector_origin": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 170
+    },
+    "native_pipe_vector_signal": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 20
+    },
+    "native_pipe_write_signal": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 20
+    },
+    "native_poll": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 41
+    },
+    "native_poll_signal": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 19
+    },
+    "native_poll_temporary_mask": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 22
+    },
+    "native_ppc": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 1
+    },
+    "native_process_signal": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 19
+    },
+    "native_robust": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 167
+    },
+    "native_rv32": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 1
+    },
+    "native_rv64": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 1
+    },
+    "native_sessions": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 21
+    },
+    "native_signal_action": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 6
+    },
+    "native_signal_altstack_delivery": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 4
+    },
+    "native_signal_delivery_x86_64": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 4
+    },
+    "native_signal_frame_aarch64": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 3
+    },
+    "native_signal_frame_x86_64": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "native_signal_mask": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "native_signal_mips64_n64": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 13
+    },
+    "native_signal_mips_o32": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 5
+    },
+    "native_signal_runtime": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 165
+    },
+    "native_signal_target": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 18
+    },
+    "native_signal_wait": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 19
+    },
+    "native_signal_wait_codec": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "native_sleep_interruption": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 166
+    },
+    "native_stat": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 42
+    },
+    "native_syscall_origin": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 165
+    },
+    "native_syscall_restart": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 5
+    },
+    "native_thread_io": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 50
+    },
+    "native_threads": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 170
+    },
+    "native_vm": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 23
+    },
+    "native_wait_ownership": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 48
+    },
+    "native_x86_64": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 2
+    },
+    "network_wire": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "object_pool": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "page_cache": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "path_reference": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 93
+    },
+    "pending_signals": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 6
+    },
+    "persistent_sync_cross": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 188
+    },
+    "physical_map": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "posix_ext4_truncate": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 15
+    },
+    "power_uapi_cross": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 8
+    },
+    "process_resources": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 103
+    },
+    "process_sessions": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 34
+    },
+    "qualified_memory": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "realtime": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "realtime_clock": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 0
+    },
+    "robust_futex": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    },
+    "runtime_frame_bridge": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "scheduler_waits": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 35
+    },
+    "service_stack": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 13
+    },
+    "shutdown_coordinator": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "shutdown_cross": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 167
+    },
+    "slab": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 1
+    },
+    "static_dispatch": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 60
+    },
+    "thread_lifecycle": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 32
+    },
+    "vfs_mount_preflight": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 29
+    },
+    "vfs_mount_snapshot": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 30
+    },
+    "vfs_namespace": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "wait_registration": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 2
+    }
+  },
+  "not_run": {
+    "ext4_completion": "inputs",
+    "ext4_directory_mode": "quarantine",
+    "ext4_first_data": "inputs",
+    "ext4_inode_lifetime": "inputs",
+    "ext4_journalled_mode": "quarantine",
+    "ext4_namespace_cold_replay": "inputs",
+    "ext4_namespace_completion": "inputs",
+    "ext4_namespace_journal": "inputs",
+    "ext4_namespace_owner_regressions": "inputs",
+    "ext4_namespace_recovery_binding": "inputs",
+    "ext4_namespace_replay": "inputs",
+    "ext4_namespace_transaction": "inputs",
+    "ext4_next_data": "inputs",
+    "ext4_orphan_access": "inputs",
+    "ext4_orphan_ownership": "inputs",
+    "ext4_orphan_reclaim_plan": "inputs",
+    "ext4_rename_relocation": "inputs",
+    "ext4_transaction": "quarantine",
+    "fat_fs": "inputs",
+    "jbd2": "inputs",
+    "jbd2_replay": "inputs",
+    "linux_access_targets": "inputs",
+    "linux_chmod_provider": "inputs",
+    "linux_chmod_service": "inputs",
+    "linux_chmod_targets": "inputs",
+    "linux_dynamic_exec_x86_64": "inputs",
+    "linux_owned_stat_bootstrap_targets": "inputs",
+    "linux_runtime": "inputs",
+    "linux_select": "quarantine",
+    "linux_stat_copy_order": "inputs",
+    "linux_stat_provider": "inputs",
+    "linux_stat_service": "inputs",
+    "linux_udp_restart": "inputs",
+    "linux_udp_signal": "quarantine",
+    "linux_udp_sockname": "quarantine",
+    "native_child_wait_signal": "quarantine",
+    "native_firmware_handoff": "inputs",
+    "native_futex_origin": "inputs",
+    "native_object_isolation": "inputs",
+    "native_pipe_vector_publication": "inputs",
+    "native_poll_objects": "quarantine",
+    "native_process_memory_failure": "inputs",
+    "native_process_signal_waits": "quarantine",
+    "native_qualified_memory": "inputs",
+    "native_restart_regressions": "inputs",
+    "native_runtime_frames": "inputs",
+    "native_shutdown_runtime": "quarantine",
+    "native_signal_exec": "quarantine",
+    "native_signal_ppc32": "inputs",
+    "native_signal_production": "inputs",
+    "native_syscall_restart_publication": "inputs",
+    "persistent_sync": "inputs",
+    "ppc_tlb": "inputs"
+  }
+}

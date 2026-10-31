@@ -1,0 +1,2 @@
+PASS hosted native poll: frozen request, duplicate pins, fd reuse, copy fault, teardown and peer error
+PASS hosted Linux bootstrap adapter: shared close, x86 TLS, i386 user_desc, MIPS time64/errno

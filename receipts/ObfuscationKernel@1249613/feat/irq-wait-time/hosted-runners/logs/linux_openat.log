@@ -1,0 +1,27 @@
+PASS hosted Linux sync i386: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync x86_64: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync aarch64: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync arm32: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync rv64: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync rv32: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync loongarch64: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync mips: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync mips64: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux sync ppc: fd normalization, EBADF/EINVAL, common callback and EIO
+PASS hosted Linux openat i386: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat x86_64: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat aarch64: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat arm32: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat rv64: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat rv32: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat loongarch64: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat mips: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat mips64: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux openat ppc: flags, dirfd, copy faults/length, large-file policy, errno and lifetime
+PASS hosted Linux legacy open/creat i386: cwd identity, flags/mode, copies, permissions, pressure-before-mutation and large-file admission
+PASS hosted Linux legacy open/creat x86_64: cwd identity, flags/mode, copies, permissions, pressure-before-mutation and large-file admission
+PASS hosted Linux legacy open/creat arm32: cwd identity, flags/mode, copies, permissions, pressure-before-mutation and large-file admission
+PASS hosted Linux legacy open/creat mips: cwd identity, flags/mode, copies, permissions, pressure-before-mutation and large-file admission
+PASS hosted Linux legacy open/creat mips64: cwd identity, flags/mode, copies, permissions, pressure-before-mutation and large-file admission
+PASS hosted Linux legacy open/creat ppc: cwd identity, flags/mode, copies, permissions, pressure-before-mutation and large-file admission
+PASS all ten Linux openat profiles: hosted adapter/service models; no guest execution

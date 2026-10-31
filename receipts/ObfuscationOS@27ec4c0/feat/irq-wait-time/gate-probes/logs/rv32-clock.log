@@ -1,0 +1,3 @@
+PASS rv32/debug: monotonic drift +1.116 ppm (bound -32.920..+34.399) over 120.0 s, 13 samples
+realtime offset -283.601 ms, drift -0.742 ppm
+OK_TIMER_LATENCY scope=hardware unit=ns idle=8971:97500:147455:212991:7382000 user=251:116900:163839:360447:4504500

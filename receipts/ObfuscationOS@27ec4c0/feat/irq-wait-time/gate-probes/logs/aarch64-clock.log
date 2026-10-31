@@ -1,0 +1,3 @@
+PASS aarch64/debug: monotonic drift +0.297 ppm (bound -27.041..+27.150) over 120.0 s, 13 samples
+realtime offset -65.013 ms, drift -1.072 ppm
+OK_TIMER_LATENCY scope=hardware unit=ns idle=9716:46960:147455:212991:10612016 user=258:76720:122879:180223:213840

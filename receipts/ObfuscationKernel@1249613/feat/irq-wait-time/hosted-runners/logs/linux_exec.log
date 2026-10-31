@@ -1,0 +1,10 @@
+PASS model Linux ELF metadata/auxv i386
+PASS model Linux ELF metadata/auxv x86_64
+PASS model Linux ELF metadata/auxv aarch64
+PASS model Linux ELF metadata/auxv arm32
+PASS model Linux ELF metadata/auxv rv64
+PASS model Linux ELF metadata/auxv rv32
+PASS model Linux ELF metadata/auxv loongarch64
+PASS model Linux ELF metadata/auxv mips
+PASS model Linux ELF metadata/auxv mips64
+PASS model Linux ELF metadata/auxv ppc

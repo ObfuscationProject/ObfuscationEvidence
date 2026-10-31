@@ -1,0 +1,2 @@
+PASS mips/debug: TIMERS_PASS arch=mips checks=74 oneshot_late_us=7609 overrun=10 thread_calls=4 realtime=abstime
+OK_TIMERS scope=hardware armed=12 expired=15 signalled=15 rearmed=10 retried=0

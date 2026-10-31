@@ -1,0 +1,232 @@
+[0mchecking for platform ... [38;5;2;1mlinux (loongarch64)[0m
+[0mchecking for musl_udp_sockname_musl_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_child_build ... [38;5;1;1mno[0m
+[0mchecking for userland_manifest_sha256 ... [38;5;2;1m28a49af0a7402ab127a8d12ca4ac4a33c9adf1b6acd3147feee186efd99d75e8[0m
+[0mchecking for musl_udp_connected_musl_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for userland_build ... [38;5;2;1m/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/F/ports/busybox-loongarch64-debug[0m
+[0mchecking for managed_init_build ... [38;5;1;1mno[0m
+[0mchecking for managed_init_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_connected_child_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_child_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_connected_musl_build ... [38;5;1;1mno[0m
+[0mchecking for systoolchain_dir ... [38;5;2;1m/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/tc/loongarch64-elf[0m
+[0mchecking for service_graph_build ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_connected_child_build ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_musl_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_musl_build ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_sockname_musl_build ... [38;5;1;1mno[0m
+[0mchecking for musl_udp_sockname_child_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for kernel_sdk ... [38;5;2;1m/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug[0m
+[0mchecking for musl_udp_sockname_child_build ... [38;5;1;1mno[0m
+[0mchecking for linux_journal_image ... [38;5;1;1mno[0m
+[0mchecking for native_tcp_peer_port ... [38;5;1;1mno[0m
+[0mchecking for service_graph_manifest_sha256 ... [38;5;1;1mno[0m
+[0mchecking for linux_journal_image_sha256 ... [38;5;1;1mno[0m
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 0.439s[0m
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[0m[38;5;2;1m[ 12%]:[0m [38;5;5;1m<app-init>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 12%]:[0m [38;5;5;1m<app-init>[0m cache compiling.debug apps/init/main.c[0m
+[0m[38;5;2;1m[ 13%]:[0m [38;5;5;1m<app-hello>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 13%]:[0m [38;5;5;1m<app-hello>[0m cache compiling.debug apps/hello/main.c[0m
+[0m[38;5;2;1m[ 13%]:[0m [38;5;5;1m<app-hello>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 14%]:[0m [38;5;5;1m<app-cat>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 14%]:[0m [38;5;5;1m<app-cat>[0m cache compiling.debug apps/cat/main.c[0m
+[0m[38;5;2;1m[ 15%]:[0m [38;5;5;1m<app-cat>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 15%]:[0m [38;5;5;1m<app-ls>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 15%]:[0m [38;5;5;1m<app-ls>[0m cache compiling.debug apps/ls/main.c[0m
+[0m[38;5;2;1m[ 16%]:[0m [38;5;5;1m<app-ls>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 16%]:[0m [38;5;5;1m<app-stat>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 16%]:[0m [38;5;5;1m<app-stat>[0m cache compiling.debug apps/stat/main.c[0m
+[0m[38;5;2;1m[ 17%]:[0m [38;5;5;1m<app-stat>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 17%]:[0m [38;5;5;1m<app-mkdir>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 18%]:[0m [38;5;5;1m<app-mkdir>[0m cache compiling.debug apps/mkdir/main.c[0m
+[0m[38;5;2;1m[ 18%]:[0m [38;5;5;1m<app-mkdir>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 18%]:[0m [38;5;5;1m<app-rm>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 19%]:[0m [38;5;5;1m<app-rm>[0m cache compiling.debug apps/rm/main.c[0m
+[0m[38;5;2;1m[ 19%]:[0m [38;5;5;1m<app-rm>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 20%]:[0m [38;5;5;1m<app-mv>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 20%]:[0m [38;5;5;1m<app-mv>[0m cache compiling.debug apps/mv/main.c[0m
+[0m[38;5;2;1m[ 20%]:[0m [38;5;5;1m<app-mv>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 21%]:[0m [38;5;5;1m<app-ln>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 21%]:[0m [38;5;5;1m<app-ln>[0m cache compiling.debug apps/ln/main.c[0m
+[0m[38;5;2;1m[ 22%]:[0m [38;5;5;1m<app-ln>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 22%]:[0m [38;5;5;1m<app-pwd>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 22%]:[0m [38;5;5;1m<app-pwd>[0m cache compiling.debug apps/pwd/main.c[0m
+[0m[38;5;2;1m[ 23%]:[0m [38;5;5;1m<app-pwd>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 23%]:[0m [38;5;5;1m<app-whoami>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 23%]:[0m [38;5;5;1m<app-whoami>[0m cache compiling.debug apps/whoami/main.c[0m
+[0m[38;5;2;1m[ 24%]:[0m [38;5;5;1m<app-whoami>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 24%]:[0m [38;5;5;1m<app-uname>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 25%]:[0m [38;5;5;1m<app-uname>[0m cache compiling.debug apps/uname/main.c[0m
+[0m[38;5;2;1m[ 25%]:[0m [38;5;5;1m<app-uname>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 25%]:[0m [38;5;5;1m<app-uptime>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-uptime>[0m cache compiling.debug apps/uptime/main.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-uptime>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-init>[0m cache compiling.debug apps/init/native_supervisor.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-init>[0m cache compiling.debug apps/init/native_control.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m compiling.debug lib/okcrt/arch/loongarch64/syscall.S[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/console.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/pty.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/string.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/syscalls.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/storage.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/errno.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/stdio.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/stdlib.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/abi.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<okcrt>[0m cache compiling.debug lib/okcrt/src/power.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-oksh>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-oksh>[0m cache compiling.debug apps/oksh/main.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-oksh>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-posix-check>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-posix-check>[0m cache compiling.debug apps/posix-check/main.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-posix-check>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-posix-check>[0m cache compiling.debug apps/posix-check/fat.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-udp-probe>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-udp-probe>[0m cache compiling.debug apps/udp-probe/main.c[0m
+[0m[38;5;2;1m[ 26%]:[0m [38;5;5;1m<app-udp-probe>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 27%]:[0m [38;5;5;1m<app-touch>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 27%]:[0m [38;5;5;1m<app-touch>[0m cache compiling.debug apps/touch/main.c[0m
+[0m[38;5;2;1m[ 27%]:[0m [38;5;5;1m<app-touch>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 28%]:[0m [38;5;5;1m<app-settings>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 28%]:[0m [38;5;5;1m<app-settings>[0m cache compiling.debug apps/settings/main.c[0m
+[0m[38;5;2;1m[ 28%]:[0m [38;5;5;1m<app-settings>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 29%]:[0m [38;5;5;1m<app-tasks>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 29%]:[0m [38;5;5;1m<app-tasks>[0m cache compiling.debug apps/tasks/main.c[0m
+[0m[38;5;2;1m[ 30%]:[0m [38;5;5;1m<app-tasks>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 30%]:[0m [38;5;5;1m<app-notes>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 30%]:[0m [38;5;5;1m<app-notes>[0m cache compiling.debug apps/notes/main.c[0m
+[0m[38;5;2;1m[ 31%]:[0m [38;5;5;1m<app-notes>[0m cache compiling.debug apps/notes/save.c[0m
+[0m[38;5;2;1m[ 31%]:[0m [38;5;5;1m<app-notes>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 32%]:[0m [38;5;5;1m<app-about>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 32%]:[0m [38;5;5;1m<app-about>[0m cache compiling.debug apps/about/main.c[0m
+[0m[38;5;2;1m[ 32%]:[0m [38;5;5;1m<app-about>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 33%]:[0m [38;5;5;1m<app-sync>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 33%]:[0m [38;5;5;1m<app-sync>[0m cache compiling.debug apps/sync/main.c[0m
+[0m[38;5;2;1m[ 33%]:[0m [38;5;5;1m<app-sync>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 34%]:[0m [38;5;5;1m<app-kmodload>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 34%]:[0m [38;5;5;1m<app-kmodload>[0m cache compiling.debug apps/kmodload/main.c[0m
+[0m[38;5;2;1m[ 35%]:[0m [38;5;5;1m<app-kmodload>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 35%]:[0m [38;5;5;1m<app-service-ctl>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 35%]:[0m [38;5;5;1m<app-service-ctl>[0m cache compiling.debug apps/service-ctl/main.c[0m
+[0m[38;5;2;1m[ 36%]:[0m [38;5;5;1m<app-service-ctl>[0m cache compiling.debug apps/init/native_control_client.c[0m
+[0m[38;5;2;1m[ 36%]:[0m [38;5;5;1m<app-service-ctl>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 37%]:[0m [38;5;5;1m<app-logd>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 37%]:[0m [38;5;5;1m<app-logd>[0m cache compiling.debug apps/logd/main.c[0m
+[0m[38;5;2;1m[ 37%]:[0m [38;5;5;1m<app-logd>[0m cache compiling.debug apps/logging/transport.c[0m
+[0m[38;5;2;1m[ 38%]:[0m [38;5;5;1m<app-logd>[0m cache compiling.debug apps/logging/store.c[0m
+[0m[38;5;2;1m[ 38%]:[0m [38;5;5;1m<app-logd>[0m cache compiling.debug apps/logging/protocol.c[0m
+[0m[38;5;2;1m[ 39%]:[0m [38;5;5;1m<app-logd>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 39%]:[0m [38;5;5;1m<app-logger>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 39%]:[0m [38;5;5;1m<app-logger>[0m cache compiling.debug apps/logger/main.c[0m
+[0m[38;5;2;1m[ 40%]:[0m [38;5;5;1m<app-logger>[0m cache compiling.debug apps/logging/transport.c[0m
+[0m[38;5;2;1m[ 40%]:[0m [38;5;5;1m<app-logger>[0m cache compiling.debug apps/logging/store.c[0m
+[0m[38;5;2;1m[ 40%]:[0m [38;5;5;1m<app-logger>[0m cache compiling.debug apps/logging/protocol.c[0m
+[0m[38;5;2;1m[ 41%]:[0m [38;5;5;1m<app-logger>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 41%]:[0m [38;5;5;1m<app-timed>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 42%]:[0m [38;5;5;1m<app-timed>[0m cache compiling.debug apps/timed/main.c[0m
+[0m[38;5;2;1m[ 42%]:[0m [38;5;5;1m<app-timed>[0m cache compiling.debug apps/time/transport.c[0m
+[0m[38;5;2;1m[ 42%]:[0m [38;5;5;1m<app-timed>[0m cache compiling.debug apps/time/protocol.c[0m
+[0m[38;5;2;1m[ 43%]:[0m [38;5;5;1m<app-timed>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 43%]:[0m [38;5;5;1m<app-timectl>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 44%]:[0m [38;5;5;1m<app-timectl>[0m cache compiling.debug apps/timectl/main.c[0m
+[0m[38;5;2;1m[ 44%]:[0m [38;5;5;1m<app-timectl>[0m cache compiling.debug apps/time/transport.c[0m
+[0m[38;5;2;1m[ 44%]:[0m [38;5;5;1m<app-timectl>[0m cache compiling.debug apps/time/protocol.c[0m
+[0m[38;5;2;1m[ 45%]:[0m [38;5;5;1m<app-timectl>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 45%]:[0m [38;5;5;1m<app-mountctl>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 45%]:[0m [38;5;5;1m<app-mountctl>[0m cache compiling.debug apps/mountctl/main.c[0m
+[0m[38;5;2;1m[ 46%]:[0m [38;5;5;1m<app-mountctl>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 46%]:[0m [38;5;5;1m<app-resolved>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 47%]:[0m [38;5;5;1m<app-resolved>[0m cache compiling.debug apps/resolved/main.c[0m
+[0m[38;5;2;1m[ 47%]:[0m [38;5;5;1m<app-resolved>[0m cache compiling.debug apps/resolver/transport.c[0m
+[0m[38;5;2;1m[ 47%]:[0m [38;5;5;1m<app-resolved>[0m cache compiling.debug apps/resolver/hosts.c[0m
+[0m[38;5;2;1m[ 48%]:[0m [38;5;5;1m<app-resolved>[0m cache compiling.debug apps/resolver/protocol.c[0m
+[0m[38;5;2;1m[ 48%]:[0m [38;5;5;1m<app-resolved>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 49%]:[0m [38;5;5;1m<app-resolvectl>[0m compiling.debug lib/okcrt/arch/loongarch64/crt0.S[0m
+[0m[38;5;2;1m[ 49%]:[0m [38;5;5;1m<app-resolvectl>[0m cache compiling.debug apps/resolvectl/main.c[0m
+[0m[38;5;2;1m[ 49%]:[0m [38;5;5;1m<app-resolvectl>[0m cache compiling.debug apps/resolver/transport.c[0m
+[0m[38;5;2;1m[ 50%]:[0m [38;5;5;1m<app-resolvectl>[0m cache compiling.debug apps/resolver/hosts.c[0m
+[0m[38;5;2;1m[ 50%]:[0m [38;5;5;1m<app-resolvectl>[0m cache compiling.debug apps/resolver/protocol.c[0m
+[0m[38;5;2;1m[ 50%]:[0m [38;5;5;1m<app-resolvectl>[0m cache compiling.debug apps/lib/commands.c[0m
+[0m[38;5;2;1m[ 51%]:[0m [38;5;5;1m<okcrt>[0m [38;5;5;1marchiving.debug libokcrt.a[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-init>[0m [38;5;5;1mlinking.debug init.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-timed>[0m [38;5;5;1mlinking.debug timed.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-oksh>[0m [38;5;5;1mlinking.debug oksh.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-posix-check>[0m [38;5;5;1mlinking.debug posix-check.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-udp-probe>[0m [38;5;5;1mlinking.debug udp-probe.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-hello>[0m [38;5;5;1mlinking.debug hello.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-cat>[0m [38;5;5;1mlinking.debug cat.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-ls>[0m [38;5;5;1mlinking.debug ls.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-mkdir>[0m [38;5;5;1mlinking.debug mkdir.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-stat>[0m [38;5;5;1mlinking.debug stat.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-rm>[0m [38;5;5;1mlinking.debug rm.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-mv>[0m [38;5;5;1mlinking.debug mv.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-ln>[0m [38;5;5;1mlinking.debug ln.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-pwd>[0m [38;5;5;1mlinking.debug pwd.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-whoami>[0m [38;5;5;1mlinking.debug whoami.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-uptime>[0m [38;5;5;1mlinking.debug uptime.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-uname>[0m [38;5;5;1mlinking.debug uname.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-touch>[0m [38;5;5;1mlinking.debug touch.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-settings>[0m [38;5;5;1mlinking.debug settings.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-timectl>[0m [38;5;5;1mlinking.debug timectl.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-tasks>[0m [38;5;5;1mlinking.debug tasks.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-notes>[0m [38;5;5;1mlinking.debug notes.elf[0m
+[0m[38;5;2;1m[ 62%]:[0m [38;5;5;1m<app-about>[0m [38;5;5;1mlinking.debug about.elf[0m
+[0m[38;5;2;1m[ 64%]:[0m [38;5;5;1m<app-mountctl>[0m [38;5;5;1mlinking.debug mountctl.elf[0m
+[0m[38;5;2;1m[ 64%]:[0m [38;5;5;1m<app-resolved>[0m [38;5;5;1mlinking.debug resolved.elf[0m
+[0m[38;5;2;1m[ 65%]:[0m [38;5;5;1m<app-resolvectl>[0m [38;5;5;1mlinking.debug resolvectl.elf[0m
+[0m[38;5;2;1m[ 68%]:[0m [38;5;5;1m<app-sync>[0m [38;5;5;1mlinking.debug sync.elf[0m
+[0m[38;5;2;1m[ 68%]:[0m [38;5;5;1m<app-kmodload>[0m [38;5;5;1mlinking.debug kmodload.elf[0m
+[0m[38;5;2;1m[ 68%]:[0m [38;5;5;1m<app-service-ctl>[0m [38;5;5;1mlinking.debug service-ctl.elf[0m
+[0m[38;5;2;1m[ 68%]:[0m [38;5;5;1m<app-logd>[0m [38;5;5;1mlinking.debug logd.elf[0m
+[0m[38;5;2;1m[ 68%]:[0m [38;5;5;1m<app-logger>[0m [38;5;5;1mlinking.debug logger.elf[0m
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[0m[38;5;2;1m[ 89%]:[0m [38;5;5;1m<distro_image>[0m compiling.debug modules/boot/archive.S[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug modules/boot/archive.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug modules/boot/storage.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug modules/system-gui/system_gui_tests.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug drivers/virtio/net.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug modules/system-gui/system_gui_runtime.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug modules/system-gui/external_module.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug drivers/virtio/rng.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug modules/boot/entropy.cpp[0m
+[0m[38;5;2;1m[ 90%]:[0m [38;5;5;1m<distro_image>[0m cache compiling.debug drivers/virtio/block.cpp[0m
+[0m[38;5;2;1m[ 93%]:[0m [38;5;5;1m<distro_image>[0m [38;5;5;1mlinking.debug kernel.elf[0m
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 68.885s[0m
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 0.557s[0m
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[kernel-sdk] loongarch64/debug version=0.1.0 verified: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-k-loongarch64/build/sdk/loongarch64/debug
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 0.725s[0m

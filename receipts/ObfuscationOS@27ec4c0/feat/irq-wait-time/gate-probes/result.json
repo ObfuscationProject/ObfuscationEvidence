@@ -1,0 +1,299 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationOS",
+  "commit": "27ec4c0fe7978772a4976f3580e9ff6ccd36a7b9",
+  "branch": "feat/irq-wait-time",
+  "campaign": "gate-probes",
+  "date": "2026-10-31",
+  "scope": "WT1.2 gate probes at 27ec4c0 on the ABI 78 kernel SDKs of ObfuscationKernel 1249613: the Linux interval timer probe (tests/musl/linux_timers.c), the clock drift probe (tests/musl/clock_drift.c, 13 samples over 120 s bracketed by the host's clocks, then 3 s of syscall-free user code) with the kernel's OK_TIMER_LATENCY, QMP send-key input on the seven profiles with an input device, and the native UDP socket test on x86_64.",
+  "claims": [
+    "the interval timer probe passes on all ten profiles",
+    "the monotonic clock drift and its strict bound lie within 100 ppm of the host's on all ten profiles",
+    "timer interrupt latency is reported for idle and user ticks on all ten profiles",
+    "injected keys are served after their interrupts and never polled on the seven input profiles",
+    "every network pass of the native UDP test is served after a NIC interrupt, none polled"
+  ],
+  "sources": [
+    {
+      "tree": "os@27ec4c0",
+      "repository": "ObfuscationOS",
+      "commit": "27ec4c0fe7978772a4976f3580e9ff6ccd36a7b9",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@27ec4c0>"
+    },
+    {
+      "tree": "kernel@1249613",
+      "repository": "ObfuscationKernel",
+      "commit": "12496137902ae825e9d108270d9c1fc880bdb903",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@1249613>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0)",
+    "ppc_ports": "ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+    "busybox": "BusyBox 1.37.0 on musl 1.2.5 (static, debug)"
+  },
+  "kernel_sdk": {
+    "repository": "ObfuscationKernel",
+    "commit": "12496137902ae825e9d108270d9c1fc880bdb903",
+    "abi": 78,
+    "mode": "debug"
+  },
+  "not_claimed": [
+    "physical hardware latency or oscillator accuracy (QEMU TCG on a shared host)",
+    "wall-clock accuracy where no RTC is qualified (i386, x86_64, loongarch64, mips, mips64, ppc)",
+    "SMP"
+  ],
+  "profiles": {
+    "i386": {
+      "timers": "TIMERS_PASS arch=i386 checks=74 oneshot_late_us=9196 overrun=9 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 8925.727,
+        "monotonic_drift_bound_ppm": [
+          -25.539,
+          31.224
+        ],
+        "monotonic_drift_ppm": -3.089,
+        "monotonic_residual_us": 1716.541,
+        "realtime_drift_ppm": -3.015,
+        "realtime_offset_change_ms": 0.222,
+        "realtime_offset_ms": -12773.779,
+        "samples": 13,
+        "window_s": 120.0
+      },
+      "busy": "CLOCK_BUSY arch=i386 ms=3011 chunks=56",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=12096:13409:65535:196607:7423008 user=374:15923:73727:1441791:7704608",
+      "input": "OK_IRQ_EVENTS scope=hardware console=1:12:12:0 input=1:22:21:0 network=0:0:0:0 wakes=thread:6,timer:45,interrupt:1,poll:0"
+    },
+    "x86_64": {
+      "timers": "TIMERS_PASS arch=x86_64 checks=73 oneshot_late_us=8166 overrun=9 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 3358.389,
+        "monotonic_drift_bound_ppm": [
+          -22.751,
+          28.05
+        ],
+        "monotonic_drift_ppm": 2.406,
+        "monotonic_residual_us": 208.676,
+        "realtime_drift_ppm": 2.05,
+        "realtime_offset_change_ms": 0.17,
+        "realtime_offset_ms": -6498.516,
+        "samples": 13,
+        "window_s": 120.0
+      },
+      "busy": "CLOCK_BUSY arch=x86_64 ms=3014 chunks=45",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=12100:10895:65535:147455:4229866 user=363:25980:65535:720895:1910856",
+      "input": "OK_IRQ_EVENTS scope=hardware console=1:12:12:0 input=1:22:21:0 network=0:0:0:0 wakes=thread:7,timer:45,interrupt:1,poll:0"
+    },
+    "aarch64": {
+      "timers": "TIMERS_PASS arch=aarch64 checks=75 oneshot_late_us=12195 overrun=9 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 3949.25,
+        "monotonic_drift_bound_ppm": [
+          -27.041,
+          27.15
+        ],
+        "monotonic_drift_ppm": 0.297,
+        "monotonic_residual_us": 170.363,
+        "realtime_drift_ppm": -1.072,
+        "realtime_offset_change_ms": -0.32,
+        "realtime_offset_ms": -65.013,
+        "samples": 13,
+        "window_s": 119.999
+      },
+      "busy": "CLOCK_BUSY arch=aarch64 ms=3049 chunks=49",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=2 source=1 source_resolution_ns=1000000000 acquisition_span_ns=99280 accuracy=unknown available=1",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9716:46960:147455:212991:10612016 user=258:76720:122879:180223:213840",
+      "input": "OK_IRQ_EVENTS scope=hardware console=1:12:12:0 input=1:16:16:0 network=0:0:0:0 wakes=thread:6,timer:68,interrupt:1,poll:0"
+    },
+    "arm32": {
+      "timers": "TIMERS_PASS arch=arm32 checks=74 oneshot_late_us=3969 overrun=10 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 7870.598,
+        "monotonic_drift_bound_ppm": [
+          -25.794,
+          28.006
+        ],
+        "monotonic_drift_ppm": -1.127,
+        "monotonic_residual_us": 2440.777,
+        "realtime_drift_ppm": -1.858,
+        "realtime_offset_change_ms": -0.282,
+        "realtime_offset_ms": -840.191,
+        "samples": 13,
+        "window_s": 119.999
+      },
+      "busy": "CLOCK_BUSY arch=arm32 ms=3011 chunks=54",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=2 source=1 source_resolution_ns=1000000000 acquisition_span_ns=145136 accuracy=unknown available=1",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9497:87856:147455:245759:5414848 user=245:75808:147455:245759:1491104",
+      "input": "OK_IRQ_EVENTS scope=hardware console=1:12:12:0 input=1:16:16:0 network=0:0:0:0 wakes=thread:6,timer:65,interrupt:1,poll:0"
+    },
+    "rv64": {
+      "timers": "TIMERS_PASS arch=rv64 checks=75 oneshot_late_us=3531 overrun=9 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 3250.883,
+        "monotonic_drift_bound_ppm": [
+          -20.986,
+          28.59
+        ],
+        "monotonic_drift_ppm": 2.524,
+        "monotonic_residual_us": 158.901,
+        "realtime_drift_ppm": 0.421,
+        "realtime_offset_change_ms": 0.125,
+        "realtime_offset_ms": -657.27,
+        "samples": 13,
+        "window_s": 120.0
+      },
+      "busy": "CLOCK_BUSY arch=rv64 ms=3065 chunks=47",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=2 source=2 source_resolution_ns=1 acquisition_span_ns=68000 accuracy=unknown available=1",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9955:87900:147455:196607:13467200 user=260:99700:147455:262143:303400",
+      "input": "OK_IRQ_EVENTS scope=hardware console=1:12:12:0 input=1:16:16:0 network=0:0:0:0 wakes=thread:6,timer:69,interrupt:1,poll:0"
+    },
+    "rv32": {
+      "timers": "TIMERS_PASS arch=rv32 checks=74 oneshot_late_us=8223 overrun=9 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 5436.192,
+        "monotonic_drift_bound_ppm": [
+          -32.92,
+          34.399
+        ],
+        "monotonic_drift_ppm": 1.116,
+        "monotonic_residual_us": 351.491,
+        "realtime_drift_ppm": -0.742,
+        "realtime_offset_change_ms": -0.47,
+        "realtime_offset_ms": -283.601,
+        "samples": 13,
+        "window_s": 119.999
+      },
+      "busy": "CLOCK_BUSY arch=rv32 ms=3019 chunks=48",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=2 source=2 source_resolution_ns=1 acquisition_span_ns=55500 accuracy=unknown available=1",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=8971:97500:147455:212991:7382000 user=251:116900:163839:360447:4504500",
+      "input": "OK_IRQ_EVENTS scope=hardware console=1:12:12:0 input=1:16:16:0 network=0:0:0:0 wakes=thread:6,timer:61,interrupt:1,poll:0"
+    },
+    "loongarch64": {
+      "timers": "TIMERS_PASS arch=loongarch64 checks=75 oneshot_late_us=9238 overrun=10 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 2862.889,
+        "monotonic_drift_bound_ppm": [
+          -20.205,
+          20.427
+        ],
+        "monotonic_drift_ppm": 0.629,
+        "monotonic_residual_us": 143.687,
+        "realtime_drift_ppm": 0.019,
+        "realtime_offset_change_ms": -0.074,
+        "realtime_offset_ms": -4569.437,
+        "samples": 13,
+        "window_s": 120.0
+      },
+      "busy": "CLOCK_BUSY arch=loongarch64 ms=3019 chunks=56",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=10458:34240:73727:163839:9430090 user=241:31460:73727:122879:127750",
+      "input": "OK_IRQ_EVENTS scope=hardware console=1:12:12:0 input=1:16:16:0 network=0:0:0:0 wakes=thread:6,timer:71,interrupt:1,poll:0"
+    },
+    "mips": {
+      "timers": "TIMERS_PASS arch=mips checks=74 oneshot_late_us=7609 overrun=10 thread_calls=4 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=15 signalled=15 rearmed=10 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 4587.523,
+        "monotonic_drift_bound_ppm": [
+          -14.238,
+          59.076
+        ],
+        "monotonic_drift_ppm": 21.832,
+        "monotonic_residual_us": 360.33,
+        "realtime_drift_ppm": 21.835,
+        "realtime_offset_change_ms": 2.491,
+        "realtime_offset_ms": -7006.511,
+        "samples": 13,
+        "window_s": 120.0
+      },
+      "busy": "CLOCK_BUSY arch=mips ms=3020 chunks=42",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=15681:35094:114687:212991:5842131 user=403:28744:106495:163839:215773"
+    },
+    "mips64": {
+      "timers": "TIMERS_PASS arch=mips64 checks=73 oneshot_late_us=7738 overrun=9 thread_calls=3 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 4482.529,
+        "monotonic_drift_bound_ppm": [
+          -10.884,
+          58.276
+        ],
+        "monotonic_drift_ppm": 20.668,
+        "monotonic_residual_us": 189.982,
+        "realtime_drift_ppm": 18.9,
+        "realtime_offset_change_ms": 2.76,
+        "realtime_offset_ms": -6585.81,
+        "samples": 13,
+        "window_s": 120.0
+      },
+      "busy": "CLOCK_BUSY arch=mips64 ms=3022 chunks=40",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=15608:39013:114687:163839:4628238 user=422:32294:114687:180223:288093"
+    },
+    "ppc": {
+      "timers": "TIMERS_PASS arch=ppc checks=75 oneshot_late_us=4790 overrun=9 thread_calls=4 realtime=abstime",
+      "timers_status": "pass",
+      "kernel_timers": "OK_TIMERS scope=hardware armed=12 expired=15 signalled=15 rearmed=10 retried=0",
+      "clock_status": "pass",
+      "clock": {
+        "bracket_max_us": 4727.763,
+        "monotonic_drift_bound_ppm": [
+          -35.624,
+          37.27
+        ],
+        "monotonic_drift_ppm": 0.513,
+        "monotonic_residual_us": 157.627,
+        "realtime_drift_ppm": -0.347,
+        "realtime_offset_change_ms": -0.056,
+        "realtime_offset_ms": -5738.826,
+        "samples": 13,
+        "window_s": 120.0
+      },
+      "busy": "CLOCK_BUSY arch=ppc ms=3049 chunks=56",
+      "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+      "timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9762:36205:61439:131071:496710 user=236:41750:73727:147455:443212"
+    }
+  },
+  "udp_events": "OK_IRQ_EVENTS scope=hardware console=1:0:0:0 input=1:2:2:0 network=1:8:8:0 wakes=thread:265,timer:22,interrupt:1,poll:0",
+  "status": "pass"
+}

@@ -1,0 +1,10 @@
+PASS i386 hosted pipe read identity continuation
+PASS x86_64 hosted pipe read identity continuation
+PASS aarch64 hosted pipe read identity continuation
+PASS arm32 hosted pipe read identity continuation
+PASS rv64 hosted pipe read identity continuation
+PASS rv32 hosted pipe read identity continuation
+PASS loongarch64 hosted pipe read identity continuation
+PASS mips hosted pipe read identity continuation
+PASS mips64 hosted pipe read identity continuation
+PASS ppc hosted pipe read identity continuation

@@ -1,0 +1,10 @@
+PASS i386 hosted native robust runtime
+PASS x86_64 hosted native robust runtime
+PASS aarch64 hosted native robust runtime
+PASS arm32 hosted native robust runtime
+PASS rv64 hosted native robust runtime
+PASS rv32 hosted native robust runtime
+PASS loongarch64 hosted native robust runtime
+PASS mips hosted native robust runtime
+PASS mips64 hosted native robust runtime
+PASS ppc hosted native robust runtime

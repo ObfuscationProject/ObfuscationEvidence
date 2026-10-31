@@ -1,0 +1,11 @@
+PASS Linux rename i386: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename x86_64: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename aarch64: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename arm32: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename rv64: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename rv32: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename loongarch64: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename mips: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename mips64: replacement/retained fd, dirfd, flags, faults, permissions
+PASS Linux rename ppc: replacement/retained fd, dirfd, flags, faults, permissions
+PASS ten Linux rename profiles: hosted actual adapter; no guest execution

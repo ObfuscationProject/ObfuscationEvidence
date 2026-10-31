@@ -1,0 +1,34 @@
+PASS realtime adapter i386: layouts=4 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability i386: layouts=4 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep i386: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter x86_64: layouts=2 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability x86_64: layouts=2 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep x86_64: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter aarch64: layouts=2 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability aarch64: layouts=2 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep aarch64: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter arm32: layouts=4 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability arm32: layouts=4 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep arm32: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter rv64: layouts=2 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability rv64: layouts=2 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep rv64: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter rv32: layouts=2 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability rv32: layouts=2 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep rv32: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter loongarch64: layouts=2 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability loongarch64: layouts=2 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep loongarch64: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter mips: layouts=4 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability mips: layouts=4 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep mips: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter mips64: layouts=2 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability mips64: layouts=2 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep mips64: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS realtime adapter ppc: layouts=4 signed epochs, time32 overflow, unavailable/errors, NULL identity and exact copy
+PASS clock availability ppc: layouts=4 uninitialized/invalidated no-output, NULL identity-only, exact-end/final-byte
+PASS Linux sleep ppc: copied endian/time64 requests, scalar widths, deadlines, saturation, resolution and errors
+PASS native/trusted realtime: epoch records, legacy migration, exact copy, failure nonpublication and return-width limits
+PASS hosted public clock boundaries: native page/last-byte atomic copies, signed64 endpoints, timeval truncation, zero-resolution refusal, trusted legacy paths, provider-overflow EIO ordering
+PASS hosted runtime timeout: one completion, no redispatch/copy, process personality and teardown
+PASS all ten Linux sleep profiles: hosted adapter/service models; no guest execution

@@ -1,0 +1,176 @@
+{
+  "architecture": "rv64",
+  "busy": "CLOCK_BUSY arch=rv64 ms=3065 chunks=47",
+  "command": [
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/riscv64-elf/bin/qemu-system-riscv64",
+    "-M",
+    "virt",
+    "-m",
+    "512M",
+    "-bios",
+    "none",
+    "-kernel",
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-rv64/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-device",
+    "ramfb",
+    "-device",
+    "virtio-keyboard-device",
+    "-device",
+    "virtio-mouse-device",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-rv64/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-device,drive=fsdisk",
+    "-global",
+    "virtio-mmio.force-legacy=false",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-device,rng=entropy0"
+  ],
+  "input_disk_sha256": "3a735b20396f89065a70dbebb1d0b1ab8c98a85958bedfbad2366c9ca05c7612",
+  "kernel_realtime": "OK_REALTIME scope=runtime state=2 source=2 source_resolution_ns=1 acquisition_span_ns=68000 accuracy=unknown available=1",
+  "kernel_sha256": "c0da32b4ac23dd132effc45bce08f590c5dbedd6401283bf862c677e9e5b8998",
+  "kernel_timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9955:87900:147455:196607:13467200 user=260:99700:147455:262143:303400",
+  "limit_ppm": 100,
+  "mode": "debug",
+  "musl_manifest_sha256": "c5740865561fce86145a4e02300252535092ea171cf97a71d5389f0ca229a9a6",
+  "physical": false,
+  "probe_manifest_sha256": "1f63dfa1c236204434b27d68fba6b53cc3ec6e5c5ce084027369b7c20161adb7",
+  "probe_sha256": "c1ef6a7e86b09525e375c45a76dbdd56090c9ac3c0fb24cfab0d87885694b167",
+  "qemu_sha256": "e4b2c1c318901bc7643d9cc6a2bad8e2bcfe1e5342a88ac09ab7d993cf5b5eaa",
+  "result": {
+    "bracket_max_us": 3250.883,
+    "monotonic_drift_bound_ppm": [
+      -20.986,
+      28.59
+    ],
+    "monotonic_drift_ppm": 2.524,
+    "monotonic_residual_us": 158.901,
+    "realtime_drift_ppm": 0.421,
+    "realtime_offset_change_ms": 0.125,
+    "realtime_offset_ms": -657.27,
+    "samples": 13,
+    "window_s": 120.0
+  },
+  "samples": [
+    {
+      "mono_ns": 2463268500,
+      "real_ns": 1793437320614772700,
+      "received_ns": 353588659385468,
+      "sent_ns": 353588656134585,
+      "wall_received_ns": 1793437321273667905,
+      "wall_sent_ns": 1793437321270416527
+    },
+    {
+      "mono_ns": 12463636000,
+      "real_ns": 1793437330614995700,
+      "received_ns": 353598659416624,
+      "sent_ns": 353598656300091,
+      "wall_received_ns": 1793437331273699401,
+      "wall_sent_ns": 1793437331270583050
+    },
+    {
+      "mono_ns": 22463487200,
+      "real_ns": 1793437340614702600,
+      "received_ns": 353608659032171,
+      "sent_ns": 353608656227840,
+      "wall_received_ns": 1793437341273314318,
+      "wall_sent_ns": 1793437341270510194
+    },
+    {
+      "mono_ns": 32463231700,
+      "real_ns": 1793437350614538000,
+      "received_ns": 353618658845382,
+      "sent_ns": 353618656225359,
+      "wall_received_ns": 1793437351273127845,
+      "wall_sent_ns": 1793437351270507850
+    },
+    {
+      "mono_ns": 42463556400,
+      "real_ns": 1793437360614935700,
+      "received_ns": 353628659350140,
+      "sent_ns": 353628656221509,
+      "wall_received_ns": 1793437361273632451,
+      "wall_sent_ns": 1793437361270504166
+    },
+    {
+      "mono_ns": 52463494000,
+      "real_ns": 1793437370614697600,
+      "received_ns": 353638658872469,
+      "sent_ns": 353638656227730,
+      "wall_received_ns": 1793437371273154618,
+      "wall_sent_ns": 1793437371270510276
+    },
+    {
+      "mono_ns": 62463085100,
+      "real_ns": 1793437380614228800,
+      "received_ns": 353648658402647,
+      "sent_ns": 353648656220513,
+      "wall_received_ns": 1793437381272685221,
+      "wall_sent_ns": 1793437381270503174
+    },
+    {
+      "mono_ns": 72463201400,
+      "real_ns": 1793437390614362100,
+      "received_ns": 353658658699252,
+      "sent_ns": 353658656242400,
+      "wall_received_ns": 1793437391272982520,
+      "wall_sent_ns": 1793437391270525110
+    },
+    {
+      "mono_ns": 82463471300,
+      "real_ns": 1793437400614806600,
+      "received_ns": 353668659170377,
+      "sent_ns": 353668656232561,
+      "wall_received_ns": 1793437401273452272,
+      "wall_sent_ns": 1793437401270515249
+    },
+    {
+      "mono_ns": 92463344600,
+      "real_ns": 1793437410614488700,
+      "received_ns": 353678658638731,
+      "sent_ns": 353678656220898,
+      "wall_received_ns": 1793437411272920414,
+      "wall_sent_ns": 1793437411270503067
+    },
+    {
+      "mono_ns": 102463472800,
+      "real_ns": 1793437420614620900,
+      "received_ns": 353688658813935,
+      "sent_ns": 353688656225169,
+      "wall_received_ns": 1793437421273096586,
+      "wall_sent_ns": 1793437421270507688
+    },
+    {
+      "mono_ns": 112463551300,
+      "real_ns": 1793437430614719400,
+      "received_ns": 353698658906287,
+      "sent_ns": 353698656227943,
+      "wall_received_ns": 1793437431273188731,
+      "wall_sent_ns": 1793437431270510233
+    },
+    {
+      "mono_ns": 122463534500,
+      "real_ns": 1793437440614707600,
+      "received_ns": 353708658919000,
+      "sent_ns": 353708656220755,
+      "wall_received_ns": 1793437441273201385,
+      "wall_sent_ns": 1793437441270502883
+    }
+  ],
+  "schema": 1,
+  "scope": "actual-static-musl-qemu-clock-drift",
+  "script_sha256": "befdb89b3a6a25495a35685c9a3bccd4b33b5ab66f63b73a0f7de5c830d1a65a",
+  "sdk_manifest_sha256": "0e5f3d48a145fa3f9a5b23107513cbc4cf02fe3bffc6388cf15a367ae879f72c",
+  "serial_sha256": "a05e417f99f2d833c223acb530fa021732ece2a699f71bb8faac49f3cabd1ced",
+  "smp": false,
+  "status": "pass"
+}

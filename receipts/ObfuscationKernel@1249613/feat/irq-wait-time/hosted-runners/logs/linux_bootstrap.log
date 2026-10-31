@@ -1,0 +1,70 @@
+PASS i386: Linux bootstrap adapter target compilation only
+PASS x86_64: Linux bootstrap adapter target compilation only
+PASS aarch64: Linux bootstrap adapter target compilation only
+In file included from /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/user/native_owned_stat_request.hpp:4,
+                 from /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/user/linux_bootstrap.hpp:4,
+                 from /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/tests/host/linux_bootstrap_compile.cpp:1:
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_stat_call.hpp: In static member function 'static ok::Result<ok::abi::linux_user::StatRequest> ok::abi::linux_user::StatCallAdapter<Target>::decode(ok::abi::linux_user::StatCall, std::span<const long long unsigned int>) [with ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_stat_call.hpp:31:32: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   31 |     static Result<StatRequest> decode(StatCall call, std::span<const u64> arguments)
+      |                                ^~~~~~
+In file included from /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/user/linux_bootstrap.hpp:21:
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_chmod_call.hpp: In static member function 'static ok::Result<ok::abi::linux_user::ChmodRequest> ok::abi::linux_user::ChmodCallAdapter<Target>::decode(ok::abi::linux_user::ChmodCall, std::span<const long long unsigned int>) [with ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_chmod_call.hpp:45:47: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   45 |     [[nodiscard]] static Result<ChmodRequest> decode(ChmodCall call, std::span<const u64> arguments)
+      |                                               ^~~~~~
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_chmod_call.hpp: In static member function 'static ok::i64 ok::abi::linux_user::ChmodCallAdapter<Target>::execute(ok::abi::linux_user::ChmodCall, std::span<const long long unsigned int>, ReadPath, Change) [with ReadPath = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, long long int (*&)(ok::arch::execution::Syscall, bool&)>(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, long long int (*&)(ok::arch::execution::Syscall, bool&), RejectThreadPreparation&&)::<lambda(ok::u64, ok::FixedString<256>&)>; Change = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, long long int (*&)(ok::arch::execution::Syscall, bool&)>(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, long long int (*&)(ok::arch::execution::Syscall, bool&), RejectThreadPreparation&&)::<lambda(ok::abi::linux_user::ChmodRequest, std::string_view)>; ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_chmod_call.hpp:81:16: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   81 |     static i64 execute(ChmodCall call, std::span<const u64> arguments, ReadPath read, Change change)
+      |                ^~~~~~~
+In file included from /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/user/linux_bootstrap.hpp:22:
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_access_call.hpp: In static member function 'static ok::Result<ok::abi::linux_user::AccessRequest> ok::abi::linux_user::AccessCallAdapter<Target>::decode(ok::abi::linux_user::AccessCall, std::span<const long long unsigned int>) [with ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_access_call.hpp:39:48: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   39 |     [[nodiscard]] static Result<AccessRequest> decode(AccessCall call, std::span<const u64> arguments)
+      |                                                ^~~~~~
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_access_call.hpp: In static member function 'static ok::i64 ok::abi::linux_user::AccessCallAdapter<Target>::execute(ok::abi::linux_user::AccessCall, std::span<const long long unsigned int>, ReadPath, Check) [with ReadPath = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, long long int (*&)(ok::arch::execution::Syscall, bool&)>(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, long long int (*&)(ok::arch::execution::Syscall, bool&), RejectThreadPreparation&&)::<lambda(ok::u64, ok::FixedString<256>&)>; Check = ok::user::linux_bootstrap::dispatch<ok::abi::linux_user::Profile::arm32, long long int (*&)(ok::arch::execution::Syscall, bool&)>(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, long long int (*&)(ok::arch::execution::Syscall, bool&), RejectThreadPreparation&&)::<lambda(ok::abi::linux_user::AccessRequest, std::string_view)>; ok::abi::linux_user::Profile Target = ok::abi::linux_user::Profile::arm32]':
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/abi/linux_access_call.hpp:67:16: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+   67 |     static i64 execute(AccessCall call, std::span<const u64> arguments, ReadPath read, Check check)
+      |                ^~~~~~~
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/user/linux_bootstrap.hpp: In function 'ok::i64 ok::user::linux_bootstrap::dispatch(ok::Kernel&, ok::sched::ProcessId, ok::arch::execution::UserFrame&, bool&, NativeCall&&, PrepareThread&&) [with ok::abi::linux_user::Profile Profile = ok::abi::linux_user::Profile::arm32; NativeCall = long long int (*&)(ok::arch::execution::Syscall, bool&); PrepareThread = RejectThreadPreparation]':
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/user/linux_bootstrap.hpp:658:54: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+  658 |         return lu::ChmodCallAdapter<Profile>::execute(*chmod_call, std::span{a}.first(count),
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  659 |             [&](u64 address, FixedString<256> &path) -> Status {
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  660 |                 return copy_pathname(space, static_cast<uptr>(address), path);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  661 |             },
+      |             ~~                                        
+  662 |             [&](lu::ChmodRequest request, std::string_view path) -> fs::ModeChangeResult {
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  663 |                 if (request.direct_fd)
+      |                 ~~~~~~~~~~~~~~~~~~~~~~                
+  664 |                     return kernel.posix().change_mode_fd(request.fd, request.permissions);
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  665 |                 return kernel.posix().change_mode_at(request.fd, path, request.permissions, request.flags);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  666 |             });
+      |             ~~                                        
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs-tree/include/ok/user/linux_bootstrap.hpp:670:55: note: parameter passing for argument of type 'std::span<const long long unsigned int>' changed in GCC 7.1
+  670 |         return lu::AccessCallAdapter<Profile>::execute(*access_call, std::span{a}.first(count),
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  671 |             [&](u64 address, FixedString<256> &path) -> Status {
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  672 |                 return copy_pathname(space, static_cast<uptr>(address), path);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  673 |             },
+      |             ~~                                         
+  674 |             [&](lu::AccessRequest request, std::string_view path) -> Status {
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  675 |                 return kernel.posix().faccessat(request.fd, path, request.mode, request.flags);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  676 |             });
+      |             ~~                                         
+PASS arm32: Linux bootstrap adapter target compilation only
+PASS rv64: Linux bootstrap adapter target compilation only
+PASS rv32: Linux bootstrap adapter target compilation only
+PASS loongarch64: Linux bootstrap adapter target compilation only
+PASS mips: Linux bootstrap adapter target compilation only
+PASS mips64: Linux bootstrap adapter target compilation only
+PASS ppc: Linux bootstrap adapter target compilation only

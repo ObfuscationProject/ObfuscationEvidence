@@ -1,0 +1,13 @@
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/loongarch64-elf/bin/../lib/gcc/loongarch64-elf/14.2.0/../../../../loongarch64-elf/bin/ld: warning: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs/native_loongarch64/probe.elf has a LOAD segment with RWX permissions
+LOONG_NATIVE_BEGIN
+LOONG_NATIVE enter
+LOONG_NATIVE syscall=pass
+LOONG_NATIVE stage=timer
+LOONG_NATIVE stage=readonly
+LOONG_NATIVE stage=copies
+LOONG_NATIVE stage=hardware-spaces
+LOONG_NATIVE stage=fp
+LOONG_NATIVE stage=noexecute-entry-guard
+LOONG_NATIVE stage=unmapped
+LOONG_NATIVE stage=invalid
+LOONG_NATIVE_PASS scope=hardware

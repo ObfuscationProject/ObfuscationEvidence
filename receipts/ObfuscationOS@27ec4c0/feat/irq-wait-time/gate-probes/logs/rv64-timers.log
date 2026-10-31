@@ -1,0 +1,2 @@
+PASS rv64/debug: TIMERS_PASS arch=rv64 checks=75 oneshot_late_us=3531 overrun=9 thread_calls=3 realtime=abstime
+OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0

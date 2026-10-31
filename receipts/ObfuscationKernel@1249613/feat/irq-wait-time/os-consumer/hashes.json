@@ -1,0 +1,31 @@
+{
+ "files": {
+  "commands.txt": "ace63f44620f3b297c2be5495a634d9286520fb6de1863380907ede947837948",
+  "logs/arm32-os-kernel-sdk-check.log": "e11eb362268c959b0d13beb67a93637689c0da6fcaed942158f1c424053b79df",
+  "logs/arm32-os-libc-test.log": "9fc8b2580df258e0bc64f94a6fee660fcee7467e73b2d64ca616b9f6e402cd15",
+  "logs/arm32-os-linux-driver-compat.log": "1704282f27c1cd9938e3be972e187dc01873b856bed7f7e1bc917e229dd51dbe",
+  "logs/arm32-os-uapi-test.log": "2d6e8756d5f9a58e11ade10c68b7965bd1031924052a0d0f1b4234e9ca8aa280",
+  "logs/ppc-os-kernel-sdk-check.log": "dbd6445361689b1c7853953b2e24ceaa9fb218bcd84fb28e357064c490ac281c",
+  "logs/ppc-os-libc-test.log": "e9ba9c321728d93f36b750c47488e809da7a1d9a82c5e1e7c9c5839e1f906d0c",
+  "logs/ppc-os-linux-driver-compat.log": "72c12870faf3939358004a1d699631942a2a8c218607f89d44cf40c3aef7f0c5",
+  "logs/ppc-os-uapi-test.log": "582bbf6c7aafc5abcb61377b7a0bb5089e3cd1d2ab02ac16b05f926c3a126e89",
+  "logs/x86_64-os-artifact-tests.log": "7e30233dd15e60efe16d1c28a019ba72e2db7decdf77465087e47d9d4d77ce44",
+  "logs/x86_64-os-compat-test.log": "c5ee2aca4f1647f82e94a0cec5ae7833c1464ab54b9806420f8f7736892f85f3",
+  "logs/x86_64-os-cross-tests.log": "dd61cba5dabdd36849397865ac06e4acf109847d3e305bb391167d0cd9de5b1a",
+  "logs/x86_64-os-kernel-sdk-check.log": "1b993be02a6960c304e55c4c9789c230e6f35f24421b31e753250cce5c194d5b",
+  "logs/x86_64-os-libc-test.log": "848f2cd10017665db4dc28e132c6d2152ecb76ca3968714665bb95b3a6c42104",
+  "logs/x86_64-os-linux-driver-compat.log": "4a21c90d56c9aa7f8caf8be89a6283d5316bcb52081d294180bd578d875a22ec",
+  "logs/x86_64-os-persistent-ext4.log": "7b7123ba879e101f3980eb27cd239894c6dc7a1afaafe07ea7c183adce35f197",
+  "logs/x86_64-os-uapi-test.log": "f1143a5cdd4a5efe571cd7fecc14a300daa88f699ef7cefd5992352b59924ab7",
+  "result.json": "4bb880e92a35af73b8d1b57682e745f71cdc3745fae1754ea16fc3e8a7a8e49c",
+  "serial/arm32-qemu-distro-simplefs.log.xz": "c397cdafdda814d43f3745131c7f18f7c1fe5cfd4d27209f5d64bf667c58100d",
+  "serial/ppc-qemu-distro-simplefs.log.xz": "2a33d12757af3e8b5dbcb91ec92a66cba7bbf39651bb32ad218d7c597df6205d",
+  "serial/x86_64-qemu-distro-simplefs.log.xz": "82679f20627a1097b79d8ae2f1da73c9abd5d53fe6a77af339c564c9259de063"
+ },
+ "archive": {
+  "persistence-x86_64/first-boot.log": "ffcb7bf7a7396df2f0c770bbc28e65ed11729d093bcddfa372df56ac28714dcc",
+  "persistence-x86_64/offline-content.txt": "669ccec67cd83dd28581cd8541fbed6f25f7c0d8159c60f81500a884a23c1f2b",
+  "persistence-x86_64/second-boot.log": "9b138f2e4fb73bec50ccc6606a66712c5939d7351b5a95a12993ab51ce1d2aff",
+  "persistence-x86_64/verified.img": "32553bfe6101d39bd6b446ad5ddbf7382574798286425d005db3f2c105dceaf8"
+ }
+}

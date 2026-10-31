@@ -1,0 +1,2 @@
+PASS arm32/debug: TIMERS_PASS arch=arm32 checks=74 oneshot_late_us=3969 overrun=10 thread_calls=3 realtime=abstime
+OK_TIMERS scope=hardware armed=12 expired=14 signalled=14 rearmed=9 retried=0

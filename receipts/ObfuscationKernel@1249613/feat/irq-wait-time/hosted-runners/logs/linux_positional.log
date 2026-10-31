@@ -1,0 +1,11 @@
+PASS Linux positional i386: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional x86_64: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional aarch64: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional arm32: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional rv64: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional rv32: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional loongarch64: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional mips: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional mips64: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS Linux positional ppc: offset pairs, ftruncate pairs, copies, append, zero/EOF, retained descriptions and errors
+PASS all ten Linux positional profiles: hosted adapter/service models; no guest execution

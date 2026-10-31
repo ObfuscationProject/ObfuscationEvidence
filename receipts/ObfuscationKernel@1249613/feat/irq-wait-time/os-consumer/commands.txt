@@ -1,0 +1,13 @@
+# x86_64
+cd <os@27ec4c0> (configured by the userland-gate campaign against <kernel@1249613>/build/sdk/x86_64/debug) && for t in kernel-sdk-check uapi-test libc-test linux-driver-compat; do xmake -y -b $t; done && xmake -y -b compat-test && xmake qemu-distro --fs=simplefs --require-native --timeout=300
+
+# arm32
+cd <os@27ec4c0> (configured by the userland-gate campaign against <kernel@1249613>/build/sdk/arm32/debug) && for t in kernel-sdk-check uapi-test libc-test linux-driver-compat; do xmake -y -b $t; done && xmake qemu-distro --fs=simplefs --require-native --timeout=300
+
+# ppc
+cd <os@27ec4c0> (configured by the userland-gate campaign against <kernel@1249613>/build/sdk/ppc/debug) && for t in kernel-sdk-check uapi-test libc-test linux-driver-compat; do xmake -y -b $t; done && xmake qemu-distro --fs=simplefs --require-native --timeout=300
+
+# x86_64 persistence, cross-tests and artifact tests
+python3 scripts/test_persistent_ext4.py --arch x86_64 --qemu <systoolchain>/x86_64-elf/bin/qemu-system-x86_64 --kernel build/x86_64/debug/distro/kernel.bin --rootfs build/x86_64/debug/rootfs.ext4.img --out <out>
+cd tests/tools && OK_REQUIRE_KERNEL_CHECKOUT=1 OK_KERNEL_CHECKOUT=<kernel@1249613> OK_TEST_KERNEL_SDK=<sdk> OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -m unittest <modules importing kernel_checkout>
+cd <os@27ec4c0> && OK_TEST_KERNEL_SDK=<kernel@1249613>/build/sdk/x86_64/debug OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -m unittest discover -s tests/tools -p 'test_*.py'

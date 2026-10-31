@@ -1,0 +1,20 @@
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS i386: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS x86_64: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS aarch64: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS arm32: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS rv64: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS rv32: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS loongarch64: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS mips: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS mips64: file-attribute model
+PASS file identity, timestamp provenance and native stat v2 wire model
+PASS ppc: file-attribute model

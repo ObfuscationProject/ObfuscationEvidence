@@ -1,0 +1,1 @@
+PASS native exec arguments: arena, ARG_MAX, #! interpreters, ENOEXEC; hosted, no guest execution

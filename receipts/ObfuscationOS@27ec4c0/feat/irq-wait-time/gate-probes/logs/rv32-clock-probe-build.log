@@ -1,0 +1,1 @@
+PASS rv32: static musl bootstrap ELF built; target execution remains unqualified

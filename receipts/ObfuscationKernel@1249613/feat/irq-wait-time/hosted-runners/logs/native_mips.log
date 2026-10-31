@@ -1,0 +1,8 @@
+MIPS_NATIVE_BEGIN
+MIPS_NATIVE syscall=pass return=pass hilo=pass
+MIPS_NATIVE abi_gpr=pass abi_fp=pass fcsr=pass
+MIPS_NATIVE timer=pass context=pass
+MIPS_NATIVE protection=pass nx=unavailable
+MIPS_NATIVE fp=pass tls=pass
+MIPS_NATIVE address_spaces=pass delay_slot=pass
+MIPS_NATIVE_PASS scope=hardware

@@ -1,0 +1,1 @@
+cd <kernel@1249613> && python3 -B scripts/hosted_suite.py --output <out> --toolchain-root <systoolchain> --ext4-fixture --jobs 6

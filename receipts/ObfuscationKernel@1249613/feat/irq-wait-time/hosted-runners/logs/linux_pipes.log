@@ -1,0 +1,32 @@
+PASS Linux pipes i386: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes x86_64: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes aarch64: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes arm32: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes rv64: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes rv32: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes loongarch64: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes mips: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes mips64: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux pipes ppc: target codec, two-register ABI, flags, EAGAIN/EOF/EPIPE, references, copy rollback and capacity
+PASS Linux AF_UNIX socketpair i386: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair x86_64: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair aarch64: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair arm32: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair rv64: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair rv32: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair loongarch64: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair mips: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair mips64: direct/legacy ABI, target endian, flags and rollback
+PASS Linux AF_UNIX socketpair ppc: direct/legacy ABI, target endian, flags and rollback
+PASS Linux UNIX messages i386: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages x86_64: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages aarch64: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages arm32: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages rv64: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages rv32: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages loongarch64: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages mips: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages mips64: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS Linux UNIX messages ppc: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS native UNIX messages x86_64: endian, direct/legacy, failed copy rollback and CLOEXEC result
+PASS all ten Linux pipe profiles: hosted adapter/service models; no guest execution

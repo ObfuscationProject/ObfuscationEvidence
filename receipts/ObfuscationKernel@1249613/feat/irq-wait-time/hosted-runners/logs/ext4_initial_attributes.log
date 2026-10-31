@@ -1,0 +1,6 @@
+PASS block1024-inode128
+PASS block1024-inode256
+PASS block2048-inode128
+PASS block2048-inode256
+PASS block4096-inode128
+PASS block4096-inode256

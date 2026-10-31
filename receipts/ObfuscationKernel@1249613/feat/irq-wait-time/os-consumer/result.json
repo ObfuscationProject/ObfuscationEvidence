@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "12496137902ae825e9d108270d9c1fc880bdb903",
+  "branch": "feat/irq-wait-time",
+  "campaign": "os-consumer",
+  "date": "2026-10-31",
+  "scope": "ObfuscationOS feat/irq-wait-time at 27ec4c0 on the ABI 78 kernel SDKs of 1249613: the OS CI steps on x86_64, arm32 and ppc, the ext4 two-boot persistence test, the cross-tests and the artifact tests on x86_64.",
+  "claims": [
+    "kernel-sdk-check, uapi-test, libc-test, linux-driver-compat and the SimpleFS native boot pass on x86_64, arm32 and ppc",
+    "compat-test, the ext4 persistence test, the cross-tests and the artifact tests pass on x86_64"
+  ],
+  "sources": [
+    {
+      "tree": "kernel@1249613",
+      "repository": "ObfuscationKernel",
+      "commit": "12496137902ae825e9d108270d9c1fc880bdb903",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<kernel@1249613>"
+    },
+    {
+      "tree": "os@27ec4c0",
+      "repository": "ObfuscationOS",
+      "commit": "27ec4c0fe7978772a4976f3580e9ff6ccd36a7b9",
+      "relation": "exact git archive",
+      "differs": [],
+      "missing": [],
+      "extra": [],
+      "path": "<os@27ec4c0>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "xmake": "xmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua",
+    "python": "Python 3.12.3",
+    "systoolchain": "SysToolchain 0.1.0 release archives (GCC 14.2.0, Binutils 2.42, QEMU 10.2.0)",
+    "ppc_ports": "ObfuscationKernel/toolchains/powerpc-eabi (nof multilib) and clang 18.1.3",
+    "busybox": "BusyBox 1.37.0 on musl 1.2.5 (static, debug)"
+  },
+  "steps": {
+    "x86_64:os-kernel-sdk-check": "pass",
+    "x86_64:os-uapi-test": "pass",
+    "x86_64:os-libc-test": "pass",
+    "x86_64:os-linux-driver-compat": "pass",
+    "x86_64:os-compat-test": "pass",
+    "x86_64:simplefs-boot": "pass",
+    "x86_64:os-persistent-ext4": "pass",
+    "x86_64:cross-tests": "pass",
+    "arm32:os-kernel-sdk-check": "pass",
+    "arm32:os-uapi-test": "pass",
+    "arm32:os-libc-test": "pass",
+    "arm32:os-linux-driver-compat": "pass",
+    "arm32:simplefs-boot": "pass",
+    "ppc:os-kernel-sdk-check": "pass",
+    "ppc:os-uapi-test": "pass",
+    "ppc:os-libc-test": "pass",
+    "ppc:os-linux-driver-compat": "pass",
+    "ppc:simplefs-boot": "pass",
+    "x86_64:artifact-tests": "pass",
+    "x86_64:artifact-tests-count": "Ran 1321 tests in 706.012s"
+  },
+  "status": "pass"
+}

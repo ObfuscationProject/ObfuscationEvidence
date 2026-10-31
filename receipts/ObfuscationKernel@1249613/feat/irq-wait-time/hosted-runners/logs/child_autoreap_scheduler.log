@@ -1,0 +1,10 @@
+PASS i386 child autoreap scheduler hosted integration
+PASS x86_64 child autoreap scheduler hosted integration
+PASS aarch64 child autoreap scheduler hosted integration
+PASS arm32 child autoreap scheduler hosted integration
+PASS rv64 child autoreap scheduler hosted integration
+PASS rv32 child autoreap scheduler hosted integration
+PASS loongarch64 child autoreap scheduler hosted integration
+PASS mips child autoreap scheduler hosted integration
+PASS mips64 child autoreap scheduler hosted integration
+PASS ppc child autoreap scheduler hosted integration

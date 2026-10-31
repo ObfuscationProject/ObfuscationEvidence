@@ -1,0 +1,3 @@
+PASS x86_64/debug: monotonic drift +2.406 ppm (bound -22.751..+28.050) over 120.0 s, 13 samples
+realtime offset -6498.516 ms, drift +2.050 ppm
+OK_TIMER_LATENCY scope=hardware unit=ns idle=12100:10895:65535:147455:4229866 user=363:25980:65535:720895:1910856

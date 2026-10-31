@@ -1,0 +1,166 @@
+{
+  "architecture": "mips",
+  "busy": "CLOCK_BUSY arch=mips ms=3020 chunks=42",
+  "command": [
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/mips-elf/bin/qemu-system-mips",
+    "-M",
+    "malta",
+    "-m",
+    "256M",
+    "-kernel",
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-mips/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-mips/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0"
+  ],
+  "input_disk_sha256": "b4b192aff90096966f6800d578dd6bed8cf3efc588f124f16c36fc26d8aa2ef8",
+  "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+  "kernel_sha256": "c085971d81d4c8c5554e01ba868dbccc34f9d856a28d66a33d2d2e914cdc77df",
+  "kernel_timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=15681:35094:114687:212991:5842131 user=403:28744:106495:163839:215773",
+  "limit_ppm": 100,
+  "mode": "debug",
+  "musl_manifest_sha256": "ab34350c2ae702ee7ea91e12ab939271df99666be2a5886c885c575fd47f9623",
+  "physical": false,
+  "probe_manifest_sha256": "1d82a2185f11037b195e07522d06ecf9fbd0a9855e2e8ebc4b65f454e6dbb979",
+  "probe_sha256": "36c9eeb0ba9cd4b23ecd5b893eeabfe7679228ca53fc6568f3c1d1297db95391",
+  "qemu_sha256": "dcb47565cda9d322fb8c67166d14f3d56221e7c2b7629156c0dad2ac6463c7cd",
+  "result": {
+    "bracket_max_us": 4587.523,
+    "monotonic_drift_bound_ppm": [
+      -14.238,
+      59.076
+    ],
+    "monotonic_drift_ppm": 21.832,
+    "monotonic_residual_us": 360.33,
+    "realtime_drift_ppm": 21.835,
+    "realtime_offset_change_ms": 2.491,
+    "realtime_offset_ms": -7006.511,
+    "samples": 13,
+    "window_s": 120.0
+  },
+  "samples": [
+    {
+      "mono_ns": 2558153922,
+      "real_ns": 1793436917556837195,
+      "received_ns": 353191951353093,
+      "sent_ns": 353191946778610,
+      "wall_received_ns": 1793436924565635310,
+      "wall_sent_ns": 1793436924561060939
+    },
+    {
+      "mono_ns": 12557646530,
+      "real_ns": 1793436927555896557,
+      "received_ns": 353201949662254,
+      "sent_ns": 353201946875163,
+      "wall_received_ns": 1793436934563944112,
+      "wall_sent_ns": 1793436934561157719
+    },
+    {
+      "mono_ns": 22557888666,
+      "real_ns": 1793436937556155681,
+      "received_ns": 353211949739042,
+      "sent_ns": 353211946868275,
+      "wall_received_ns": 1793436944564020659,
+      "wall_sent_ns": 1793436944561150667
+    },
+    {
+      "mono_ns": 32558520654,
+      "real_ns": 1793436947557025361,
+      "received_ns": 353221950600951,
+      "sent_ns": 353221946864711,
+      "wall_received_ns": 1793436954564882865,
+      "wall_sent_ns": 1793436954561147003
+    },
+    {
+      "mono_ns": 42558934175,
+      "real_ns": 1793436957557247753,
+      "received_ns": 353231950146696,
+      "sent_ns": 353231946891296,
+      "wall_received_ns": 1793436964564429021,
+      "wall_sent_ns": 1793436964561174046
+    },
+    {
+      "mono_ns": 52559016114,
+      "real_ns": 1793436967557537434,
+      "received_ns": 353241950837785,
+      "sent_ns": 353241946893709,
+      "wall_received_ns": 1793436974565119929,
+      "wall_sent_ns": 1793436974561176287
+    },
+    {
+      "mono_ns": 62559042809,
+      "real_ns": 1793436977557314792,
+      "received_ns": 353251949833592,
+      "sent_ns": 353251946907509,
+      "wall_received_ns": 1793436984564116968,
+      "wall_sent_ns": 1793436984561190578
+    },
+    {
+      "mono_ns": 72559791255,
+      "real_ns": 1793436987558480241,
+      "received_ns": 353261951461697,
+      "sent_ns": 353261946874174,
+      "wall_received_ns": 1793436994565743693,
+      "wall_sent_ns": 1793436994561156278
+    },
+    {
+      "mono_ns": 82559698666,
+      "real_ns": 1793436997558240236,
+      "received_ns": 353271950934245,
+      "sent_ns": 353271946867150,
+      "wall_received_ns": 1793437004565216155,
+      "wall_sent_ns": 1793437004561149354
+    },
+    {
+      "mono_ns": 92559586507,
+      "real_ns": 1793437007557841491,
+      "received_ns": 353281950047303,
+      "sent_ns": 353281946862297,
+      "wall_received_ns": 1793437014564329405,
+      "wall_sent_ns": 1793437014561144760
+    },
+    {
+      "mono_ns": 102560225533,
+      "real_ns": 1793437017558698127,
+      "received_ns": 353291950862316,
+      "sent_ns": 353291946877186,
+      "wall_received_ns": 1793437024565144398,
+      "wall_sent_ns": 1793437024561159376
+    },
+    {
+      "mono_ns": 112560278653,
+      "real_ns": 1793437027558628832,
+      "received_ns": 353301950425242,
+      "sent_ns": 353301946880133,
+      "wall_received_ns": 1793437034564707379,
+      "wall_sent_ns": 1793437034561162927
+    },
+    {
+      "mono_ns": 122560761913,
+      "real_ns": 1793437037559246463,
+      "received_ns": 353311951095209,
+      "sent_ns": 353311946872192,
+      "wall_received_ns": 1793437044565377429,
+      "wall_sent_ns": 1793437044561154477
+    }
+  ],
+  "schema": 1,
+  "scope": "actual-static-musl-qemu-clock-drift",
+  "script_sha256": "befdb89b3a6a25495a35685c9a3bccd4b33b5ab66f63b73a0f7de5c830d1a65a",
+  "sdk_manifest_sha256": "3a45a867705c79fba6a0b0e46a6a2977c551fe3438a2c7b500e60f121e18771e",
+  "serial_sha256": "468eb30e49f2df922b73e9a65fd1bdd86fbb919baf6d903276f13db5adcceaa3",
+  "smp": false,
+  "status": "pass"
+}

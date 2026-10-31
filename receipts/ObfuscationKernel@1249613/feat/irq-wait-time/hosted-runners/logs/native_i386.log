@@ -1,0 +1,10 @@
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/i386-elf/bin/../lib/gcc/i386-elf/14.2.0/../../../../i386-elf/bin/ld: warning: _udivmoddi4.o: missing .note.GNU-stack section implies executable stack
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/i386-elf/bin/../lib/gcc/i386-elf/14.2.0/../../../../i386-elf/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+OK_NATIVE_TEST boot=begin
+OK_NATIVE_TEST user_copy=pass
+OK_NATIVE_TEST cpl3=pass syscall=pass registers=pass
+OK_NATIVE_TEST address_spaces=pass sse=pass x87=pass tls=pass kernel_context=pass
+OK_NATIVE_TEST timer_preemption=pass
+OK_NATIVE_TEST supervisor_isolation=pass readonly=pass nx=pass faults=pass
+OK_NATIVE_TEST segmented_stack=pass
+OK_NATIVE_TEST_PASS scope=hardware architecture=i386

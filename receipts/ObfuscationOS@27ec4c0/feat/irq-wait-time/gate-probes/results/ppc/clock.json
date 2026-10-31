@@ -1,0 +1,172 @@
+{
+  "architecture": "ppc",
+  "busy": "CLOCK_BUSY arch=ppc ms=3049 chunks=56",
+  "command": [
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/powerpc-eabi/bin/qemu-system-ppc",
+    "-M",
+    "ppce500",
+    "-cpu",
+    "e500v2_v22",
+    "-smp",
+    "1",
+    "-accel",
+    "tcg,thread=single",
+    "-m",
+    "256M",
+    "-kernel",
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-ppc/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-ppc/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0"
+  ],
+  "input_disk_sha256": "2de1d933e2afe7b3d8f2629002344c06adf0d158d1a53c5e1673993279d32c62",
+  "kernel_realtime": "OK_REALTIME scope=runtime state=1 source=0 source_resolution_ns=0 acquisition_span_ns=0 accuracy=unknown available=0",
+  "kernel_sha256": "db8a503458f2cd79484c6c5e9b4a20384639ec7828e9529317007cf819bc516f",
+  "kernel_timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9762:36205:61439:131071:496710 user=236:41750:73727:147455:443212",
+  "limit_ppm": 100,
+  "mode": "debug",
+  "musl_manifest_sha256": "8640177446dde2e897711acdea4841f506b5e890b70650127662ecb45cd8d0c8",
+  "physical": false,
+  "probe_manifest_sha256": "4b1ab528fc302bbb8b3cfab8afc0fb8c0650de132778f4c1ed5713035d953417",
+  "probe_sha256": "31d472cceffbf20e7e051217a81e2930666c45592890052ee8f70db5e5641f42",
+  "qemu_sha256": "7ca5a721a97f34c34af5c5994af41d78c18c850b3d8c5e181bb5fe7180047f62",
+  "result": {
+    "bracket_max_us": 4727.763,
+    "monotonic_drift_bound_ppm": [
+      -35.624,
+      37.27
+    ],
+    "monotonic_drift_ppm": 0.513,
+    "monotonic_residual_us": 157.627,
+    "realtime_drift_ppm": -0.347,
+    "realtime_offset_change_ms": -0.056,
+    "realtime_offset_ms": -5738.826,
+    "samples": 13,
+    "window_s": 120.0
+  },
+  "samples": [
+    {
+      "mono_ns": 2169256162,
+      "real_ns": 1793438080168393377,
+      "received_ns": 354353295301441,
+      "sent_ns": 354353290573678,
+      "wall_received_ns": 1793438085909583078,
+      "wall_sent_ns": 1793438085904855972
+    },
+    {
+      "mono_ns": 12168921592,
+      "real_ns": 1793438090167609835,
+      "received_ns": 354363293925039,
+      "sent_ns": 354363290703768,
+      "wall_received_ns": 1793438095908206627,
+      "wall_sent_ns": 1793438095904986134
+    },
+    {
+      "mono_ns": 22168751562,
+      "real_ns": 1793438100167496462,
+      "received_ns": 354373293860430,
+      "sent_ns": 354373290688093,
+      "wall_received_ns": 1793438105908141961,
+      "wall_sent_ns": 1793438105904970468
+    },
+    {
+      "mono_ns": 32168703465,
+      "real_ns": 1793438110167371770,
+      "received_ns": 354383293679382,
+      "sent_ns": 354383290663783,
+      "wall_received_ns": 1793438115907960805,
+      "wall_sent_ns": 1793438115904946086
+    },
+    {
+      "mono_ns": 42168659047,
+      "real_ns": 1793438120167345452,
+      "received_ns": 354393293659975,
+      "sent_ns": 354393290657798,
+      "wall_received_ns": 1793438125907941638,
+      "wall_sent_ns": 1793438125904940337
+    },
+    {
+      "mono_ns": 52168692667,
+      "real_ns": 1793438130167336072,
+      "received_ns": 354403293873907,
+      "sent_ns": 354403290655134,
+      "wall_received_ns": 1793438135908155379,
+      "wall_sent_ns": 1793438135904937438
+    },
+    {
+      "mono_ns": 62168789892,
+      "real_ns": 1793438140167441855,
+      "received_ns": 354413293757103,
+      "sent_ns": 354413290670503,
+      "wall_received_ns": 1793438145908038532,
+      "wall_sent_ns": 1793438145904953057
+    },
+    {
+      "mono_ns": 72168639392,
+      "real_ns": 1793438150167278820,
+      "received_ns": 354423293557922,
+      "sent_ns": 354423290650124,
+      "wall_received_ns": 1793438155907839351,
+      "wall_sent_ns": 1793438155904932512
+    },
+    {
+      "mono_ns": 82168681402,
+      "real_ns": 1793438160167355980,
+      "received_ns": 354433293659505,
+      "sent_ns": 354433290659529,
+      "wall_received_ns": 1793438165907941144,
+      "wall_sent_ns": 1793438165904941835
+    },
+    {
+      "mono_ns": 92168784987,
+      "real_ns": 1793438170167448607,
+      "received_ns": 354443293776966,
+      "sent_ns": 354443290663391,
+      "wall_received_ns": 1793438175908058648,
+      "wall_sent_ns": 1793438175904945749
+    },
+    {
+      "mono_ns": 102168657177,
+      "real_ns": 1793438180167298845,
+      "received_ns": 354453293605735,
+      "sent_ns": 354453290657728,
+      "wall_received_ns": 1793438185907887180,
+      "wall_sent_ns": 1793438185904940050
+    },
+    {
+      "mono_ns": 112168815822,
+      "real_ns": 1793438190167467662,
+      "received_ns": 354463293786900,
+      "sent_ns": 354463290670044,
+      "wall_received_ns": 1793438195908068508,
+      "wall_sent_ns": 1793438195904952497
+    },
+    {
+      "mono_ns": 122169098017,
+      "real_ns": 1793438200168080527,
+      "received_ns": 354473294690580,
+      "sent_ns": 354473290671070,
+      "wall_received_ns": 1793438205908972379,
+      "wall_sent_ns": 1793438205904953420
+    }
+  ],
+  "schema": 1,
+  "scope": "actual-static-musl-qemu-clock-drift",
+  "script_sha256": "befdb89b3a6a25495a35685c9a3bccd4b33b5ab66f63b73a0f7de5c830d1a65a",
+  "sdk_manifest_sha256": "1fa594a40fe2be3793068adda1493d97c3ad267bdbb7beb7eb228ad0600aba2b",
+  "serial_sha256": "c731140fec292c219b832e3ba0370fd48b2bfdf362ecb49058a32d588d29b4df",
+  "smp": false,
+  "status": "pass"
+}

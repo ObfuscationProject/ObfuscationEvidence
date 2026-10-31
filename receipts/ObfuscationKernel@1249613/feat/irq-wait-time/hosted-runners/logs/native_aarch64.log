@@ -1,0 +1,17 @@
+/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/aarch64-elf/bin/../lib/gcc/aarch64-elf/14.2.0/../../../../aarch64-elf/bin/ld: warning: /tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-hs/native_aarch64/kernel.elf has a LOAD segment with RWX permissions
+entry_level=el1
+OK_NATIVE_TEST boot=begin
+OK_NATIVE_TEST user_copy=pass
+OK_NATIVE_TEST el0=pass syscall=pass registers=pass
+OK_NATIVE_TEST address_spaces=pass simd=pass
+OK_NATIVE_TEST timer_preemption=pass
+OK_NATIVE_TEST supervisor_isolation=pass readonly=pass nx=pass faults=pass
+OK_NATIVE_TEST_PASS scope=hardware architecture=aarch64
+entry_level=el2
+OK_NATIVE_TEST boot=begin
+OK_NATIVE_TEST user_copy=pass
+OK_NATIVE_TEST el0=pass syscall=pass registers=pass
+OK_NATIVE_TEST address_spaces=pass simd=pass
+OK_NATIVE_TEST timer_preemption=pass
+OK_NATIVE_TEST supervisor_isolation=pass readonly=pass nx=pass faults=pass
+OK_NATIVE_TEST_PASS scope=hardware architecture=aarch64

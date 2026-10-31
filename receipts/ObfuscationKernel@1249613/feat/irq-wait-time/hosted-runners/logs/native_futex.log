@@ -1,0 +1,10 @@
+PASS i386 hosted private futex runtime
+PASS x86_64 hosted private futex runtime
+PASS aarch64 hosted private futex runtime
+PASS arm32 hosted private futex runtime
+PASS rv64 hosted private futex runtime
+PASS rv32 hosted private futex runtime
+PASS loongarch64 hosted private futex runtime
+PASS mips hosted private futex runtime
+PASS mips64 hosted private futex runtime
+PASS ppc hosted private futex runtime

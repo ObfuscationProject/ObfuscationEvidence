@@ -1,0 +1,2 @@
+PASS native stat runtime model: legacy/v2 exact output bounds, unknown and retained inode identity
+PASS native stat runtime model; no target execution

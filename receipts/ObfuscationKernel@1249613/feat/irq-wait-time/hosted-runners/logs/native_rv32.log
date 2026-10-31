@@ -1,0 +1,6 @@
+RV32_NATIVE_BEGIN
+RV32_NATIVE syscall=pass return=pass
+RV32_NATIVE timer=pass context=pass
+RV32_NATIVE protection=pass fp=pass
+RV32_NATIVE address_spaces=pass
+RV32_NATIVE_PASS scope=hardware

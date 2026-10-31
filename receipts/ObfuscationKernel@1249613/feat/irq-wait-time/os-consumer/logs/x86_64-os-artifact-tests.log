@@ -1,0 +1,41 @@
+.........................................................................................................................................................................................................................................................................................................................................................................................................MUSL_UDP_PACKAGE_FAIL [Errno 2] No such file or directory: '/tmp/tmpxg7t218n/missing/manifest.json'
+.....MUSL_UDP_PACKAGE_FAIL unsupported archive permissions 104755: /tmp/tmpgh48wpwg/package/root/entry
+MUSL_UDP_PACKAGE_FAIL unsupported archive permissions 44755: /tmp/tmphl2oonng/package/root/entry
+.............................................................................................................sssssss...............s.ss.......................sssss........................................................................................sssss[0mchecking for platform ... [38;5;2;1mlinux (x86_64)[0m
+[0m[38;5;2;1m[ 15%]:[0m [38;5;5;1m<wrapper>[0m compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-art/lib/okcrt/src/syscalls.c[0m
+[0m[38;5;2;1m[ 31%]:[0m [38;5;5;1m<wrapper>[0m compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-art/tests/native_metadata_wrapper_tests.c[0m
+[0m[38;5;2;1m[ 47%]:[0m [38;5;5;1m<wrapper>[0m compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-art/lib/okcrt/src/errno.c[0m
+[0m[38;5;2;1m[ 63%]:[0m [38;5;5;1m<wrapper>[0m [38;5;5;1mlinking.release wrapper[0m
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 0.963s[0m
+...s.ss...............................................................................................s.ss...............................[0mchecking for platform ... [38;5;2;1mlinux (x86_64)[0m
+[0m[38;5;2;1m[ 19%]:[0m [38;5;5;1m<wrapper>[0m compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-art/lib/okcrt/src/pty.c[0m
+[0m[38;5;2;1m[ 38%]:[0m [38;5;5;1m<wrapper>[0m compiling.release ../claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-art/tests/native_pty_wrapper_tests.c[0m
+[0m[38;5;2;1m[ 56%]:[0m [38;5;5;1m<wrapper>[0m [38;5;5;1mlinking.release wrapper[0m
+[0m[38;5;2;1m[100%]:[0m [38;5;2;1mbuild ok, spent 1.03s[0m
+NATIVE_PTY_WRAPPER_PASS cases=11 host_mock_only=1
+.................................................................ssssss........................................................................................................................................................................................................................................................................................................................................................................................................................................s.............s....................
+----------------------------------------------------------------------
+Ran 1321 tests in 706.012s
+
+OK (skipped=34)
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpzunh72bc/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp0054kqo6/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpdfld0u3e/package/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmpcl5kuvol/evidence/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmpcl5kuvol/malformed-child/receipt.json
+MUSL_USER_UDP_NIC_FAIL receipt=/tmp/tmptjnwemyt/evidence/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpb7znw8vn/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpf2ri0h8q/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmpnqchy_ca/package/receipt.json
+MUSL_UDP_PACKAGE_PASS receipt=/tmp/tmp01fdb1p6/package/receipt.json
+[rootfs] staged full profile: /tmp/tmp36ezj1uh/maintenance
+[rootfs] staged full profile: /tmp/tmp36ezj1uh/login
+[rootfs] staged full profile with musl userland: /tmp/tmpm1sal_r3/full-userland
+[rootfs] staged release profile: /tmp/tmp7zll6cfr/release
+[rootfs] staged release profile with musl userland: /tmp/tmpzmhxlwz4/release-userland
+[rootfs] staged rescue profile: /tmp/tmp213afuv4/rescue
+[rootfs] staged full profile: /tmp/tmp213afuv4/full
+[rootfs] staged full profile: /tmp/tmpfhcwm104/output
+[rootfs] staged full profile: /tmp/tmp16p2qauc/staged
+[rootfs] staged full profile: /tmp/tmpws_s43of/sgid-parent/root-0o77
+[rootfs] staged full profile: /tmp/tmpws_s43of/sgid-parent/root-0o2

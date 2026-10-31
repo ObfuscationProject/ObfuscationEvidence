@@ -1,0 +1,3 @@
+PASS loongarch64/debug: monotonic drift +0.629 ppm (bound -20.205..+20.427) over 120.0 s, 13 samples
+realtime offset -4569.437 ms, drift +0.019 ppm
+OK_TIMER_LATENCY scope=hardware unit=ns idle=10458:34240:73727:163839:9430090 user=241:31460:73727:122879:127750

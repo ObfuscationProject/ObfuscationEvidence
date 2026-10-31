@@ -1,0 +1,176 @@
+{
+  "architecture": "arm32",
+  "busy": "CLOCK_BUSY arch=arm32 ms=3011 chunks=54",
+  "command": [
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/arm-none-eabi/bin/qemu-system-arm",
+    "-M",
+    "virt",
+    "-cpu",
+    "cortex-a15",
+    "-m",
+    "512M",
+    "-kernel",
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-arm32/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-device",
+    "ramfb",
+    "-device",
+    "virtio-keyboard-device",
+    "-device",
+    "virtio-mouse-device",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-arm32/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-device,drive=fsdisk",
+    "-global",
+    "virtio-mmio.force-legacy=false",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-device,rng=entropy0"
+  ],
+  "input_disk_sha256": "b0c50bb998642ba787cf2f359193a404e57f0793e8010ea7d361ba3c5d18ac85",
+  "kernel_realtime": "OK_REALTIME scope=runtime state=2 source=1 source_resolution_ns=1000000000 acquisition_span_ns=145136 accuracy=unknown available=1",
+  "kernel_sha256": "17e6e2b4dddbf87a465353bf0dca98f2a6f6ab58f7740860b2042950c92fe472",
+  "kernel_timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9497:87856:147455:245759:5414848 user=245:75808:147455:245759:1491104",
+  "limit_ppm": 100,
+  "mode": "debug",
+  "musl_manifest_sha256": "03d46b2db69cb80ac40ba02d08b88d005afad99d10290fa6067b304293f0af9f",
+  "physical": false,
+  "probe_manifest_sha256": "32cc4eb3acf0bcd91226153cddc65ee34a09500572e2c7acade4e3ec29b22e90",
+  "probe_sha256": "e3a60a30cd82ac13071d8b9f6e0f96310a6eb6c6793c29edbcb6d0cc3aec99ef",
+  "qemu_sha256": "a1aa35f8cab4247ac932635d3f15ff0097d8289ba36f3a90f19188f8efef5ae1",
+  "result": {
+    "bracket_max_us": 7870.598,
+    "monotonic_drift_bound_ppm": [
+      -25.794,
+      28.006
+    ],
+    "monotonic_drift_ppm": -1.127,
+    "monotonic_residual_us": 2440.777,
+    "realtime_drift_ppm": -1.858,
+    "realtime_offset_change_ms": -0.282,
+    "realtime_offset_ms": -840.191,
+    "samples": 13,
+    "window_s": 119.999
+  },
+  "samples": [
+    {
+      "mono_ns": 2600544912,
+      "real_ns": 1793436823599563712,
+      "received_ns": 353091827476112,
+      "sent_ns": 353091823468535,
+      "wall_received_ns": 1793436824441758692,
+      "wall_sent_ns": 1793436824437750937
+    },
+    {
+      "mono_ns": 12600326128,
+      "real_ns": 1793436833598933280,
+      "received_ns": 353101826462697,
+      "sent_ns": 353101823581950,
+      "wall_received_ns": 1793436834440744927,
+      "wall_sent_ns": 1793436834437864381
+    },
+    {
+      "mono_ns": 22600422736,
+      "real_ns": 1793436843599017152,
+      "received_ns": 353111826422205,
+      "sent_ns": 353111823594072,
+      "wall_received_ns": 1793436844440704451,
+      "wall_sent_ns": 1793436844437876635
+    },
+    {
+      "mono_ns": 32600854464,
+      "real_ns": 1793436853599645136,
+      "received_ns": 353121827287031,
+      "sent_ns": 353121823566022,
+      "wall_received_ns": 1793436854441569207,
+      "wall_sent_ns": 1793436854437848538
+    },
+    {
+      "mono_ns": 42600204528,
+      "real_ns": 1793436863598792496,
+      "received_ns": 353131826170488,
+      "sent_ns": 353131823575583,
+      "wall_received_ns": 1793436864440452509,
+      "wall_sent_ns": 1793436864437858076
+    },
+    {
+      "mono_ns": 52600795792,
+      "real_ns": 1793436873599522304,
+      "received_ns": 353141826974891,
+      "sent_ns": 353141823553823,
+      "wall_received_ns": 1793436874441257169,
+      "wall_sent_ns": 1793436874437836367
+    },
+    {
+      "mono_ns": 62605415328,
+      "real_ns": 1793436883604017344,
+      "received_ns": 353151831441598,
+      "sent_ns": 353151823571000,
+      "wall_received_ns": 1793436884445723682,
+      "wall_sent_ns": 1793436884437853663
+    },
+    {
+      "mono_ns": 72600719888,
+      "real_ns": 1793436893599686320,
+      "received_ns": 353161827663241,
+      "sent_ns": 353161823557338,
+      "wall_received_ns": 1793436894441945260,
+      "wall_sent_ns": 1793436894437839799
+    },
+    {
+      "mono_ns": 82600084576,
+      "real_ns": 1793436903598673088,
+      "received_ns": 353171826047621,
+      "sent_ns": 353171823561520,
+      "wall_received_ns": 1793436904440329344,
+      "wall_sent_ns": 1793436904437843632
+    },
+    {
+      "mono_ns": 92601429328,
+      "real_ns": 1793436913600417424,
+      "received_ns": 353181829143364,
+      "sent_ns": 353181823555553,
+      "wall_received_ns": 1793436914443425602,
+      "wall_sent_ns": 1793436914437838482
+    },
+    {
+      "mono_ns": 102600268480,
+      "real_ns": 1793436923598972224,
+      "received_ns": 353191826530730,
+      "sent_ns": 353191823587088,
+      "wall_received_ns": 1793436924440812627,
+      "wall_sent_ns": 1793436924437869357
+    },
+    {
+      "mono_ns": 112599959056,
+      "real_ns": 1793436933598543104,
+      "received_ns": 353201825923507,
+      "sent_ns": 353201823570267,
+      "wall_received_ns": 1793436934440205550,
+      "wall_sent_ns": 1793436934437852894
+    },
+    {
+      "mono_ns": 122599985072,
+      "real_ns": 1793436943598589248,
+      "received_ns": 353211826004032,
+      "sent_ns": 353211823555683,
+      "wall_received_ns": 1793436944440285916,
+      "wall_sent_ns": 1793436944437838067
+    }
+  ],
+  "schema": 1,
+  "scope": "actual-static-musl-qemu-clock-drift",
+  "script_sha256": "befdb89b3a6a25495a35685c9a3bccd4b33b5ab66f63b73a0f7de5c830d1a65a",
+  "sdk_manifest_sha256": "3e773e126657fd8357982291ec8c57e445f2c392bc48b9fb1bfdbf563c5e5873",
+  "serial_sha256": "74515755c930cc99d77a3ed4e5b69bccb78da96841c5375d5e32bfdbee0ac248",
+  "smp": false,
+  "status": "pass"
+}

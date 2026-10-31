@@ -1,0 +1,192 @@
+Creating regular file /tmp/ok-posix-ext4-truncate-pfjerp1q/ext4-1024.img
+Creating regular file /tmp/ok-posix-ext4-truncate-pfjerp1q/ext4-2048.img
+Creating regular file /tmp/ok-posix-ext4-truncate-pfjerp1q/ext4-4096.img
+PASS open flags=0: 18 single and 18 persistent I/O faults report EIO; old fd valid, new fd reused
+PASS open flags=514: 33 single and 33 persistent I/O faults report EIO; old fd valid, new fd reused
+PASS new-file open: both final metadata reads fail before fd publication, persistent rollback, fd reused
+TRACE 1 r sector=4 bytes=1024
+TRACE 2 r sector=10 bytes=1024
+TRACE 3 r sector=4 bytes=1024
+TRACE 4 r sector=10 bytes=1024
+TRACE 5 r sector=1034 bytes=1024
+TRACE 6 r sector=1034 bytes=1024
+TRACE 7 r sector=4 bytes=1024
+TRACE 8 r sector=14 bytes=1024
+TRACE 9 r sector=4 bytes=1024
+TRACE 10 r sector=14 bytes=1024
+TRACE 11 r sector=4 bytes=1024
+TRACE 12 r sector=14 bytes=1024
+TRACE 13 r sector=1060 bytes=1024
+TRACE 14 r sector=1060 bytes=1024
+TRACE 15 r sector=4 bytes=1024
+TRACE 16 r sector=16 bytes=1024
+TRACE 17 r sector=4 bytes=1024
+TRACE 18 r sector=16 bytes=1024
+TRACE 19 r sector=4 bytes=1024
+TRACE 20 r sector=16 bytes=1024
+TRACE 21 r sector=1062 bytes=1024
+TRACE 22 r sector=2 bytes=1024
+TRACE 23 w sector=2 bytes=1024
+TRACE 24 f sector=0 bytes=0
+TRACE 25 w sector=1062 bytes=1024
+TRACE 26 r sector=4 bytes=1024
+TRACE 27 r sector=16 bytes=1024
+TRACE 28 w sector=16 bytes=1024
+PASS 101 clean sync/sync/path-truncate replays, no descriptor growth; 28 I/O boundaries
+INJECT 1 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 2 r sector=10 => status=16 errno=5 text=injected read failure
+INJECT 3 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 4 r sector=10 => status=16 errno=5 text=injected read failure
+INJECT 5 r sector=1034 => status=16 errno=5 text=injected read failure
+INJECT 6 r sector=1034 => status=16 errno=5 text=injected read failure
+INJECT 7 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 8 r sector=14 => status=16 errno=5 text=injected read failure
+INJECT 9 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 10 r sector=14 => status=16 errno=5 text=injected read failure
+INJECT 11 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 12 r sector=14 => status=16 errno=5 text=injected read failure
+INJECT 13 r sector=1060 => status=16 errno=5 text=injected read failure
+INJECT 14 r sector=1060 => status=16 errno=5 text=injected read failure
+INJECT 15 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 16 r sector=16 => status=16 errno=5 text=injected read failure
+INJECT 17 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 18 r sector=16 => status=16 errno=5 text=injected read failure
+INJECT 19 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 20 r sector=16 => status=16 errno=5 text=injected read failure
+INJECT 21 r sector=1062 => status=16 errno=5 text=injected read failure
+INJECT 22 r sector=2 => status=16 errno=5 text=injected read failure
+INJECT 23 w sector=2 => status=16 errno=5 text=injected write failure
+INJECT 24 f sector=0 => status=16 errno=5 text=injected flush failure
+INJECT 25 w sector=1062 => status=16 errno=5 text=injected write failure
+INJECT 26 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 27 r sector=16 => status=16 errno=5 text=injected read failure
+INJECT 28 w sector=16 => status=16 errno=5 text=injected write failure
+PASS 28 injected failures: temporary descriptions all released; 0 late/cleanup failures hidden by successful truncate result
+PASS primary truncate error preserved; temporary close consumes hold without I/O
+PASS x86_64: hosted POSIX/ext4 1024-byte truncate replay and fault sweep; no guest transport
+PASS open flags=0: 18 single and 18 persistent I/O faults report EIO; old fd valid, new fd reused
+PASS open flags=514: 33 single and 33 persistent I/O faults report EIO; old fd valid, new fd reused
+PASS new-file open: both final metadata reads fail before fd publication, persistent rollback, fd reused
+TRACE 1 r sector=4 bytes=2048
+TRACE 2 r sector=16 bytes=2048
+TRACE 3 r sector=4 bytes=2048
+TRACE 4 r sector=16 bytes=2048
+TRACE 5 r sector=2064 bytes=2048
+TRACE 6 r sector=2064 bytes=2048
+TRACE 7 r sector=4 bytes=2048
+TRACE 8 r sector=20 bytes=2048
+TRACE 9 r sector=4 bytes=2048
+TRACE 10 r sector=20 bytes=2048
+TRACE 11 r sector=4 bytes=2048
+TRACE 12 r sector=20 bytes=2048
+TRACE 13 r sector=2100 bytes=2048
+TRACE 14 r sector=2100 bytes=2048
+TRACE 15 r sector=4 bytes=2048
+TRACE 16 r sector=20 bytes=2048
+TRACE 17 r sector=4 bytes=2048
+TRACE 18 r sector=20 bytes=2048
+TRACE 19 r sector=4 bytes=2048
+TRACE 20 r sector=20 bytes=2048
+TRACE 21 r sector=2104 bytes=2048
+TRACE 22 r sector=2 bytes=1024
+TRACE 23 w sector=2 bytes=1024
+TRACE 24 f sector=0 bytes=0
+TRACE 25 w sector=2104 bytes=2048
+TRACE 26 r sector=4 bytes=2048
+TRACE 27 r sector=20 bytes=2048
+TRACE 28 w sector=20 bytes=2048
+PASS 101 clean sync/sync/path-truncate replays, no descriptor growth; 28 I/O boundaries
+INJECT 1 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 2 r sector=16 => status=16 errno=5 text=injected read failure
+INJECT 3 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 4 r sector=16 => status=16 errno=5 text=injected read failure
+INJECT 5 r sector=2064 => status=16 errno=5 text=injected read failure
+INJECT 6 r sector=2064 => status=16 errno=5 text=injected read failure
+INJECT 7 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 8 r sector=20 => status=16 errno=5 text=injected read failure
+INJECT 9 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 10 r sector=20 => status=16 errno=5 text=injected read failure
+INJECT 11 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 12 r sector=20 => status=16 errno=5 text=injected read failure
+INJECT 13 r sector=2100 => status=16 errno=5 text=injected read failure
+INJECT 14 r sector=2100 => status=16 errno=5 text=injected read failure
+INJECT 15 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 16 r sector=20 => status=16 errno=5 text=injected read failure
+INJECT 17 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 18 r sector=20 => status=16 errno=5 text=injected read failure
+INJECT 19 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 20 r sector=20 => status=16 errno=5 text=injected read failure
+INJECT 21 r sector=2104 => status=16 errno=5 text=injected read failure
+INJECT 22 r sector=2 => status=16 errno=5 text=injected read failure
+INJECT 23 w sector=2 => status=16 errno=5 text=injected write failure
+INJECT 24 f sector=0 => status=16 errno=5 text=injected flush failure
+INJECT 25 w sector=2104 => status=16 errno=5 text=injected write failure
+INJECT 26 r sector=4 => status=16 errno=5 text=injected read failure
+INJECT 27 r sector=20 => status=16 errno=5 text=injected read failure
+INJECT 28 w sector=20 => status=16 errno=5 text=injected write failure
+PASS 28 injected failures: temporary descriptions all released; 0 late/cleanup failures hidden by successful truncate result
+PASS primary truncate error preserved; temporary close consumes hold without I/O
+PASS x86_64: hosted POSIX/ext4 2048-byte truncate replay and fault sweep; no guest transport
+PASS open flags=0: 18 single and 18 persistent I/O faults report EIO; old fd valid, new fd reused
+PASS open flags=514: 33 single and 33 persistent I/O faults report EIO; old fd valid, new fd reused
+PASS new-file open: both final metadata reads fail before fd publication, persistent rollback, fd reused
+TRACE 1 r sector=8 bytes=4096
+TRACE 2 r sector=32 bytes=4096
+TRACE 3 r sector=8 bytes=4096
+TRACE 4 r sector=32 bytes=4096
+TRACE 5 r sector=2080 bytes=4096
+TRACE 6 r sector=2080 bytes=4096
+TRACE 7 r sector=8 bytes=4096
+TRACE 8 r sector=32 bytes=4096
+TRACE 9 r sector=8 bytes=4096
+TRACE 10 r sector=32 bytes=4096
+TRACE 11 r sector=8 bytes=4096
+TRACE 12 r sector=32 bytes=4096
+TRACE 13 r sector=2120 bytes=4096
+TRACE 14 r sector=2120 bytes=4096
+TRACE 15 r sector=8 bytes=4096
+TRACE 16 r sector=32 bytes=4096
+TRACE 17 r sector=8 bytes=4096
+TRACE 18 r sector=32 bytes=4096
+TRACE 19 r sector=8 bytes=4096
+TRACE 20 r sector=32 bytes=4096
+TRACE 21 r sector=2128 bytes=4096
+TRACE 22 r sector=2 bytes=1024
+TRACE 23 w sector=2 bytes=1024
+TRACE 24 f sector=0 bytes=0
+TRACE 25 w sector=2128 bytes=4096
+TRACE 26 r sector=8 bytes=4096
+TRACE 27 r sector=32 bytes=4096
+TRACE 28 w sector=32 bytes=4096
+PASS 101 clean sync/sync/path-truncate replays, no descriptor growth; 28 I/O boundaries
+INJECT 1 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 2 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 3 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 4 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 5 r sector=2080 => status=16 errno=5 text=injected read failure
+INJECT 6 r sector=2080 => status=16 errno=5 text=injected read failure
+INJECT 7 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 8 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 9 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 10 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 11 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 12 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 13 r sector=2120 => status=16 errno=5 text=injected read failure
+INJECT 14 r sector=2120 => status=16 errno=5 text=injected read failure
+INJECT 15 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 16 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 17 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 18 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 19 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 20 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 21 r sector=2128 => status=16 errno=5 text=injected read failure
+INJECT 22 r sector=2 => status=16 errno=5 text=injected read failure
+INJECT 23 w sector=2 => status=16 errno=5 text=injected write failure
+INJECT 24 f sector=0 => status=16 errno=5 text=injected flush failure
+INJECT 25 w sector=2128 => status=16 errno=5 text=injected write failure
+INJECT 26 r sector=8 => status=16 errno=5 text=injected read failure
+INJECT 27 r sector=32 => status=16 errno=5 text=injected read failure
+INJECT 28 w sector=32 => status=16 errno=5 text=injected write failure
+PASS 28 injected failures: temporary descriptions all released; 0 late/cleanup failures hidden by successful truncate result
+PASS primary truncate error preserved; temporary close consumes hold without I/O
+PASS x86_64: hosted POSIX/ext4 4096-byte truncate replay and fault sweep; no guest transport

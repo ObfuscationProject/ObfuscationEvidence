@@ -1,0 +1,176 @@
+{
+  "architecture": "aarch64",
+  "busy": "CLOCK_BUSY arch=aarch64 ms=3049 chunks=49",
+  "command": [
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationOS--claude-worktrees-p1-musl-primary-feat-e7a798/9569c9ff-9b21-4939-af12-8fffd27cf2e0/scratchpad/tc/aarch64-elf/bin/qemu-system-aarch64",
+    "-M",
+    "virt",
+    "-cpu",
+    "cortex-a57",
+    "-m",
+    "512M",
+    "-kernel",
+    "/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-aarch64/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-device",
+    "ramfb",
+    "-device",
+    "virtio-keyboard-device",
+    "-device",
+    "virtio-mouse-device",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel/a2f25172-f242-43c2-828e-5ef27170c36a/scratchpad/f2-clock-aarch64/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-device,drive=fsdisk",
+    "-global",
+    "virtio-mmio.force-legacy=false",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-device,rng=entropy0"
+  ],
+  "input_disk_sha256": "5b32e318de1d079c952c22bb0615e77e92efac48eb510baa865190bed168e522",
+  "kernel_realtime": "OK_REALTIME scope=runtime state=2 source=1 source_resolution_ns=1000000000 acquisition_span_ns=99280 accuracy=unknown available=1",
+  "kernel_sha256": "13cec9382d70f24afb3b17ea438727653eac6c9f7806afa6792530e2085cd746",
+  "kernel_timer_latency": "OK_TIMER_LATENCY scope=hardware unit=ns idle=9716:46960:147455:212991:10612016 user=258:76720:122879:180223:213840",
+  "limit_ppm": 100,
+  "mode": "debug",
+  "musl_manifest_sha256": "27c977ec94838c7065a067433a7c450fd99be9b3a4b746a285ca56c2623959d8",
+  "physical": false,
+  "probe_manifest_sha256": "90a177b8fa4ad705efd090a41217d028b5f49b71d86ccc02b1645080dc8a6e39",
+  "probe_sha256": "2dd4cb4a3aa9ace8f32d14e3b389f71443ec75d884fab6aaecd29f668cb3438c",
+  "qemu_sha256": "e20c507a75aa565740ef67a956406c7b0c621e0f2bd0f1fea1e687a9d08fd7b1",
+  "result": {
+    "bracket_max_us": 3949.25,
+    "monotonic_drift_bound_ppm": [
+      -27.041,
+      27.15
+    ],
+    "monotonic_drift_ppm": 0.297,
+    "monotonic_residual_us": 170.363,
+    "realtime_drift_ppm": -1.072,
+    "realtime_offset_change_ms": -0.32,
+    "realtime_offset_ms": -65.013,
+    "samples": 13,
+    "window_s": 119.999
+  },
+  "samples": [
+    {
+      "mono_ns": 2087667568,
+      "real_ns": 1793436778087060432,
+      "received_ns": 353045539765580,
+      "sent_ns": 353045535816330,
+      "wall_received_ns": 1793436778154047922,
+      "wall_sent_ns": 1793436778150098698
+    },
+    {
+      "mono_ns": 12087114672,
+      "real_ns": 1793436788086126880,
+      "received_ns": 353055538355657,
+      "sent_ns": 353055535906380,
+      "wall_received_ns": 1793436788152637551,
+      "wall_sent_ns": 1793436788150188907
+    },
+    {
+      "mono_ns": 22087092848,
+      "real_ns": 1793436798086111968,
+      "received_ns": 353065538423699,
+      "sent_ns": 353065535908083,
+      "wall_received_ns": 1793436798152705965,
+      "wall_sent_ns": 1793436798150190670
+    },
+    {
+      "mono_ns": 32087828784,
+      "real_ns": 1793436808087077744,
+      "received_ns": 353075539712754,
+      "sent_ns": 353075536046232,
+      "wall_received_ns": 1793436808153995232,
+      "wall_sent_ns": 1793436808150328499
+    },
+    {
+      "mono_ns": 42087181824,
+      "real_ns": 1793436818086207248,
+      "received_ns": 353085538496030,
+      "sent_ns": 353085535917332,
+      "wall_received_ns": 1793436818152778261,
+      "wall_sent_ns": 1793436818150200174
+    },
+    {
+      "mono_ns": 52087062048,
+      "real_ns": 1793436828086073680,
+      "received_ns": 353095538447632,
+      "sent_ns": 353095535905187,
+      "wall_received_ns": 1793436828152729514,
+      "wall_sent_ns": 1793436828150187297
+    },
+    {
+      "mono_ns": 62087171696,
+      "real_ns": 1793436838086177872,
+      "received_ns": 353105538507257,
+      "sent_ns": 353105535935482,
+      "wall_received_ns": 1793436838152789601,
+      "wall_sent_ns": 1793436838150218035
+    },
+    {
+      "mono_ns": 72087449616,
+      "real_ns": 1793436848086725680,
+      "received_ns": 353115539282834,
+      "sent_ns": 353115535919311,
+      "wall_received_ns": 1793436848153564894,
+      "wall_sent_ns": 1793436848150202099
+    },
+    {
+      "mono_ns": 82087064752,
+      "real_ns": 1793436858086086832,
+      "received_ns": 353125538421761,
+      "sent_ns": 353125535909209,
+      "wall_received_ns": 1793436858152703758,
+      "wall_sent_ns": 1793436858150191686
+    },
+    {
+      "mono_ns": 92087082704,
+      "real_ns": 1793436868086088016,
+      "received_ns": 353135538404963,
+      "sent_ns": 353135535910258,
+      "wall_received_ns": 1793436868152687135,
+      "wall_sent_ns": 1793436868150192638
+    },
+    {
+      "mono_ns": 102087119184,
+      "real_ns": 1793436878086123280,
+      "received_ns": 353145538440266,
+      "sent_ns": 353145535906938,
+      "wall_received_ns": 1793436878152722133,
+      "wall_sent_ns": 1793436878150189349
+    },
+    {
+      "mono_ns": 112087513168,
+      "real_ns": 1793436888086525232,
+      "received_ns": 353155538877247,
+      "sent_ns": 353155535906288,
+      "wall_received_ns": 1793436888153159235,
+      "wall_sent_ns": 1793436888150188359
+    },
+    {
+      "mono_ns": 122087080192,
+      "real_ns": 1793436898086146432,
+      "received_ns": 353165538473992,
+      "sent_ns": 353165535920345,
+      "wall_received_ns": 1793436898152755728,
+      "wall_sent_ns": 1793436898150202704
+    }
+  ],
+  "schema": 1,
+  "scope": "actual-static-musl-qemu-clock-drift",
+  "script_sha256": "befdb89b3a6a25495a35685c9a3bccd4b33b5ab66f63b73a0f7de5c830d1a65a",
+  "sdk_manifest_sha256": "3acf0e28e6f606115d7298407480e2ce732a112d4a2aab72c762019ecb150c95",
+  "serial_sha256": "7a97b154642e0c087c5edb5e320bee4b2250f73999311eaf7a2826953b4fe647",
+  "smp": false,
+  "status": "pass"
+}

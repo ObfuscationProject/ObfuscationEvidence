@@ -1,0 +1,20 @@
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS i386: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS x86_64: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS aarch64: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS arm32: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS rv64: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS rv32: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS loongarch64: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS mips: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS mips64: initial child publication model
+PASS initial child hosted models: final metadata publication, fail-before-write provider, setgid inheritance, retained parent and process mask
+PASS ppc: initial child publication model

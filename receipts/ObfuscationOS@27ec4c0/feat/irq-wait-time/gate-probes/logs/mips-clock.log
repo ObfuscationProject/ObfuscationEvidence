@@ -1,0 +1,3 @@
+PASS mips/debug: monotonic drift +21.832 ppm (bound -14.238..+59.076) over 120.0 s, 13 samples
+realtime offset -7006.511 ms, drift +21.835 ppm
+OK_TIMER_LATENCY scope=hardware unit=ns idle=15681:35094:114687:212991:5842131 user=403:28744:106495:163839:215773

@@ -1,0 +1,1 @@
+PASS ppc: static musl bootstrap ELF built; target execution remains unqualified

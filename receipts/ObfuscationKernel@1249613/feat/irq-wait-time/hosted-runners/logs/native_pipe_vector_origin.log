@@ -1,0 +1,10 @@
+PASS i386 hosted owned syscall origin lifecycle
+PASS x86_64 hosted owned syscall origin lifecycle
+PASS aarch64 hosted owned syscall origin lifecycle
+PASS arm32 hosted owned syscall origin lifecycle
+PASS rv64 hosted owned syscall origin lifecycle
+PASS rv32 hosted owned syscall origin lifecycle
+PASS loongarch64 hosted owned syscall origin lifecycle
+PASS mips hosted owned syscall origin lifecycle
+PASS mips64 hosted owned syscall origin lifecycle
+PASS ppc hosted owned syscall origin lifecycle

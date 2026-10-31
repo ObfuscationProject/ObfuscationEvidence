@@ -1,0 +1,2 @@
+PASS hosted runtime wait ownership: stale cleanup, single completion, ready/timeout ordering, exact thread and teardown
+PASS native wait ownership: hosted runtime continuation; no guest execution
