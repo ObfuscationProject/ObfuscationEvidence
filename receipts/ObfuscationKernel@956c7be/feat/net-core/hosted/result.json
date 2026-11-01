@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "956c7beb0fb3e0f0bade46c7571c0ddb9faf6b91",
+  "branch": "feat/net-core",
+  "campaign": "hosted",
+  "date": "2026-11-01",
+  "scope": "WT2.3 hosted model suites, freestanding compiles, SDK contract tests and the paired OS tool suite for the ABI 79 SDK.",
+  "runs": [
+    {
+      "command": "python3 -B scripts/test_net_core.py --output <out> --toolchain-root <tc>",
+      "tree": "exact git archive of 956c7be",
+      "result": "pass: net_ip 1797, net_neighbour_route 120, net_interface 292, tcp_window 29543, net_udp 46, net_probe 8304 checks; freestanding object on ten profiles"
+    },
+    {
+      "command": "tests/host/tcp_streams_xmake.lua (TCP_STREAMS_KIND=sanitized, x86_64 host)",
+      "tree": "exact git archive of 956c7be",
+      "result": "pass: tcp-streams 1992, tcp-transport 19565, tcp-endpoints 4282 checks"
+    },
+    {
+      "command": "python3 -B scripts/hosted_suite.py --toolchain-root <tc> --jobs 8 --only kernel_services --only linux_poll --only linux_udp_connected --only native_poll --only native_poll_signal --only native_poll_temporary_mask --only net_core --only service_stack --only native_x86_64 --only native_ppc",
+      "tree": "working-tree copy with the code of 80a07e0 (956c7be adds documentation only)",
+      "result": "10 passed, 0 failed"
+    },
+    {
+      "command": "python3 -B -m unittest <tests/host/*sdk_contract_tests.py, test_native_signal_export.py, mount_info_sdk_contract_tests.py (PYTHONPATH=tests/host)>; python3 -B tests/host/sdk_boot_archive_receipt_tests.py --exporter tools/export_sdk.py",
+      "tree": "scratch layout: ObfuscationKernel = working copy with the code of 956c7be, ObfuscationOS = feat/net-services 6742e98",
+      "result": "12 of 12 suites pass"
+    },
+    {
+      "command": "OK_TEST_KERNEL_SDK=<kernel@956c7be>/build/sdk/x86_64/debug OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -m unittest discover -s tests/tools -p 'test_*.py'",
+      "tree": "ObfuscationOS feat/net-services 6742e98 (6f1a208 plus documentation)",
+      "result": "Ran 1322 tests, OK (skipped=34)"
+    }
+  ],
+  "not_claimed": [
+    "guest or NIC execution (see device-probe-matrix)",
+    "the full hosted suite (runners outside the listed set were not rerun)"
+  ],
+  "status": "pass"
+}

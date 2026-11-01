@@ -1,0 +1,59 @@
+# i386
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a i386 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a i386 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/i386/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch i386 --qemu <tc>/<triple>/bin/<qemu> --kernel build/i386/debug/distro/kernel.bin --rootfs build/i386/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# x86_64
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a x86_64 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a x86_64 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/x86_64/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch x86_64 --qemu <tc>/<triple>/bin/<qemu> --kernel build/x86_64/debug/distro/kernel.bin --rootfs build/x86_64/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# aarch64
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a aarch64 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a aarch64 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/aarch64/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch aarch64 --qemu <tc>/<triple>/bin/<qemu> --kernel build/aarch64/debug/distro/kernel.bin --rootfs build/aarch64/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# arm32
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a arm32 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a arm32 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/arm32/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch arm32 --qemu <tc>/<triple>/bin/<qemu> --kernel build/arm32/debug/distro/kernel.bin --rootfs build/arm32/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# rv64
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a rv64 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a rv64 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/rv64/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch rv64 --qemu <tc>/<triple>/bin/<qemu> --kernel build/rv64/debug/distro/kernel.bin --rootfs build/rv64/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# rv32
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a rv32 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a rv32 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/rv32/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch rv32 --qemu <tc>/<triple>/bin/<qemu> --kernel build/rv32/debug/distro/kernel.bin --rootfs build/rv32/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# loongarch64
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a loongarch64 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a loongarch64 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/loongarch64/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch loongarch64 --qemu <tc>/<triple>/bin/<qemu> --kernel build/loongarch64/debug/distro/kernel.bin --rootfs build/loongarch64/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# mips
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a mips --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a mips -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/mips/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch mips --qemu <tc>/<triple>/bin/<qemu> --kernel build/mips/debug/distro/kernel.bin --rootfs build/mips/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# mips64
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a mips64 --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a mips64 -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/mips64/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch mips64 --qemu <tc>/<triple>/bin/<qemu> --kernel build/mips64/debug/distro/kernel.bin --rootfs build/mips64/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
+
+# ppc
+cd <kernel@956c7be> (git archive) && xmake f -c -y -m debug -a ppc --systoolchain_dir=<tc>/<triple> && xmake -b -j12 okernel_image && xmake test && xmake -b kernel-sdk
+cd <os@6f1a208> (git archive) && xmake f -c -y -a ppc -m debug --systoolchain_dir=<tc>/<triple> --kernel_sdk=<kernel>/build/sdk/ppc/debug --net_probe=y && xmake -y -b distro_image && xmake -y -b rootfs-simplefs
+python3 -B scripts/test_net_probe.py --arch ppc --qemu <tc>/<triple>/bin/<qemu> --kernel build/ppc/debug/distro/kernel.bin --rootfs build/ppc/debug/rootfs.simplefs.img --output <out> --timeout 240
+(same, --tcp-loss 10 --timeout 300)
