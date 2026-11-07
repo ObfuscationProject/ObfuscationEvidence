@@ -1,0 +1,1 @@
+cd <worktree> ; per lane: xmake f -P <kernel> -c -y -m debug -a <arch> --systoolchain_dir=<tc>/<triple> --qemu_binary=<tc>/<triple>/bin/qemu-system-<q> --qemu_smp=<N> && xmake -P <kernel> -y -b okernel_image && xmake test -P <kernel>

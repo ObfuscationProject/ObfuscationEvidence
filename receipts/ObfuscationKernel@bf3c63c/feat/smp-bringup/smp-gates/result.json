@@ -1,0 +1,649 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "bf3c63c3b2932668acfba052dc404871ee5c1ff2",
+ "branch": "feat/smp-bringup",
+ "date": "2026-11-07",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG)",
+ "paired_os": {
+  "repository": "ObfuscationOS",
+  "commit": "3ed41601f2f9790d70d93db9d5b64b54e7d198f4",
+  "branch": "feat/smp-bringup"
+ },
+ "campaign": "smp-gates",
+ "scope": "ObfuscationOS SMP gates against the exported kernel SDK: scripts/test_smp_stress.py (sections on: x86_64, aarch64, rv64 x {1,2,4} vCPUs x 3 runs; smp_hotplug_test knob x {2,4} x 2 runs with --require-hotplug; smp_sections=n arm and a release run at 2 vCPUs) and scripts/test_futex_smp_atomic.py at 2 and 4 vCPUs.",
+ "tree": "kernel bf3c63c3b2932668acfba052dc404871ee5c1ff2, OS 3ed41601f2f9790d70d93db9d5b64b54e7d198f4 (worktree builds)",
+ "runs": [
+  {
+   "name": "futex_smp_atomic-aarch64-2-debug-on-plain-r1",
+   "status": "pass",
+   "result": "FUTEX_SMP_ATOMIC_PASS arch=aarch64 rounds=20000 user=587545199 flips=1139934453 alternated=19998",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": null,
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=43151:0:153:179:0 cpu1=33016:2530:179:153:0",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "futex_smp_atomic-aarch64-4-debug-on-plain-r1",
+   "status": "pass",
+   "result": "FUTEX_SMP_ATOMIC_PASS arch=aarch64 rounds=20000 user=589364281 flips=1381036993 alternated=19922",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": null,
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=22339:0:618:583:0 cpu1=21058:2849:498:556:0 cpu2=22984:2601:564:548:0 cpu3=22430:2640:573:572:0",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "futex_smp_atomic-rv64-2-debug-on-plain-r1",
+   "status": "pass",
+   "result": "FUTEX_SMP_ATOMIC_PASS arch=rv64 rounds=20000 user=337503363 flips=704355472 alternated=19990",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": null,
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=3372:0:167:157:0 cpu1=70168:61:157:170:0",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "futex_smp_atomic-rv64-4-debug-on-plain-r1",
+   "status": "pass",
+   "result": "FUTEX_SMP_ATOMIC_PASS arch=rv64 rounds=20000 user=347916423 flips=736161873 alternated=19964",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": null,
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=14156:0:340:330:0 cpu1=18823:949:405:295:0 cpu2=19058:1006:279:344:0 cpu3=21756:873:330:391:0",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "futex_smp_atomic-x86_64-2-debug-on-plain-r1",
+   "status": "pass",
+   "result": "FUTEX_SMP_ATOMIC_PASS arch=x86_64 rounds=20000 user=696076593 flips=1692150059 alternated=19999",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": null,
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=73158:0:169:177:0 cpu1=3421:1838:175:169:0",
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "futex_smp_atomic-x86_64-4-debug-on-plain-r1",
+   "status": "pass",
+   "result": "FUTEX_SMP_ATOMIC_PASS arch=x86_64 rounds=20000 user=680304338 flips=1607847731 alternated=19984",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": null,
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=17809:0:363:318:0 cpu1=21088:1854:300:330:0 cpu2=15077:1856:277:261:0 cpu3=21602:1855:285:326:0",
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-1-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=95.171",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29431 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34121 drain_waits=0 bkl_acquired=87914 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:87914:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-1-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=95.530",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29402 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34090 drain_waits=0 bkl_acquired=87792 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:87792:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-1-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=95.898",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29438 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34129 drain_waits=0 bkl_acquired=87921 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:87921:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-2-debug-off-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=51.842",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": "absent-as-required",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=17820:0:1963:1488:418 cpu1=22889:949:1487:1963:909",
+   "kernel_input": "aarch64-debug-off-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-2-debug-on-hot-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=57.219",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=31131 handoffs=74 concurrent=993 witnessed=1037 max_parallel=2 spun=159 drains=36528 drain_waits=37 bkl_acquired=94657 bkl_contended=46171 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1827:510:542:43940:23184 cpu1=1535:483:495:50717:22987",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 1,
+    "cycles": 550,
+    "failures": 0,
+    "probe_cycles": 531
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=19726:0:579:2547:601 cpu1=22713:1721:2546:580:107",
+   "kernel_input": "aarch64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-aarch64-2-debug-on-hot-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=56.378",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=31424 handoffs=68 concurrent=1017 witnessed=1065 max_parallel=2 spun=184 drains=36784 drain_waits=36 bkl_acquired=95049 bkl_contended=47267 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1773:502:555:44453:23712 cpu1=1589:515:510:50596:23555",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 1,
+    "cycles": 544,
+    "failures": 0,
+    "probe_cycles": 525
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=20008:0:618:2569:600 cpu1=22633:1677:2566:618:144",
+   "kernel_input": "aarch64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-aarch64-2-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=53.523",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=29921 handoffs=74 concurrent=996 witnessed=1117 max_parallel=2 spun=137 drains=35175 drain_waits=30 bkl_acquired=88238 bkl_contended=55728 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=2374:627:708:51461:27927 cpu1=988:369:409:36777:27801",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=23647:0:652:1877:1343 cpu1=16968:1362:1875:653:144",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-2-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=58.574",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30280 handoffs=62 concurrent=1226 witnessed=1268 max_parallel=2 spun=210 drains=35644 drain_waits=19 bkl_acquired=90232 bkl_contended=59449 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1764:646:688:43256:29686 cpu1=1598:580:580:46976:29763",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=19751:0:1219:1273:583 cpu1=21811:1241:1273:1219:605",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-2-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=54.019",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30096 handoffs=72 concurrent=1113 witnessed=1183 max_parallel=2 spun=161 drains=35396 drain_waits=30 bkl_acquired=89180 bkl_contended=56433 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=2255:721:770:51840:28307 cpu1=1107:392:413:37340:28126",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=23840:0:795:1956:1312 cpu1=17222:1339:1955:795:226",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-2-release-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=41.839",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=0 online=2 sections=3362 completed=3362 declined=30274 handoffs=87 concurrent=1126 witnessed=1312 max_parallel=2 spun=177 drains=35477 drain_waits=43 bkl_acquired=89910 bkl_contended=53322 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1370:528:623:39944:26567 cpu1=1992:598:689:49966:26755",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=18385:0:1446:945:318 cpu1=23053:1015:942:1447:903",
+   "kernel_input": "aarch64-release-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-4-debug-on-hot-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=43.759",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29847 handoffs=177 concurrent=1827 witnessed=1656 max_parallel=3 spun=295 drains=35037 drain_waits=53 bkl_acquired=88455 bkl_contended=83289 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=709:388:348:21284:20284 cpu1=1122:615:552:24240:22491 cpu2=980:520:492:23428:21995 cpu3=551:304:264:19503:18519",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 3,
+    "cycles": 404,
+    "failures": 0,
+    "probe_cycles": 385
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9379:0:1237:1884:501 cpu1=11034:222:1076:1346:652 cpu2=10724:261:948:1289:604 cpu3=8621:592:1932:676:328",
+   "kernel_input": "aarch64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-aarch64-4-debug-on-hot-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=44.054",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29917 handoffs=188 concurrent=1829 witnessed=1671 max_parallel=3 spun=294 drains=35184 drain_waits=57 bkl_acquired=88797 bkl_contended=83265 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=807:466:410:21209:19845 cpu1=1032:561:507:23184:21956 cpu2=978:513:473:23874:22170 cpu3=545:289:281:20530:19294",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 3,
+    "cycles": 408,
+    "failures": 0,
+    "probe_cycles": 389
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9330:0:1225:1773:340 cpu1=10558:321:1081:1264:585 cpu2=10936:269:854:1287:626 cpu3=9073:568:1953:791:414",
+   "kernel_input": "aarch64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-aarch64-4-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=47.313",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29730 handoffs=163 concurrent=1740 witnessed=1510 max_parallel=4 spun=343 drains=34891 drain_waits=35 bkl_acquired=86451 bkl_contended=82355 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=552:273:237:20258:19319 cpu1=783:380:335:21729:20536 cpu2=1018:549:468:22586:21832 cpu3=1009:538:470:21878:20668",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9343:0:1406:812:299 cpu1=9949:363:1187:988:468 cpu2=10256:229:894:1236:645 cpu3=10009:190:753:1207:635",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-4-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=48.211",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=30056 handoffs=193 concurrent=1768 witnessed=1630 max_parallel=3 spun=329 drains=35203 drain_waits=50 bkl_acquired=87100 bkl_contended=82856 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=552:277:258:21014:19961 cpu1=876:473:440:21711:20841 cpu2=966:514:470:22104:20760 cpu3=968:504:462:22271:21294",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9782:0:1263:833:312 cpu1=9891:296:1158:1044:487 cpu2=10068:257:927:1202:626 cpu3=10154:224:909:1183:627",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-aarch64-4-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=aarch64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=47.500",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29856 handoffs=172 concurrent=1723 witnessed=1556 max_parallel=3 spun=335 drains=34924 drain_waits=46 bkl_acquired=86793 bkl_contended=82729 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=567:294:251:22111:20518 cpu1=717:369:320:21451:20562 cpu2=978:495:473:21301:20484 cpu3=1100:565:512:21930:21165",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=10243:0:1399:909:384 cpu1=9896:254:1101:965:459 cpu2=9666:275:1002:1171:607 cpu3=9932:263:833:1304:673",
+   "kernel_input": "aarch64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-1-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=83.401",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29499 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34201 drain_waits=0 bkl_acquired=93973 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:93973:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-1-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=84.708",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29569 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34247 drain_waits=0 bkl_acquired=94337 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:94337:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-1-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=83.640",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29507 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34200 drain_waits=0 bkl_acquired=93996 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:93996:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-2-debug-off-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=43.109",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": "absent-as-required",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=22786:0:1429:2093:955 cpu1=17453:1485:2092:1430:327",
+   "kernel_input": "rv64-debug-off-plain"
+  },
+  {
+   "name": "smp_stress-rv64-2-debug-on-hot-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=47.813",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=32738 handoffs=77 concurrent=1032 witnessed=1195 max_parallel=2 spun=196 drains=38143 drain_waits=36 bkl_acquired=100635 bkl_contended=43812 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1956:575:680:46434:21944 cpu1=1406:457:515:54201:21868",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 1,
+    "cycles": 464,
+    "failures": 0,
+    "probe_cycles": 448
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=21049:0:622:2358:617 cpu1=24640:1760:2358:623:140",
+   "kernel_input": "rv64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-rv64-2-debug-on-hot-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=49.508",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=32207 handoffs=74 concurrent=985 witnessed=1128 max_parallel=2 spun=175 drains=37601 drain_waits=35 bkl_acquired=100696 bkl_contended=40271 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1843:523:599:44490:20175 cpu1=1519:462:529:56206:20096",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 1,
+    "cycles": 477,
+    "failures": 0,
+    "probe_cycles": 460
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=20257:0:568:2388:583 cpu1=25402:1905:2388:569:107",
+   "kernel_input": "rv64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-rv64-2-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=42.575",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=29864 handoffs=94 concurrent=1137 witnessed=1252 max_parallel=2 spun=199 drains=35172 drain_waits=50 bkl_acquired=92452 bkl_contended=51284 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=2240:719:790:54467:25737 cpu1=1122:418:462:37985:25547",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=25160:0:749:1651:1060 cpu1=17539:1552:1651:754:178",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-2-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=39.979",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=29783 handoffs=87 concurrent=1171 witnessed=1282 max_parallel=2 spun=204 drains=35018 drain_waits=35 bkl_acquired=91530 bkl_contended=51050 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=2192:724:792:53759:25602 cpu1=1170:447:490:37771:25448",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=24846:0:884:1712:1101 cpu1=17422:1338:1711:884:243",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-2-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=42.575",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30403 handoffs=90 concurrent=1211 witnessed=1262 max_parallel=2 spun=249 drains=35719 drain_waits=39 bkl_acquired=92819 bkl_contended=54087 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1288:520:560:39572:26939 cpu1=2074:691:702:53247:27148",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=18191:0:1599:908:275 cpu1=24682:983:907:1601:904",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-2-release-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=38.355",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=0 online=2 sections=3362 completed=3362 declined=29899 handoffs=74 concurrent=1097 witnessed=1351 max_parallel=2 spun=223 drains=35034 drain_waits=40 bkl_acquired=91647 bkl_contended=50859 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1624:510:601:50059:25524 cpu1=1738:587:750:41588:25335",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=23326:0:1246:1299:662 cpu1=19027:1181:1298:1248:630",
+   "kernel_input": "rv64-release-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-4-debug-on-hot-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=32.807",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29883 handoffs=237 concurrent=1978 witnessed=1738 max_parallel=4 spun=436 drains=35053 drain_waits=70 bkl_acquired=88703 bkl_contended=82044 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=680:401:345:19906:18742 cpu1=1010:612:542:24306:22285 cpu2=1117:632:564:24724:22432 cpu3=555:333:287:19767:18585",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 3,
+    "cycles": 305,
+    "failures": 0,
+    "probe_cycles": 289
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=8856:0:1235:1526:301 cpu1=11119:259:1021:1322:658 cpu2=11286:190:913:1539:796 cpu3=8834:451:1918:711:324",
+   "kernel_input": "rv64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-rv64-4-debug-on-hot-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=31.931",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29766 handoffs=209 concurrent=2027 witnessed=1797 max_parallel=4 spun=382 drains=34914 drain_waits=64 bkl_acquired=88707 bkl_contended=82563 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=743:465:399:20526:19501 cpu1=919:542:486:23069:21335 cpu2=1163:692:617:24479:22511 cpu3=537:328:295:20633:19216",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 3,
+    "cycles": 302,
+    "failures": 0,
+    "probe_cycles": 286
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9150:0:1319:1572:289 cpu1=10582:269:1136:1218:594 cpu2=11134:212:810:1568:868 cpu3=9233:438:1849:764:398",
+   "kernel_input": "rv64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-rv64-4-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=30.996",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29659 handoffs=248 concurrent=2027 witnessed=1770 max_parallel=3 spun=426 drains=34873 drain_waits=67 bkl_acquired=86923 bkl_contended=81978 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=559:312:277:20637:19512 cpu1=759:464:393:22308:20871 cpu2=927:562:502:22472:21136 cpu3=1117:689:598:21506:20459",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9601:0:1357:837:308 cpu1=10244:251:1159:958:456 cpu2=10239:215:954:1195:637 cpu3=9704:180:888:1381:716",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-4-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=31.619",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29701 handoffs=232 concurrent=1966 witnessed=1770 max_parallel=4 spun=474 drains=34922 drain_waits=66 bkl_acquired=86770 bkl_contended=81942 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=519:306:266:20718:19703 cpu1=858:505:460:22654:21282 cpu2=853:505:452:21526:19891 cpu3=1132:650:592:21872:21066",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9623:0:1369:833:332 cpu1=10386:164:1229:1106:556 cpu2=9861:214:983:1105:513 cpu3=9851:164:809:1356:736",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-rv64-4-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=rv64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=31.499",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29519 handoffs=200 concurrent=2004 witnessed=1795 max_parallel=3 spun=433 drains=34597 drain_waits=55 bkl_acquired=86569 bkl_contended=81710 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=508:304:266:20427:18731 cpu1=770:468:416:21623:20669 cpu2=1007:603:538:22086:21250 cpu3=1077:629:575:22433:21060",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9507:0:1293:768:287 cpu1=9923:268:1217:1021:465 cpu2=10007:205:1010:1153:559 cpu3=10265:177:796:1384:761",
+   "kernel_input": "rv64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-1-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=68.108",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29367 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34046 drain_waits=0 bkl_acquired=88835 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:88835:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-1-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=70.216",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29279 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=33923 drain_waits=0 bkl_acquired=88718 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:88718:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-1-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=71.007",
+   "accelerator": "single-vcpu-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=1 sections=3362 completed=3362 declined=29432 handoffs=0 concurrent=0 witnessed=0 max_parallel=1 spun=0 drains=34121 drain_waits=0 bkl_acquired=88996 bkl_contended=0 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=3362:0:0:88996:0",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": null,
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-2-debug-off-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=34.883",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": null,
+   "section_requirements": "absent-as-required",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=16131:0:2248:886:60 cpu1=24701:3653:878:2250:1431",
+   "kernel_input": "x86_64-debug-off-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-2-debug-on-hot-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=43.228",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30892 handoffs=77 concurrent=878 witnessed=1215 max_parallel=2 spun=189 drains=36204 drain_waits=43 bkl_acquired=95926 bkl_contended=49276 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=2225:526:751:50627:24450 cpu1=1137:352:464:45299:24826",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 1,
+    "cycles": 393,
+    "failures": 0,
+    "probe_cycles": 378
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=22938:0:536:2638:1212 cpu1=20736:3979:2637:539:70",
+   "kernel_input": "x86_64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-x86_64-2-debug-on-hot-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=42.441",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30427 handoffs=73 concurrent=837 witnessed=1151 max_parallel=2 spun=133 drains=35792 drain_waits=38 bkl_acquired=95240 bkl_contended=45744 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=2275:463:686:52148:22681 cpu1=1087:374:465:43092:23063",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 1,
+    "cycles": 389,
+    "failures": 0,
+    "probe_cycles": 374
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=23626:0:478:2667:1308 cpu1=19717:3887:2666:479:62",
+   "kernel_input": "x86_64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-x86_64-2-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=34.763",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30542 handoffs=129 concurrent=1048 witnessed=1364 max_parallel=2 spun=158 drains=35651 drain_waits=80 bkl_acquired=90800 bkl_contended=54004 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1206:436:544:37855:27022 cpu1=2156:612:820:52945:26982",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=17470:0:1573:830:250 cpu1=24475:3635:828:1576:995",
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-2-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=37.110",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30072 handoffs=106 concurrent=1001 witnessed=1357 max_parallel=2 spun=190 drains=35226 drain_waits=59 bkl_acquired=90711 bkl_contended=57307 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1072:370:510:38304:28607 cpu1=2290:631:847:52407:28700",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=17729:0:1811:923:267 cpu1=24157:3887:922:1811:1191",
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-2-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=35.689",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=2 sections=3362 completed=3362 declined=30141 handoffs=121 concurrent=1042 witnessed=1395 max_parallel=2 spun=177 drains=35315 drain_waits=62 bkl_acquired=90477 bkl_contended=54635 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=954:341:448:37405:27297 cpu1=2408:701:947:53072:27338",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=17335:0:1837:753:151 cpu1=24423:3737:750:1837:1262",
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-2-release-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=33.354",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=0 online=2 sections=3362 completed=3362 declined=29955 handoffs=79 concurrent=1114 witnessed=1588 max_parallel=2 spun=299 drains=35148 drain_waits=42 bkl_acquired=91306 bkl_contended=56858 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=1595:581:818:41874:28441 cpu1=1767:533:770:49432:28417",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=19181:0:1461:1224:524 cpu1=22963:3487:1222:1463:777",
+   "kernel_input": "x86_64-release-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-4-debug-on-hot-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=36.680",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29815 handoffs=208 concurrent=1684 witnessed=1748 max_parallel=3 spun=381 drains=34808 drain_waits=79 bkl_acquired=90313 bkl_contended=80805 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=673:349:366:21118:19631 cpu1=1092:552:568:24123:21643 cpu2=996:484:496:23523:20537 cpu3=601:299:318:21549:18994",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 3,
+    "cycles": 321,
+    "failures": 0,
+    "probe_cycles": 305
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9444:0:1109:1511:306 cpu1=10990:3864:1001:1210:584 cpu2=10800:3867:821:1229:571 cpu3=9653:3384:1726:717:334",
+   "kernel_input": "x86_64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-x86_64-4-debug-on-hot-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=37.483",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29803 handoffs=201 concurrent=1605 witnessed=1765 max_parallel=3 spun=391 drains=34869 drain_waits=70 bkl_acquired=90489 bkl_contended=80866 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=754:358:395:22111:20540 cpu1=977:486:510:24431:20991 cpu2=1005:489:538:22517:20173 cpu3=626:272:322:21430:19162",
+   "section_requirements": "pass",
+   "hotplug": {
+    "cpu": 3,
+    "cycles": 325,
+    "failures": 0,
+    "probe_cycles": 309
+   },
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9871:0:1144:1639:392 cpu1=11196:3941:998:1158:521 cpu2=10318:3943:883:1245:597 cpu3=9544:3463:1754:749:318",
+   "kernel_input": "x86_64-debug-on-hot"
+  },
+  {
+   "name": "smp_stress-x86_64-4-debug-on-plain-r1",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=34.451",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29623 handoffs=219 concurrent=1681 witnessed=1792 max_parallel=3 spun=375 drains=34631 drain_waits=56 bkl_acquired=88040 bkl_contended=79743 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=569:270:305:20229:18573 cpu1=782:399:422:22039:19676 cpu2=1044:543:562:23555:21323 cpu3=967:469:503:22217:20171",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9365:0:1110:793:315 cpu1=10110:3629:1063:846:331 cpu2=10728:3635:936:1214:633 cpu3=10179:3632:785:1052:495",
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-4-debug-on-plain-r2",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=37.168",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=30048 handoffs=240 concurrent=1598 witnessed=1741 max_parallel=3 spun=426 drains=35100 drain_waits=90 bkl_acquired=88888 bkl_contended=79675 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=461:215:242:20369:18771 cpu1=795:374:402:21984:19539 cpu2=931:452:486:22209:19693 cpu3=1175:557:611:24326:21672",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9526:0:1202:719:268 cpu1=10068:3885:1053:986:431 cpu2=10132:3893:924:1019:487 cpu3=11055:3896:794:1254:615",
+   "kernel_input": "x86_64-debug-on-plain"
+  },
+  {
+   "name": "smp_stress-x86_64-4-debug-on-plain-r3",
+   "status": "pass",
+   "result": "SMP_STRESS_PASS arch=x86_64 workers=6 rounds=40 files=480 messages=960 forks=480 seconds=34.696",
+   "accelerator": "multi-threaded-tcg",
+   "kernel_sections": "OK_SMP_KERNEL scope=hardware debug=1 online=4 sections=3362 completed=3362 declined=29760 handoffs=214 concurrent=1591 witnessed=1703 max_parallel=3 spun=448 drains=34760 drain_waits=64 bkl_acquired=88082 bkl_contended=79760 lock_violations=0 exclusive_asserts=0 drain_asserts=0 depth_asserts=0 section_asserts=0 cow_refused=0 purity_faults=0 shadow=1/0 cpu0=579:276:288:21069:19200 cpu1=862:396:436:22572:20531 cpu2=923:428:477:22628:20360 cpu3=998:491:502:21813:19669",
+   "section_requirements": "pass",
+   "hotplug": null,
+   "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=4 cpu0=9773:0:1255:805:292 cpu1=10315:3650:1035:1028:487 cpu2=10358:3653:935:1094:493 cpu3=9948:3651:816:1130:538",
+   "kernel_input": "x86_64-debug-on-plain"
+  }
+ ],
+ "status": "pass",
+ "observations": [
+  "Guest seconds at 2 vCPUs are about equal with sections on and off (x86_64 34.8-37.1 s on vs 34.9 s off; aarch64 53.5-58.6 vs 51.8; rv64 40.0-42.6 vs 43.1): sections overlap other kernel work (concurrent/witnessed/max_parallel) but give no measurable guest-time gain under TCG on this host.",
+  "FUTEX_SMP_ATOMIC alternated= counts alternation between kernel and user updates, not proven simultaneity; the lost-update checks are the evidence."
+ ],
+ "not_claimed": [
+  "physical hardware",
+  "parallel speedup",
+  "simultaneity of futex updates"
+ ]
+}

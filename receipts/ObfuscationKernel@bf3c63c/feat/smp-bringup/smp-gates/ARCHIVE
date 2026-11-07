@@ -1,0 +1,13 @@
+Unversioned copies under archive/receipts/ObfuscationKernel@bf3c63c/feat/smp-bringup/kernels/:
+4666b873f1363e528e08b1bc374bbb3bd43b77cb75f55de0e10b8ab0bb4c1034  aarch64-debug-off-plain-kernel.bin
+59b569bff848d4774c76619e05ca79b521bc867262619d0b78c4f9f2452df916  aarch64-debug-on-hot-kernel.bin
+6126e4a527c64727b6ad893709d984dfa968b4270d9e7ebc66ea225a048c4050  aarch64-debug-on-plain-kernel.bin
+8102bf64364bdc16d19ebb3009fbe0fe36a5092bf2510d530e596c11182d89af  aarch64-release-on-plain-kernel.bin
+72c8c8146c6642495f910186e6cadb5409d64ce85b604e3f6b2e758d9af2e11f  rv64-debug-off-plain-kernel.bin
+5b6e20a79cf048e9e8c39d45b645897ecaae509a893790c5dcfb44fc1c5241bc  rv64-debug-on-hot-kernel.bin
+a20a5125bfa243e42d9bdc12c4f28a8a42afe8b9d661da8ec0946ebc454a8531  rv64-debug-on-plain-kernel.bin
+c6272f280e5f7c1a509d47a46248eaaf605086ebf0f610707565b88fcccf46f1  rv64-release-on-plain-kernel.bin
+8baa86a0e5c6f3575e4e41b4ce9adc09110333e769ac399a171ccf369cd6681f  x86_64-debug-off-plain-kernel.bin
+51d202b133a2e3d212067a6a117b69512c68fb1a95f23855e63385ac5fb2dd33  x86_64-debug-on-hot-kernel.bin
+2be0c65d56e66d7903bb3db16ed998c971f4cad33badde15d203dbb7e80976ed  x86_64-debug-on-plain-kernel.bin
+0ab1e66e8e6ebdf323d836ae0d545122d336c41efb57a57e081b163773982046  x86_64-release-on-plain-kernel.bin

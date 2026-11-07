@@ -1,0 +1,5 @@
+cd <os> && xmake f -y -m <mode> --native_init_acceptance=y -a <arch> --kernel_sdk=<kernel>/build/sdk/<arch>/<mode> --systoolchain_dir=<tc>/<triple> && xmake -y -r -b distro_image && xmake -y -b rootfs-stage
+python3 -B tools/build_musl_probe.py --arch <arch> --musl-build <musl-<arch>-<mode>> --toolchain <tc>/<triple> --source tests/musl/{smp_stress,futex_smp_atomic}.c --linker-script tests/musl/bootstrap.ld --out <probe>
+python3 -B scripts/test_smp_stress.py --arch <arch> --mode <mode> --smp <N> --qemu <tc>/<triple>/bin/qemu-system-<q> --kernel build/<arch>/<mode>/distro/kernel.bin --kernel-sdk <sdk> --rootfs-tree build/<arch>/<mode>/rootfs --probe <probe>/bootstrap.elf --musl-build <musl> --out <out> --smp-sections on|off [--require-hotplug] --timeout 900
+python3 -B scripts/test_futex_smp_atomic.py (same arguments, no --smp-sections)
+kernel SDK: xmake f -P <kernel> -c -y -m <mode> -a <arch> --smp_sections=y|n [--smp_hotplug_test=y] && xmake -P <kernel> -y -b okernel_image && xmake -P <kernel> -y -b kernel-sdk

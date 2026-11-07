@@ -1,0 +1,90 @@
+{
+  "accelerator": "multi-threaded-tcg",
+  "allow_up": false,
+  "alternated": 19999,
+  "architecture": "x86_64",
+  "baseline_user_entries": {
+    "0": 1378,
+    "1": 1666
+  },
+  "boot_seconds": 7.96,
+  "command": [
+    "/home/tab/.cache/systoolchain-0.1.0/tc/x86_64-elf/bin/qemu-system-x86_64",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-smp-bringup-feat-c9af8a/c83449a4-f43d-4273-94a4-c55c6a40180c/scratchpad/camp/gate/futex_smp_atomic-x86_64-2-debug-on-plain-r1/kernel-input.bin,format=raw,if=ide",
+    "-boot",
+    "c",
+    "-vga",
+    "none",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-smp",
+    "2",
+    "-device",
+    "ramfb",
+    "-drive",
+    "file=/tmp/claude-1000/-media-data1-Project-System-ObfuscationProject-ObfuscationKernel--claude-worktrees-smp-bringup-feat-c9af8a/c83449a4-f43d-4273-94a4-c55c6a40180c/scratchpad/camp/gate/futex_smp_atomic-x86_64-2-debug-on-plain-r1/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0",
+    "-name",
+    "futex-smp-atomic,debug-threads=on"
+  ],
+  "cpu_counters": {
+    "0": {
+      "ipis_received": 169,
+      "ipis_sent": 177,
+      "local_ticks": 0,
+      "shootdowns": 0,
+      "user_entries": 73158
+    },
+    "1": {
+      "ipis_received": 175,
+      "ipis_sent": 169,
+      "local_ticks": 1838,
+      "shootdowns": 0,
+      "user_entries": 3421
+    }
+  },
+  "cpus": 2,
+  "input_disk_sha256": "f94facb6ddd55aa1f9bc99db18340f047e33e53527c37e4badf0b1a4291f81ba",
+  "kernel_sha256": "2be0c65d56e66d7903bb3db16ed998c971f4cad33badde15d203dbb7e80976ed",
+  "kernel_smp": "OK_SMP scope=hardware cpus=2 online=2 ap_start=sipi ipi=pass tsc=sync",
+  "kernel_smp_cpus": "OK_SMP_CPUS scope=hardware online=2 cpu0=73158:0:169:177:0 cpu1=3421:1838:175:169:0",
+  "mode": "debug",
+  "musl_manifest_sha256": "218f4a8a1314281a8b915679044e8350d03ac9a2ba5274ce64046e176e37eced",
+  "online_cpus": 2,
+  "overlap_claim": "none: alternation only, not simultaneity",
+  "per_cpu_user_entries": "pass",
+  "physical": false,
+  "probe_manifest_sha256": "3c8a9d59d0d3621c5ba41101e227693ac8d6377e9a28d92706d7cee49764482f",
+  "probe_seconds": 16.69,
+  "probe_sha256": "5227808adbd8a330dd37926d011ec9840ab426ee8d7491125f973f10d3e74764",
+  "probe_user_entries": {
+    "0": 71780,
+    "1": 1755
+  },
+  "qemu_sha256": "b9f7e439b72163515d87d998337771e39e291f1467d5feeebd4dadf5d554d916",
+  "result": "FUTEX_SMP_ATOMIC_PASS arch=x86_64 rounds=20000 user=696076593 flips=1692150059 alternated=19999",
+  "rounds": 20000,
+  "schema": 1,
+  "scope": "actual-static-musl-qemu-futex-smp-atomic",
+  "script_sha256": "7911c061c61749f9d60a6729877571ef441dacc7b0a2c9722f54beeea2949c74",
+  "sdk_manifest_sha256": "84e34678876ac0b8578c94b99d4d48d62eb0d28a615afde349bea755ceb619db",
+  "serial_sha256": "97af01d1a85ed39ed15cdd05e290e702e1b801583dd675f6ad27a0ea88422864",
+  "smp": true,
+  "status": "pass",
+  "tcg_threads": [
+    "CPU 0/TCG",
+    "CPU 1/TCG"
+  ],
+  "transcript_bytes": 402467
+}

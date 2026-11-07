@@ -1,0 +1,140 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "bf3c63c3b2932668acfba052dc404871ee5c1ff2",
+ "branch": "feat/smp-bringup",
+ "date": "2026-11-07",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG)",
+ "paired_os": {
+  "repository": "ObfuscationOS",
+  "commit": "3ed41601f2f9790d70d93db9d5b64b54e7d198f4",
+  "branch": "feat/smp-bringup"
+ },
+ "campaign": "native-probes",
+ "scope": "Isolated execution-backend probes in QEMU (ring-3/EL0/U-mode code, secondary CPUs, shootdown, remote remap, device-line top halves on secondaries, wake IPIs, device waits under the kernel lock, sections serving local interrupts, retarget_away, TSC handshake).",
+ "tree": "kernel worktree at bf3c63c3b2932668acfba052dc404871ee5c1ff2",
+ "runs": [
+  {
+   "arch": "x86_64",
+   "args": "--smp 2",
+   "rc": 0,
+   "markers": [
+    "OK_NATIVE_TEST address_spaces=pass sse=pass",
+    "OK_NATIVE_TLB scope=hardware asid=none pcid=off churn=pass rollover=untagged remap=pass",
+    "OK_NATIVE_TEST timer_preemption=pass",
+    "OK_NATIVE_TEST supervisor_isolation=pass readonly=pass nx=pass faults=pass",
+    "OK_NATIVE_DENSE pages=192 touch=pass zero=pass",
+    "OK_NATIVE_DENSE none=pass unmap=pass remap=pass failure=pass",
+    "OK_NATIVE_SMP scope=hardware cpus=2 secondary_user=pass syscall=pass local_timer=pass ipi=pass shootdown=pass remote_remap=pass boot_pit=pass tsc=sync",
+    "OK_NATIVE_IOAPIC scope=hardware boot_wait=pass pit_gsi=pass uart_gsi=pass",
+    "OK_NATIVE_IOAPIC scope=hardware cpus=2 user_top_half=pass wake_ipi=pass idle_top_half=pass secondary_device_wait=pass spin_serve=pass",
+    "OK_NATIVE_IOAPIC scope=hardware retarget_away=pass",
+    "OK_NATIVE_IOAPIC scope=hardware cpus=2 section_wait_serve=pass section_poll_serve=pass",
+    "OK_NATIVE_TEST_PASS scope=hardware architecture=x86_64"
+   ]
+  },
+  {
+   "arch": "x86_64",
+   "args": "",
+   "rc": 0,
+   "markers": [
+    "OK_NATIVE_TEST boot=begin",
+    "OK_NATIVE_TEST user_copy=pass",
+    "OK_NATIVE_TEST cpl3=pass syscall=pass registers=pass",
+    "OK_NATIVE_TEST address_spaces=pass sse=pass",
+    "OK_NATIVE_TLB scope=hardware asid=none pcid=off churn=pass rollover=untagged remap=pass",
+    "OK_NATIVE_TEST timer_preemption=pass",
+    "OK_NATIVE_TEST supervisor_isolation=pass readonly=pass nx=pass faults=pass",
+    "OK_NATIVE_DENSE pages=192 touch=pass zero=pass",
+    "OK_NATIVE_DENSE none=pass unmap=pass remap=pass failure=pass",
+    "OK_NATIVE_SMP scope=hardware secondary=skipped reason=single-cpu",
+    "OK_NATIVE_IOAPIC scope=hardware boot_wait=pass pit_gsi=pass uart_gsi=pass",
+    "OK_NATIVE_TEST_PASS scope=hardware architecture=x86_64"
+   ]
+  },
+  {
+   "arch": "aarch64",
+   "args": "--smp 2",
+   "rc": 0,
+   "markers": [
+    "OK_NATIVE_TEST_PASS scope=hardware architecture=aarch64",
+    "OK_NATIVE_TEST boot=begin",
+    "OK_NATIVE_TEST user_copy=pass",
+    "OK_NATIVE_TEST el0=pass syscall=pass registers=pass",
+    "OK_NATIVE_TEST address_spaces=pass simd=pass",
+    "OK_NATIVE_TLB scope=hardware asid=16 churn=pass rollover=pass remap=pass",
+    "OK_NATIVE_TEST timer_preemption=pass",
+    "OK_NATIVE_TEST supervisor_isolation=pass readonly=pass nx=pass faults=pass",
+    "OK_NATIVE_SMP scope=hardware cpus=2 asid=16 secondary_user=pass syscall=pass local_timer=pass ipi=pass shootdown=pass remote_remap=pass",
+    "OK_NATIVE_GIC scope=hardware cpus=2 user_top_half=pass wake_ipi=pass idle_top_half=pass kernel_lock_wait=pass spin_serve=pass retarget_away=pass",
+    "OK_NATIVE_GIC scope=hardware cpus=2 section_wait_serve=pass section_poll_serve=pass",
+    "OK_NATIVE_TEST_PASS scope=hardware architecture=aarch64"
+   ]
+  },
+  {
+   "arch": "rv64",
+   "args": "",
+   "rc": 0,
+   "markers": [
+    "RV64_NATIVE_BEGIN",
+    "RV64_NATIVE syscall=pass return=pass",
+    "RV64_NATIVE timer=pass context=pass",
+    "RV64_NATIVE protection=pass fp=pass",
+    "RV64_NATIVE address_spaces=pass",
+    "RV64_NATIVE tlb_asid=16 churn=pass rollover=pass remap=pass",
+    "RV64_NATIVE device_route=hart1 user_top_half=pass wake_ipi=pass",
+    "RV64_NATIVE harts=2 start=pass local_timer=pass shootdown=pass remote_remap=pass idle_ipi=pass",
+    "RV64_NATIVE idle_top_half=pass secondary_device_wait=pass spin_serve=pass",
+    "RV64_NATIVE retarget_away=pass",
+    "RV64_NATIVE section_wait_serve=pass section_poll_serve=pass",
+    "RV64_NATIVE_PASS scope=hardware"
+   ]
+  },
+  {
+   "arch": "arm32",
+   "args": "",
+   "rc": 0,
+   "markers": [
+    "ARM32_NATIVE_BEGIN",
+    "ARM32_NATIVE syscall=pass return=pass tls=pass thumb=pass",
+    "ARM32_NATIVE timer=pass context=pass",
+    "ARM32_NATIVE user_fpexc=pass arm_fp=pass thumb_fp=pass invalid_fp=10 kernel_fpexc=pass",
+    "ARM32_NATIVE protection=pass fp=pass",
+    "ARM32_NATIVE address_spaces=pass",
+    "ARM32_NATIVE_PASS scope=hardware"
+   ]
+  },
+  {
+   "arch": "rv32",
+   "args": "",
+   "rc": 0,
+   "markers": [
+    "RV32_NATIVE_BEGIN",
+    "RV32_NATIVE syscall=pass return=pass",
+    "RV32_NATIVE timer=pass context=pass",
+    "RV32_NATIVE protection=pass fp=pass",
+    "RV32_NATIVE address_spaces=pass",
+    "RV32_NATIVE_PASS scope=hardware"
+   ]
+  },
+  {
+   "arch": "i386",
+   "args": "",
+   "rc": 0,
+   "markers": [
+    "OK_NATIVE_TEST boot=begin",
+    "OK_NATIVE_TEST user_copy=pass",
+    "OK_NATIVE_TEST cpl3=pass syscall=pass registers=pass",
+    "OK_NATIVE_TEST address_spaces=pass sse=pass x87=pass tls=pass kernel_context=pass",
+    "OK_NATIVE_TEST timer_preemption=pass",
+    "OK_NATIVE_TEST supervisor_isolation=pass readonly=pass nx=pass faults=pass",
+    "OK_NATIVE_TEST segmented_stack=pass",
+    "OK_NATIVE_TEST_PASS scope=hardware architecture=i386"
+   ]
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "physical hardware"
+ ]
+}

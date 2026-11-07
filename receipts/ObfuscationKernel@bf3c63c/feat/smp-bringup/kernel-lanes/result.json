@@ -1,0 +1,248 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "bf3c63c3b2932668acfba052dc404871ee5c1ff2",
+ "branch": "feat/smp-bringup",
+ "date": "2026-11-07",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG)",
+ "paired_os": {
+  "repository": "ObfuscationOS",
+  "commit": "3ed41601f2f9790d70d93db9d5b64b54e7d198f4",
+  "branch": "feat/smp-bringup"
+ },
+ "campaign": "kernel-lanes",
+ "scope": "Standalone kernel boot lanes (xmake test, debug test-point images): ten profiles with one CPU; x86_64, aarch64 and rv64 three times each at 2 and 4 vCPUs (OK_SMP, tsc=, OK_SMP_TLB, the hotplug boot test point).",
+ "tree": "kernel worktree at bf3c63c3b2932668acfba052dc404871ee5c1ff2",
+ "runs": [
+  {
+   "arch": "i386",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=i386 processes=15 cpus=1",
+   "log": "logs/i386-1.log.xz"
+  },
+  {
+   "arch": "x86_64",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=x86_64 processes=15 cpus=1",
+   "log": "logs/x86_64-1.log.xz"
+  },
+  {
+   "arch": "aarch64",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=aarch64 processes=15 cpus=1",
+   "log": "logs/aarch64-1.log.xz"
+  },
+  {
+   "arch": "arm32",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=arm32 processes=15 cpus=1",
+   "log": "logs/arm32-1.log.xz"
+  },
+  {
+   "arch": "rv64",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=rv64 processes=15 cpus=1",
+   "log": "logs/rv64-1.log.xz"
+  },
+  {
+   "arch": "rv32",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=rv32 processes=15 cpus=1",
+   "log": "logs/rv32-1.log.xz"
+  },
+  {
+   "arch": "loongarch64",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=loongarch64 processes=15 cpus=1",
+   "log": "logs/loongarch64-1.log.xz"
+  },
+  {
+   "arch": "mips",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=mips processes=15 cpus=1",
+   "log": "logs/mips-1.log.xz"
+  },
+  {
+   "arch": "mips64",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=mips64 processes=15 cpus=1",
+   "log": "logs/mips64-1.log.xz"
+  },
+  {
+   "arch": "ppc",
+   "qemu_smp": 1,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_TEST_PASS arch=ppc processes=15 cpus=1",
+   "log": "logs/ppc-1.log.xz"
+  },
+  {
+   "arch": "x86_64",
+   "qemu_smp": 2,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=x86_64 smp=2 cpus=2 online=2 ap_start=sipi ipi=pass tsc=sync tlb_asid=none pcid=off hotplug_boot=pass",
+   "log": "logs/x86_64-2-1.log.xz"
+  },
+  {
+   "arch": "x86_64",
+   "qemu_smp": 2,
+   "run": 2,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=x86_64 smp=2 cpus=2 online=2 ap_start=sipi ipi=pass tsc=sync tlb_asid=none pcid=off hotplug_boot=pass",
+   "log": "logs/x86_64-2-2.log.xz"
+  },
+  {
+   "arch": "x86_64",
+   "qemu_smp": 2,
+   "run": 3,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=x86_64 smp=2 cpus=2 online=2 ap_start=sipi ipi=pass tsc=sync tlb_asid=none pcid=off hotplug_boot=pass",
+   "log": "logs/x86_64-2-3.log.xz"
+  },
+  {
+   "arch": "x86_64",
+   "qemu_smp": 4,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=x86_64 smp=4 cpus=4 online=4 ap_start=sipi ipi=pass tsc=sync tlb_asid=none pcid=off hotplug_boot=pass",
+   "log": "logs/x86_64-4-1.log.xz"
+  },
+  {
+   "arch": "x86_64",
+   "qemu_smp": 4,
+   "run": 2,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=x86_64 smp=4 cpus=4 online=4 ap_start=sipi ipi=pass tsc=sync tlb_asid=none pcid=off hotplug_boot=pass",
+   "log": "logs/x86_64-4-2.log.xz"
+  },
+  {
+   "arch": "x86_64",
+   "qemu_smp": 4,
+   "run": 3,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=x86_64 smp=4 cpus=4 online=4 ap_start=sipi ipi=pass tsc=sync tlb_asid=none pcid=off hotplug_boot=pass",
+   "log": "logs/x86_64-4-3.log.xz"
+  },
+  {
+   "arch": "aarch64",
+   "qemu_smp": 2,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=aarch64 smp=2 cpus=2 online=2 ap_start=psci-hvc ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/aarch64-2-1.log.xz"
+  },
+  {
+   "arch": "aarch64",
+   "qemu_smp": 2,
+   "run": 2,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=aarch64 smp=2 cpus=2 online=2 ap_start=psci-hvc ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/aarch64-2-2.log.xz"
+  },
+  {
+   "arch": "aarch64",
+   "qemu_smp": 2,
+   "run": 3,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=aarch64 smp=2 cpus=2 online=2 ap_start=psci-hvc ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/aarch64-2-3.log.xz"
+  },
+  {
+   "arch": "aarch64",
+   "qemu_smp": 4,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=aarch64 smp=4 cpus=4 online=4 ap_start=psci-hvc ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/aarch64-4-1.log.xz"
+  },
+  {
+   "arch": "aarch64",
+   "qemu_smp": 4,
+   "run": 2,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=aarch64 smp=4 cpus=4 online=4 ap_start=psci-hvc ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/aarch64-4-2.log.xz"
+  },
+  {
+   "arch": "aarch64",
+   "qemu_smp": 4,
+   "run": 3,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=aarch64 smp=4 cpus=4 online=4 ap_start=psci-hvc ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/aarch64-4-3.log.xz"
+  },
+  {
+   "arch": "rv64",
+   "qemu_smp": 2,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=rv64 smp=2 cpus=2 online=2 ap_start=clint-msip ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/rv64-2-1.log.xz"
+  },
+  {
+   "arch": "rv64",
+   "qemu_smp": 2,
+   "run": 2,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=rv64 smp=2 cpus=2 online=2 ap_start=clint-msip ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/rv64-2-2.log.xz"
+  },
+  {
+   "arch": "rv64",
+   "qemu_smp": 2,
+   "run": 3,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=rv64 smp=2 cpus=2 online=2 ap_start=clint-msip ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/rv64-2-3.log.xz"
+  },
+  {
+   "arch": "rv64",
+   "qemu_smp": 4,
+   "run": 1,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=rv64 smp=4 cpus=4 online=4 ap_start=clint-msip ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/rv64-4-1.log.xz"
+  },
+  {
+   "arch": "rv64",
+   "qemu_smp": 4,
+   "run": 2,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=rv64 smp=4 cpus=4 online=4 ap_start=clint-msip ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/rv64-4-2.log.xz"
+  },
+  {
+   "arch": "rv64",
+   "qemu_smp": 4,
+   "run": 3,
+   "rc": 0,
+   "marker": "OK_QEMU_SMP_TEST arch=rv64 smp=4 cpus=4 online=4 ap_start=clint-msip ipi=pass tlb_asid=16 pcid=off hotplug_boot=pass",
+   "log": "logs/rv64-4-3.log.xz"
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "physical hardware",
+  "x86 PCID execution (QEMU TCG offers no PCID)",
+  "IA32_TSC_ADJUST correction (TCG has no TSC_ADJUST; model coverage only)"
+ ]
+}

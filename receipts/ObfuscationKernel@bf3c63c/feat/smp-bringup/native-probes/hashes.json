@@ -1,0 +1,13 @@
+{
+ "files": {
+  "commands.txt": "13b348d9c6be5b779d7d817d8843f48db5248bb9bf0e3de1e55988223adcd974",
+  "logs/aarch64--smp2.log.xz": "3b49edb137a8c5587f31da90e81528bf1db13a8caef7ccfd2715a61a49aa6599",
+  "logs/arm32.log.xz": "ca4d44d2fe33830f64382ce67a850304a67448c3397380474adc6013c31f5427",
+  "logs/i386.log.xz": "44098913f47e62a2bf0671e3f00c64150e38077e870a533c20ed55ce13815057",
+  "logs/rv32.log.xz": "abd8b205741838e3457b57be2d804656239a8cff55337c4eb53498c2463f3228",
+  "logs/rv64.log.xz": "78556058db095a42415df360b2a5fcfceafa7ee214bdfd170a130a7cd5f6df0b",
+  "logs/x86_64--smp2.log.xz": "796d552ae6bf3cb7bddbdd1dde29901b9281e6a801de23f10c847d7ad545edbd",
+  "logs/x86_64.log.xz": "99d199550f7346e54945db11e7b2fb06a72153d6a1acd8bdddb28b9dbc77ef61",
+  "result.json": "fc956fe59c4aa2eb77a0f7d0c455f6b128a1dc5328180e0e52b05d064e4d5173"
+ }
+}

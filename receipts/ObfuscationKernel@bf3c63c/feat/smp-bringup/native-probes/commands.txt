@@ -1,0 +1,1 @@
+python3 -B scripts/test_native_<arch>.py --toolchain <tc>/<triple> --qemu <tc>/<triple>/bin/qemu-system-<q> --output <out> [--smp 2]

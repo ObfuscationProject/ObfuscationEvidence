@@ -1,0 +1,42 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "bf3c63c3b2932668acfba052dc404871ee5c1ff2",
+ "branch": "feat/smp-bringup",
+ "date": "2026-11-07",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG)",
+ "paired_os": {
+  "repository": "ObfuscationOS",
+  "commit": "3ed41601f2f9790d70d93db9d5b64b54e7d198f4",
+  "branch": "feat/smp-bringup"
+ },
+ "campaign": "hosted-sdk",
+ "scope": "Full hosted suite, SDK contract tests, the ten-profile debug build, and the paired OS tool suite and native distro boot against the ABI 80 SDK.",
+ "tree": "kernel bf3c63c3b2932668acfba052dc404871ee5c1ff2 (the ABI 80 bump worktree); OS = 3ed4160 content (87a2d0a plus the ABI 80 diff, built from a copy)",
+ "runs": [
+  {
+   "command": "python3 -B scripts/hosted_suite.py --toolchain-root <tc> --jobs 6",
+   "result": "154 passed, 0 failed, 58 not run (inputs, quarantine, fixture)"
+  },
+  {
+   "command": "python3 -B <sdk contract tests, test_native_signal_export.py, sdk_boot_archive_receipt_tests.py --exporter tools/export_sdk.py> (scratch umbrella layout)",
+   "result": "12 suites pass"
+  },
+  {
+   "command": "kbuild <arch> 1 build for i386 x86_64 aarch64 arm32 rv64 rv32 loongarch64 mips mips64 ppc",
+   "result": "all build-ok"
+  },
+  {
+   "command": "OK_TEST_KERNEL_SDK=<sdk x86_64 debug> OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -m unittest discover -s tests/tools -p 'test_*.py'",
+   "result": "Ran 1336 tests, OK (skipped=34)"
+  },
+  {
+   "command": "xmake qemu-distro --fs=simplefs --require-native --timeout=120 --display=none --qemu=<tc>/x86_64-elf/bin/qemu-system-x86_64",
+   "result": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "guest SMP execution (see smp-gates)"
+ ]
+}

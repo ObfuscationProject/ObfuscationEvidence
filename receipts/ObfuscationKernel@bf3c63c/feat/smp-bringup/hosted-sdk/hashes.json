@@ -1,0 +1,12 @@
+{
+ "files": {
+  "commands.txt": "752485d53282c447de3795ee1d8f720786d8f9800db61ac3b1a5886a10836fc8",
+  "hosted-summary.json": "bf9f7af54e3a84295d7f7b90fd59c179cd0bc0dcb622fe55c46927868ded12f9",
+  "logs/buildall.log.xz": "5a9f3017e23f175891c6e7293e32bd486d685456cf456a61bab583a8475477db",
+  "logs/hosted.log.xz": "5ed8cf49ba922c94656f970cc5028da86a2cb2b7e0e00efb4f8c301b4da910f5",
+  "logs/kernel-py-tests.log.xz": "d267e94df580383db6088379282cf955216cddff09d70ff3f7bd8426cc0adfb1",
+  "logs/os-qemu-distro.log.xz": "9eec557b1d3af62dcbbf120c3596aac7af89781bb5c69567461716d059912399",
+  "logs/os-unittest.log.xz": "ccd9540056f1c8fd32ee178a78ea7972388557c775582fabd36c2bc546436577",
+  "result.json": "c88c843e10ac0fd82d0560cb24e1a4392dfbc184655b4e1d7a17954d8910770b"
+ }
+}
