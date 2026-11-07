@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "f69c5c5",
+ "final_commit_docs_only": "7e4b590",
+ "branch": "feat/smp-bringup",
+ "date": "2026-11-07",
+ "paired_os": {
+  "repository": "ObfuscationOS",
+  "commit": "e86adee + os-smp-review-fixes.diff (committed as b6a608b)",
+  "branch": "feat/smp-bringup"
+ },
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG)",
+ "campaign": "pre-merge-fixes",
+ "scope": "Fixes from the final pre-merge review: private-signal capture rebind (mips, mips64, ppc), position lock across staged reads, x86 AP start-block identity check, static step candidates, docs. Native OS distro boot on all ten profiles, Linux-personality musl stress on ppc/mips/mips64 at 1 vCPU, SMP gates on x86_64/aarch64/rv64, kernel lanes, native probes, hosted suite, OS tool suite.",
+ "runs": [
+  {
+   "command": "xmake qemu-distro --fs=simplefs --require-native --timeout=300 --display=none (OS copy against the debug SDK) on i386 x86_64 aarch64 arm32 rv64 rv32 loongarch64 mips mips64 ppc",
+   "result": "10 of 10 OK_USERLAND scope=hardware acceptance=pass; baseline 3c5ef19: mips and mips64 fail (private capture readiness missing)",
+   "logs": "logs/distro-fix, logs/distro-base"
+  },
+  {
+   "command": "scripts/test_smp_stress.py --smp 1 on ppc, mips, mips64",
+   "result": "SMP_STRESS_PASS files=480 messages=960 forks=480 on all three",
+   "logs": "logs/upstress-*"
+  },
+  {
+   "command": "camp/gate.sh stress at 2 and 4 vCPUs, hotplug at 2, futex at 2 on x86_64, aarch64, rv64",
+   "result": "all pass, assertion counters 0; hotplug cycles 501/961/884, failures 0",
+   "logs": "logs/smp-*.sum"
+  },
+  {
+   "command": "xmake test lanes: ten profiles at 1 CPU, SMP profiles at 2",
+   "result": "13 of 13 pass",
+   "logs": "logs/lanes"
+  },
+  {
+   "command": "native probes x86_64 (1 and 2 CPUs), aarch64 --smp 2, rv64",
+   "result": "all pass",
+   "logs": "logs/np-*"
+  },
+  {
+   "command": "hosted_suite.py --toolchain-root <tc> --jobs 6",
+   "result": "154 passed, 0 failed, 58 not run",
+   "logs": "logs/hosted-suite.log"
+  },
+  {
+   "command": "OS unittest discover tests/tools against the x86_64 debug SDK",
+   "result": "Ran 1336 tests, OK (skipped=34)",
+   "logs": "logs/os-unittest.log"
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "physical hardware"
+ ]
+}

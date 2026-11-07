@@ -1,0 +1,1 @@
+see result.json runs[].command; scripts in /tmp scratch (kbuild.sh, camp/gate.sh) as in receipts/ObfuscationKernel@bf3c63c/feat/smp-bringup/smp-gates/commands.txt
