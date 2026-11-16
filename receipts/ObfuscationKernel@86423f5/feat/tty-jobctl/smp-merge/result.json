@@ -1,0 +1,186 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "86423f5ae6f8590b21e5712c4b8988caf66886e8",
+ "branch": "feat/tty-jobctl",
+ "date": "2026-11-14",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG)",
+ "campaign": "smp-merge",
+ "scope": "Integration of main (feat/smp-bringup, ABI 80) into feat/tty-jobctl plus the stopped gate in the per-CPU run queues: ten-profile boot lanes, x86_64/aarch64/rv64 at 2 and 4 vCPUs, the full hosted suite and the run-queue model with four mutations of the stopped gate.",
+ "tree": "kernel worktree at 86423f5 (module ABI 80 still exported; the ABI 81 bump d07b8a3 follows)",
+ "runs": [
+  {
+   "command": "xmake f -P <tree> -a <arch> -m debug; xmake test -P <tree> [--qemu_smp via xmake f]",
+   "lanes": [
+    {
+     "arch": "i386",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=i386 processes=15 cpus=1 drivers=13 free_frames=14374 syscalls=98 debug_test_points=87",
+     "log": "logs/i386-1.log.xz"
+    },
+    {
+     "arch": "x86_64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=x86_64 processes=15 cpus=1 drivers=13 free_frames=13153 syscalls=98 debug_test_points=87",
+     "log": "logs/x86_64-1.log.xz"
+    },
+    {
+     "arch": "aarch64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=aarch64 processes=15 cpus=1 drivers=13 free_frames=46897 syscalls=98 debug_test_points=87",
+     "log": "logs/aarch64-1.log.xz"
+    },
+    {
+     "arch": "arm32",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=arm32 processes=15 cpus=1 drivers=13 free_frames=47880 syscalls=98 debug_test_points=87",
+     "log": "logs/arm32-1.log.xz"
+    },
+    {
+     "arch": "rv64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=rv64 processes=15 cpus=1 drivers=13 free_frames=47427 syscalls=98 debug_test_points=87",
+     "log": "logs/rv64-1.log.xz"
+    },
+    {
+     "arch": "rv32",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=rv32 processes=15 cpus=1 drivers=13 free_frames=48272 syscalls=98 debug_test_points=87",
+     "log": "logs/rv32-1.log.xz"
+    },
+    {
+     "arch": "loongarch64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=loongarch64 processes=15 cpus=1 drivers=13 free_frames=503823 syscalls=98 debug_test_points=87",
+     "log": "logs/loongarch64-1.log.xz"
+    },
+    {
+     "arch": "mips",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=mips processes=15 cpus=1 drivers=13 free_frames=48491 syscalls=98 debug_test_points=87",
+     "log": "logs/mips-1.log.xz"
+    },
+    {
+     "arch": "mips64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=mips64 processes=15 cpus=1 drivers=13 free_frames=47549 syscalls=98 debug_test_points=87",
+     "log": "logs/mips64-1.log.xz"
+    },
+    {
+     "arch": "ppc",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=ppc processes=15 cpus=1 drivers=13 free_frames=43821 syscalls=98 debug_test_points=87",
+     "log": "logs/ppc-1.log.xz"
+    },
+    {
+     "arch": "x86_64",
+     "qemu_smp": 2,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=x86_64 processes=15 cpus=2",
+     "smp": "OK_SMP scope=hardware cpus=2 online=2 ap_start=sipi ipi=pass tsc=sync",
+     "log": "logs/x86_64-smp2.log.xz"
+    },
+    {
+     "arch": "aarch64",
+     "qemu_smp": 2,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=aarch64 processes=15 cpus=2",
+     "smp": "OK_SMP scope=hardware cpus=2 online=2 ap_start=psci-hvc ipi=pass",
+     "log": "logs/aarch64-smp2.log.xz"
+    },
+    {
+     "arch": "rv64",
+     "qemu_smp": 2,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=rv64 processes=15 cpus=2",
+     "smp": "OK_SMP scope=hardware cpus=2 online=2 ap_start=clint-msip ipi=pass",
+     "log": "logs/rv64-smp2.log.xz"
+    },
+    {
+     "arch": "x86_64",
+     "qemu_smp": 4,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=x86_64 processes=15 cpus=4",
+     "smp": "OK_SMP scope=hardware cpus=4 online=4 ap_start=sipi ipi=pass tsc=sync",
+     "log": "logs/x86_64-smp4.log.xz"
+    },
+    {
+     "arch": "aarch64",
+     "qemu_smp": 4,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=aarch64 processes=15 cpus=4",
+     "smp": "OK_SMP scope=hardware cpus=4 online=4 ap_start=psci-hvc ipi=pass",
+     "log": "logs/aarch64-smp4.log.xz"
+    },
+    {
+     "arch": "rv64",
+     "qemu_smp": 4,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=rv64 processes=15 cpus=4",
+     "smp": "OK_SMP scope=hardware cpus=4 online=4 ap_start=clint-msip ipi=pass",
+     "log": "logs/rv64-smp4.log.xz"
+    }
+   ]
+  },
+  {
+   "command": "python3 -B scripts/hosted_suite.py --toolchain-root <tc> --jobs 12 --output <out>",
+   "result": "hosted suite shard 1/1: 164 passed, 0 failed, 59 not run (inputs, quarantine, or no toolchain root or ext4 fixture)",
+   "summary": "hosted-summary.json",
+   "log": "logs/hosted.log.xz"
+  },
+  {
+   "command": "tests/host/run_queue_tests.cpp model and mutation runs (host threads model CPUs)",
+   "model": [
+    {
+     "command": "run-queues-x86_64 (tests/host/run_queue_tests.cpp) on the merged tree",
+     "result": "passed",
+     "log": "logs/run-queues-gate.log.xz"
+    },
+    {
+     "mutation": "stopped gate removed from the enqueue path",
+     "expected": "killed",
+     "status": "killed",
+     "first_failure": "tests/host/run_queue_tests.cpp:432: f.scheduler.enqueue_thread(stopped, stopped).code() == StatusCode::invalid_argument",
+     "log": "logs/mutation-enqueue.log.xz"
+    },
+    {
+     "mutation": "stopped gate removed from the eligible path",
+     "expected": "killed",
+     "status": "killed",
+     "first_failure": "tests/host/run_queue_tests.cpp:428: f.dequeue(1) == other",
+     "log": "logs/mutation-eligible.log.xz"
+    },
+    {
+     "mutation": "stopped gate removed from the dequeue path",
+     "expected": "killed",
+     "status": "killed",
+     "first_failure": "tests/host/run_queue_tests.cpp:431: f.dequeue(0) == 0 && f.thread(stopped).queued_cpu == no_cpu && f.length(0) == 0",
+     "log": "logs/mutation-dequeue.log.xz"
+    },
+    {
+     "mutation": "stopped gate removed from the mark path",
+     "expected": "killed",
+     "status": "killed",
+     "first_failure": "tests/host/run_queue_tests.cpp:434: f.scheduler.mark_on_cpu(stopped, stopped, 3).code() == StatusCode::invalid_argument",
+     "log": "logs/mutation-mark.log.xz"
+    }
+   ]
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "SMP qualification of job control (native_job_control_profile keeps smp=0)",
+  "guest job-control execution on more than one CPU beyond the paired OS --smp=2 distro boot in abi81",
+  "physical hardware"
+ ]
+}

@@ -1,0 +1,239 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "d07b8a365fdd92c0fb2edd12896574c06c5756c5",
+ "branch": "feat/tty-jobctl",
+ "date": "2026-11-14",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG)",
+ "paired_os": {
+  "repository": "ObfuscationOS",
+  "commit": "c3e1c5559a1a30c43cb4938e53e7090458234b0a",
+  "branch": "main + notes os-paired.diff (feat/getty-login obligations, built from a copy)"
+ },
+ "campaign": "abi81",
+ "scope": "Module ABI 81 / UAPI 0.17 bump: ten-profile boot lanes, the SDK contract suites, the ABI-sensitive hosted runners, and the paired ObfuscationOS consumer (os-paired.diff on OS main c3e1c55) on x86_64: SDK check, native distro boot (also --smp=2), the interactive driver, the native devpts probe and the static musl PTY probe.",
+ "tree": "kernel worktree at d07b8a3; the PR head 558b86f and merge commit 5815814 (tag sdk-abi81-uapi0.17) add documentation only (git diff d07b8a3 558b86f touches docs/ only)",
+ "ci": {
+  "pull_request": "ObfuscationProject/ObfuscationKernel#17",
+  "head": "558b86f6d2683964182d9a77dc1531ab5da85e73",
+  "runs": [
+   43656738126,
+   43656733892
+  ],
+  "result": "70 checks pass"
+ },
+ "runs": [
+  {
+   "command": "xmake f -P <tree> -a <arch> -m debug; xmake test -P <tree>",
+   "lanes": [
+    {
+     "arch": "i386",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=i386 processes=15 cpus=1 drivers=13 free_frames=14374 syscalls=98 debug_test_points=87",
+     "log": "logs/i386-1.log.xz"
+    },
+    {
+     "arch": "x86_64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=x86_64 processes=15 cpus=1 drivers=13 free_frames=13153 syscalls=98 debug_test_points=87",
+     "log": "logs/x86_64-1.log.xz"
+    },
+    {
+     "arch": "aarch64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=aarch64 processes=15 cpus=1 drivers=13 free_frames=46897 syscalls=98 debug_test_points=87",
+     "log": "logs/aarch64-1.log.xz"
+    },
+    {
+     "arch": "arm32",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=arm32 processes=15 cpus=1 drivers=13 free_frames=47880 syscalls=98 debug_test_points=87",
+     "log": "logs/arm32-1.log.xz"
+    },
+    {
+     "arch": "rv64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=rv64 processes=15 cpus=1 drivers=13 free_frames=47427 syscalls=98 debug_test_points=87",
+     "log": "logs/rv64-1.log.xz"
+    },
+    {
+     "arch": "rv32",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=rv32 processes=15 cpus=1 drivers=13 free_frames=48272 syscalls=98 debug_test_points=87",
+     "log": "logs/rv32-1.log.xz"
+    },
+    {
+     "arch": "loongarch64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=loongarch64 processes=15 cpus=1 drivers=13 free_frames=503823 syscalls=98 debug_test_points=87",
+     "log": "logs/loongarch64-1.log.xz"
+    },
+    {
+     "arch": "mips",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=mips processes=15 cpus=1 drivers=13 free_frames=48491 syscalls=98 debug_test_points=87",
+     "log": "logs/mips-1.log.xz"
+    },
+    {
+     "arch": "mips64",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=mips64 processes=15 cpus=1 drivers=13 free_frames=47549 syscalls=98 debug_test_points=87",
+     "log": "logs/mips64-1.log.xz"
+    },
+    {
+     "arch": "ppc",
+     "qemu_smp": 1,
+     "rc": 0,
+     "marker": "OK_TEST_PASS arch=ppc processes=15 cpus=1 drivers=13 free_frames=43821 syscalls=98 debug_test_points=87",
+     "log": "logs/ppc-1.log.xz"
+    }
+   ]
+  },
+  {
+   "command": "kernel SDK contract suites against the exported SDK and the paired OS (scratch umbrella layout)",
+   "suites": [
+    {
+     "suite": "archive_directory_sdk_contract_tests",
+     "result": "Ran 6 tests in 1.032s OK",
+     "log": "logs/sdk/archive_directory_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "console_input_sdk_contract_tests",
+     "result": "Ran 1 test in 0.132s OK",
+     "log": "logs/sdk/console_input_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "directory_create_sdk_contract_tests",
+     "result": "Ran 7 tests in 0.303s OK",
+     "log": "logs/sdk/directory_create_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "futex_requeue_sdk_contract_tests",
+     "result": "Ran 9 tests in 5.574s OK",
+     "log": "logs/sdk/futex_requeue_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "futex_wake_operation_sdk_contract_tests",
+     "result": "Ran 6 tests in 2.195s OK",
+     "log": "logs/sdk/futex_wake_operation_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "mount_info_sdk_contract_tests",
+     "result": "Ran 1 test in 0.024s OK",
+     "log": "logs/sdk/mount_info_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "native_pty_sdk_contract_tests",
+     "result": "Ran 11 tests in 1.497s OK",
+     "log": "logs/sdk/native_pty_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "native_tty_sdk_contract_tests",
+     "result": "Ran 8 tests in 6.773s OK",
+     "log": "logs/sdk/native_tty_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "persistent_sync_sdk_contract_tests",
+     "result": "Ran 1 test in 0.060s OK",
+     "log": "logs/sdk/persistent_sync_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "shared_file_sdk_contract_tests",
+     "result": "Ran 6 tests in 0.032s OK",
+     "log": "logs/sdk/shared_file_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "unix_pathname_sdk_contract_tests",
+     "result": "Ran 6 tests in 0.350s OK",
+     "log": "logs/sdk/unix_pathname_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "native_signal_export",
+     "result": "Ran 27 tests in 7.126s OK",
+     "log": "logs/sdk/native_signal_export.log.xz"
+    },
+    {
+     "suite": "test_tty_sdk_contract.py --os-root <paired OS>: console_input_sdk_contract_tests",
+     "result": "Ran 1 test in 0.411s OK",
+     "log": "logs/sdk/tty-contract-console_input_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "test_tty_sdk_contract.py --os-root <paired OS>: native_pty_sdk_contract_tests",
+     "result": "Ran 11 tests in 6.799s OK",
+     "log": "logs/sdk/tty-contract-native_pty_sdk_contract_tests.log.xz"
+    },
+    {
+     "suite": "test_tty_sdk_contract.py --os-root <paired OS>: native_tty_sdk_contract_tests",
+     "result": "Ran 8 tests in 14.238s OK",
+     "log": "logs/sdk/tty-contract-native_tty_sdk_contract_tests.log.xz"
+    }
+   ]
+  },
+  {
+   "command": "python3 -B scripts/hosted_suite.py --toolchain-root <tc> --only <ABI-sensitive runners>",
+   "result": "hosted suite shard 1/1: 4 passed, 0 failed, 5 not run (inputs, quarantine, or no toolchain root or ext4 fixture)",
+   "summary": "hosted-abi-summary.json",
+   "log": "logs/hosted-abi.log.xz"
+  },
+  {
+   "command": "paired ObfuscationOS lanes, x86_64 debug, QEMU TCG",
+   "os": [
+    {
+     "command": "xmake kernel-sdk-check",
+     "result": "verified x86_64/debug, build ok",
+     "log": "logs/os/kernel-sdk-check.log.xz"
+    },
+    {
+     "command": "xmake qemu-distro --fs=simplefs --require-native",
+     "result": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass",
+     "log": "logs/os/qemu-distro.log.xz"
+    },
+    {
+     "command": "xmake qemu-distro --fs=simplefs --require-native --smp=2",
+     "result": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass; OK_SMP_CPUS scope=hardware online=2 cpu0=1444:0:113:86:0 cpu1=1580:138:83:113:0",
+     "log": "logs/os/qemu-distro-smp2.log.xz"
+    },
+    {
+     "command": "interactive driver --posix-check (os-interactive.sh)",
+     "result": "rc=0, every command PASS",
+     "log": "logs/os/interactive.log.xz",
+     "serial": "logs/os/interactive-serial.log.xz"
+    },
+    {
+     "command": "native devpts probe (lane-only fixture target) on the distro image",
+     "result": "TTY_DEVPTS_PROBE stage=PASS value=0",
+     "scope": "guest-native-qemu",
+     "log": "logs/os/devpts-probe-serial.log.xz"
+    },
+    {
+     "command": "static musl Linux PTY probe (openpty, poll, tcsetattr raw, EINTR/SA_RESTART, VTIME)",
+     "result": "TTY_LINUX_PROBE stage=PASS arch=x86_64 checks=43 interrupts=2 vtime_ms=304",
+     "scope": "guest-linux-static-musl-qemu",
+     "probe_sha256": "33e67a19f90f95575af6967f9f0ac2dfebe8b86c93a85ccf465f164cf4da6b86",
+     "log": "logs/os/tty-probe-serial.log.xz"
+    },
+    {
+     "command": "OK_TEST_KERNEL_SDK=<sdk> python3 -B -m unittest discover -s tests/tools -p 'test_*sdk*.py'",
+     "result": "Ran 134 tests in 66.390s OK",
+     "log": "logs/os/sdk-suites.log.xz"
+    }
+   ]
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "the full OS tests/tools discover and the other nine profiles' OS distro boots at ABI 81 (due in the paired feat/getty-login worktree)",
+  "the login lane",
+  "physical hardware",
+  "SMP qualification of job control (native_job_control_profile keeps smp=0)"
+ ]
+}

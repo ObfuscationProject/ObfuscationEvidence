@@ -1,0 +1,33 @@
+{
+  "shard": "1/1",
+  "toolchain_root": "~/.cache/systoolchain-0.1.0/tc",
+  "results": {
+    "mount_info_uapi_cross": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 5
+    },
+    "native_metadata": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 3
+    },
+    "persistent_sync_cross": {
+      "kind": "toolchain",
+      "status": "pass",
+      "seconds": 199
+    },
+    "run_queues": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 35
+    }
+  },
+  "not_run": {
+    "ext4_directory_mode": "quarantine",
+    "ext4_first_data": "inputs",
+    "ext4_journalled_mode": "quarantine",
+    "ext4_mounted": "fixture",
+    "tty_sdk_contract": "inputs"
+  }
+}
