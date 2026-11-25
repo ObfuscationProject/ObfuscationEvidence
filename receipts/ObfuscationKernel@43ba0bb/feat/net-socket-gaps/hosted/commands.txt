@@ -1,0 +1,5 @@
+PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/test_net_runtime.py --output <out> --sanitize
+PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/test_net_core.py --output <out> --toolchain-root <tc> --sanitize
+TCP_STREAMS_* xmake project tests/host/tcp_streams_xmake.lua (kind=sanitized)
+kernel tests/host/*_sdk_contract_tests.py, sdk_boot_archive_receipt_tests.py --exporter tools/export_sdk.py and test_native_signal_export.py from a layout with <kernel> (git archive) and ObfuscationOS -> <os>
+cd <os> && OK_TEST_KERNEL_SDK=<sdk>/x86_64/debug OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug OK_KERNEL_CHECKOUT=<kernel> python3 -B -m unittest discover -s tests/tools -p 'test_*.py'

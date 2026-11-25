@@ -1,0 +1,654 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "43ba0bbaed831b88e368679759fa75c0f557589b",
+  "branch": "feat/net-socket-gaps",
+  "campaign": "device-matrix",
+  "date": "2026-11-25",
+  "scope": "net-socket-gaps ten-profile matrix at kernel 43ba0bb with the paired ObfuscationOS 2f2aaf2: kernel `xmake test` (debug, pinned QEMU 10.2), SDK export at module ABI 82, the OS net_probe image and scripts/test_net_probe.py against tools/net_probe_peer.py (clean and with ten percent TCP loss), then the default image under `xmake qemu-distro --fs=simplefs --require-native`.",
+  "claims": [
+    "kernel xmake test passes on all ten profiles at module ABI 82",
+    "the kernel link probe passes on all ten profiles, clean and with ten percent TCP loss",
+    "the default distribution reports OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass on all ten profiles after the poll/select changes"
+  ],
+  "sources": [
+    {
+      "tree": "kernel@43ba0bb",
+      "repository": "ObfuscationKernel",
+      "commit": "43ba0bbaed831b88e368679759fa75c0f557589b",
+      "relation": "exact git archive",
+      "path": "<kernel>"
+    },
+    {
+      "tree": "os@2f2aaf2",
+      "repository": "ObfuscationOS",
+      "commit": "2f2aaf27b57e5b38fadf729d681cd22761288274",
+      "relation": "exact git archive",
+      "path": "<os>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "python": "3.12.3",
+    "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "systoolchain": "SysToolchain 0.1.0 release archives (sha256-checked), QEMU 10.2.0"
+  },
+  "kernel_sdk": {
+    "repository": "ObfuscationKernel",
+    "commit": "43ba0bbaed831b88e368679759fa75c0f557589b",
+    "abi": 82,
+    "mode": "debug"
+  },
+  "not_claimed": [
+    "physical hardware (QEMU TCG only)",
+    "ICMP errors from a real router: the device runs carry none; ICMP delivery, SO_ERROR and socket-queue polls are covered by the hosted receipt",
+    "SMP",
+    "release images"
+  ],
+  "profiles": {
+    "i386": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=i386 processes=15 cpus=1 drivers=13 free_frames=14370 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=19",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=33",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=18",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1027",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=11",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "x86_64": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=x86_64 processes=15 cpus=1 drivers=13 free_frames=13149 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=21",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=30",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=1",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=17",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1026",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=1",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "aarch64": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=aarch64 processes=15 cpus=1 drivers=13 free_frames=46892 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=70",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=181",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=1",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=35",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1050",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=6",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "arm32": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=arm32 processes=15 cpus=1 drivers=13 free_frames=47877 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=13",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=22",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=3",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=13",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1025",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "rv64": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=rv64 processes=15 cpus=1 drivers=13 free_frames=47425 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=12",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=21",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=13",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1027",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "rv32": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=rv32 processes=15 cpus=1 drivers=13 free_frames=48269 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=16",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=30",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=14",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1022",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "loongarch64": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=loongarch64 processes=15 cpus=1 drivers=13 free_frames=503819 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=16",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=25",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=1",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=10",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1018",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=1",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "mips": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=mips processes=15 cpus=1 drivers=13 free_frames=48486 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=15",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=28",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=14",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1017",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=2",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "mips64": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=mips64 processes=15 cpus=1 drivers=13 free_frames=47545 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=16",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=25",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=8",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=13",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1019",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=8",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    },
+    "ppc": {
+      "stages": {
+        "ktest": "0",
+        "ksdk": "0",
+        "osbuild": "0",
+        "probe": "0",
+        "probe_loss": "0",
+        "distro": "0"
+      },
+      "kernel_test": "OK_TEST_PASS arch=ppc processes=15 cpus=1 drivers=13 free_frames=43819 syscalls=98 debug_test_points=87 fs=1 simplefs=1 ext4=1 user=1 display=1 gpu=1 gui=1 input=1 posix=1 bus=1 usb=1 net=1 shell=1 modes=1 display_checksum=12744572026691086901",
+      "probe": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=8",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=13",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=12",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 0
+      },
+      "probe-loss": {
+        "verdict": "pass",
+        "markers": [
+          "OK_NET_LINK scope=hardware mac=02:11:22:33:44:55 ipv4=192.0.2.2/24 gateway=192.0.2.1 ipv6=on",
+          "OK_NET_ARP scope=hardware gateway=192.0.2.1 mac=02:52:55:00:02:01",
+          "OK_NET_PING scope=hardware family=4 peer=192.0.2.1 sequence=1 rtt_ms=7",
+          "OK_NET_TCP scope=hardware peer=192.0.2.100:7 bytes=8192 echoed=8192 cwnd=10336 rto_ms=1000 elapsed_ms=1011",
+          "OK_NET_IPV6 scope=hardware link_local=fe80::11:22ff:fe33:4455 global=2001:db8:1:0:11:22ff:fe33:4455 router=fe80::52:55ff:fe00:201 mtu=1500",
+          "OK_NET_PING scope=hardware family=6 peer=fe80::52:55ff:fe00:201 sequence=2 rtt_ms=12",
+          "OK_NET_PROBE scope=hardware result=pass link=1 arp=1 ping4=1 ipv6=1 ping6=1 tcp=1"
+        ],
+        "tcp": {
+          "duplicate_acks_sent": 0,
+          "echoed_acked": 8192,
+          "received": 8192,
+          "retransmissions": 0,
+          "state": "established"
+        },
+        "tcp_loss_percent": 10
+      },
+      "userland": "OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass"
+    }
+  },
+  "archived": [
+    {
+      "path": "i386-kernel.elf",
+      "sha256": "c4923d5f4ab797c82a268a6f8980d0700262d7016a33e1a93f52baf1e15c3e95"
+    },
+    {
+      "path": "i386-sdk-manifest.json",
+      "sha256": "bac3b5756b2dd8b9e93a487fe91b794669136b62a944d9f29a2ba6976f919cac"
+    },
+    {
+      "path": "x86_64-kernel.elf",
+      "sha256": "3e676e09dca46290730d33e8fce8955311ad1516a98a2d4258f8bdd7c4b5b64a"
+    },
+    {
+      "path": "x86_64-sdk-manifest.json",
+      "sha256": "10573283c116ce794ad3c271a53c0a622e553bef22cacd404a7baca0871fbb1f"
+    },
+    {
+      "path": "aarch64-kernel.elf",
+      "sha256": "184bde891fec5123960727b593bd0c23f370b95fd0054c7e76d1192b70bc9102"
+    },
+    {
+      "path": "aarch64-sdk-manifest.json",
+      "sha256": "c4bdbd220e4086deee91846c615e28d091bb01ca82e728be1a7fd1cc1ad3fed7"
+    },
+    {
+      "path": "arm32-kernel.elf",
+      "sha256": "40b54c2a7829d27e7e185b597131999fd18578827170e6bda6dc5a37ccfd03bd"
+    },
+    {
+      "path": "arm32-sdk-manifest.json",
+      "sha256": "631ff1d4a6f7c46d478d7c66d5d7b38f3599b09534549f7fbca138af6f079d3d"
+    },
+    {
+      "path": "rv64-kernel.elf",
+      "sha256": "32a96ef70de574cf6b5de4ef7bb611c24370731451b07d1b080919d78f2edc60"
+    },
+    {
+      "path": "rv64-sdk-manifest.json",
+      "sha256": "dee80dc124d156b6d6cc6ac19d4fe95481602411524b103c01eab40a1b6b30bc"
+    },
+    {
+      "path": "rv32-kernel.elf",
+      "sha256": "81a39fe003a017780e89ef57648c4488524c314d604af1aacd97b043efe2af40"
+    },
+    {
+      "path": "rv32-sdk-manifest.json",
+      "sha256": "01effb4b5c63ec2b12840f7c458490ff6fd0809a9b99bd4252d376eb629d12a0"
+    },
+    {
+      "path": "loongarch64-kernel.elf",
+      "sha256": "e6372981daa41935d0f718674250b2b7315173d725de4cf92ebbf615890db2f0"
+    },
+    {
+      "path": "loongarch64-sdk-manifest.json",
+      "sha256": "4f62c9f3dcd62e48a950ac699bb6b3cc37ea27194191af6a8050ca79560ec03b"
+    },
+    {
+      "path": "mips-kernel.elf",
+      "sha256": "250ff12f921f62bc6dffe1a12864aa7fdeea2c0fe31265362f1b24b65bacd407"
+    },
+    {
+      "path": "mips-sdk-manifest.json",
+      "sha256": "a47b4ff84939ef02750512c4aa94fe9ec4e3a0d3f0b84c1dd1dbc0349defad05"
+    },
+    {
+      "path": "mips64-kernel.elf",
+      "sha256": "252063788b9032ab623b04dd105cc180d4e4cca19ee0c54b98775532f2fa81bc"
+    },
+    {
+      "path": "mips64-sdk-manifest.json",
+      "sha256": "643f42d9cdec27f07e49834b15be32e05092b5ab202193a931bc00f66ae18cfa"
+    },
+    {
+      "path": "ppc-kernel.elf",
+      "sha256": "be0bf924b360b57a5f08e413b5209f8c882efa019eb33f4c15446fbb649da12e"
+    },
+    {
+      "path": "ppc-sdk-manifest.json",
+      "sha256": "8263f424ee64483d99542c1a9079b7f550c9963a6483c6f14f0b5075f568431b"
+    }
+  ],
+  "status": "pass"
+}

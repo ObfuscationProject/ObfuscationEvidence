@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "repository": "ObfuscationKernel",
+  "commit": "43ba0bbaed831b88e368679759fa75c0f557589b",
+  "branch": "feat/net-socket-gaps",
+  "campaign": "hosted",
+  "date": "2026-11-25",
+  "scope": "hosted model tests (ASan/UBSan) of the socket error, poll and name work, the kernel SDK contract tests against the paired OS tree, and the OS tool suite against the exported SDK",
+  "claims": [
+    "scripts/test_net_runtime.py: all 18 socket runtime suites pass with ASan/UBSan (actual runtime units, mock trap/copy backends, model NIC peer)",
+    "scripts/test_net_core.py: the net-core model suites pass and the net-core object compiles freestanding for all ten profiles",
+    "the TCP stream, transport and endpoint projects pass with ASan/UBSan",
+    "the kernel SDK contract tests pass against the paired OS tree at ABI 82",
+    "the OS tests/tools suite passes against the x86_64 ABI 82 SDK (1341 tests)"
+  ],
+  "runtime_runs": {
+    "linux_udp_address_tests": "LINUX_UDP_ADDRESS_MODEL_PASS profiles=10 checks=2040",
+    "linux_udp_connected_capture_tests": "LINUX_UDP_CONNECTED_CAPTURE_PASS checks=11418 profiles=10 variants=13 calls=878 indirect=138 denials=40 hosted=1 guest=0 nic=0",
+    "linux_udp_connected_runtime_tests": "LINUX_UDP_CONNECTED_RUNTIME_PASS checks=96 calls=20 backend_entries=20 tx=6 hosted=1 guest=0 nic=0",
+    "linux_udp_dispatch_integration_tests": "LINUX_UDP_DISPATCH_INTEGRATION_MODEL_PASS checks=356 groups=10 calls=32 resumes=5 entries=32 hosted=1 profile=x86_64 guest=0 actual_nic=0 elf_exec=0",
+    "linux_udp_operation_body_tests": "LINUX_UDP_OPERATION_BODY_MODEL_PASS checks=34310 profiles=10 hosted=1 scheduler_service=actual image_device_publication=synthetic syscall=0 guest=0 nic=0",
+    "linux_udp_owner_store_tests": "LINUX_UDP_OWNER_STORE_PASS checks=779 cases=11 captures=11 callbacks=8 hosted=1 profile=x86_64 guest=0 actual_nic=0",
+    "linux_udp_receive_order_tests": "LINUX_UDP_RECEIVE_ORDER_MODEL_PASS checks=89420 profiles=10 hosted=1 usercopy=synthetic syscall=0 guest=0 actual_nic=0",
+    "linux_udp_receive_ownership_tests": "LINUX_UDP_RECEIVE_OWNERSHIP_MODEL_PASS checks=1017 cases=28 entries=30 owners=18 hosted=1 profile=x86_64 guest=0 actual_nic=0",
+    "linux_udp_restart_capture_tests": "LINUX_UDP_RESTART_CAPTURE_PASS checks=902 profiles=10 variants=14 cases=24 captures=38 reentries=14 hosted=1 guest=0 native_restart=0 nic=0",
+    "linux_udp_restart_runtime_tests": "LINUX_UDP_RESTART_RUNTIME_PASS checks=250 cases=10 captures=16 hosted=1 profile=x86_64 guest=0 actual_nic=0",
+    "linux_udp_runtime_dispatch_tests": "LINUX_UDP_RUNTIME_DISPATCH_MODEL_PASS checks=1985 invocations=81 owned_wrapper_entries=81 hosted=1 profile=x86_64 guest=0 actual_nic=0",
+    "linux_udp_signal_runtime_tests": "LINUX_UDP_SIGNAL_RUNTIME_PASS checks=955 cases=33 captures=33 hosted=1 profile=x86_64 guest=0 actual_nic=0 restart=0",
+    "linux_udp_sockname_capture_tests": "LINUX_UDP_SOCKNAME_CAPTURE_PASS checks=10549 profiles=10 variants=13 queries=373 captures=491 indirect_queries=63 publications=343 denials=30 hosted=1 guest=0 nic=0",
+    "linux_udp_sockname_runtime_tests": "LINUX_UDP_SOCKNAME_RUNTIME_PASS checks=403 invocations=19 backend_entries=19 hosted=1 profile=x86_64 guest=0 nic=0",
+    "native_tcp_shared_link_tests": "NATIVE_TCP_SHARED_LINK_HOSTED_PASS checks=95 real_kernel_poll=1 real_scheduler=1 real_udp_capture=1 guest_execution=0 nic_execution=0",
+    "native_udp_receive_tests": "NATIVE_UDP_RECEIVE_MODEL_PASS checks=242 hosted=1 guest=0 actual_nic=0 owned_wrapper_entries=16 owners=12",
+    "tcp_accept_transaction_tests": "TCP_ACCEPT_TRANSACTION_PASS checks=5794 profiles=10 syscall_execution=0 device_execution=0",
+    "tcp_immediate_runtime_tests": "TCP_IMMEDIATE_RUNTIME_HOSTED_PASS checks=1364 real_runtime=1 real_origin=1 guest_execution=0 socket_execution=0 nic_execution=0"
+  },
+  "sources": [
+    {
+      "tree": "kernel@43ba0bb",
+      "repository": "ObfuscationKernel",
+      "commit": "43ba0bbaed831b88e368679759fa75c0f557589b",
+      "relation": "exact git archive",
+      "path": "<kernel>"
+    },
+    {
+      "tree": "os@2f2aaf2",
+      "repository": "ObfuscationOS",
+      "commit": "2f2aaf27b57e5b38fadf729d681cd22761288274",
+      "relation": "exact git archive",
+      "path": "<os>"
+    }
+  ],
+  "environment": {
+    "host": "Linux 6.18.40.1-microsoft-standard-WSL2",
+    "python": "3.12.3",
+    "xmake": "\u001b[0m\u001b[1mxmake v3.1.1+HEAD.3ba37a0, A cross-platform build utility based on Lua\u001b[0m\u001b[0m",
+    "host_gxx": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "systoolchain": "SysToolchain 0.1.0 release archives (sha256-checked), QEMU 10.2.0"
+  },
+  "not_claimed": [
+    "guest, NIC or hardware execution (see the device-matrix receipt)",
+    "SMP"
+  ],
+  "status": "pass"
+}
