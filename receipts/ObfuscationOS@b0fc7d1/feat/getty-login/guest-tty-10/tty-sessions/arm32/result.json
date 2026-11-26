@@ -1,0 +1,59 @@
+{
+  "architecture": "arm32",
+  "command": [
+    "~/.cache/systoolchain-0.1.0/tc/arm-none-eabi/bin/qemu-system-arm",
+    "-M",
+    "virt",
+    "-cpu",
+    "cortex-a15",
+    "-m",
+    "512M",
+    "-kernel",
+    "<work>/logs/final/tty/arm32/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-device",
+    "ramfb",
+    "-device",
+    "virtio-keyboard-device",
+    "-device",
+    "virtio-mouse-device",
+    "-drive",
+    "file=<work>/logs/final/tty/arm32/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-device,drive=fsdisk",
+    "-global",
+    "virtio-mmio.force-legacy=false",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-device,rng=entropy0"
+  ],
+  "input_disk_sha256": "f73901a57f8bb4ca8ae31ad1274dd32abf66fb5eb2d913daf33edca05b33f003",
+  "kernel_sha256": "4f7cfe5f64e4a2ca59b29c1899b4c50c6ec7941f7f61655a5e2a339b8d17af71",
+  "mode": "debug",
+  "physical": false,
+  "probe_sha256": "9cf67e4250f74bcc8496bb888d16519bf07bde8c45fc86a26257bbfed57dd40c",
+  "probe_source_sha256": "0384238af6115124627ea1854420c7568ba861ba8cca32c45bb111c7e413e74e",
+  "qemu_sha256": "a1aa35f8cab4247ac932635d3f15ff0097d8289ba36f3a90f19188f8efef5ae1",
+  "runs": [
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=arm32",
+      "seconds": 1.33
+    },
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=arm32",
+      "seconds": 1.36
+    }
+  ],
+  "schema": 1,
+  "scope": "native-tty-sessions-qemu-guest",
+  "script_sha256": "342e203db1eaa6793cc4cac3c9a0e7a099b31c3f9ca4bac44fa65e6539dd1e48",
+  "serial_sha256": "f58f50ab3313783848799189721129a7fafe4c784ecf6cf1a01a9b1f57c94c08",
+  "status": "pass"
+}

@@ -1,0 +1,17 @@
+{
+  "shard": "1/1",
+  "toolchain_root": "~/.cache/systoolchain-0.1.0/tc",
+  "results": {
+    "job_control_model": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 14
+    },
+    "native_job_control": {
+      "kind": "self",
+      "status": "pass",
+      "seconds": 73
+    }
+  },
+  "not_run": {}
+}

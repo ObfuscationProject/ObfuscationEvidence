@@ -1,0 +1,37 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationOS",
+ "commit": "b0fc7d1",
+ "branch": "feat/getty-login",
+ "date": "2026-11-26",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG, one vCPU)",
+ "pr": "ObfuscationProject/ObfuscationOS#14 (head c1da12e adds documentation only: git diff b0fc7d1 c1da12e touches docs/qualification/GETTY_LOGIN.md only)",
+ "kernel": {
+  "repository": "ObfuscationKernel",
+  "commit": "fd8abee",
+  "module_abi": 82,
+  "uapi": "0.17.0",
+  "sdk": "debug SDKs exported from a git archive of kernel main fd8abee"
+ },
+ "campaign": "hosted",
+ "scope": "Hosted OS tool suite and model tests at b0fc7d1 (no guest execution).",
+ "runs": [
+  {
+   "command": "OK_TEST_KERNEL_SDK=<x86_64 debug SDK> OK_TEST_KERNEL_ARCH=x86_64 OK_TEST_KERNEL_MODE=debug python3 -B -m unittest discover -s tests/tools -p <group>",
+   "result": "1392 tests OK, 35 skipped (six discover groups)"
+  },
+  {
+   "command": "xmake native-init-model-test",
+   "result": "pass (with and without OK_NATIVE_CONSOLE_LOGIN)"
+  },
+  {
+   "command": "xmake plan-check --evidence-root=<workspace>",
+   "result": "green"
+  },
+  {
+   "command": "the CI sequence of .github/workflows/ci.yml for x86_64, arm32 and ppc",
+   "result": "pass"
+  }
+ ],
+ "status": "pass"
+}

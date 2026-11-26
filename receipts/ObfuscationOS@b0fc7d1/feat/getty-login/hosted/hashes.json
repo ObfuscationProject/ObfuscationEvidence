@@ -1,0 +1,20 @@
+{
+ "files": {
+  "commands.txt": "752485d53282c447de3795ee1d8f720786d8f9800db61ac3b1a5886a10836fc8",
+  "logs/ci-ppc.log.xz": "c3cd87bb023ccb9fdb0cd6db08ed6f833f7b944dccbbf443fd7c6c0a8ece096a",
+  "logs/ci-x86_64.log.xz": "ea6aa3e4138dfdce94b9291514b6d342c4701a42134f7c2d925af546f71b7505",
+  "logs/hosted.log.xz": "a09e8b21d0ed9f2bef78c06e4f4023638f2014bac5f7db5c4cb3b03dc8cc921d",
+  "logs/plan-check.log.xz": "af4a8ba6421e64914d2eafcf6a68ec1c06ffe551b74601313397d932290cf9e0",
+  "logs/suite-a-m.log.xz": "f392819a61e65c5060f56dcb0cc01f42ba98dea12247c21fe86411bd39aa8a5d",
+  "logs/suite-config.log.xz": "ef9fc4f15f6344dff875887fc8c70ab13877754bd6a61f499f0bd20ad0482e6c",
+  "logs/suite-n1.log.xz": "11339b971c39a2a3b5ac9931df9efc3fd476aa70b0f67c4402e78e7e9513f878",
+  "logs/suite-n2.log.xz": "6652e98b1e918d3035dc8c1ccdfb7e7895767034a2f95aa94af3411c049a091b",
+  "logs/suite-n3.log.xz": "0a2c9386a80d74f7a9ece84e29e99e71aed6ebd43d16850c43f358584803cc5a",
+  "logs/suite-n4.log.xz": "4a488ca384e5cfe51f270fa3a2536ee052368e08ea7aebdafcd89c9322930376",
+  "logs/suite-o-z.log.xz": "cb785ab6051f4dae267e99c45ec450cd8a9db3dd5982530661a1e2addbdb84fa",
+  "logs/unittest-be-arm32.log.xz": "ff6056e183d9cd4618d9691c834ec387984875e351dfa0f08e62f4fcbfdf2d71",
+  "logs/unittest-consumers.log.xz": "27c912c8f05bd0e42edc6c249e1ae8413f55ae2b7082e1acbf06db6d20b70b9f",
+  "logs/unittest-touched.log.xz": "29765a8284ebb24cea15e0c2ab07d4c6b49418c861dddf3430f720b3cb10aa42",
+  "result.json": "adb275f06351d6f63bb515e77992ac201e31607f15492ca2e6d4f2fba1665237"
+ }
+}

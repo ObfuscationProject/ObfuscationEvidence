@@ -1,0 +1,5 @@
+kernel-sdk-check rc=0
+qemu-distro rc=0
+OK_USERLAND scope=model service_write=pass fd=pass fork=pass exec=pass execution=unsupported
+OK_DEV source=kernel devices=null,zero,full,tty,console,ptmx,pts
+OK_USERLAND scope=hardware acceptance=pass shell_pipeline=pass

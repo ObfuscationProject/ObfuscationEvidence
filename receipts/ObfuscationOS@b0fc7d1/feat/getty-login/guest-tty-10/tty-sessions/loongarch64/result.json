@@ -1,0 +1,55 @@
+{
+  "architecture": "loongarch64",
+  "command": [
+    "~/.cache/systoolchain-0.1.0/tc/loongarch64-elf/bin/qemu-system-loongarch64",
+    "-M",
+    "virt",
+    "-m",
+    "2G",
+    "-kernel",
+    "<work>/logs/final/tty/loongarch64/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-device",
+    "ramfb",
+    "-device",
+    "virtio-keyboard-pci",
+    "-device",
+    "virtio-mouse-pci",
+    "-drive",
+    "file=<work>/logs/final/tty/loongarch64/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0"
+  ],
+  "input_disk_sha256": "6eb1c40b612fcb6d8067e7b1d813dbba3d24f6c82b29f1d014bf9b058d9bb9e1",
+  "kernel_sha256": "e689916d25d1576b77d1036b52a9041da5e44504592fa51a5b49cf1dd125d56c",
+  "mode": "debug",
+  "physical": false,
+  "probe_sha256": "89d7b60dacf8ed0ce5b70b988e50e239842dd70acb7613d5f408e2540cdad9cf",
+  "probe_source_sha256": "0384238af6115124627ea1854420c7568ba861ba8cca32c45bb111c7e413e74e",
+  "qemu_sha256": "4bce45bdb36f887d9299d411aded4f6e9f6148eb387850e47232ee4156baee3f",
+  "runs": [
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=loongarch64",
+      "seconds": 1.0
+    },
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=loongarch64",
+      "seconds": 0.99
+    }
+  ],
+  "schema": 1,
+  "scope": "native-tty-sessions-qemu-guest",
+  "script_sha256": "342e203db1eaa6793cc4cac3c9a0e7a099b31c3f9ca4bac44fa65e6539dd1e48",
+  "serial_sha256": "063acaf45d875791c804f91fe8d809b957eab8d8c3025312182999ae4cf2a23e",
+  "status": "pass"
+}

@@ -1,0 +1,468 @@
+{
+  "schema": 1,
+  "scope": "getty-login-lane-qemu-guest",
+  "arch": "mips",
+  "mode": "debug",
+  "physical": false,
+  "status": "passed",
+  "product_image": "<workspace>/wt/os-getty-login/build/mips/debug/rootfs.login.ext4-journalled.img",
+  "product_image_sha256": "8c6f1f48a0a8204d9bc97cc76dba75de1a1c146e7910039532b423f3440add51",
+  "product": {
+    "profile": "ordinary-native-console-getty-login-logging-time-mount-resolver-v1",
+    "files": {
+      "/init": "1855e77bd8fe575d16cbb374ee4acf40aa9b031d8af69b0aa020affb1c646b14",
+      "/bin/getty": "3afe3e05d7c89354b7e1220432666a5ea82ad30534b11eebb8f66143167f94cf",
+      "/bin/login": "614c987f34f8c6076d7d30f6e229a6b655296b100497e811654f75766c111cce",
+      "/bin/oksh": "141367797ca77004c446c7e80ed86c48d4e0aa112743d1ca2524d5e52088906f",
+      "/bin/logd": "27cd04b330d8417970b026c2d32bff653fb64811a7bb3611b782d7e5c2ae7bae",
+      "/bin/logger": "e75ac56e03cc6def8691b871d9bccab9716c3415fe0170e5fad7676fbfc472a6",
+      "/bin/timed": "a4c860e31b17785f288f801a69bd0c68e34da3e33c9f5dab13428610665a6904",
+      "/bin/timectl": "591ad6422bcaa0245cc68ee221d957f7cf805871ba53d05ee97fe293c5abb4b4",
+      "/bin/mountctl": "626e6f202929f497880037ec1d83faeb04830dd3aef64532e00ea02c683bf650",
+      "/bin/resolved": "e2ea82f97108fc29c37b962c6378f35d2a965046945cad420339126ef8478062",
+      "/bin/resolvectl": "bb848aa3a054cf694e6580567cb15abedb7c1c6514418f029e1326e4889c329e",
+      "/etc/services.conf": "0ccd87be26089e79009c884491631f9f2a3d07f7d163375e9fcc484ec63e179d"
+    },
+    "mutable_configuration": {
+      "hosts": {
+        "path": "/etc/hosts",
+        "max_bytes": 4096,
+        "mode": "0644",
+        "uid": 0,
+        "gid": 0,
+        "links": 1,
+        "reload": "service-restart"
+      }
+    },
+    "initial_logging_checkpoint": {
+      "path": "/var/log/system.log",
+      "sha256": "737589e7d98c0a9925c4b18a4316224a6854d1432d160f3a8dd453b677847834"
+    }
+  },
+  "helper_sha256": "09f5317bafd49b898bbb47437572bcc1c1483b9d327d81feff796f5a92e9ffc6",
+  "helper_source_sha256": "27f099dcd69d6bb8a7c5d8bcb6926a5af86e7e76c60470ad2bd9723966de515f",
+  "lane_disk_sha256": "7fbe5cce49270955c88bc80509eb0d66cb23172c539da59feee4a290a761f2a8",
+  "kernel_sha256": "5f32fccdcef0ebb26a8b6000a621400bcfd505bd1ba035c1ef08e578c9713774",
+  "qemu_sha256": "dcb47565cda9d322fb8c67166d14f3d56221e7c2b7629156c0dad2ac6463c7cd",
+  "script_sha256": "3a23cca76126cced34d60457253a329c52ba64a196f202dedde0a9b2dbf6777a",
+  "kdf_seconds": [
+    77,
+    12
+  ],
+  "ordinary": true,
+  "steps": [
+    {
+      "label": "boot1",
+      "argv": [
+        "~/.cache/systoolchain-0.1.0/tc/mips-elf/bin/qemu-system-mips",
+        "-M",
+        "malta",
+        "-m",
+        "256M",
+        "-kernel",
+        "<work>/logs/final/lane/mips/kernel-input.bin",
+        "-serial",
+        "stdio",
+        "-monitor",
+        "none",
+        "-no-reboot",
+        "-display",
+        "none",
+        "-drive",
+        "file=<work>/logs/final/lane/mips/lane.img,format=raw,if=none,id=fsdisk",
+        "-device",
+        "virtio-blk-pci,drive=fsdisk",
+        "-object",
+        "rng-random,id=entropy0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci-non-transitional,rng=entropy0"
+      ],
+      "step": "boot",
+      "serial_offset": 0,
+      "seconds": 0.0
+    },
+    {
+      "pts": 0,
+      "pid": 60,
+      "step": "getty-open",
+      "serial_offset": 7425,
+      "seconds": 7.137
+    },
+    {
+      "seconds_to_shell": 83.175,
+      "step": "enrolled",
+      "serial_offset": 9677,
+      "seconds": 90.825
+    },
+    {
+      "pts": 0,
+      "whoami": "root",
+      "pts_listing": "0\n",
+      "pts_stat": "/dev/pts/0: type=unknown size=0 mode=2190 ino=34816\n",
+      "step": "shell",
+      "serial_offset": 18654,
+      "seconds": 91.142
+    },
+    {
+      "leader": 60,
+      "job_pid": 68,
+      "job_ppid": 60,
+      "job_pgrp": 68,
+      "job_sid": 60,
+      "job_tty_pgrp": 68,
+      "job_tty_sid": 60,
+      "job_tty_ino": 34816,
+      "step": "session-foreground",
+      "serial_offset": 20436,
+      "seconds": 91.204
+    },
+    {
+      "leader": 60,
+      "job_pid": 69,
+      "job_ppid": 60,
+      "job_pgrp": 69,
+      "job_sid": 60,
+      "job_tty_pgrp": 60,
+      "job_tty_sid": 60,
+      "job_tty_ino": 34816,
+      "step": "session-background",
+      "serial_offset": 22311,
+      "seconds": 91.477
+    },
+    {
+      "job": 70,
+      "step": "interrupt",
+      "serial_offset": 24427,
+      "seconds": 91.58
+    },
+    {
+      "job": 71,
+      "step": "stop-jobs-fg",
+      "serial_offset": 27877,
+      "seconds": 93.735
+    },
+    {
+      "pts": 0,
+      "pid": 60,
+      "status": 256,
+      "reason": "hangup",
+      "stopped_job": true,
+      "step": "logout",
+      "serial_offset": 33147,
+      "seconds": 93.897
+    },
+    {
+      "getty": 74,
+      "generation": 2,
+      "step": "console-restart",
+      "serial_offset": 34996,
+      "seconds": 93.956
+    },
+    {
+      "pts": 0,
+      "pid": 75,
+      "step": "getty-restart",
+      "serial_offset": 35183,
+      "seconds": 93.987
+    },
+    {
+      "seconds_to_prompt": 11.756,
+      "step": "wrong-password-refused",
+      "serial_offset": 36121,
+      "seconds": 105.865
+    },
+    {
+      "user": "chosen_admin",
+      "seconds_to_shell": 11.079,
+      "step": "login",
+      "serial_offset": 36830,
+      "seconds": 116.964
+    },
+    {
+      "pts": 0,
+      "whoami": "root",
+      "pts_listing": "0\n",
+      "pts_stat": "/dev/pts/0: type=unknown size=0 mode=2190 ino=34816\n",
+      "step": "shell",
+      "serial_offset": 45859,
+      "seconds": 117.251
+    },
+    {
+      "stopped_job": 72,
+      "running_job": 73,
+      "leader": 75,
+      "step": "logout-jobs-gone",
+      "serial_offset": 51066,
+      "seconds": 117.422
+    },
+    {
+      "leader": 75,
+      "job_pid": 84,
+      "job_ppid": 75,
+      "job_pgrp": 84,
+      "job_sid": 75,
+      "job_tty_pgrp": 84,
+      "job_tty_sid": 75,
+      "job_tty_ino": 34816,
+      "step": "session-foreground",
+      "serial_offset": 52855,
+      "seconds": 117.477
+    },
+    {
+      "leader": 75,
+      "job_pid": 85,
+      "job_ppid": 75,
+      "job_pgrp": 85,
+      "job_sid": 75,
+      "job_tty_pgrp": 75,
+      "job_tty_sid": 75,
+      "job_tty_ino": 34816,
+      "step": "session-background",
+      "serial_offset": 54735,
+      "seconds": 117.748
+    },
+    {
+      "pts": 0,
+      "pid": 75,
+      "status": 0,
+      "reason": "hangup",
+      "stopped_job": false,
+      "step": "logout",
+      "serial_offset": 56067,
+      "seconds": 117.763
+    },
+    {
+      "getty": 86,
+      "generation": 3,
+      "step": "console-restart",
+      "serial_offset": 57632,
+      "seconds": 117.855
+    },
+    {
+      "pts": 0,
+      "pid": 87,
+      "step": "getty-restart",
+      "serial_offset": 57821,
+      "seconds": 117.891
+    },
+    {
+      "user": "alice",
+      "seconds_to_shell": 26.368,
+      "step": "user-added",
+      "serial_offset": 60177,
+      "seconds": 155.438
+    },
+    {
+      "pts": 0,
+      "pid": 87,
+      "status": 0,
+      "reason": "hangup",
+      "stopped_job": false,
+      "step": "logout",
+      "serial_offset": 61509,
+      "seconds": 155.454
+    },
+    {
+      "getty": 88,
+      "generation": 4,
+      "step": "console-restart",
+      "serial_offset": 63076,
+      "seconds": 155.535
+    },
+    {
+      "pts": 0,
+      "pid": 89,
+      "step": "getty-restart",
+      "serial_offset": 63265,
+      "seconds": 155.581
+    },
+    {
+      "user": "alice",
+      "seconds_to_shell": 10.816,
+      "step": "login",
+      "serial_offset": 64253,
+      "seconds": 166.565
+    },
+    {
+      "pts": 0,
+      "whoami": "uid1000",
+      "pts_listing": "0\n",
+      "pts_stat": "/dev/pts/0: type=unknown size=0 mode=2190 ino=34816\n",
+      "step": "shell",
+      "serial_offset": 73302,
+      "seconds": 166.911
+    },
+    {
+      "leader": 89,
+      "job_pid": 95,
+      "job_ppid": 89,
+      "job_pgrp": 95,
+      "job_sid": 89,
+      "job_tty_pgrp": 95,
+      "job_tty_sid": 89,
+      "job_tty_ino": 34816,
+      "step": "session-foreground",
+      "serial_offset": 75095,
+      "seconds": 166.974
+    },
+    {
+      "leader": 89,
+      "job_pid": 96,
+      "job_ppid": 89,
+      "job_pgrp": 96,
+      "job_sid": 89,
+      "job_tty_pgrp": 89,
+      "job_tty_sid": 89,
+      "job_tty_ino": 34816,
+      "step": "session-background",
+      "serial_offset": 76979,
+      "seconds": 167.248
+    },
+    {
+      "pts": 0,
+      "pid": 89,
+      "status": 0,
+      "reason": "hangup",
+      "stopped_job": false,
+      "step": "logout",
+      "serial_offset": 78315,
+      "seconds": 167.263
+    },
+    {
+      "getty": 97,
+      "generation": 5,
+      "step": "console-restart",
+      "serial_offset": 79884,
+      "seconds": 167.354
+    },
+    {
+      "pts": 0,
+      "pid": 98,
+      "step": "getty-restart",
+      "serial_offset": 80073,
+      "seconds": 167.399
+    },
+    {
+      "step": "login-prompt-again",
+      "serial_offset": 80359,
+      "seconds": 167.54
+    },
+    {
+      "label": "boot2",
+      "argv": [
+        "~/.cache/systoolchain-0.1.0/tc/mips-elf/bin/qemu-system-mips",
+        "-M",
+        "malta",
+        "-m",
+        "256M",
+        "-kernel",
+        "<work>/logs/final/lane/mips/kernel-input.bin",
+        "-serial",
+        "stdio",
+        "-monitor",
+        "none",
+        "-no-reboot",
+        "-display",
+        "none",
+        "-drive",
+        "file=<work>/logs/final/lane/mips/lane.img,format=raw,if=none,id=fsdisk",
+        "-device",
+        "virtio-blk-pci,drive=fsdisk",
+        "-object",
+        "rng-random,id=entropy0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci-non-transitional,rng=entropy0"
+      ],
+      "step": "boot",
+      "serial_offset": 0,
+      "seconds": 0.0
+    },
+    {
+      "pts": 0,
+      "pid": 60,
+      "step": "getty-open",
+      "serial_offset": 7425,
+      "seconds": 6.697
+    },
+    {
+      "user": "chosen_admin",
+      "seconds_to_shell": 10.887,
+      "step": "login",
+      "serial_offset": 9401,
+      "seconds": 18.017
+    },
+    {
+      "pts": 0,
+      "whoami": "root",
+      "pts_listing": "0\n",
+      "pts_stat": "/dev/pts/0: type=unknown size=0 mode=2190 ino=34816\n",
+      "step": "shell",
+      "serial_offset": 18225,
+      "seconds": 18.378
+    },
+    {
+      "leader": 60,
+      "job_pid": 68,
+      "job_ppid": 60,
+      "job_pgrp": 68,
+      "job_sid": 60,
+      "job_tty_pgrp": 68,
+      "job_tty_sid": 60,
+      "job_tty_ino": 34816,
+      "step": "session-foreground",
+      "serial_offset": 19974,
+      "seconds": 18.452
+    },
+    {
+      "leader": 60,
+      "job_pid": 69,
+      "job_ppid": 60,
+      "job_pgrp": 69,
+      "job_sid": 60,
+      "job_tty_pgrp": 60,
+      "job_tty_sid": 60,
+      "job_tty_ino": 34816,
+      "step": "session-background",
+      "serial_offset": 21820,
+      "seconds": 18.732
+    },
+    {
+      "pts": 0,
+      "pid": 60,
+      "status": 0,
+      "reason": "hangup",
+      "stopped_job": false,
+      "step": "logout",
+      "serial_offset": 23837,
+      "seconds": 18.748
+    },
+    {
+      "getty": 70,
+      "generation": 2,
+      "step": "console-restart",
+      "serial_offset": 24676,
+      "seconds": 18.84
+    },
+    {
+      "pts": 0,
+      "pid": 71,
+      "step": "getty-restart",
+      "serial_offset": 24863,
+      "seconds": 18.886
+    },
+    {
+      "step": "login-prompt-again",
+      "serial_offset": 25149,
+      "seconds": 19.062
+    }
+  ],
+  "close_reasons": [
+    "hangup",
+    "hangup",
+    "hangup",
+    "hangup",
+    "hangup"
+  ],
+  "boot1_serial_log_sha256": "43123896be6df9902d08d8a50798a7bb0246b34b821c1bc5cb1e9aad59c518ef",
+  "boot2_serial_log_sha256": "81a0a9166cc3274649374500e78cbc43f2a13382abc35adcf1bbd9e7eb9ada54"
+}

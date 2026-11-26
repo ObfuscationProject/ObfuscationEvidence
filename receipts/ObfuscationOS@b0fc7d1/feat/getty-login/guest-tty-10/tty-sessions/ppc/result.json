@@ -1,0 +1,55 @@
+{
+  "architecture": "ppc",
+  "command": [
+    "~/.cache/systoolchain-0.1.0/tc/powerpc-eabi/bin/qemu-system-ppc",
+    "-M",
+    "ppce500",
+    "-cpu",
+    "e500v2_v22",
+    "-smp",
+    "1",
+    "-accel",
+    "tcg,thread=single",
+    "-m",
+    "256M",
+    "-kernel",
+    "<work>/logs/final/tty/ppc/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-drive",
+    "file=<work>/logs/final/tty/ppc/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0"
+  ],
+  "input_disk_sha256": "f35fded0b646762583b216faf8b4c1fbb308f107ec3f5f9685a28872e1380546",
+  "kernel_sha256": "7e60325c8bed2e6f2cf6576818a75982c16c0427e737acf5d874ddaa2dba4912",
+  "mode": "debug",
+  "physical": false,
+  "probe_sha256": "5895220b5280dbc33b281878f4b6cf1d0d58442478a91a887e4c879ad62d2d37",
+  "probe_source_sha256": "0384238af6115124627ea1854420c7568ba861ba8cca32c45bb111c7e413e74e",
+  "qemu_sha256": "7ca5a721a97f34c34af5c5994af41d78c18c850b3d8c5e181bb5fe7180047f62",
+  "runs": [
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=ppc",
+      "seconds": 1.34
+    },
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=ppc",
+      "seconds": 1.38
+    }
+  ],
+  "schema": 1,
+  "scope": "native-tty-sessions-qemu-guest",
+  "script_sha256": "342e203db1eaa6793cc4cac3c9a0e7a099b31c3f9ca4bac44fa65e6539dd1e48",
+  "serial_sha256": "b070f5fac298f82ff486f0d725c83df0e59fe067a08229746889efd69fcd9908",
+  "status": "pass"
+}

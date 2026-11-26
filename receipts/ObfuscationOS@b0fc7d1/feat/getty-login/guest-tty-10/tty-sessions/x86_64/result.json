@@ -1,0 +1,51 @@
+{
+  "architecture": "x86_64",
+  "command": [
+    "~/.cache/systoolchain-0.1.0/tc/x86_64-elf/bin/qemu-system-x86_64",
+    "-drive",
+    "file=<work>/logs/final/tty/x86_64/kernel-input.bin,format=raw,if=ide",
+    "-boot",
+    "c",
+    "-vga",
+    "none",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-device",
+    "ramfb",
+    "-drive",
+    "file=<work>/logs/final/tty/x86_64/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0"
+  ],
+  "input_disk_sha256": "66e7d08cc83262d2291ff5432b6e456570e304c37cfd140885d2ff2cc20fbad0",
+  "kernel_sha256": "5c1b2ae8617dd57462ebf7c2cadb9fb65e52db0d82d49322ce48c989e96c06be",
+  "mode": "debug",
+  "physical": false,
+  "probe_sha256": "7701fd9a6f8c420f03f5c482f39e881f1c4a31ef88b1fa8b8777af9a25e993b9",
+  "probe_source_sha256": "0384238af6115124627ea1854420c7568ba861ba8cca32c45bb111c7e413e74e",
+  "qemu_sha256": "b9f7e439b72163515d87d998337771e39e291f1467d5feeebd4dadf5d554d916",
+  "runs": [
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=x86_64",
+      "seconds": 0.92
+    },
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=x86_64",
+      "seconds": 0.88
+    }
+  ],
+  "schema": 1,
+  "scope": "native-tty-sessions-qemu-guest",
+  "script_sha256": "342e203db1eaa6793cc4cac3c9a0e7a099b31c3f9ca4bac44fa65e6539dd1e48",
+  "serial_sha256": "f5f37423a99e27bae15c2a3b0b87de0469fc0fcd4733c65340845da4a4932841",
+  "status": "pass"
+}

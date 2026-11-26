@@ -1,0 +1,238 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationOS",
+ "commit": "b0fc7d1",
+ "branch": "feat/getty-login",
+ "date": "2026-11-26",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG, one vCPU)",
+ "pr": "ObfuscationProject/ObfuscationOS#14 (head c1da12e adds documentation only: git diff b0fc7d1 c1da12e touches docs/qualification/GETTY_LOGIN.md only)",
+ "kernel": {
+  "repository": "ObfuscationKernel",
+  "commit": "fd8abee",
+  "module_abi": 82,
+  "uapi": "0.17.0",
+  "sdk": "debug SDKs exported from a git archive of kernel main fd8abee"
+ },
+ "campaign": "guest-tty-10",
+ "scope": "Guest execution of the getty/login/job-control work on all ten profiles, debug, one vCPU.",
+ "runs": [
+  {
+   "command": "xmake f -P <tree> -c -y -m debug -a <arch> --kernel_sdk=<sdk> --systoolchain_dir=<tc> --linux_journal_image=<linux-6.13.4 bzImage> --linux_journal_image_sha256=da0c3d21...; xmake getty-login-test -P <tree> --out=<dir> (native_console_login unset = auto)",
+   "what": "two boots of one journalled login disk: enrollment, shell as session leader on its pts, ^C, ^Z + jobs + fg, background job Done report, exit warning, five logouts with reason=hangup, pts pair reused, jobs left at logout gone, wrong then right password, ordinary account, relogin on boot 2",
+   "status_file": [
+    "lane x86_64 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/x86_64/debug rc=0 b0fc7d1 0dirty 05:18:44",
+    "lane i386 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/i386/debug rc=0 b0fc7d1 0dirty 05:22:56",
+    "lane aarch64 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/aarch64/debug rc=0 b0fc7d1 0dirty 05:27:02",
+    "lane arm32 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/arm32/debug rc=0 b0fc7d1 0dirty 05:31:10",
+    "lane rv64 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/rv64/debug rc=0 b0fc7d1 0dirty 05:35:26",
+    "lane rv32 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/rv32/debug rc=0 b0fc7d1 0dirty 05:39:24",
+    "lane loongarch64 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/loongarch64/debug rc=0 b0fc7d1 0dirty 05:43:26",
+    "lane mips sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/mips/debug rc=0 b0fc7d1 0dirty 05:47:09",
+    "lane mips64 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/mips64/debug rc=0 b0fc7d1 0dirty 05:51:13",
+    "lane ppc sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/ppc/debug rc=0 b0fc7d1 0dirty 05:55:22"
+   ],
+   "per_arch": [
+    {
+     "arch": "i386",
+     "status": "passed",
+     "result": "login-lane/i386/result.json"
+    },
+    {
+     "arch": "x86_64",
+     "status": "passed",
+     "result": "login-lane/x86_64/result.json"
+    },
+    {
+     "arch": "aarch64",
+     "status": "passed",
+     "result": "login-lane/aarch64/result.json"
+    },
+    {
+     "arch": "arm32",
+     "status": "passed",
+     "result": "login-lane/arm32/result.json"
+    },
+    {
+     "arch": "rv64",
+     "status": "passed",
+     "result": "login-lane/rv64/result.json"
+    },
+    {
+     "arch": "rv32",
+     "status": "passed",
+     "result": "login-lane/rv32/result.json"
+    },
+    {
+     "arch": "loongarch64",
+     "status": "passed",
+     "result": "login-lane/loongarch64/result.json"
+    },
+    {
+     "arch": "mips",
+     "status": "passed",
+     "result": "login-lane/mips/result.json"
+    },
+    {
+     "arch": "mips64",
+     "status": "passed",
+     "result": "login-lane/mips64/result.json"
+    },
+    {
+     "arch": "ppc",
+     "status": "passed",
+     "result": "login-lane/ppc/result.json"
+    }
+   ]
+  },
+  {
+   "command": "xmake tty-sessions-test -P <tree> --out=<dir>",
+   "what": "20-case native TTY/session/job-control probe, twice per boot",
+   "status_file": [
+    "tty x86_64 rc=0 b0fc7d1 05:16:11",
+    "tty i386 rc=0 b0fc7d1 05:20:05",
+    "tty aarch64 rc=0 b0fc7d1 05:24:09",
+    "tty arm32 rc=0 b0fc7d1 05:28:12",
+    "tty rv64 rc=0 b0fc7d1 05:32:53",
+    "tty rv32 rc=0 b0fc7d1 05:36:53",
+    "tty loongarch64 rc=0 b0fc7d1 05:41:10",
+    "tty mips rc=0 b0fc7d1 05:44:50",
+    "tty mips64 rc=0 b0fc7d1 05:48:44",
+    "tty ppc rc=0 b0fc7d1 05:52:34"
+   ],
+   "per_arch": [
+    {
+     "arch": "i386",
+     "status": "pass",
+     "result": "tty-sessions/i386/result.json"
+    },
+    {
+     "arch": "x86_64",
+     "status": "pass",
+     "result": "tty-sessions/x86_64/result.json"
+    },
+    {
+     "arch": "aarch64",
+     "status": "pass",
+     "result": "tty-sessions/aarch64/result.json"
+    },
+    {
+     "arch": "arm32",
+     "status": "pass",
+     "result": "tty-sessions/arm32/result.json"
+    },
+    {
+     "arch": "rv64",
+     "status": "pass",
+     "result": "tty-sessions/rv64/result.json"
+    },
+    {
+     "arch": "rv32",
+     "status": "pass",
+     "result": "tty-sessions/rv32/result.json"
+    },
+    {
+     "arch": "loongarch64",
+     "status": "pass",
+     "result": "tty-sessions/loongarch64/result.json"
+    },
+    {
+     "arch": "mips",
+     "status": "pass",
+     "result": "tty-sessions/mips/result.json"
+    },
+    {
+     "arch": "mips64",
+     "status": "pass",
+     "result": "tty-sessions/mips64/result.json"
+    },
+    {
+     "arch": "ppc",
+     "status": "pass",
+     "result": "tty-sessions/ppc/result.json"
+    }
+   ]
+  },
+  {
+   "command": "python3 -B scripts/test_oksh_jobs.py --arch <arch> --mode debug --qemu <qemu> --out <dir>",
+   "what": "oksh job control at the maintenance console",
+   "note": "mips and mips64 ran against SDKs from kernel fix/jobctl-native-stop 72eb905 (since merged into kernel main as e87567e); with fd8abee they fail on the dropped orphaned-group SIGSTOP",
+   "status_file": [
+    "okshjobs x86_64 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/x86_64/debug b0fc7d1 05:16:13",
+    "okshjobs i386 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/i386/debug b0fc7d1 05:20:06",
+    "okshjobs aarch64 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/aarch64/debug b0fc7d1 05:24:11",
+    "okshjobs arm32 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/arm32/debug b0fc7d1 05:28:13",
+    "okshjobs rv64 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/rv64/debug b0fc7d1 05:32:54",
+    "okshjobs rv32 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/rv32/debug b0fc7d1 05:36:54",
+    "okshjobs loongarch64 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/loongarch64/debug b0fc7d1 05:41:12",
+    "okshjobs mips rc=0 sdk=/home/tab/.cache/getty-login/kernel-fix/build/sdk/mips/debug b0fc7d1 05:44:51",
+    "okshjobs mips64 rc=0 sdk=/home/tab/.cache/getty-login/kernel-fix/build/sdk/mips64/debug b0fc7d1 05:48:47",
+    "okshjobs ppc rc=0 sdk=/home/tab/.cache/getty-login/kernel-fd8abee/build/sdk/ppc/debug b0fc7d1 05:52:34"
+   ],
+   "per_arch": [
+    {
+     "arch": "i386",
+     "status": "pass",
+     "result": "oksh-jobs/i386/result.json"
+    },
+    {
+     "arch": "x86_64",
+     "status": "pass",
+     "result": "oksh-jobs/x86_64/result.json"
+    },
+    {
+     "arch": "aarch64",
+     "status": "pass",
+     "result": "oksh-jobs/aarch64/result.json"
+    },
+    {
+     "arch": "arm32",
+     "status": "pass",
+     "result": "oksh-jobs/arm32/result.json"
+    },
+    {
+     "arch": "rv64",
+     "status": "pass",
+     "result": "oksh-jobs/rv64/result.json"
+    },
+    {
+     "arch": "rv32",
+     "status": "pass",
+     "result": "oksh-jobs/rv32/result.json"
+    },
+    {
+     "arch": "loongarch64",
+     "status": "pass",
+     "result": "oksh-jobs/loongarch64/result.json"
+    },
+    {
+     "arch": "mips",
+     "status": "pass",
+     "result": "oksh-jobs/mips/result.json"
+    },
+    {
+     "arch": "mips64",
+     "status": "pass",
+     "result": "oksh-jobs/mips64/result.json"
+    },
+    {
+     "arch": "ppc",
+     "status": "pass",
+     "result": "oksh-jobs/ppc/result.json"
+    }
+   ]
+  },
+  {
+   "command": "os-lane.sh: kernel-sdk-check; xmake qemu-distro --fs=simplefs --require-native --timeout=120",
+   "what": "startup acceptance boot",
+   "logs": "acceptance/"
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "physical hardware",
+  "SMP",
+  "release-mode guests",
+  "BusyBox ash job control",
+  "the login lane in GitHub CI (it needs the Linux journal-activation image)"
+ ]
+}

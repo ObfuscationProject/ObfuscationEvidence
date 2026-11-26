@@ -1,0 +1,30 @@
+{
+ "schema": 1,
+ "repository": "ObfuscationKernel",
+ "commit": "72eb905",
+ "branch": "fix/jobctl-native-stop",
+ "date": "2026-11-26",
+ "qemu": "SysToolchain 0.1.0 QEMU 10.2.0 (TCG, one vCPU)",
+ "pr": "ObfuscationProject/ObfuscationKernel#19, merged as e87567e",
+ "campaign": "orphan-stop",
+ "scope": "Native SIGSTOP to a native process in an orphaned process group on mips/mips64.",
+ "runs": [
+  {
+   "command": "python3 -B scripts/test_native_job_control.py",
+   "result": "x86_64 job control and orphan-stop pass; mips and mips64 orphan-stop pass (linux_stop=23); with the fix reverted mips/mips64 fail (hosted/hjc-mut-*)"
+  },
+  {
+   "command": "ktest.sh <tree> <arch> (xmake test, debug)",
+   "result": "mips, mips64, x86_64, ppc pass"
+  },
+  {
+   "command": "OS scripts/test_oksh_jobs.py with a peer-stop extension (guest)",
+   "result": "fix: pass on all ten profiles; base 5815814: mips and mips64 fail (guest/base-*)",
+   "note": "guest runs used the same jobctl.cpp fix applied to a copy of kernel 5815814"
+  }
+ ],
+ "status": "pass",
+ "not_claimed": [
+  "physical hardware"
+ ]
+}

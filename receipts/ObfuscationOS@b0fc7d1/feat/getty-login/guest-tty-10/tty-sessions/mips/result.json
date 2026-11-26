@@ -1,0 +1,49 @@
+{
+  "architecture": "mips",
+  "command": [
+    "~/.cache/systoolchain-0.1.0/tc/mips-elf/bin/qemu-system-mips",
+    "-M",
+    "malta",
+    "-m",
+    "256M",
+    "-kernel",
+    "<work>/logs/final/tty/mips/kernel-input.bin",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-no-reboot",
+    "-display",
+    "none",
+    "-drive",
+    "file=<work>/logs/final/tty/mips/rootfs.ext4.img,format=raw,if=none,id=fsdisk",
+    "-device",
+    "virtio-blk-pci,drive=fsdisk",
+    "-object",
+    "rng-random,id=entropy0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci-non-transitional,rng=entropy0"
+  ],
+  "input_disk_sha256": "c8617f334a3df1bc5818b24cd433767f82351782340f594b417c2cd81196be9e",
+  "kernel_sha256": "16711eda1b8861d2b50e37927089fab4fe07893a31dd9b7053a90305e1e8b311",
+  "mode": "debug",
+  "physical": false,
+  "probe_sha256": "7602352e01c081c7992622b0f43860d32e0778171291dc9ee50acc65adc56e83",
+  "probe_source_sha256": "0384238af6115124627ea1854420c7568ba861ba8cca32c45bb111c7e413e74e",
+  "qemu_sha256": "dcb47565cda9d322fb8c67166d14f3d56221e7c2b7629156c0dad2ac6463c7cd",
+  "runs": [
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=mips",
+      "seconds": 1.34
+    },
+    {
+      "result": "TTY_SESSIONS_PROBE stage=PASS cases=20 arch=mips",
+      "seconds": 1.31
+    }
+  ],
+  "schema": 1,
+  "scope": "native-tty-sessions-qemu-guest",
+  "script_sha256": "342e203db1eaa6793cc4cac3c9a0e7a099b31c3f9ca4bac44fa65e6539dd1e48",
+  "serial_sha256": "5ef4087cccc210fc6aa123004bbc46b01d28aa7ac2cd4fc3c1e5e041a2739b13",
+  "status": "pass"
+}
